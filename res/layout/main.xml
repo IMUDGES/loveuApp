@@ -4,10 +4,91 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
 >
-    <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Hello World, MyActivity"
-    />
+    <fragment
+            android:id="@+id/main_fragment1"
+            android:name="com.example.loveuApp.homepage.HomePageFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="10"/>
+
+    <fragment
+            android:id="@+id/main_fragment2"
+            android:name="com.example.loveuApp.left.LeftFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="10"/>
+
+    <fragment
+            android:id="@+id/main_fragment3"
+            android:name="com.example.loveuApp.updata.UpdataFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="10" />
+
+    <fragment
+            android:id="@+id/main_fragment4"
+            android:name="com.example.loveuApp.right.RightFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="10" />
+    <fragment
+            android:id="@+id/main_fragment5"
+            android:name="com.example.loveuApp.message.MessageFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="10" />
+
+    <com.example.loveuApp.view.TopLinearlayout
+            android:id="@+id/id_layout"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:background="@drawable/title"
+            android:layout_weight="1" >
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="首页"
+                android:textColor="#ccffffff"
+                android:textSize="16sp" />
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="发现"
+                android:textColor="#ccffffff"
+                android:textSize="16sp" />
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="新建"
+                android:textColor="#ccffffff"
+                android:textSize="16sp" />
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="好友"
+                android:textColor="#ccffffff"
+                android:textSize="16sp" />
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="消息"
+                android:textColor="#ccffffff"
+                android:textSize="16sp" />
+    </com.example.loveuApp.view.TopLinearlayout>
+
 </LinearLayout>
 
