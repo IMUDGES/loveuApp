@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created by dy on 2016/7/26.
  */
-public class foodService {
+public class FoodService {
 
     public void get(Context context, String url, RequestParams params, Listener listener){
         HttpRequest.get(context, url, params, new AsyncHttpResponseHandler() {

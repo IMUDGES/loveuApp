@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
 import com.example.loveuApp.R;
-import com.example.loveuApp.homepage.food.FoolMainFragment;
+import com.example.loveuApp.homepage.food.FoodMainFragment;
 import com.example.loveuApp.homepage.give.GiveMainFragment;
 import com.example.loveuApp.homepage.help.HelpMainFragment;
 import com.example.loveuApp.homepage.pai.PaiMainFragment;
@@ -64,7 +64,7 @@ public class HomePageFragment extends Fragment{
         textView5.setWidth(getScreemWidth() / 3);
         textView6.setWidth(getScreemWidth() / 3);
         mFragments = new Fragment[6];
-        mFragments[0] = new FoolMainFragment();
+        mFragments[0] = new FoodMainFragment();
         mFragments[1] = new GiveMainFragment();
         mFragments[2] = new HelpMainFragment();
         mFragments[3] = new PaiMainFragment();
