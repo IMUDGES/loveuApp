@@ -22,6 +22,7 @@
     <EditText android:layout_width="match_parent" android:layout_height="40dp"
               android:textColor="@color/black"
               android:hint="输入电话号码"
+              android:id="@+id/register_phonenumber"
               android:textSize="16dp"
               android:textCursorDrawable="@null"
               android:maxLength="12"
@@ -46,6 +47,7 @@
                   android:layout_marginLeft="10dp"
                   android:layout_marginRight="10dp">
         <EditText android:layout_width="0dp" android:layout_height="40dp"
+                  android:id="@+id/register_checkcode"
                   android:textSize="16dp"
                   android:textColor="@color/black"
                   android:layout_weight="12"
@@ -61,7 +63,8 @@
         <Button android:layout_width="0dp" android:layout_height="40dp"
                 android:text="获取验证码"
                 android:textSize="16dp"
-                android:background="@drawable/getcheck_button_selector"
+                android:id="@+id/register_getcheckcode"
+                android:background="#cfd8dc"
                 android:layout_weight="7"/>
 
 
@@ -69,6 +72,7 @@
 
     <Button android:layout_width="match_parent" android:layout_height="wrap_content"
             android:background="@drawable/login_button_selector"
+            android:id="@+id/register_next"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:text="下一步"/>

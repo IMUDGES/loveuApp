@@ -1,8 +1,11 @@
 package com.example.loveuApp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.*;
+import android.view.View;
 import android.widget.Toast;
+import com.example.loveuApp.register.GuoQingZhuangBActivity;
 import com.example.loveuApp.view.TopLinearlayout;
 
 public class MyActivity extends FragmentActivity {
@@ -43,5 +46,9 @@ public class MyActivity extends FragmentActivity {
         fragmentTransaction = fragmentManager.beginTransaction()
                 .hide(mFragments[1]).hide(mFragments[2]).hide(mFragments[3]).hide(mFragments[4]);
         fragmentTransaction.show(mFragments[0]).commit();
+    }
+    public void doclick(View view){
+        Intent intent = new Intent(this, GuoQingZhuangBActivity.class);
+        startActivity(intent);
     }
 }
