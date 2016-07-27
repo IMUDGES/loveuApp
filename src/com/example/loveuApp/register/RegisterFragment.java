@@ -12,7 +12,7 @@ import com.example.loveuApp.R;
 public class RegisterFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.register, container, false);
+        View view = inflater.inflate(R.layout.register_layout, container, false);
         return view;
     }
 }
