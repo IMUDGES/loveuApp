@@ -15,4 +15,10 @@ public class MessageFragment extends Fragment{
         View view = inflater.inflate(R.layout.messagemain, container, false);
         return view;
     }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+    }
 }

@@ -15,7 +15,7 @@ import com.example.loveuApp.bean.foodModel;
 import com.example.loveuApp.homepage.food.adapter.FoodMainListAdapter;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.register.GuoQingZhuangBActivity;
-import com.example.loveuApp.service.FoodService;
+import com.example.loveuApp.service.foodService;
 import com.loopj.android.http.RequestParams;
 
 import java.util.List;

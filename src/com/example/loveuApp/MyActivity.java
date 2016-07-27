@@ -33,6 +33,7 @@ public class MyActivity extends FragmentActivity {
         mTopLinearlayout.setFragmentEvent(fragmentManager, fragmentTransaction, mFragments);
     }
 
+
     private void init() {
         mTopLinearlayout = (TopLinearlayout) findViewById(R.id.id_layout);
         fragmentManager = getSupportFragmentManager();
