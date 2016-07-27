@@ -19,7 +19,7 @@ public class GuoQingZhuangBActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+       requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.chaoluactivity);
         //透明状态栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);

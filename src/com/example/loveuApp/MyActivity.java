@@ -1,9 +1,12 @@
 package com.example.loveuApp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.*;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 import com.example.loveuApp.register.GuoQingZhuangBActivity;
 import com.example.loveuApp.view.TopLinearlayout;
@@ -27,8 +30,15 @@ public class MyActivity extends FragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+       requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main);
-        Toast.makeText(MyActivity.this, "", Toast.LENGTH_SHORT).show();
+
+       // if (isTheFirst())
+
+        //透明状态栏
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//透明导航栏
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         init();
         mTopLinearlayout.setFragmentEvent(fragmentManager, fragmentTransaction, mFragments);
     }
@@ -52,4 +62,6 @@ public class MyActivity extends FragmentActivity {
         Intent intent = new Intent(this, GuoQingZhuangBActivity.class);
         startActivity(intent);
     }
+
+
 }

@@ -4,6 +4,23 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
 android:background="@color/light_grey">
+    <TextView android:layout_width="match_parent" android:layout_height="15dp"
+              android:text=" "
+              android:textSize="10dp"
+              android:background="@color/black"
+              android:fitsSystemWindows="true"
+    />
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="50dp"
+    android:orientation="horizontal"
+    android:background="@color/black">
+            <ImageView android:layout_width="30dp" android:layout_height="30dp"
+            android:background="@drawable/ic_launcher"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"/>
+    </LinearLayout>
 
     <com.example.loveuApp.view.TopHorizontalScrollView
             android:id="@+id/homefragment_scrollview"

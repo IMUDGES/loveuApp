@@ -19,6 +19,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
     private Button nextButton;
     private EditText numberEditext;
     private EditText checkcodeEditext;
+    private EditText passwordEditext;
     private  int checkTime = 0;
     private  int time = 60;
 
@@ -41,6 +42,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
         nextButton = (Button) getActivity().findViewById(R.id.register_next);
         numberEditext  = (EditText) getActivity().findViewById(R.id.register_phonenumber);
         checkcodeEditext = (EditText) getActivity().findViewById(R.id.register_checkcode);
+        passwordEditext = (EditText) getActivity().findViewById(R.id.register_password);
         getCheckButton.setOnClickListener(this);
         nextButton.setOnClickListener(this);
     }

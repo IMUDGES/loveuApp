@@ -70,6 +70,24 @@
 
     </LinearLayout>
 
+    <EditText android:layout_width="match_parent" android:layout_height="40dp"
+              android:textColor="@color/black"
+              android:hint="设置密码"
+              android:id="@+id/register_password"
+              android:textSize="16dp"
+              android:textCursorDrawable="@null"
+              android:maxLength="12"
+              android:maxLines="1"
+              android:background="@color/white"
+              android:padding="5dp"
+              android:layout_marginTop="10dp"
+              android:layout_marginBottom="15dp"
+              android:layout_marginLeft="10dp"
+              android:layout_marginRight="10dp"
+              android:gravity="center_vertical"
+
+    />
+
     <Button android:layout_width="match_parent" android:layout_height="wrap_content"
             android:background="@drawable/login_button_selector"
             android:id="@+id/register_next"
