@@ -12,9 +12,7 @@ import com.example.loveuApp.bean.giveModel;
 
 import java.util.List;
 
-/**
- * Created by caolu on 2016/7/26.
- */
+
 public class GiveMainListAdapter extends BaseAdapter{
     public GiveMainListAdapter(List<giveModel> data, Context mContext) {
         this.data = data;
