@@ -4,6 +4,8 @@ package com.example.loveuApp.view;
  * Created by caolu on 2016/7/27.
  */
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -58,6 +60,7 @@ public class TestFragment extends Fragment {
             }
         });
         button = (Button) getActivity().findViewById(R.id.button_start);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
