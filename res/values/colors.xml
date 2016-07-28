@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="transparent">#0000</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="weibo_listtab_off">#8d8d8d</color>
+    <color name="top_back_text">#e1f5fe</color><!--上方标题栏返回按钮字体颜色-->
+    <color name="darkblue">#29b6f6</color><!-- 上方标题栏颜色 -->
+    <color name="darker_blue">#81d4fa</color>
+    <color name="light_grey">#eeeeee</color><!--中间背景颜色-->
+    <color name="lighter_grey">#fafafa</color>
+    <color name="green">#00FF00</color>
+    <color name="bottom_color">@color/white</color><!--下方标题栏颜色-->
+    <color name="dark_grey">#7D7D7D</color>
+    <color name="mid_grey">#e1e1e1</color>
+</resources>

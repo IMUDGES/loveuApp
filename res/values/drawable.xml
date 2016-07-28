@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <drawable name="clr_normal">#0099FF</drawable>
+    <drawable name="clr_pressed">#0000FF</drawable>
+    <drawable name="check_normal">#cfd8dc</drawable>
+    <drawable name="check_pressed">#fafafa</drawable>
+</resources>

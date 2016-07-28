@@ -38,8 +38,7 @@ public class LoginFragment extends Fragment{
 
     private void initView() {
         usernameEditText = (EditText) getActivity().findViewById(R.id.login_zhanghao);
-        passwordEditText = (EditText) getActivity().findViewById(R.id.login_mima);
+        passwordEditText = (EditText) getActivity().findViewById(R.id.login_password);
         loginButton = (Button) getActivity().findViewById(R.id.login_button);
     }
-
 }
