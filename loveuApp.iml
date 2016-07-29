@@ -16,7 +16,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" generated="true" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Android API 20 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="android-async-http-1.4.8" level="project" />
     <orderEntry type="module-library">
@@ -49,5 +49,7 @@
     </orderEntry>
     <orderEntry type="library" name="android-support-v4" level="project" />
     <orderEntry type="library" name="android-support-v4 (2)" level="project" />
+    <orderEntry type="library" name="gradle-wrapper (2)" level="project" />
+    <orderEntry type="library" name="gradle-wrapper (2)" level="project" />
   </component>
 </module>

@@ -1,13 +1,11 @@
 package com.example.loveuApp;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.*;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Toast;
 import com.example.loveuApp.register.GuoQingZhuangBActivity;
 import com.example.loveuApp.view.TopLinearlayout;
 

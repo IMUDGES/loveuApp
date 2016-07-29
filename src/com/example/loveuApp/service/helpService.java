@@ -29,8 +29,8 @@ public class helpService {
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                helpModel model=new Gson().fromJson(new String(bytes),helpModel.class);
-                listener.onFailure(model.getMsg());
+                //helpModel model=new Gson().fromJson(new String(bytes),helpModel.class);
+                listener.onFailure("网络请求失败");
             }
         });
     }

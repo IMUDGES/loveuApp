@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.loveuApp.R;
 import com.example.loveuApp.bean.helpModel;
+import com.example.loveuApp.bean.userModel;
+
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,12 +27,10 @@ import java.util.List;
 public class HelpListAdapter extends BaseAdapter {
 
     private List<helpModel> models;
-    private List<String> urls;
-    private ImageView imageView;
-    private TextView money,time,information;
+    private List<userModel> urls;
     private Context context;
 
-    public HelpListAdapter(Context context, List<helpModel> models, List<String> urls) {
+    public HelpListAdapter(Context context, List<helpModel> models, List<userModel> urls) {
         this.context = context;
         this.models = models;
         this.urls = urls;
@@ -60,6 +60,7 @@ public class HelpListAdapter extends BaseAdapter {
             viewHolder.money = (TextView) convertView.findViewById(R.id.help_item_money);
             viewHolder.time = (TextView) convertView.findViewById(R.id.help_item_time);
             viewHolder.infor = (TextView) convertView.findViewById(R.id.help_item_infor);
+            viewHolder.username = (TextView) convertView.findViewById(R.id.help_item_username);
             viewHolder.imageView= (ImageView) convertView.findViewById(R.id.help_item_image);
             convertView.setTag(viewHolder);
         }else {
@@ -69,7 +70,12 @@ public class HelpListAdapter extends BaseAdapter {
         viewHolder.money.setText(models.get(i).getHelpMoney());
         viewHolder.infor.setText(models.get(i).getHelpInformation());
         viewHolder.time.setText(models.get(i).getDownTime());
-        new photoAsyncTask(context).execute(urls.get(i));
+        viewHolder.username.setText(urls.get(i).getNickName());
+        if(viewHolder.bitmap!=null){
+            viewHolder.imageView.setImageBitmap(viewHolder.bitmap);
+        }else{
+            new photoAsyncTask(viewHolder.imageView,viewHolder).execute(urls.get(i).getUserPhone());
+        }
 
         return convertView;
     }
@@ -78,15 +84,18 @@ public class HelpListAdapter extends BaseAdapter {
         public TextView money;
         public TextView infor;
         public TextView time;
+        public TextView username;
         public ImageView imageView;
+        public Bitmap bitmap;
     }
 
     class photoAsyncTask extends AsyncTask<String,Void,Bitmap>{
 
-        Context context;
-
-        public photoAsyncTask(Context context) {
-            this.context = context;
+        private ViewHolder v;
+        private ImageView imageView;
+        public photoAsyncTask(ImageView imageView, ViewHolder viewHolder) {
+            v=viewHolder;
+            this.imageView=imageView;
         }
 
         @Override
@@ -119,6 +128,7 @@ public class HelpListAdapter extends BaseAdapter {
         protected void onPostExecute(Bitmap bitmap) {
             super.onPostExecute(bitmap);
             imageView.setImageBitmap(bitmap);
+            v.bitmap=bitmap;
         }
     }
 }
