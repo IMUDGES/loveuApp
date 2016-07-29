@@ -3,8 +3,59 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <ListView
-            android:id="@+id/lv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+
+    <RelativeLayout
+            android:id="@+id/bottomTab"
+            android:layout_width="fill_parent"
+            android:layout_height="45dip"
+            android:background="#ffffff"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_alignParentTop="true">
+        <Button
+                android:id="@+id/cancelButton"
+                android:layout_alignParentLeft="true"
+                android:layout_width="60dip"
+                android:background="@drawable/button_blue"
+                android:layout_marginTop="5dip"
+                android:layout_marginBottom="5dip"
+                android:layout_marginLeft="10dip"
+                android:text="取消"
+                android:textColor="#ffffff"
+                android:layout_height="40dip"/>
+        <Button
+                android:id="@+id/sendButton"
+                android:layout_alignParentRight="true"
+                android:layout_width="60dip"
+                android:background="@drawable/button_blue"
+                android:layout_marginTop="5dip"
+                android:layout_marginBottom="5dip"
+                android:layout_marginRight="10dip"
+                android:text="发送"
+                android:textColor="#ffffff"
+                android:layout_height="40dip"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#00B0FF"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+
+    >
+        <EditText
+                android:id="@+id/commentary_text"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_margin="0dip"
+                android:maxLength="80"
+                android:minHeight="40dip"
+                android:maxHeight="60dip"
+                android:background="#ffffff"
+                android:textColor="#000000"
+                android:paddingLeft="0dip"
+                android:paddingRight="0dip"
+        />
+    </RelativeLayout>
 </LinearLayout>
