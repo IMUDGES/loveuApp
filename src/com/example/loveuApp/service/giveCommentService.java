@@ -13,9 +13,7 @@ import org.apache.http.Header;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Created by dy on 2016/7/26.
- */
+
 public class giveCommentService {
 
     public void get(Context context, String url, RequestParams params, Listener listener){
