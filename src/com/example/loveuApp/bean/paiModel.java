@@ -3,7 +3,7 @@ package com.example.loveuApp.bean;
 /**
  * Created by dy on 2016/7/26.
  */
-public class paiModel {
+public class PaiModel {
     private Integer PaiId;
     private Integer UserId;
     private Integer PaiMoney;
@@ -16,11 +16,11 @@ public class paiModel {
     private Integer State;
     private String msg;
 
-    public paiModel(){
+    public PaiModel(){
 
     }
 
-    public paiModel(String downTime, Integer getUser, String msg, Integer paiId, String paiImage,
+    public PaiModel(String downTime, Integer getUser, String msg, Integer paiId, String paiImage,
                     String paiInformation, Integer paiMoney, String paiTitle, Integer state, String upTime, Integer userId) {
         DownTime = downTime;
         GetUser = getUser;

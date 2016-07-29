@@ -5,32 +5,23 @@
               android:layout_height="match_parent"
               android:background="@color/light_grey">
 
-    <TextView android:layout_width="match_parent" android:layout_height="30dp"
-              android:text=" "
-              android:textSize="10dp"
-              android:background="#0099FF"
-              android:fitsSystemWindows="true"
-    />
-    <TextView android:layout_width="match_parent" android:layout_height="40dp"
-              android:text="注册"
-              android:textSize="20dp"
-              android:background="#0099FF"
+
+    <TextView android:layout_width="match_parent" android:layout_height="60dp"
+              android:paddingTop="20dp"
+              android:text="@string/register"
+              android:textSize="22sp"
+              android:background="@color/title_blue"
               android:gravity="center_horizontal"
               android:textColor="@color/white"
 
     />
     <EditText android:layout_width="match_parent" android:layout_height="40dp"
-              android:textColor="@color/black"
-              android:hint="输入电话号码"
+              android:inputType="number"
+              android:hint="@string/set_phone"
               android:id="@+id/register_phonenumber"
-              android:textSize="16dp"
-              android:textCursorDrawable="@null"
-              android:maxLength="12"
-              android:maxLines="1"
-              android:background="@color/white"
+              style="@style/login_edit"
               android:padding="5dp"
               android:layout_marginTop="10dp"
-              android:layout_marginBottom="15dp"
               android:layout_marginLeft="10dp"
               android:layout_marginRight="10dp"
               android:gravity="center_vertical"
@@ -39,53 +30,50 @@
 
     <LinearLayout android:layout_width="match_parent" android:layout_height="50dp"
                   android:orientation="horizontal"
-
                   android:layout_gravity="center_vertical"
-
-
-                  android:layout_marginBottom="10dp"
+                  android:layout_marginTop="22dp"
                   android:layout_marginLeft="10dp"
                   android:layout_marginRight="10dp">
         <EditText android:layout_width="0dp" android:layout_height="40dp"
                   android:id="@+id/register_checkcode"
-                  android:textSize="16dp"
-                  android:textColor="@color/black"
                   android:layout_weight="12"
                   android:gravity="center_vertical"
-                  android:hint="输入验证码"
-                  android:textCursorDrawable="@null"
-                  android:maxLength="6"
-                  android:maxLines="1"
+                  android:hint="@string/set_check_code"
+                  style="@style/login_edit"
                   android:padding="5dp"
                   android:background="@color/white"/>
-        <View android:layout_width="0dp" android:layout_height="match_parent"
-              android:layout_weight="1"/>
-        <Button android:layout_width="0dp" android:layout_height="40dp"
-                android:text="获取验证码"
-                android:textSize="16dp"
-                android:id="@+id/register_getcheckcode"
-                android:background="#cfd8dc"
-                android:layout_weight="7"/>
 
+        <Button android:layout_width="0dp" android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:text="@string/set_get_code"
+                android:textSize="16sp"
+                android:id="@+id/register_getcheckcode"
+                android:background="@drawable/login_button_selector"
+                android:layout_weight="5"/>
 
     </LinearLayout>
 
     <EditText android:layout_width="match_parent" android:layout_height="40dp"
-              android:textColor="@color/black"
-              android:hint="设置密码"
-              android:id="@+id/register_password"
-              android:textSize="16dp"
-              android:textCursorDrawable="@null"
-              android:maxLength="12"
-              android:maxLines="1"
-              android:background="@color/white"
+              android:hint="@string/set_password1"
+              android:id="@+id/register_password1"
+              style="@style/login_edit"
               android:padding="5dp"
-              android:layout_marginTop="10dp"
-              android:layout_marginBottom="15dp"
+              android:layout_marginTop="22dp"
               android:layout_marginLeft="10dp"
               android:layout_marginRight="10dp"
               android:gravity="center_vertical"
 
+    />
+
+    <EditText android:layout_width="match_parent" android:layout_height="40dp"
+              android:hint="@string/set_password2"
+              android:id="@+id/register_password2"
+              style="@style/login_edit"
+              android:layout_marginTop="22dp"
+              android:layout_marginBottom="20dp"
+              android:layout_marginLeft="10dp"
+              android:layout_marginRight="10dp"
+              android:gravity="center_vertical"
     />
 
     <Button android:layout_width="match_parent" android:layout_height="wrap_content"

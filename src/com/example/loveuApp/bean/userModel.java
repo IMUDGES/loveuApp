@@ -3,8 +3,9 @@ package com.example.loveuApp.bean;
 /**
  * Created by dy on 2016/7/26.
  */
-public class userModel {
+public class UserModel {
 
+    private String state;
     private Integer UserId;
     private String UserPhone;
     private String PassWord;
@@ -17,11 +18,11 @@ public class userModel {
     private String UserMajor;
     private String msg;
 
-    public userModel(){
+    public UserModel(){
 
     }
 
-    public userModel(String msg, String nickName, String passWord, String secretKey,
+    public UserModel(String msg, String nickName, String passWord, String secretKey,
                      String trueName, String userGrade, Integer userId, String userMajor, String userPhone, String userPhoto, Integer userSex) {
         this.msg = msg;
         NickName = nickName;
@@ -34,6 +35,14 @@ public class userModel {
         UserPhone = userPhone;
         UserPhoto = userPhoto;
         UserSex = userSex;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public String getMsg() {

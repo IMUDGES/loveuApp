@@ -1,7 +1,7 @@
 package com.example.loveuApp.service;
 
 import android.content.Context;
-import com.example.loveuApp.bean.xueModel;
+import com.example.loveuApp.bean.XueModel;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.util.HttpRequest;
 import com.google.gson.Gson;
@@ -16,19 +16,19 @@ import java.util.List;
 /**
  * Created by dy on 2016/7/26.
  */
-public class xueService {
+public class XueService {
 
     public void get(Context context, String url, RequestParams params, Listener listener){
         HttpRequest.get(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
-                List<xueModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<xueModel>>(){}.getType());
+                List<XueModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<XueModel>>(){}.getType());
                 listener.onSuccess(models);
             }
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                xueModel model=new Gson().fromJson(new String(bytes),xueModel.class);
+                XueModel model=new Gson().fromJson(new String(bytes),XueModel.class);
                 listener.onFailure(model.getMsg());
             }
         });
@@ -38,13 +38,13 @@ public class xueService {
         HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
-                List<xueModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<xueModel>>(){}.getType());
+                List<XueModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<XueModel>>(){}.getType());
                 listener.onSuccess(models);
             }
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                xueModel model=new Gson().fromJson(new String(bytes),xueModel.class);
+                XueModel model=new Gson().fromJson(new String(bytes),XueModel.class);
                 listener.onFailure(model.getMsg());
             }
         });

@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.loveuApp.R;
-import com.example.loveuApp.bean.foodModel;
+import com.example.loveuApp.bean.FoodModel;
 
 import java.util.List;
 
@@ -16,12 +16,12 @@ import java.util.List;
  * Created by caolu on 2016/7/26.
  */
 public class FoodMainListAdapter extends BaseAdapter{
-    public FoodMainListAdapter(List<foodModel> data, Context mContext) {
+    public FoodMainListAdapter(List<FoodModel> data, Context mContext) {
         this.data = data;
         this.mContext = mContext;
     }
 
-    private List<foodModel> data;
+    private List<FoodModel> data;
     private Context mContext;
 
     @Override

@@ -3,7 +3,7 @@ package com.example.loveuApp.bean;
 /**
  * Created by dy on 2016/7/26.
  */
-public class giveModel {
+public class GiveModel {
 
     private Integer GiveId;
     private Integer UserId;
@@ -13,11 +13,11 @@ public class giveModel {
     private Integer state;
     private String msg;
 
-    public giveModel(){
+    public GiveModel(){
 
     }
 
-    public giveModel(Integer getUser, Integer giveId, String giveImage, String giveInformation,
+    public GiveModel(Integer getUser, Integer giveId, String giveImage, String giveInformation,
                      String msg, Integer state, Integer userId) {
         GetUser = getUser;
         GiveId = giveId;

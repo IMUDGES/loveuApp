@@ -5,4 +5,11 @@
     <string name="user_name">账号</string>
     <string name="user_pass">密码</string>
     <string name="login">登录</string>
+    <string name="register">注册</string>
+
+    <string name="set_check_code">请输入验证码</string>
+    <string name="set_get_code">获取验证码</string>
+    <string name="set_phone">请输入电话号码</string>
+    <string name="set_password1">请设置密码</string>
+    <string name="set_password2">请确认密码</string>
 </resources>

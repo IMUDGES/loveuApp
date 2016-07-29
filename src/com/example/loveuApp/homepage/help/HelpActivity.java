@@ -5,21 +5,21 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.loveuApp.R;
-import com.example.loveuApp.bean.helpModel;
-import com.example.loveuApp.bean.userModel;
+import com.example.loveuApp.bean.HelpModel;
+import com.example.loveuApp.bean.UserModel;
 
 /**
  * Created by dy on 2016/7/29.
  */
 public class HelpActivity extends Activity{
 
-    private helpModel helpmodel;
-    private userModel userModel;
+    private HelpModel helpmodel;
+    private UserModel userModel;
     private ImageView imageView;
     private TextView username,money,time,information;
 
 
-    public void setModel(helpModel helpmodel,userModel userModel) {
+    public void setModel(HelpModel helpmodel, UserModel userModel) {
         this.helpmodel = helpmodel;
         this.userModel = userModel;
     }

@@ -11,8 +11,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.loveuApp.R;
-import com.example.loveuApp.bean.helpModel;
-import com.example.loveuApp.bean.userModel;
+import com.example.loveuApp.bean.UserModel;
+import com.example.loveuApp.bean.HelpModel;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -26,11 +26,11 @@ import java.util.List;
  */
 public class HelpListAdapter extends BaseAdapter {
 
-    private List<helpModel> models;
-    private List<userModel> urls;
+    private List<HelpModel> models;
+    private List<UserModel> urls;
     private Context context;
 
-    public HelpListAdapter(Context context, List<helpModel> models, List<userModel> urls) {
+    public HelpListAdapter(Context context, List<HelpModel> models, List<UserModel> urls) {
         this.context = context;
         this.models = models;
         this.urls = urls;

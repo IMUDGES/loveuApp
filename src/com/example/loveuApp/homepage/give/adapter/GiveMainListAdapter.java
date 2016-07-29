@@ -8,18 +8,18 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.loveuApp.R;
-import com.example.loveuApp.bean.giveModel;
+import com.example.loveuApp.bean.GiveModel;
 
 import java.util.List;
 
 
 public class GiveMainListAdapter extends BaseAdapter{
-    public GiveMainListAdapter(List<giveModel> data, Context mContext) {
+    public GiveMainListAdapter(List<GiveModel> data, Context mContext) {
         this.data = data;
         this.mContext = mContext;
     }
 
-    private List<giveModel> data;
+    private List<GiveModel> data;
     private Context mContext;
 
     @Override

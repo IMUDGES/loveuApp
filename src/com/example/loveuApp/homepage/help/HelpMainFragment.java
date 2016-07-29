@@ -11,12 +11,12 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 import com.example.loveuApp.R;
-import com.example.loveuApp.bean.helpModel;
-import com.example.loveuApp.bean.userModel;
+import com.example.loveuApp.bean.HelpModel;
+import com.example.loveuApp.bean.UserModel;
 import com.example.loveuApp.homepage.help.adapter.HelpListAdapter;
 import com.example.loveuApp.listener.Listener;
-import com.example.loveuApp.service.helpService;
-import com.example.loveuApp.service.userService;
+import com.example.loveuApp.service.HelpService;
+import com.example.loveuApp.service.UserService;
 import com.loopj.android.http.RequestParams;
 
 import java.util.ArrayList;
@@ -33,8 +33,8 @@ public class HelpMainFragment extends Fragment implements AdapterView.OnItemClic
 
     private ListView listView;
     private HelpListAdapter adapter;
-    private List<helpModel> models;
-    private List<userModel> urls;
+    private List<HelpModel> models;
+    private List<UserModel> urls;
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -47,16 +47,16 @@ public class HelpMainFragment extends Fragment implements AdapterView.OnItemClic
 
     }
 
-    private List<helpModel> getData(){
+    private List<HelpModel> getData(){
         String url="";
         RequestParams params=new RequestParams();
-        helpService service=new helpService();
+        HelpService service=new HelpService();
         params.add("page","1");
         service.get(getActivity(), url, params, new Listener() {
             @Override
             public void onSuccess(Object object) {
                 Toast.makeText(getActivity(), "请求", Toast.LENGTH_SHORT).show();
-                models.addAll((Collection<? extends helpModel>) object);
+                models.addAll((Collection<? extends HelpModel>) object);
             }
 
             @Override
@@ -67,21 +67,21 @@ public class HelpMainFragment extends Fragment implements AdapterView.OnItemClic
         return models;
     }
 
-    public List<userModel> getUrls() {
+    public List<UserModel> getUrls() {
         List<String>ids=new ArrayList<>();
-        for (helpModel model:getData()) {
+        for (HelpModel model:getData()) {
             if(model.getUserId()!=null)
                 ids.add(String.valueOf(model.getUserId()));
         }
         String url="";
         for (String id:ids){
             RequestParams params=new RequestParams();
-            userService service=new userService();
+            UserService service=new UserService();
             params.put("UserId",id);
             service.get(getActivity(), url, params, new Listener() {
                 @Override
                 public void onSuccess(Object object) {
-                    urls.add((userModel) object);
+                    urls.add((UserModel) object);
                 }
 
                 @Override

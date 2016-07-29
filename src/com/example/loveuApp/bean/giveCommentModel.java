@@ -3,7 +3,7 @@ package com.example.loveuApp.bean;
 /**
  * Created by dy on 2016/7/26.
  */
-public class giveCommentModel {
+public class GiveCommentModel {
 
     private Integer CommentId;
     private Integer UserId;
@@ -11,11 +11,11 @@ public class giveCommentModel {
     private Integer GiveId;
     private String msg;
 
-    public giveCommentModel(){
+    public GiveCommentModel(){
 
     }
 
-    public giveCommentModel(Integer commentId, String commentInformation, Integer giveId, Integer userId,String msg) {
+    public GiveCommentModel(Integer commentId, String commentInformation, Integer giveId, Integer userId, String msg) {
         CommentId = commentId;
         CommentInformation = commentInformation;
         GiveId = giveId;

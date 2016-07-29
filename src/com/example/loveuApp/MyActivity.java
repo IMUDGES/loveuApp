@@ -16,7 +16,7 @@ public class MyActivity extends FragmentActivity {
 
 
     private TopLinearlayout mTopLinearlayout;
-    private Fragment [] mFragments;
+    private Fragment[] mFragments;
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
 
@@ -28,10 +28,10 @@ public class MyActivity extends FragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       requestWindowFeature(Window.FEATURE_NO_TITLE);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main);
 
-       // if (isTheFirst())
+        // if (isTheFirst())
 
         //透明状态栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -52,11 +52,12 @@ public class MyActivity extends FragmentActivity {
         mFragments[2] = fragmentManager.findFragmentById(R.id.main_fragment3);
         mFragments[3] = fragmentManager.findFragmentById(R.id.main_fragment4);
         mFragments[4] = fragmentManager.findFragmentById(R.id.main_fragment5);
-        fragmentTransaction = fragmentManager.beginTransaction()
-                .hide(mFragments[1]).hide(mFragments[2]).hide(mFragments[3]).hide(mFragments[4]);
-        fragmentTransaction.show(mFragments[0]).commit();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.hide(mFragments[1]).hide(mFragments[2]).hide(mFragments[3]).hide(mFragments[4])
+                .show(mFragments[0]).commit();
     }
-    public void doclick(View view){
+
+    public void doclick(View view) {
         Intent intent = new Intent(this, GuoQingZhuangBActivity.class);
         startActivity(intent);
     }

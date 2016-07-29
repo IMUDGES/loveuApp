@@ -3,7 +3,7 @@ package com.example.loveuApp.bean;
 /**
  * Created by dy on 2016/7/26.
  */
-public class xueModel {
+public class XueModel {
 
 
     private Integer XueId;
@@ -15,11 +15,11 @@ public class xueModel {
     private String XueArea;
     private String msg;
 
-    public xueModel(){
+    public XueModel(){
 
     }
 
-    public xueModel(Integer getUser, String msg, Integer state, Integer userId, String xueArea, Integer xueId, String xueInformation, String xueTime) {
+    public XueModel(Integer getUser, String msg, Integer state, Integer userId, String xueArea, Integer xueId, String xueInformation, String xueTime) {
         GetUser = getUser;
         this.msg = msg;
         State = state;

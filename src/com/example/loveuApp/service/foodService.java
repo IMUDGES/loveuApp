@@ -1,7 +1,7 @@
 package com.example.loveuApp.service;
 
 import android.content.Context;
-import com.example.loveuApp.bean.foodModel;
+import com.example.loveuApp.bean.FoodModel;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.util.HttpRequest;
 import com.google.gson.Gson;
@@ -16,19 +16,19 @@ import java.util.List;
 /**
  * Created by dy on 2016/7/26.
  */
-public class foodService {
+public class FoodService {
 
     public void get(Context context, String url, RequestParams params, Listener listener){
         HttpRequest.get(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
-                List<foodModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<foodModel>>(){}.getType());
+                List<FoodModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<FoodModel>>(){}.getType());
                 listener.onSuccess(models);
             }
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                foodModel model=new Gson().fromJson(new String(bytes),foodModel.class);
+                FoodModel model=new Gson().fromJson(new String(bytes),FoodModel.class);
                 listener.onFailure(model.getMsg());
             }
         });
@@ -38,13 +38,13 @@ public class foodService {
         HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
-                List<foodModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<foodModel>>(){}.getType());
+                List<FoodModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<FoodModel>>(){}.getType());
                 listener.onSuccess(models);
             }
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                foodModel model=new Gson().fromJson(new String(bytes),foodModel.class);
+                FoodModel model=new Gson().fromJson(new String(bytes),FoodModel.class);
                 listener.onFailure(model.getMsg());
             }
         });
