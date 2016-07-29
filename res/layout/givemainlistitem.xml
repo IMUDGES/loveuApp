@@ -27,7 +27,7 @@
             android:layout_toRightOf="@id/givefragment_listview_img"
             android:maxLines="3"
             android:text=""
-            android:textColor="#99000000"
+            android:textColor="#000000"
             android:textSize="12sp" />
     <Button android:layout_width="60dp" android:layout_height="40dp"
             android:id="@+id/givefragment_listview_comment"

@@ -22,11 +22,11 @@ public class GiveMainFragment extends Fragment{
         // mListView = (ListView) getActivity().findViewById(R.id.givefragment_listview);
        /* RequestParams params = new RequestParams();
         params.put("","");
-        FoodService service = new FoodService();
+        giveService service = new giveService();
         service.get(getActivity(), "未知", params, new Listener() {
             @Override
             public void onSuccess(Object object) {
-                data = (List<fiveModel>) object;
+                data = (List<giveModel>) object;
             }
 
             @Override
