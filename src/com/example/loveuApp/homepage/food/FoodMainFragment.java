@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import com.example.loveuApp.R;
-import com.example.loveuApp.bean.FoodModel;
+import com.example.loveuApp.bean.foodModel;
 import com.example.loveuApp.homepage.food.adapter.FoodMainListAdapter;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public class FoodMainFragment extends Fragment{
 
     private ListView mListView;
     private FoodMainListAdapter mAdapter;
-    private List<FoodModel> data;
+    private List<foodModel> data;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

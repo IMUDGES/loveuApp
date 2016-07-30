@@ -3,7 +3,7 @@ package com.example.loveuApp.bean;
 /**
  * Created by dy on 2016/7/26.
  */
-public class HelpModel {
+public class helpModel {
 
     private Integer HelpId;
     private Integer UserId;
@@ -15,11 +15,11 @@ public class HelpModel {
     private Integer Finish;
     private String msg;
 
-    public HelpModel(){
+    public helpModel(){
 
     }
 
-    public HelpModel(String downTime, Integer finish, Integer getUser, Integer helpId, String helpInformation,
+    public helpModel(String downTime, Integer finish, Integer getUser, Integer helpId, String helpInformation,
                      Integer helpMoney, String msg, Integer state, Integer userId) {
         DownTime = downTime;
         Finish = finish;

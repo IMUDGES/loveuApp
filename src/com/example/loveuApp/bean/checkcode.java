@@ -3,7 +3,7 @@ package com.example.loveuApp.bean;
 /**
  * Created by dy on 2016/7/26.
  */
-public class Checkcode {
+public class checkcode {
 
 
     private Integer CheckId;
@@ -12,11 +12,11 @@ public class Checkcode {
     private String msg;
     private Integer state;
 
-    public Checkcode(){
+    public checkcode(){
 
     }
 
-    public Checkcode(Integer checkCode, Integer checkId, String msg, Integer state, String userPhone) {
+    public checkcode(Integer checkCode, Integer checkId, String msg, Integer state, String userPhone) {
         CheckCode = checkCode;
         CheckId = checkId;
         this.msg = msg;

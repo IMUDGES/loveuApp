@@ -3,7 +3,7 @@ package com.example.loveuApp.bean;
 /**
  * Created by dy on 2016/7/26.
  */
-public class FoodModel {
+public class foodModel {
 
     private Integer FoodId;
     private Integer UserId;
@@ -15,11 +15,11 @@ public class FoodModel {
     private Integer state;
     private String msg;
 
-    public FoodModel(){
+    public foodModel(){
 
     }
 
-    public FoodModel(String foodArea, Integer foodId, String foodInformation, String foodTime, String foodWay,
+    public foodModel(String foodArea, Integer foodId, String foodInformation, String foodTime, String foodWay,
                      String getUser, String msg, Integer state, Integer userId) {
         FoodArea = foodArea;
         FoodId = foodId;

@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import com.example.loveuApp.R;
 import com.example.loveuApp.listener.Listener;
-import com.example.loveuApp.service.GiveCommentService;
+import com.example.loveuApp.service.giveCommentService;
 import com.example.loveuApp.util.ToastManager;
 import com.loopj.android.http.RequestParams;
 
@@ -39,7 +39,7 @@ public class givemaincommentActivity extends Activity implements View.OnClickLis
                 commenttxt=editText.getText().toString().trim();
                 RequestParams params = new RequestParams();
                 params.put("","");
-                GiveCommentService service = new GiveCommentService();
+                giveCommentService service = new giveCommentService();
                 service.get(givemaincommentActivity.this, "未知", params, new Listener() {
                     @Override
                     public void onSuccess(Object comments) {

@@ -1,7 +1,7 @@
 package com.example.loveuApp.service;
 
 import android.content.Context;
-import com.example.loveuApp.bean.GiveCommentModel;
+import com.example.loveuApp.bean.giveCommentModel;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.util.HttpRequest;
 import com.google.gson.Gson;
@@ -14,19 +14,19 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public class GiveCommentService {
+public class giveCommentService {
 
     public void get(Context context, String url, RequestParams params, Listener listener){
         HttpRequest.get(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
-                List<GiveCommentModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<GiveCommentModel>>(){}.getType());
+                List<giveCommentModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<giveCommentModel>>(){}.getType());
                 listener.onSuccess(models);
             }
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                GiveCommentModel model=new Gson().fromJson(new String(bytes),GiveCommentModel.class);
+                giveCommentModel model=new Gson().fromJson(new String(bytes),giveCommentModel.class);
                 listener.onFailure(model.getMsg());
             }
         });
@@ -36,13 +36,13 @@ public class GiveCommentService {
         HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
-                List<GiveCommentModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<GiveCommentModel>>(){}.getType());
+                List<giveCommentModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<giveCommentModel>>(){}.getType());
                 listener.onSuccess(models);
             }
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                GiveCommentModel model=new Gson().fromJson(new String(bytes),GiveCommentModel.class);
+                giveCommentModel model=new Gson().fromJson(new String(bytes),giveCommentModel.class);
                 listener.onFailure(model.getMsg());
             }
         });

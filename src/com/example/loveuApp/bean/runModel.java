@@ -3,7 +3,7 @@ package com.example.loveuApp.bean;
 /**
  * Created by dy on 2016/7/26.
  */
-public class RunModel {
+public class runModel {
 
     private Integer RunId;
     private Integer UserId;
@@ -13,12 +13,20 @@ public class RunModel {
     private Integer State;
     private String RunArea;
     private String msg;
+    private String state;
 
-    public RunModel(){
+    public void setState(String state) {
+        this.state = state;
+    }
+    public String getstate(){
+        return state;
+    }
+
+    public runModel(){
 
     }
 
-    public RunModel(Integer getUser, String msg, String runArea, Integer runId,
+    public runModel(Integer getUser, String msg, String runArea, Integer runId,
                     String runInformation, String runTime, Integer state, Integer userId) {
         GetUser = getUser;
         this.msg = msg;

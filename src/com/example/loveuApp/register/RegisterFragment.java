@@ -12,9 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.example.loveuApp.R;
-import com.example.loveuApp.bean.UserModel;
+import com.example.loveuApp.bean.userModel;
 import com.example.loveuApp.listener.Listener;
-import com.example.loveuApp.service.UserService;
+import com.example.loveuApp.service.userService;
 import com.example.loveuApp.util.Md5;
 import com.loopj.android.http.RequestParams;
 
@@ -93,12 +93,12 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         }
         RequestParams requestParams = new RequestParams();
         requestParams.add("UserPhone", phone);
-        UserService service = new UserService();
+        userService service = new userService();
         String url = "register1";
         service.post(getActivity(), url, requestParams, new Listener() {
             @Override
             public void onSuccess(Object object) {
-                UserModel userModel = (UserModel) object;
+                userModel userModel = (com.example.loveuApp.bean.userModel) object;
                 String state = userModel.getState();
                 String msg = userModel.getMsg();
                 if ("1".equals(state)) {
@@ -140,13 +140,13 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         requestParams.put("CheckCode", checkCode);
         requestParams.put("PassWord", Md5_password);
 
-        UserService service = new UserService();
+        userService service = new userService();
         String url = "register3";
         service.post(getActivity(), url, requestParams, new Listener() {
             @Override
             public void onSuccess(Object object) {
 
-                UserModel userModel = (UserModel) object;
+                userModel userModel = (com.example.loveuApp.bean.userModel) object;
                 String state = userModel.getState();
                 if ("1".equals(state)) {
                     Toast.makeText(getActivity(), "注册成功", Toast.LENGTH_SHORT).show();

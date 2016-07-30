@@ -3,7 +3,7 @@ package com.example.loveuApp.bean;
 /**
  * Created by dy on 2016/7/26.
  */
-public class UserModel {
+public class userModel {
 
     private String state;
     private Integer UserId;
@@ -18,11 +18,11 @@ public class UserModel {
     private String UserMajor;
     private String msg;
 
-    public UserModel(){
+    public userModel(){
 
     }
 
-    public UserModel(String msg, String nickName, String passWord, String secretKey,
+    public userModel(String msg, String nickName, String passWord, String secretKey,
                      String trueName, String userGrade, Integer userId, String userMajor, String userPhone, String userPhoto, Integer userSex) {
         this.msg = msg;
         NickName = nickName;

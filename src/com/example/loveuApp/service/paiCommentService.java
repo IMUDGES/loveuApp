@@ -1,7 +1,7 @@
 package com.example.loveuApp.service;
 
 import android.content.Context;
-import com.example.loveuApp.bean.PaiCommentModel;
+import com.example.loveuApp.bean.paiCommentModel;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.util.HttpRequest;
 import com.google.gson.Gson;
@@ -16,19 +16,19 @@ import java.util.List;
 /**
  * Created by dy on 2016/7/26.
  */
-public class PaiCommentService {
+public class paiCommentService {
 
     public void get(Context context, String url, RequestParams params, Listener listener){
         HttpRequest.get(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
-                List<PaiCommentModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<PaiCommentModel>>(){}.getType());
+                List<paiCommentModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<paiCommentModel>>(){}.getType());
                 listener.onSuccess(models);
             }
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                PaiCommentModel model=new Gson().fromJson(new String(bytes),PaiCommentModel.class);
+                paiCommentModel model=new Gson().fromJson(new String(bytes),paiCommentModel.class);
                 listener.onFailure(model.getMsg());
             }
         });
@@ -38,13 +38,13 @@ public class PaiCommentService {
         HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
-                List<PaiCommentModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<PaiCommentModel>>(){}.getType());
+                List<paiCommentModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<paiCommentModel>>(){}.getType());
                 listener.onSuccess(models);
             }
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                PaiCommentModel model=new Gson().fromJson(new String(bytes),PaiCommentModel.class);
+                paiCommentModel model=new Gson().fromJson(new String(bytes),paiCommentModel.class);
                 listener.onFailure(model.getMsg());
             }
         });
