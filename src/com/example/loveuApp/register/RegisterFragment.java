@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,21 +19,25 @@ import com.example.loveuApp.service.userService;
 import com.example.loveuApp.util.Md5;
 import com.loopj.android.http.RequestParams;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 public class RegisterFragment extends Fragment implements View.OnClickListener {
     private Button getCheckButton;
     private Button nextButton;
-    private EditText numberEditext;
-    private EditText checkcodeEditext;
-    private EditText passwordEditext1;
-    private EditText passwordEditext2;
+    private EditText numberEditText;
+    private EditText checkCodeEditText;
+    private EditText passwordEditText1;
+    private EditText passwordEditText2;
+    private EditText nickNameEditText;
     private int checkTime = 0;
     private int time = 60;
     private String phone;
 
     private static int BEGIN_TIME = 0;
 
-    //记得要写密码等edittext带空格的情况!!!!
+    //记得要写密码等editText带空格的情况!!!!
 
     public interface FRegisterClickListener {
         void onFRegisterClick();
@@ -53,10 +58,11 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     private void initView() {
         getCheckButton = (Button) getActivity().findViewById(R.id.register_getcheckcode);
         nextButton = (Button) getActivity().findViewById(R.id.register_next);
-        numberEditext = (EditText) getActivity().findViewById(R.id.register_phonenumber);
-        checkcodeEditext = (EditText) getActivity().findViewById(R.id.register_checkcode);
-        passwordEditext1 = (EditText) getActivity().findViewById(R.id.register_password1);
-        passwordEditext2 = (EditText) getActivity().findViewById(R.id.register_password2);
+        numberEditText = (EditText) getActivity().findViewById(R.id.register_phonenumber);
+        checkCodeEditText = (EditText) getActivity().findViewById(R.id.register_checkcode);
+        passwordEditText1 = (EditText) getActivity().findViewById(R.id.register_password1);
+        passwordEditText2 = (EditText) getActivity().findViewById(R.id.register_password2);
+        nickNameEditText = (EditText) getActivity().findViewById(R.id.register_nickname);
         getCheckButton.setOnClickListener(this);
         nextButton.setOnClickListener(this);
     }
@@ -86,7 +92,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
 
 
     private void postPhone() {
-        phone = numberEditext.getText().toString();
+        phone = numberEditText.getText().toString();
         if (phone.length() <= 0) {
             Toast.makeText(getActivity(), "手机号不能为空", Toast.LENGTH_SHORT).show();
             return;
@@ -118,9 +124,10 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     }
 
     private void postAll() {
-        String checkCode = checkcodeEditext.getText().toString();
-        String password1 = passwordEditext1.getText().toString();
-        String password2 = passwordEditext2.getText().toString();
+        String checkCode = checkCodeEditText.getText().toString();
+        String password1 = passwordEditText1.getText().toString();
+        String password2 = passwordEditText2.getText().toString();
+        String nickname = nickNameEditText.getText().toString();
 
         if (checkCode.length() <= 0 || password1.length() <= 0 || password2.length() <= 0) {
             Toast.makeText(getActivity(), "请填写完毕后再提交", Toast.LENGTH_SHORT).show();
@@ -129,8 +136,13 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
 
         if (!password1.equals(password2)) {
             Toast.makeText(getActivity(), "两次密码不相同，请重新输入", Toast.LENGTH_SHORT).show();
-            passwordEditext1.setText("");
-            passwordEditext2.setText("");
+            passwordEditText1.setText("");
+            passwordEditText2.setText("");
+            return;
+        }
+
+        if((!compare(password1))||(!compare(nickname))) {
+            Toast.makeText(getActivity(),"...",Toast.LENGTH_SHORT).show();
             return;
         }
         String Md5_password = Md5.getMD5(password1);
@@ -139,6 +151,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         requestParams.put("UserPhone", phone);
         requestParams.put("CheckCode", checkCode);
         requestParams.put("PassWord", Md5_password);
+        requestParams.put("NickName", nickname);
 
         userService service = new userService();
         String url = "register3";
@@ -147,7 +160,8 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
             public void onSuccess(Object object) {
 
                 userModel userModel = (com.example.loveuApp.bean.userModel) object;
-                String state = userModel.getState();
+                String state;
+                state = userModel.getState();
                 if ("1".equals(state)) {
                     Toast.makeText(getActivity(), "注册成功", Toast.LENGTH_SHORT).show();
                     if (getActivity() instanceof FRegisterClickListener) {
@@ -160,7 +174,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
 
             @Override
             public void onFailure(String msg) {
-                Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "请求失败" + msg, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -181,6 +195,16 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         }
     };
 
+    private boolean compare(String name){
+        String regEx="[ `~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]";
+        Pattern p = Pattern.compile(regEx);
+        Matcher m = p.matcher(name);
+        if( m.find()){
+            Toast.makeText(getActivity(), "不允许输入特殊符号！", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();

@@ -83,9 +83,9 @@ public class LoginFragment extends Fragment {
             public void onSuccess(Object object) {
                 userModel userModel = (com.example.loveuApp.bean.userModel) object;
                 String state = userModel.getState();
-                Toast.makeText(getActivity(),state,Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(),state,Toast.LENGTH_SHORT).show();
                 if ("1".equals(state)) {
-                    Toast.makeText(getActivity(), "zhengque", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "zhengque", Toast.LENGTH_SHORT).show();
                     if (getActivity() instanceof FLoginBtnClick) {
                         ((FLoginBtnClick) getActivity()).onFLoginTrue();
                     }
@@ -96,7 +96,7 @@ public class LoginFragment extends Fragment {
 
             @Override
             public void onFailure(String msg) {
-
+                Toast.makeText(getActivity(), "与服务器请求失败", Toast.LENGTH_SHORT).show();
             }
         });
     }

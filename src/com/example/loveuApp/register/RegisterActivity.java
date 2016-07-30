@@ -34,8 +34,7 @@ public class RegisterActivity extends FragmentActivity implements LoginFragment.
         if (savedInstanceState == null) {
             init();
             fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(R.id.register_frame, mfragment[0]).add(R.id.register_frame,mfragment[1])
-                    .hide(mfragment[1]).commit();
+            fragmentTransaction.add(R.id.register_frame, mfragment[0]).commit();
         }
     }
 
@@ -55,7 +54,7 @@ public class RegisterActivity extends FragmentActivity implements LoginFragment.
     @Override
     public void onToRegisterClick() {
         fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.hide(mfragment[0]).show(mfragment[1]).commit();
+        fragmentTransaction.hide(mfragment[0]).add(R.id.register_frame,mfragment[1]).commit();
     }
 
     @Override
