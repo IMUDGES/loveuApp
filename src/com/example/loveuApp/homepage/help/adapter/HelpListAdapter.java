@@ -4,15 +4,16 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.*;
 import com.example.loveuApp.R;
 import com.example.loveuApp.bean.userModel;
 import com.example.loveuApp.bean.helpModel;
+import com.example.loveuApp.util.PhotoCut;
+import com.example.loveuApp.util.TextViewToDBC;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -62,21 +63,27 @@ public class HelpListAdapter extends BaseAdapter {
             viewHolder.infor = (TextView) convertView.findViewById(R.id.help_item_infor);
             viewHolder.username = (TextView) convertView.findViewById(R.id.help_item_username);
             viewHolder.imageView= (ImageView) convertView.findViewById(R.id.help_item_image);
+            viewHolder.button= (Button) convertView.findViewById(R.id.help_item_addfriend);
             convertView.setTag(viewHolder);
         }else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
         viewHolder.money.setText(models.get(i).getHelpMoney()+"");
-        viewHolder.infor.setText(models.get(i).getHelpInformation());
+        viewHolder.infor.setText(TextViewToDBC.ToDBC(models.get(i).getHelpInformation()));
         viewHolder.time.setText(models.get(i).getDownTime());
         viewHolder.username.setText(urls.get(i).getNickName());
         if(viewHolder.bitmap!=null){
-            viewHolder.imageView.setImageBitmap(viewHolder.bitmap);
+            viewHolder.imageView.setImageBitmap(PhotoCut.toRoundBitmap(viewHolder.bitmap));
         }else{
-            new photoAsyncTask(viewHolder.imageView,viewHolder).execute(urls.get(i).getUserPhone());
+            new photoAsyncTask(viewHolder.imageView,viewHolder).execute(urls.get(i).getUserPhoto());
         }
-
+        viewHolder.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context,i+"", Toast.LENGTH_SHORT).show();
+            }
+        });
         return convertView;
     }
 
@@ -87,6 +94,7 @@ public class HelpListAdapter extends BaseAdapter {
         public TextView username;
         public ImageView imageView;
         public Bitmap bitmap;
+        public Button button;
     }
 
     class photoAsyncTask extends AsyncTask<String,Void,Bitmap>{
@@ -106,6 +114,7 @@ public class HelpListAdapter extends BaseAdapter {
         @Override
         protected Bitmap doInBackground(String... strings) {
             String url=strings[0];
+            Log.i("url",url);
             Bitmap bitmap=null;
             URLConnection connection;
             InputStream inputStream;
@@ -113,11 +122,9 @@ public class HelpListAdapter extends BaseAdapter {
                 connection=new URL(url).openConnection();
                 inputStream=connection.getInputStream();
 
-                BufferedInputStream bufferedInputStream=new BufferedInputStream(inputStream);
                 bitmap= BitmapFactory.decodeStream(inputStream);
 
                 inputStream.close();
-                bufferedInputStream.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -127,7 +134,7 @@ public class HelpListAdapter extends BaseAdapter {
         @Override
         protected void onPostExecute(Bitmap bitmap) {
             super.onPostExecute(bitmap);
-            imageView.setImageBitmap(bitmap);
+            imageView.setImageBitmap(PhotoCut.toRoundBitmap(bitmap));
             v.bitmap=bitmap;
         }
     }

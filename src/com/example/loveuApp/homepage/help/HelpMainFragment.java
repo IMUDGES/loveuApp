@@ -2,10 +2,9 @@ package com.example.loveuApp.homepage.help;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,11 +21,10 @@ import com.example.loveuApp.service.userService;
 import com.loopj.android.http.RequestParams;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 
-public class HelpMainFragment extends Fragment implements AdapterView.OnItemClickListener{
+public class HelpMainFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.helpmain, container, false);
@@ -37,6 +35,7 @@ public class HelpMainFragment extends Fragment implements AdapterView.OnItemClic
     private HelpListAdapter adapter;
     private List<helpModel> models;
     private List<userModel> urls;
+    private OnSuccessBack back;
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -44,30 +43,31 @@ public class HelpMainFragment extends Fragment implements AdapterView.OnItemClic
         listView= (ListView) getView().findViewById(R.id.helpListView);
         models=new ArrayList<>();
         urls=new ArrayList<>();
-        adapter=new HelpListAdapter(getActivity(),getData(),getUrls());
-        Handler handler=new Handler(){
+
+        getData();
+
+        back=new OnSuccessBack() {
             @Override
-            public void handleMessage(Message msg) {
-                super.handleMessage(msg);
-                adapter.notifyDataSetChanged();
+            public void back() {
+                Log.i("models",models.size()+"");
+                Log.i("urls",urls.size()+"");
+                adapter=new HelpListAdapter(getActivity(),models,urls);
                 listView.setAdapter(adapter);
             }
         };
-        new Thread()
-        {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void run() {
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                handler.sendMessage(new Message());
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent=new Intent(getActivity(),HelpActivity.class);
+                HelpActivity.setModel(models.get(i),urls.get(i));
+                getActivity().startActivity(intent);
+                Log.i("msg",i+"");
             }
-        }.start();
+        });
     }
 
     private List<helpModel> getData(){
+        Log.i("msg","getData()");
         String url="help";
         RequestParams params=new RequestParams();
         helpService service=new helpService();
@@ -75,9 +75,9 @@ public class HelpMainFragment extends Fragment implements AdapterView.OnItemClic
         service.get(getActivity(), url, params, new Listener() {
             @Override
             public void onSuccess(Object object) {
-                Toast.makeText(getActivity(), "请求", Toast.LENGTH_SHORT).show();
-                models.addAll((Collection<? extends helpModel>) object);
+                models= (List<helpModel>) object;
                 models.remove(0);
+                getUrls();
             }
 
             @Override
@@ -89,11 +89,15 @@ public class HelpMainFragment extends Fragment implements AdapterView.OnItemClic
     }
 
     public List<userModel> getUrls() {
+        Log.i("msg","getURLs()");
         List<String>ids=new ArrayList<>();
-        for (helpModel model:getData()) {
-            if(model.getUserId()!=null)
-                ids.add(String.valueOf(model.getUserId()));
+        List<helpModel> mmo=models;
+        Log.i("msg","getData():"+mmo.size());
+        for(int i=0;i<mmo.size();i++){
+            ids.add(mmo.get(i).getUserId()+"");
+            Log.i("msg",mmo.get(i).getUserId()+"");
         }
+
         String url="data";
         for (String id:ids){
             RequestParams params=new RequestParams();
@@ -103,6 +107,9 @@ public class HelpMainFragment extends Fragment implements AdapterView.OnItemClic
                 @Override
                 public void onSuccess(Object object) {
                     urls.add((userModel) object);
+                    Log.i("urls",urls.toString());
+                    if(urls.size()==models.size())
+                        back.back();
                 }
 
                 @Override
@@ -114,10 +121,7 @@ public class HelpMainFragment extends Fragment implements AdapterView.OnItemClic
         return urls;
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Intent intent=new Intent(getActivity(),HelpActivity.class);
-        HelpActivity.setModel(models.get(i),urls.get(i));
-        startActivity(intent);
+    private interface OnSuccessBack{
+        public void back();
     }
 }

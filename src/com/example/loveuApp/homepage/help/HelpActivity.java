@@ -2,6 +2,8 @@ package com.example.loveuApp.homepage.help;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.loveuApp.R;
@@ -38,4 +40,5 @@ public class HelpActivity extends Activity{
         time= (TextView) findViewById(R.id.help_activity_time);
         information= (TextView) findViewById(R.id.help_activity_infor);
     }
+
 }
