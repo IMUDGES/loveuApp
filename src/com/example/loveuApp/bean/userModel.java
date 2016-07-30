@@ -5,7 +5,7 @@ package com.example.loveuApp.bean;
  */
 public class userModel {
 
-    private String state;
+
     private Integer UserId;
     private String UserPhone;
     private String PassWord;
@@ -15,7 +15,11 @@ public class userModel {
     private String UserGrade;
     private String UserPhoto;
     private String SecretKey;
+
+
+
     private String UserMajor;
+    private String state;
     private String msg;
 
     public userModel(){

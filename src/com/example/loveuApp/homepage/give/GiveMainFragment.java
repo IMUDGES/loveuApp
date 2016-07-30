@@ -15,26 +15,4 @@ public class GiveMainFragment extends Fragment{
         View view = inflater.inflate(R.layout.givemain, container, false);
         return view;
     }
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        // mListView = (ListView) getActivity().findViewById(R.id.givefragment_listview);
-       /* RequestParams params = new RequestParams();
-        params.put("","");
-        GiveService service = new GiveService();
-        service.get(getActivity(), "未知", params, new Listener() {
-            @Override
-            public void onSuccess(Object object) {
-                data = (List<GiveModel>) object;
-            }
-
-            @Override
-            public void onFailure(String msg) {
-                Toast.makeText(getActivity(),msg,Toast.LENGTH_SHORT).show();
-            }
-        });
-        mListView.setAdapter(new GiveMainListAdapter(data,getActivity()));*/
-
-    }
 }

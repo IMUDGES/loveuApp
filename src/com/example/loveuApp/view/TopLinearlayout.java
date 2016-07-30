@@ -16,7 +16,8 @@ import android.widget.TextView;
 public class TopLinearlayout extends LinearLayout {
 
 	private ViewPager mViewPager;
-
+	private LinearLayout root;
+	private MenuView mMenuView;
 	private FragmentManager mFragmentManager;
 	private FragmentTransaction mFragmentTransaction;
 	private Fragment mFragments[];
@@ -38,7 +39,7 @@ public class TopLinearlayout extends LinearLayout {
 
 	/**
 	 * 指示器跟随手指移动
-	 * 
+	 *
 	 * @param position
 	 * @param offset
 	 */
@@ -53,7 +54,7 @@ public class TopLinearlayout extends LinearLayout {
 		mFragmentTransaction = fragmentTransaction;
 		mFragments = fragments;
 		setItemClickEvent();
-		higthLightTextView(0);
+		//higthLightTextView(0);
 	}
 
 	public void setViewPage(ViewPager viewPager, int pos) {
@@ -65,7 +66,7 @@ public class TopLinearlayout extends LinearLayout {
 
 			public void onPageSelected(int position) {
 				// TODO Auto-generated method stub
-				higthLightTextView(position);
+				//higthLightTextView(position);
 				nowposition = position;
 			}
 
@@ -83,7 +84,7 @@ public class TopLinearlayout extends LinearLayout {
 
 		mViewPager.setCurrentItem(pos);
 
-		higthLightTextView(pos);
+		//higthLightTextView(pos);
 	}
 
 	private void resetTextViewColor() {
@@ -96,7 +97,7 @@ public class TopLinearlayout extends LinearLayout {
 	}
 
 	private void higthLightTextView(int pos) {
-		resetTextViewColor();
+		//resetTextViewColor();
 		View view = getChildAt(pos);
 		if (view instanceof TextView) {
 			((TextView) view).setTextColor(COLOR_TEXT_HIGHLIGHT);
@@ -109,7 +110,7 @@ public class TopLinearlayout extends LinearLayout {
 	private void setItemClickEvent() {
 		int cCount = getChildCount();
 		for (int i = 0; i < cCount; i++) {
-			
+
 			final int j = i;
 
 			View view = getChildAt(i);
@@ -123,10 +124,10 @@ public class TopLinearlayout extends LinearLayout {
 						return;
 					}
 					nowposition = j;
-					resetTextViewColor();
-					higthLightTextView(j);
+					//resetTextViewColor();
+					//higthLightTextView(j);
 					switch (j) {
-					
+
 					case 0:
 						mFragmentTransaction = mFragmentManager
 								.beginTransaction().hide(mFragments[1])
@@ -145,6 +146,8 @@ public class TopLinearlayout extends LinearLayout {
 						.beginTransaction().hide(mFragments[0])
 						.hide(mFragments[1]).hide(mFragments[3]).hide(mFragments[4]);
 				mFragmentTransaction.show(mFragments[2]).commit();
+						TestFragment fragment = (TestFragment) mFragments[2];
+						fragment.doView();
 						break;
 					case 3:
 						mFragmentTransaction = mFragmentManager

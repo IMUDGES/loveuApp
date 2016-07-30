@@ -7,15 +7,18 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.example.loveuApp.R;
 
 
@@ -111,7 +114,8 @@ public class MenuView extends ViewGroup {
     /**
      * 设置菜单按钮的图片和文案
      */
-    public void setMenuResource(int[] drawables, String[] mTitles) {
+    public void setMenuResource(int[] drawables, String[] mTitles,Context context) {
+        this.mContext = context;
         if (drawables == null || mTitles == null)
             return;
 
@@ -157,7 +161,8 @@ public class MenuView extends ViewGroup {
      */
     public void showMenu(){
         int count = getChildCount();
-        int screenHeight = getMeasuredHeight();
+        int screenHeight = getScreemWidth();
+        Toast.makeText(getContext(),screenHeight+"",Toast.LENGTH_SHORT).show();
         for (int i = 0; i < count; i++) {
             final  View child = getChildAt(i);
             final float  startY= child.getY();
@@ -225,7 +230,9 @@ public class MenuView extends ViewGroup {
         isMenuShowing = false;
     }
 
+    private Context mContext;
     public void toggleMenu(){
+
         if (isMenuShowing){
             closeMenu();
         }else{
@@ -243,5 +250,14 @@ public class MenuView extends ViewGroup {
 
     private int dpToPx(int dp){
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,dp,getResources().getDisplayMetrics());
+    }
+
+    private int getScreemWidth() {
+
+        WindowManager wmManager = (WindowManager) mContext
+                .getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        wmManager.getDefaultDisplay().getMetrics(outMetrics);
+        return outMetrics.heightPixels;
     }
 }

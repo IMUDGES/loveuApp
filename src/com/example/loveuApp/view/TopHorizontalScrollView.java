@@ -17,8 +17,8 @@ import android.widget.Toast;
 public class TopHorizontalScrollView extends HorizontalScrollView {
 
 	private Context mContext;
-	private static final int COLOR_TEXT_NORMAL = 0X77FFFFFF;
-	private static final int COLOR_TEXT_HIGHLIGHT = 0XFFFFFFFF;
+	private static final int COLOR_TEXT_NORMAL = 0X77000000;
+	private static final int COLOR_TEXT_HIGHLIGHT = 0Xff0099ff;
 	private ViewPager mPager;
 	private int nowposition;
 	private LinearLayout layout;

@@ -52,13 +52,14 @@ public class TestFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mMenuView = (MenuView) getActivity().findViewById(R.id.menu_view);
 
-        mMenuView.setMenuResource(mDrawables,mTitles);
+        mMenuView.setMenuResource(mDrawables,mTitles,getActivity());
         mMenuView.setOnMenuClickListener(new MenuView.onMenuClickListener() {
             @Override
             public void onMenuClick(int position) {
                 Toast.makeText(getActivity(),""+(position+1),Toast.LENGTH_SHORT).show();
             }
         });
+
         button = (Button) getActivity().findViewById(R.id.button_start);
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +68,10 @@ public class TestFragment extends Fragment {
                 mMenuView.toggleMenu();
             }
         });
-        //mMenuView.toggleMenu();
+
     }
+   public void doView(){
+       mMenuView.toggleMenu();
+   }
 
 }

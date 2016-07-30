@@ -60,7 +60,7 @@ public class LoginFragment extends Fragment {
 
     private void initView() {
         usernameEditText = (EditText) getActivity().findViewById(R.id.login_zhanghao);
-        passwordEditText = (EditText) getActivity().findViewById(R.id.login_password);
+        passwordEditText = (EditText) getActivity().findViewById(R.id.login_mima);
         loginButton = (Button) getActivity().findViewById(R.id.login_button);
         toRegister = (TextView) getActivity().findViewById(R.id.login_register);
     }
@@ -100,4 +100,5 @@ public class LoginFragment extends Fragment {
             }
         });
     }
+
 }

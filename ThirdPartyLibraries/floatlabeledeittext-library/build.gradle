@@ -1,0 +1,27 @@
+apply plugin: 'com.android.library'
+
+dependencies {
+  compile 'com.nineoldandroids:library:2.4.0'
+}
+
+android {
+  compileSdkVersion 19
+  buildToolsVersion '19.1.0'
+
+  defaultConfig {
+    versionCode 6
+    versionName "0.0.6"
+    minSdkVersion 7
+    targetSdkVersion 19
+  }
+
+  sourceSets {
+    main {
+      manifest.srcFile 'AndroidManifest.xml'
+      java.srcDirs = ['src']
+      res.srcDirs = ['res']
+    }
+  }
+}
+
+apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'

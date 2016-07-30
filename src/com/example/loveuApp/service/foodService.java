@@ -28,8 +28,8 @@ public class foodService {
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                foodModel model=new Gson().fromJson(new String(bytes),foodModel.class);
-                listener.onFailure(model.getMsg());
+//                foodModel model=new Gson().fromJson(new String(bytes),foodModel.class);
+//                listener.onFailure(model.getMsg());
             }
         });
     }

@@ -1,10 +1,10 @@
-package floatlabelededittext;
+package com.wrapp.floatlabelededittext;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.view.View;
-
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Utils {
 	

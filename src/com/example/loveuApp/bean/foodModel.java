@@ -12,7 +12,7 @@ public class foodModel {
     private String GetUser;
     private String FoodTime;
     private String FoodWay;
-    private Integer state;
+    private Integer State;
     private String msg;
 
     public foodModel(){
@@ -28,8 +28,9 @@ public class foodModel {
         FoodWay = foodWay;
         GetUser = getUser;
         this.msg = msg;
-        this.state = state;
+        this.State = state;
         UserId = userId;
+
     }
 
     public String getFoodArea() {
@@ -89,11 +90,11 @@ public class foodModel {
     }
 
     public Integer getState() {
-        return state;
+        return State;
     }
 
     public void setState(Integer state) {
-        this.state = state;
+        this.State = state;
     }
 
     public Integer getUserId() {

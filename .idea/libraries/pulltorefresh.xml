@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="pulltorefresh">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://E:/迅雷下载/Android-PullToRefresh-master(1)/Android-PullToRefresh-master/extras/PullToRefreshListFragment/src" />
+      <root url="file://E:/迅雷下载/Android-PullToRefresh-master(1)/Android-PullToRefresh-master/extras/PullToRefreshViewPager/src" />
+      <root url="file://$PROJECT_DIR$/ThirdPartyLibraries/library/src" />
+      <root url="file://E:/迅雷下载/Android-PullToRefresh-master(1)/Android-PullToRefresh-master/sample/src" />
+    </SOURCES>
+  </library>
+</component>

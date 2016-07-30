@@ -1,4 +1,4 @@
-package floatlabelededittext;
+package com.wrapp.floatlabelededittext;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.example.loveuApp.R;
+
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorListenerAdapter;
 import com.nineoldandroids.animation.AnimatorSet;
