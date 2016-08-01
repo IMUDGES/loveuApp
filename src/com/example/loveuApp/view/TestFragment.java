@@ -70,8 +70,4 @@ public class TestFragment extends Fragment {
         });
 
     }
-   public void doView(){
-       mMenuView.toggleMenu();
-   }
-
 }

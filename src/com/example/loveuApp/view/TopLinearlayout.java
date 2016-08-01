@@ -146,8 +146,6 @@ public class TopLinearlayout extends LinearLayout {
 						.beginTransaction().hide(mFragments[0])
 						.hide(mFragments[1]).hide(mFragments[3]).hide(mFragments[4]);
 				mFragmentTransaction.show(mFragments[2]).commit();
-						TestFragment fragment = (TestFragment) mFragments[2];
-						fragment.doView();
 						break;
 					case 3:
 						mFragmentTransaction = mFragmentManager

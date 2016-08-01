@@ -70,7 +70,7 @@ public class HelpListAdapter extends BaseAdapter {
         }
 
         viewHolder.money.setText(models.get(i).getHelpMoney()+"");
-        viewHolder.infor.setText(TextViewToDBC.ToDBC(models.get(i).getHelpInformation()));
+        viewHolder.infor.setText("    "+TextViewToDBC.ToDBC(models.get(i).getHelpInformation()));
         viewHolder.time.setText(models.get(i).getDownTime());
         viewHolder.username.setText(urls.get(i).getNickName());
         if(viewHolder.bitmap!=null){
@@ -78,10 +78,22 @@ public class HelpListAdapter extends BaseAdapter {
         }else{
             new photoAsyncTask(viewHolder.imageView,viewHolder).execute(urls.get(i).getUserPhoto());
         }
+        final ViewHolder finalViewHolder = viewHolder;
         viewHolder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context,i+"", Toast.LENGTH_SHORT).show();
+                switch (finalViewHolder.button.getText()+""){
+                    case "+":
+                        finalViewHolder.infor.setSingleLine(false);
+                        finalViewHolder.infor.setText("    "+TextViewToDBC.ToDBC(models.get(i).getHelpInformation()));
+                        finalViewHolder.button.setText("×");
+                        break;
+                    case "×":
+                        finalViewHolder.infor.setSingleLine(true);
+                        finalViewHolder.infor.setText("    "+TextViewToDBC.ToDBC(models.get(i).getHelpInformation()));
+                        finalViewHolder.button.setText("+");
+                        break;
+                }
             }
         });
         return convertView;

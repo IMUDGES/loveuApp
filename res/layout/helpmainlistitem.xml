@@ -33,9 +33,9 @@
                   android:layout_height="wrap_content"
                   android:layout_below="@+id/help_item_username"
                   android:layout_toRightOf="@+id/help_item_image"/>
-        <Button android:layout_width="wrap_content"
+        <Button android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:text="+关注"
+                android:text="+"
                 android:focusable="false"
                 android:gravity="center"
                 android:id="@+id/help_item_addfriend"
@@ -46,11 +46,10 @@
 
     <TextView android:layout_width="match_parent"
               android:id="@+id/help_item_infor"
-              android:textSize="18dp"
+              android:textColor="@color/dark_grey"
               android:shadowRadius="3.0"
-              android:maxLines="3"
+              android:singleLine="true"
               android:layout_marginTop="5dp"
-              android:textColor="#121212"
               android:layout_height="wrap_content"/>
 
     <LinearLayout android:layout_width="match_parent"
@@ -70,6 +69,7 @@
                   android:gravity="center_vertical"
                   android:layout_height="match_parent"/>
     </LinearLayout>
+
     <LinearLayout android:layout_width="match_parent"
                   android:orientation="horizontal"
                   android:layout_height="25dp">
@@ -79,6 +79,7 @@
                   android:textColor="#0abdff"
                   android:layout_height="match_parent"/>
         <ImageView android:layout_width="40dp"
+                   android:padding="2dp"
                    android:src="@drawable/time"
                    android:layout_height="match_parent"/>
         <TextView android:layout_width="wrap_content"

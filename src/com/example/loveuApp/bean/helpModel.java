@@ -13,7 +13,18 @@ public class helpModel {
     private Integer GetUser;
     private Integer State;
     private Integer Finish;
+    private Integer state;
     private String msg;
+
+    public Integer getstate() {
+        return state;
+    }
+
+    public void setstate(Integer state) {
+        this.state = state;
+    }
+
+
 
     public helpModel(){
 

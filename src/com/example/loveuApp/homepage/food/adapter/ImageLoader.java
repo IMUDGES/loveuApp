@@ -14,6 +14,7 @@ import com.example.loveuApp.R;
 import com.example.loveuApp.bean.userModel;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.service.userService;
+import com.example.loveuApp.util.PhotoCut;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.loopj.android.http.RequestParams;
 import org.apache.http.HttpRequest;
@@ -71,7 +72,7 @@ public class ImageLoader {
 
         } else {
             imageView.setImageDrawable(null);
-            imageView.setImageBitmap(bitmap);
+            imageView.setImageBitmap(PhotoCut.toRoundBitmap(bitmap));
         }
 
     }
@@ -162,7 +163,7 @@ public class ImageLoader {
 
             if (imageView != null && bitmap != null) {
                 Log.i("find", "ok");
-                imageView.setImageBitmap(bitmap);
+                imageView.setImageBitmap(PhotoCut.toRoundBitmap(bitmap));
             }else Log.i("imageVIew","null");
             mTask.remove(this);
         }
