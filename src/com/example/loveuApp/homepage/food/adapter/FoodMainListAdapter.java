@@ -25,12 +25,11 @@ import java.util.List;
 public class FoodMainListAdapter extends BaseAdapter implements AbsListView.OnScrollListener{
     private int mStart, mEnd;
     private boolean mFirstIn;
-    private  int [] UserIds;
     public static String [] URLS;
     private ImageLoader mImageLoader;
-    private List<foodModel> data;
+    public List<foodModel> data;
     private Context mContext;
-    private List<userModel> modelList;
+    public List<userModel> modelList;
     public FoodMainListAdapter(List<foodModel> data, Context mContext, PullToRefreshListView listView,String [] urls,List<userModel> modelList) {
         this.data = data;
         this.mContext = mContext;
@@ -100,7 +99,8 @@ public class FoodMainListAdapter extends BaseAdapter implements AbsListView.OnSc
 
         String time = data.get(i).getFoodTime();
         String info = data.get(i).getFoodInformation();
-        if (info.length()>20)
+
+        if (info.length()>20&&info!=null)
             info = info.substring(0,31);
         viewHolder.info.setText("        "+info+"...");
         viewHolder.time.setText(data.get(i).getFoodTime());
@@ -157,6 +157,15 @@ public class FoodMainListAdapter extends BaseAdapter implements AbsListView.OnSc
             mImageLoader.loadImages(mStart, mEnd);
             mFirstIn = false;
         }
+    }
+
+
+    public void setData(List<foodModel> data,List<userModel> modelList){
+        this.data.clear();
+        this.data.addAll(data);
+        this.modelList.clear();
+        this.modelList.addAll(modelList);
+
     }
 
 

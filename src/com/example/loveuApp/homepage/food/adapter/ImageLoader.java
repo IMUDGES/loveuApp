@@ -121,7 +121,7 @@ public class ImageLoader {
                 mTask.add(task);
             } else {
                 ImageView imageView = (ImageView) mListView.findViewWithTag(url+i);
-                // imageView.setImageBitmap(bitmap);
+               // imageView.setImageBitmap(bitmap);
             }
 
         }

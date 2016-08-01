@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="wrap_content">
 
     <LinearLayout android:orientation="vertical"
                   android:layout_width="match_parent"
@@ -18,55 +18,74 @@
                    android:layout_height="50dp"/>
         <TextView android:layout_width="wrap_content"
                   android:text="admin"
+                  android:textColor="#121212"
+                  android:layout_marginLeft="10dp"
                   android:textSize="20dp"
                   android:layout_toEndOf="@+id/help_item_image"
                   android:layout_height="30dp"
                   android:id="@+id/help_item_username"/>
-        <Button android:layout_width="wrap_content"
+        <TextView android:layout_width="50dp"
+                  android:text="9LV"
+                  android:textColor="#ff6713"
+                  android:background="#ffb41b"
+                  android:layout_marginLeft="10dp"
+                  android:gravity="center"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@+id/help_item_username"
+                  android:layout_toRightOf="@+id/help_item_image"/>
+        <Button android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:text="关注"
+                android:text="+"
+                android:focusable="false"
+                android:gravity="center"
                 android:id="@+id/help_item_addfriend"
-                android:background="#000fff"
-                android:layout_alignParentRight="true"
-                />
+                android:background="@drawable/login_button_selector"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"/>
     </RelativeLayout>
-    <TextView android:layout_width="match_parent"
-              android:background="#000000"
-              android:layout_height="1px"/>
 
     <TextView android:layout_width="match_parent"
               android:id="@+id/help_item_infor"
+              android:textColor="@color/dark_grey"
+              android:shadowRadius="3.0"
+              android:singleLine="true"
+              android:layout_marginTop="5dp"
               android:layout_height="wrap_content"/>
 
-    <TextView android:layout_width="match_parent"
-              android:background="#000000"
-              android:layout_height="1px"/>
     <LinearLayout android:layout_width="match_parent"
                   android:orientation="horizontal"
                   android:layout_height="25dp">
         <TextView android:layout_width="wrap_content"
                   android:text="悬赏金额"
                   android:gravity="center"
+                  android:textColor="#0abdff"
                   android:layout_height="match_parent"/>
-        <ImageView android:layout_width="wrap_content"
-                   android:src="@drawable/ic_launcher"
+        <ImageView android:layout_width="40dp"
+                   android:src="@drawable/money"
                    android:layout_height="match_parent"/>
         <TextView android:layout_width="wrap_content"
                   android:id="@+id/help_item_money"
+                  android:textColor="#121212"
+                  android:gravity="center_vertical"
                   android:layout_height="match_parent"/>
     </LinearLayout>
+
     <LinearLayout android:layout_width="match_parent"
                   android:orientation="horizontal"
                   android:layout_height="25dp">
         <TextView android:layout_width="wrap_content"
                   android:text="下架时间"
                   android:gravity="center"
+                  android:textColor="#0abdff"
                   android:layout_height="match_parent"/>
-        <ImageView android:layout_width="wrap_content"
-                   android:src="@drawable/ic_launcher"
+        <ImageView android:layout_width="40dp"
+                   android:padding="2dp"
+                   android:src="@drawable/time"
                    android:layout_height="match_parent"/>
         <TextView android:layout_width="wrap_content"
                   android:id="@+id/help_item_time"
+                  android:textColor="#121212"
+                  android:gravity="center_vertical"
                   android:layout_height="match_parent"/>
     </LinearLayout>
 

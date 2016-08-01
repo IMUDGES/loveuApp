@@ -52,6 +52,7 @@ public class FoodMainFragment extends Fragment{
     private int page = 1;
     private String url = "http://183.175.14.250:5000/data";
     private List<userModel> modelList;
+    private boolean firstAdapter = true;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.foodmain, container, false);
@@ -71,6 +72,7 @@ public class FoodMainFragment extends Fragment{
                     mListView.onRefreshComplete();
                 }
                 getData();
+               // mAdapter.setData();
             }
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
@@ -102,70 +104,6 @@ public class FoodMainFragment extends Fragment{
         });
 
     }
-
-
-
-    private String readStream(InputStream is) {
-        InputStreamReader isr;
-        String result = "";
-        String line = "";
-        try {
-            isr = new InputStreamReader(is, "utf-8");
-            BufferedReader br = new BufferedReader(isr);
-            while ((line = br.readLine()) != null) {
-                result += line;
-            }
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return result;
-    }
-    /*private String [] loadUrls(String url) {
-       String [] URLS = new String[data.size()];
-        for (int i =0;i<data.size();i++){
-            try {
-                String jsonString = readStream(new URL(url).openStream());
-                Log.i("json",jsonString);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return URLS;
-    }*/
-
-    private String[] loadUrls(String url) {
-        Log.i("data.size()",data.size()+"");
-        String [] URLS = new String[data.size()];
-        for (int i = 0; i < data.size(); i++) {
-            Log.i("time",i+"");
-            final int j=i;
-            RequestParams params = new RequestParams();
-            params.put("UserId", data.get(i).getUserId());
-            Log.i("id",data.get(i).getUserId()+"");
-            userService service = new userService();
-            Log.i("time2",i+"");
-            service.get(getActivity(),"/data" , params, new Listener() {
-                @Override
-                public void onSuccess(Object object) {
-                    userModel temp = null;
-                    temp = (userModel) object;
-                    Log.i("fragment",temp.getUserId()+"");
-                    URLS[j] = temp.getUserPhoto();
-                    Log.i("fragment",URLS[j]);
-                }
-
-                @Override
-                public void onFailure(String msg) {
-                    Log.i("fragment","失败");
-
-                }
-            });
-        }
-
-        return URLS;
-    }
-
     class Task extends  AsyncTask<String,Void,String[]>{
         @Override
         protected String[] doInBackground(String... strings) {
@@ -175,7 +113,27 @@ public class FoodMainFragment extends Fragment{
         @Override
         protected void onPostExecute(String[] strings) {
             super.onPostExecute(strings);
-            mListView.setAdapter(new FoodMainListAdapter(data,getActivity(),mListView,strings,modelList) );
+
+            if (!firstAdapter){
+                Toast.makeText(getActivity(),"刷新",Toast.LENGTH_SHORT).show();
+                //mAdapter.setData(data,modelList);
+               String[] URLS = new String[modelList.size()];
+                for (int i =0;i<modelList.size();i++){
+                    URLS[i]=modelList.get(i).getUserPhoto();
+                    Log.i("adapter url",URLS[i]+"");
+                }
+                //mAdapter.modelList.clear();
+                mAdapter.modelList = modelList;
+                mAdapter.data = data;
+                mAdapter.URLS = URLS;
+                Log.i("size",mAdapter.modelList.size()+"");
+                mAdapter.notifyDataSetChanged();
+                mListView.onRefreshComplete();
+                return ;
+            }
+            mAdapter = new FoodMainListAdapter(data,getActivity(),mListView,strings,modelList);
+            mListView.setAdapter(mAdapter);
+            firstAdapter = false;
             mListView.onRefreshComplete();
             mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override

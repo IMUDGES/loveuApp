@@ -3,6 +3,7 @@
               android:orientation="vertical"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
+              android:id="@+id/root"
 >
     <fragment
             android:id="@+id/main_fragment1"
@@ -23,45 +24,62 @@
             android:name="com.example.loveuApp.view.TestFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="10" />
+            android:layout_weight="10"/>
 
     <fragment
             android:id="@+id/main_fragment4"
             android:name="com.example.loveuApp.right.RightFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="10" />
+            android:layout_weight="10"/>
     <fragment
             android:id="@+id/main_fragment5"
             android:name="com.example.loveuApp.message.MessageFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="10" />
+            android:layout_weight="10"/>
+    <View android:layout_width="match_parent" android:layout_height="2dp"
+          android:background="@color/light_grey"/>
 
     <com.example.loveuApp.view.TopLinearlayout
             android:id="@+id/id_layout"
             android:layout_width="match_parent"
-            android:layout_height="34dp"
-            android:background="@drawable/title"
-            android:layout_weight="1" >
+            android:layout_height="60dp"
+            android:background="#f5f5f5"
+            android:layout_weight="1">
 
-        <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="首页"
-                android:textColor="#ccffffff"
-                android:textSize="16sp" />
+        <LinearLayout android:layout_width="0dp" android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:gravity="center"
+                      android:orientation="vertical">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp"
+                       android:background="@drawable/tabbar_home"
+                       android:layout_gravity="center_horizontal"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="首页"
+                    android:textColor="#707070"
+                    android:textSize="10dp"/>
+        </LinearLayout>
 
-        <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="发现"
-                android:textColor="#ccffffff"
-                android:textSize="16sp" />
+
+        <LinearLayout android:layout_width="0dp" android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:gravity="center"
+                      android:orientation="vertical">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp"
+                       android:background="@drawable/tabbar_discover"
+                       android:layout_gravity="center_horizontal"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="发现"
+                    android:textColor="#707070"
+                    android:textSize="10dp"/>
+        </LinearLayout>
 
         <TextView
                 android:layout_width="0dp"
@@ -69,26 +87,41 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="新建"
-                android:textColor="#ccffffff"
-                android:textSize="16sp" />
+                android:textColor="#707070"
+                android:textSize="16sp"/>
 
-        <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="好友"
-                android:textColor="#ccffffff"
-                android:textSize="16sp" />
-        <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="消息"
-                android:textColor="#ccffffff"
-                android:textSize="16sp" />
+        <LinearLayout android:layout_width="0dp" android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:gravity="center"
+                      android:orientation="vertical">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp"
+                       android:background="@drawable/tabbar_message_center"
+                       android:layout_gravity="center_horizontal"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="好友"
+                    android:textColor="#707070"
+                    android:textSize="10dp"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="0dp" android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:gravity="center"
+                      android:orientation="vertical">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp"
+                       android:background="@drawable/tabbar_profile"
+                       android:layout_gravity="center_horizontal"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="我"
+                    android:textColor="#707070"
+                    android:textSize="10dp"/>
+        </LinearLayout>
     </com.example.loveuApp.view.TopLinearlayout>
+
 
 </LinearLayout>
 
