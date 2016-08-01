@@ -7,14 +7,13 @@
       android:layout_width="match_parent"
       android:layout_height="match_parent"/>
 
-<Button
+ <Button
         android:id="@+id/button_start"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:text="START"/>
-
 
 
 </RelativeLayout>

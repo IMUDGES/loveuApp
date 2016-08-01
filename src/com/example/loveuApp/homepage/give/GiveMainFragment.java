@@ -20,6 +20,7 @@ import com.example.loveuApp.homepage.give.adapter.GiveMainListAdapter;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.service.giveService;
 import com.example.loveuApp.service.userService;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.loopj.android.http.RequestParams;
 
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ import java.util.List;
 
 
 public class GiveMainFragment extends Fragment implements AdapterView.OnItemClickListener{
-    private ListView listView;
+    private PullToRefreshListView listView;
     private GiveMainListAdapter adapter;
     private List<giveModel> giveModels;
     private List<userModel> users;
@@ -40,9 +41,9 @@ public class GiveMainFragment extends Fragment implements AdapterView.OnItemClic
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        listView= (ListView) getView().findViewById(R.id.giveListView);
-        getGiveModels();
-        getUsers();
+        listView= (PullToRefreshListView) getView().findViewById(R.id.giveListView);
+//        getGiveModels();
+//        getUsers();
         successbBack=new OnSuccessBack() {
             @Override
             public void successbBack() {

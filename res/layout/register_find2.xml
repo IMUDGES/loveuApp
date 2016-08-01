@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="@color/light_grey"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView android:layout_width="match_parent" android:layout_height="60dp"
+              android:paddingTop="30dp"
+              android:text="@string/find_title"
+              android:textSize="22sp"
+              android:background="@color/title_blue"
+              android:gravity="center_horizontal"
+              android:textColor="@color/white"/>
+
+    <floatlabelededittext.FloatLabeledEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <EditText android:layout_width="match_parent" android:layout_height="40dp"
+                  android:hint="@string/set_password1"
+                  android:id="@+id/find_password1"
+                  style="@style/login_edit"
+                  android:padding="5dp"
+                  android:layout_marginTop="22dp"
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginRight="10dp"
+                  android:gravity="center_vertical"
+                  android:inputType="textPassword"/>
+    </floatlabelededittext.FloatLabeledEditText>
+
+    <floatlabelededittext.FloatLabeledEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <EditText android:layout_width="match_parent"
+                  android:layout_height="40dp"
+                  android:hint="@string/set_password2"
+                  android:id="@+id/find_password2"
+                  android:inputType="textPassword"
+                  style="@style/login_edit"
+                  android:layout_marginTop="22dp"
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginRight="10dp"
+                  android:gravity="center_vertical"/>
+    </floatlabelededittext.FloatLabeledEditText>
+
+    <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:background="@drawable/login_button_selector"
+            android:layout_marginTop="30dp"
+            android:id="@+id/find_accomplish"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/accomplish"/>
+</LinearLayout>

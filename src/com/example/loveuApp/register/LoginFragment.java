@@ -24,11 +24,13 @@ public class LoginFragment extends Fragment {
     private EditText usernameEditText;
     private EditText passwordEditText;
     private TextView toRegister;
+    private TextView toFind;
     private FLoginBtnClick fLoginBtnClick;
 
     public interface FLoginBtnClick {
         void onFLoginTrue();
         void onToRegisterClick();
+        void onToFindClick();
     }
 
     @Override
@@ -56,13 +58,23 @@ public class LoginFragment extends Fragment {
                 }
             }
         });
+
+        toFind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (getActivity() instanceof FLoginBtnClick) {
+                    ((FLoginBtnClick) getActivity()).onToFindClick();
+                }
+            }
+        });
     }
 
     private void initView() {
         usernameEditText = (EditText) getActivity().findViewById(R.id.login_zhanghao);
-        passwordEditText = (EditText) getActivity().findViewById(R.id.login_mima);
+        passwordEditText = (EditText) getActivity().findViewById(R.id.login_password);
         loginButton = (Button) getActivity().findViewById(R.id.login_button);
         toRegister = (TextView) getActivity().findViewById(R.id.login_register);
+        toFind = (TextView) getActivity().findViewById(R.id.login_losspass);
     }
 
     private void login() {
@@ -100,5 +112,4 @@ public class LoginFragment extends Fragment {
             }
         });
     }
-
 }

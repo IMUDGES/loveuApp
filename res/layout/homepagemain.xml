@@ -26,7 +26,7 @@ android:background="@color/light_grey">
             android:id="@+id/homefragment_scrollview"
             android:layout_width="match_parent"
             android:layout_height="34dp"
-            android:background="@color/light_grey"
+            android:background="@drawable/title"
             android:scrollbars="none" >
 
         <LinearLayout
@@ -39,15 +39,12 @@ android:background="@color/light_grey">
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@color/black"
                     android:gravity="center"
                     android:paddingTop="5dp"
                     android:text="food"
                     android:textSize="18dp" />
 
-
             <TextView
-                    android:textColor="@color/black"
                     android:id="@+id/homefragment_scorllViewTv2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -58,7 +55,6 @@ android:background="@color/light_grey">
                     android:textSize="18dp" />
 
             <TextView
-                    android:textColor="@color/black"
                     android:id="@+id/homefragment_scorllViewTv3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -69,7 +65,6 @@ android:background="@color/light_grey">
                     android:textSize="18dp" />
 
             <TextView
-                    android:textColor="@color/black"
                     android:id="@+id/homefragment_scorllViewTv4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -80,7 +75,6 @@ android:background="@color/light_grey">
                     android:textSize="18dp" />
 
             <TextView
-                    android:textColor="@color/black"
                     android:id="@+id/homefragment_scorllViewTv5"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -90,7 +84,6 @@ android:background="@color/light_grey">
                     android:text="run"
                     android:textSize="18dp" />
             <TextView
-                    android:textColor="@color/black"
                     android:id="@+id/homefragment_scorllViewTv6"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -101,8 +94,6 @@ android:background="@color/light_grey">
                     android:textSize="18dp" />
         </LinearLayout>
     </com.example.loveuApp.view.TopHorizontalScrollView>
-    <View android:layout_width="match_parent" android:layout_height="1dp"
-          android:background="@color/dark_grey"/>
 
     <android.support.v4.view.ViewPager
             android:id="@+id/homefragment_viewpager"
