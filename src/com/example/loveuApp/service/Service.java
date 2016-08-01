@@ -1,6 +1,7 @@
 package com.example.loveuApp.service;
 
 import android.content.Context;
+import android.util.Log;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.util.HttpRequest;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -21,6 +22,7 @@ public class Service {
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+                Log.i("tag",new String(bytes));
                 listener.onFailure("网络请求失败");
             }
         });
@@ -35,6 +37,7 @@ public class Service {
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+                Log.i("tag",new String(bytes));
                 listener.onFailure("网络请求失败");
             }
         });

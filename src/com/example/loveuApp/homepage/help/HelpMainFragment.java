@@ -53,26 +53,43 @@ public class HelpMainFragment extends Fragment{
     private PullToRefreshListView listView;
     private HelpListAdapter adapter;
     private List<helpModel> models;
-    private List<userModel> urls;
     private OnSuccessBack back;
+
+    private int PAGEINT;
+    private boolean REFU=true;
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        REFU=true;
         listView= (PullToRefreshListView) getView().findViewById(R.id.helpListView);
         models=new ArrayList<>();
-        urls=new ArrayList<>();
 
         getData();
 
         back=new OnSuccessBack() {
             @Override
-            public void back() {
-                Log.i("models",models.size()+"");
-                Log.i("urls",urls.size()+"");
+            public void Refuback() {
                 listView.onRefreshComplete();
-                adapter=new HelpListAdapter(getActivity(),models,urls);
-                listView.setAdapter(adapter);
+                if(REFU) {
+                    Log.i("information","REFU==true");
+                    adapter = new HelpListAdapter(getActivity(), models);
+                    listView.setAdapter(adapter);
+                    REFU=false;
+                }else{
+                    Log.i("information","REFU==false");
+                    adapter.setModels(models);
+                    adapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void Pullback() {
+                Log.i("models",models.size()+"");
+                listView.onRefreshComplete();
+                adapter.setModels(models);
+                adapter.notifyDataSetChanged();
             }
         };
         //刷新加载
@@ -83,26 +100,33 @@ public class HelpMainFragment extends Fragment{
                     Toast.makeText(getActivity(),"网络错误",Toast.LENGTH_SHORT).show();
                     listView.onRefreshComplete();
                 }
-                urls=new ArrayList<>();
+                PAGEINT=2;
                 getData();
             }
 
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
-                return;
+                if(!isNetworkConnected(getActivity())){
+                    Toast.makeText(getActivity(),"网络错误",Toast.LENGTH_SHORT).show();
+                    listView.onRefreshComplete();
+                }
+                pullDown();
             }
         });
         //点击回调
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Log.i("i",i+"");
                 showDialog(i-1);
             }
         });
     }
 
+
+
     /**
-     * 获取数据源函数getData(),getUrls()
+     * 刷新获取数据源函数getData()
      * @return
      */
     private List<helpModel> getData(){
@@ -115,8 +139,12 @@ public class HelpMainFragment extends Fragment{
             @Override
             public void onSuccess(Object object) {
                 models= (List<helpModel>) object;
+                if(models.get(0).getNumber()==0){
+                    listView.onRefreshComplete();
+                    return;
+                }
                 models.remove(0);
-                getUrls();
+                back.Refuback();
             }
 
             @Override
@@ -127,44 +155,41 @@ public class HelpMainFragment extends Fragment{
         return models;
     }
 
-    public List<userModel> getUrls() {
-        Log.i("msg","getURLs()");
-        List<String>ids=new ArrayList<>();
-        List<helpModel> mmo=models;
-        Log.i("msg","getData():"+mmo.size());
-        for(int i=0;i<mmo.size();i++){
-            ids.add(mmo.get(i).getUserId()+"");
-            Log.i("msg",mmo.get(i).getUserId()+"");
-        }
-
-        String url="data";
-        for (String id:ids){
-            RequestParams params=new RequestParams();
-            userService service=new userService();
-            params.put("UserId",id);
-            service.get(getActivity(), url, params, new Listener() {
-                @Override
-                public void onSuccess(Object object) {
-                    urls.add((userModel) object);
-                    Log.i("urls",urls.toString());
-                    if(urls.size()==models.size())
-                        back.back();
+    /**
+     * pullDown()
+     */
+    private void pullDown() {
+        String url="help";
+        RequestParams params=new RequestParams();
+        helpService service=new helpService();
+        params.add("page",PAGEINT+"");
+        PAGEINT++;
+        service.get(getActivity(), url, params, new Listener() {
+            @Override
+            public void onSuccess(Object object) {
+                if(((List<helpModel>) object).get(0).getNumber()==0){
+                    listView.onRefreshComplete();
+                    return;
                 }
+                List<helpModel> mm= (List<helpModel>) object;
+                mm.remove(0);
+                models.addAll(mm);
+                back.Refuback();
+            }
 
-                @Override
-                public void onFailure(String msg) {
-
-                }
-            });
-        }
-        return urls;
+            @Override
+            public void onFailure(String msg) {
+                Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     /**
      * 回调接口
      */
     private interface OnSuccessBack{
-        public void back();
+        public void Refuback();
+        public void Pullback();
     }
 
     /**
@@ -186,24 +211,24 @@ public class HelpMainFragment extends Fragment{
 
     /**
      * 详细信息
-     * @param i
+     * @param k
      */
 
-    public void showDialog(int i){
+    public void showDialog(int k){
         //Theme_DeviceDefault_Light_Dialog
         AlertDialog.Builder dialog=new AlertDialog.Builder(getActivity(),android.R.style.Theme_DeviceDefault_Light_Dialog);
-        dialog.setTitle("金额:  "+models.get(i).getHelpMoney()+"元");
-        dialog.setMessage("        "+models.get(0).getHelpInformation());
+        dialog.setTitle("金额:  "+models.get(k).getHelpMoney()+"元");
+        dialog.setMessage("        "+models.get(k).getHelpInformation());
         dialog.setPositiveButton("答应他?", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                //agreeHelp(i);
+                agreeHelp(k);
             }
         });
         dialog.setNegativeButton("残忍拒绝", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {}});
-        new InnoAsyncTask(dialog).execute(urls.get(i).getUserPhoto());
+        new InnoAsyncTask(dialog).execute(models.get(k).getUserPhoto());
     }
 
     private void agreeHelp(int i) {
@@ -211,20 +236,22 @@ public class HelpMainFragment extends Fragment{
         Service service=new Service();
         RequestParams request=new RequestParams();
         request.put("UserPhone","11111111111");
-        request.put("SecretKey","4e91556f8169307bec052d62b9ea8606");
-        request.put("HelpId",i);
+        request.put("SecretKey","b7db48afb289f63d04d8f053824955bb");
+        request.put("HelpId",models.get(i).getHelpId());
         service.post(getActivity(), url, request, new Listener() {
             @Override
             public void onSuccess(Object object) {
                 helpModel model=new Gson().fromJson(new String((byte[]) object),helpModel.class);
                 if(1==model.getstate()){
                     Toast.makeText(getActivity(), model.getMsg(), Toast.LENGTH_SHORT).show();
+                    getData();
                 }else{
                     Toast.makeText(getActivity(), model.getMsg(), Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
             public void onFailure(String msg) {
+                Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -262,4 +289,6 @@ public class HelpMainFragment extends Fragment{
             super.onPostExecute(bitmap);
         }
     }
+
+
 }

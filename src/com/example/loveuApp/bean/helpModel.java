@@ -14,7 +14,20 @@ public class helpModel {
     private Integer State;
     private Integer Finish;
     private Integer state;
+
+    public Integer getNumber() {
+        return num;
+    }
+
+    public void setNumber(Integer number) {
+        num = number;
+    }
+
+    private Integer num;
     private String msg;
+
+    private String UserPhoto;
+    private String NickName;
 
     public Integer getstate() {
         return state;
@@ -22,25 +35,6 @@ public class helpModel {
 
     public void setstate(Integer state) {
         this.state = state;
-    }
-
-
-
-    public helpModel(){
-
-    }
-
-    public helpModel(String downTime, Integer finish, Integer getUser, Integer helpId, String helpInformation,
-                     Integer helpMoney, String msg, Integer state, Integer userId) {
-        DownTime = downTime;
-        Finish = finish;
-        GetUser = getUser;
-        HelpId = helpId;
-        HelpInformation = helpInformation;
-        HelpMoney = helpMoney;
-        this.msg = msg;
-        State = state;
-        UserId = userId;
     }
 
     public String getDownTime() {
@@ -99,6 +93,14 @@ public class helpModel {
         this.msg = msg;
     }
 
+    public String getNickName() {
+        return NickName;
+    }
+
+    public void setNickName(String nickName) {
+        NickName = nickName;
+    }
+
     public Integer getState() {
         return State;
     }
@@ -113,5 +115,13 @@ public class helpModel {
 
     public void setUserId(Integer userId) {
         UserId = userId;
+    }
+
+    public String getUserPhoto() {
+        return UserPhoto;
+    }
+
+    public void setUserPhoto(String userPhoto) {
+        UserPhoto = userPhoto;
     }
 }

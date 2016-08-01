@@ -5,8 +5,8 @@
               android:layout_height="match_parent">
 
     <com.handmark.pulltorefresh.library.PullToRefreshListView
-              android:id="@+id/helpListView"
             xmlns:ptr = "http://schemas.android.com/apk/res-auto"
+            android:id="@+id/helpListView"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="@color/white"
@@ -16,5 +16,7 @@
             android:headerDividersEnabled="false"
             android:smoothScrollbar="true"
 
-            ptr:ptrMode="both"/>
+            ptr:ptrMode="both"
+
+           />
 </LinearLayout>

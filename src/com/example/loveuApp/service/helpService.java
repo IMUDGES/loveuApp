@@ -1,6 +1,7 @@
 package com.example.loveuApp.service;
 
 import android.content.Context;
+import android.util.Log;
 import com.example.loveuApp.bean.helpModel;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.util.HttpRequest;
@@ -24,6 +25,7 @@ public class helpService {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
                 List<helpModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<helpModel>>(){}.getType());
+                //Log.i("information",new String(bytes));
                 listener.onSuccess(models);
             }
 

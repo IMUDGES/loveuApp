@@ -28,15 +28,16 @@ import java.util.List;
 public class HelpListAdapter extends BaseAdapter {
 
     private List<helpModel> models;
-    private List<userModel> urls;
     private Context context;
 
-    public HelpListAdapter(Context context, List<helpModel> models, List<userModel> urls) {
-        this.context = context;
+    public void setModels(List<helpModel> models) {
         this.models = models;
-        this.urls = urls;
     }
 
+    public HelpListAdapter(Context context, List<helpModel> models) {
+        this.context = context;
+        this.models = models;
+    }
     @Override
     public int getCount() {
         return models.size();
@@ -70,13 +71,13 @@ public class HelpListAdapter extends BaseAdapter {
         }
 
         viewHolder.money.setText(models.get(i).getHelpMoney()+"");
-        viewHolder.infor.setText("    "+TextViewToDBC.ToDBC(models.get(i).getHelpInformation()));
+        viewHolder.infor.setText("    "+models.get(i).getHelpInformation());
         viewHolder.time.setText(models.get(i).getDownTime());
-        viewHolder.username.setText(urls.get(i).getNickName());
+        viewHolder.username.setText(models.get(i).getNickName());
         if(viewHolder.bitmap!=null){
             viewHolder.imageView.setImageBitmap(PhotoCut.toRoundBitmap(viewHolder.bitmap));
         }else{
-            new photoAsyncTask(viewHolder.imageView,viewHolder).execute(urls.get(i).getUserPhoto());
+            new photoAsyncTask(viewHolder.imageView,viewHolder).execute(models.get(i).getUserPhoto());
         }
         final ViewHolder finalViewHolder = viewHolder;
         viewHolder.button.setOnClickListener(new View.OnClickListener() {
