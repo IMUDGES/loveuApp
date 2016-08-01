@@ -1,9 +1,13 @@
 package com.example.loveuApp.bean;
 
+import android.content.Intent;
+
+import java.io.Serializable;
+
 /**
  * Created by dy on 2016/7/26.
  */
-public class foodModel {
+public class foodModel implements Serializable {
 
     private Integer FoodId;
     private Integer UserId;
@@ -14,6 +18,7 @@ public class foodModel {
     private String FoodWay;
     private Integer State;
     private String msg;
+    private Integer state;
 
     public foodModel(){
 
@@ -31,6 +36,14 @@ public class foodModel {
         this.State = state;
         UserId = userId;
 
+    }
+
+    public Integer getstate(){
+        return state;
+    }
+
+    public void setstate(Integer state){
+        this.state = state;
     }
 
     public String getFoodArea() {

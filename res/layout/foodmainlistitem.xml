@@ -90,6 +90,19 @@
             android:textSize="13dp"
             android:layout_marginTop="2dp"
             android:layout_marginBottom="5dp"/>
+          <!--  <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="详情"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:paddingRight="3dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="1dp"
+                android:paddingBottom="1dp"
+                          android:id="@+id/foodfragment_listview_details"
+                android:background="#4d73ff"/>
+            </RelativeLayout>-->
         </LinearLayout>
     </LinearLayout>
     <View android:layout_width="match_parent" android:layout_height="1dp"

@@ -1,6 +1,9 @@
 package com.example.loveuApp.homepage.food.adapter;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +13,7 @@ import com.example.loveuApp.R;
 import com.example.loveuApp.bean.foodModel;
 import com.example.loveuApp.bean.userModel;
 
+import com.example.loveuApp.homepage.food.FoodDetailsActivity;
 import com.example.loveuApp.util.Tag;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
@@ -77,6 +81,7 @@ public class FoodMainListAdapter extends BaseAdapter implements AbsListView.OnSc
             viewHolder.Lv = (TextView) convertView.findViewById(R.id.foodfragment_listview_lv);
             viewHolder.sex = (TextView) convertView.findViewById(R.id.foodfragment_listview_sex);
             viewHolder.imageView = (ImageView) convertView.findViewById(R.id.foodfragment_listview_img);
+            //viewHolder.details = (TextView) convertView.findViewById(R.id.foodfragment_listview_details);
             convertView.setTag(viewHolder);
         }else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -108,10 +113,23 @@ public class FoodMainListAdapter extends BaseAdapter implements AbsListView.OnSc
             viewHolder.sex.setText("♀");
             viewHolder.sex.setBackgroundResource(R.drawable.foodlistview_sexgirl);
         }
-        // loadUrlsOneByOne(i);
-        Tag tag= new Tag(URLS[i],i);
+       /* viewHolder.details.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new Dialog()
+            }
+        });*/
         viewHolder.imageView.setTag(URLS[i]+i);
-        Log.i("waiTag",tag.murl+"  "+tag.mposition);
+        viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("data",data.get(i));
+                Intent intent = new Intent(mContext,FoodDetailsActivity.class);
+                intent.putExtras(bundle);
+                mContext.startActivity(intent);
+            }
+        });
         mImageLoader.showImage(viewHolder.imageView,URLS[i]);
 
 
@@ -148,6 +166,7 @@ public class FoodMainListAdapter extends BaseAdapter implements AbsListView.OnSc
 
 
     public class ViewHolder{
+        public TextView details;
         public TextView sex;
         public TextView Lv;
         public TextView arae;

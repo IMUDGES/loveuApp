@@ -18,5 +18,6 @@
         <activity android:name=".register.GuoQingZhuangBActivity"/>
         <activity android:name=".register.RegisterActivity"/>
         <activity android:name=".homepage.help.HelpActivity"/>
+        <activity android:name=".homepage.food.FoodDetailsActivity"/>
     </application>
 </manifest>
