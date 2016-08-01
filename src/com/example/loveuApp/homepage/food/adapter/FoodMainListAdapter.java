@@ -113,12 +113,7 @@ public class FoodMainListAdapter extends BaseAdapter implements AbsListView.OnSc
             viewHolder.sex.setText("♀");
             viewHolder.sex.setBackgroundResource(R.drawable.foodlistview_sexgirl);
         }
-       /* viewHolder.details.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new Dialog()
-            }
-        });*/
+
         viewHolder.imageView.setTag(URLS[i]+i);
         viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override

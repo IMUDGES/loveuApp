@@ -61,10 +61,8 @@ public class FoodMainFragment extends Fragment{
     @Override
     public void onActivityCreated( Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
         mListView = (PullToRefreshListView) getActivity().findViewById(R.id.foodfragment_listview);
         modelList = new ArrayList<>();
-
         mListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
@@ -73,20 +71,13 @@ public class FoodMainFragment extends Fragment{
                     mListView.onRefreshComplete();
                 }
                 getData();
-
             }
-
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
                 return;
             }
         });
-        Log.i("position","1");
-
         getData();
-
-
-
     }
 
     private void getData(){
@@ -99,11 +90,9 @@ public class FoodMainFragment extends Fragment{
                 data = (List<foodModel>) object;
                 for (int i =0;i<data.size();i++){
                     Log.i("data url",data.get(i).getUserId()+"");
-
                 }
                 data.remove(0);
                 new Task().execute(url);
-
             }
 
             @Override
@@ -113,70 +102,6 @@ public class FoodMainFragment extends Fragment{
         });
 
     }
-
-
-
-    private String readStream(InputStream is) {
-        InputStreamReader isr;
-        String result = "";
-        String line = "";
-        try {
-            isr = new InputStreamReader(is, "utf-8");
-            BufferedReader br = new BufferedReader(isr);
-            while ((line = br.readLine()) != null) {
-                result += line;
-            }
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return result;
-    }
-    /*private String [] loadUrls(String url) {
-       String [] URLS = new String[data.size()];
-        for (int i =0;i<data.size();i++){
-            try {
-                String jsonString = readStream(new URL(url).openStream());
-                Log.i("json",jsonString);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return URLS;
-    }*/
-
-    private String[] loadUrls(String url) {
-        Log.i("data.size()",data.size()+"");
-        String [] URLS = new String[data.size()];
-        for (int i = 0; i < data.size(); i++) {
-            Log.i("time",i+"");
-            final int j=i;
-            RequestParams params = new RequestParams();
-            params.put("UserId", data.get(i).getUserId());
-            Log.i("id",data.get(i).getUserId()+"");
-            userService service = new userService();
-            Log.i("time2",i+"");
-            service.get(getActivity(),"/data" , params, new Listener() {
-                @Override
-                public void onSuccess(Object object) {
-                    userModel temp = null;
-                    temp = (userModel) object;
-                    Log.i("fragment",temp.getUserId()+"");
-                    URLS[j] = temp.getUserPhoto();
-                    Log.i("fragment",URLS[j]);
-                }
-
-                @Override
-                public void onFailure(String msg) {
-                    Log.i("fragment","失败");
-
-                }
-            });
-        }
-
-        return URLS;
-    }
-
     class Task extends  AsyncTask<String,Void,String[]>{
         @Override
         protected String[] doInBackground(String... strings) {
@@ -221,7 +146,6 @@ public class FoodMainFragment extends Fragment{
                                             Toast.makeText(getActivity(),""+msg,Toast.LENGTH_SHORT).show();
                                         }
                                     });
-                                   // Toast.makeText(getActivity(),j+"",Toast.LENGTH_SHORT).show();
                                 }
                             })
                             .setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -232,8 +156,6 @@ public class FoodMainFragment extends Fragment{
                             })
                             .setIcon(R.drawable.empty_drafts)
                             .show();
-
-
                 }
             });
         }
@@ -287,9 +209,6 @@ public class FoodMainFragment extends Fragment{
         }
         return URLS;
     }
-
-
-
     public boolean isNetworkConnected(Context context) {
         if (context != null) {
             ConnectivityManager mConnectivityManager = (ConnectivityManager) context
@@ -301,8 +220,6 @@ public class FoodMainFragment extends Fragment{
         }
         return false;
     }
-
-
 }
 
 
