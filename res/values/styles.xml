@@ -12,13 +12,4 @@
         <item name="android:textCursorDrawable">@null</item>
     </style>
 
-    <style name="CustomActionBarTheme" parent="@android:style/Theme.DeviceDefault.Light">
-        <item name="android:actionBarStyle">@style/MyActionBar</item>
-    </style>
-
-    <style name="MyActionBar" parent="@android:style/Theme.DeviceDefault.Light">
-        <item name="android:background">@android:color/transparent</item>
-        <item name="android:backgroundStacked">@android:color/transparent</item>
-    </style>
-
 </resources>

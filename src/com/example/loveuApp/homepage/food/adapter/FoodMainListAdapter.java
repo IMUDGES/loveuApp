@@ -29,11 +29,9 @@ public class FoodMainListAdapter extends BaseAdapter implements AbsListView.OnSc
     private ImageLoader mImageLoader;
     public List<foodModel> data;
     private Context mContext;
-    public List<userModel> modelList;
-    public FoodMainListAdapter(List<foodModel> data, Context mContext, PullToRefreshListView listView,String [] urls,List<userModel> modelList) {
+    public FoodMainListAdapter(List<foodModel> data, Context mContext, PullToRefreshListView listView,String [] urls) {
         this.data = data;
         this.mContext = mContext;
-        this.modelList = modelList;
         if (data != null){
             Log.i("data","!null");
         }
@@ -86,9 +84,7 @@ public class FoodMainListAdapter extends BaseAdapter implements AbsListView.OnSc
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-//        Log.i("userids",UserIds[i]+"");
-        //viewHolder.imageView.setImageResource(R.drawable.ic_launcher);
-        viewHolder.name.setText(modelList.get(i).getNickName()+"");
+        viewHolder.name.setText(data.get(i).getNickName()+"");
         viewHolder.arae.setText(data.get(i).getFoodArea());
         viewHolder.way.setText(data.get(i).getFoodWay());
         if (data.get(i).getFoodWay() == "你请客"){
@@ -104,8 +100,8 @@ public class FoodMainListAdapter extends BaseAdapter implements AbsListView.OnSc
             info = info.substring(0,31);
         viewHolder.info.setText("        "+info+"...");
         viewHolder.time.setText(data.get(i).getFoodTime());
-        Log.i("sex",modelList.get(i).getUserSex()+"");
-        if(modelList.get(i).getUserSex()==1){
+        Log.i("sex",data.get(i).getUserSex()+"");
+        if(data.get(i).getUserSex()==1){
             viewHolder.sex.setText("♂");
             viewHolder.sex.setBackgroundResource(R.drawable.foodlistview_sexboy);
 
@@ -158,17 +154,6 @@ public class FoodMainListAdapter extends BaseAdapter implements AbsListView.OnSc
             mFirstIn = false;
         }
     }
-
-
-    public void setData(List<foodModel> data,List<userModel> modelList){
-        this.data.clear();
-        this.data.addAll(data);
-        this.modelList.clear();
-        this.modelList.addAll(modelList);
-
-    }
-
-
     public class ViewHolder{
         public TextView details;
         public TextView sex;

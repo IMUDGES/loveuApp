@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +17,11 @@ import com.example.loveuApp.bean.userModel;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.service.userService;
 import com.example.loveuApp.util.Md5;
-import com.example.loveuApp.util.checkString;
 import com.loopj.android.http.RequestParams;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 public class RegisterFragment extends Fragment implements View.OnClickListener {
     private Button getCheckButton;
@@ -36,6 +37,8 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     private boolean isGetCheckCode = false; //判断是否已经获取了验证码
 
     private static int BEGIN_TIME = 0;
+
+    //记得要写密码等editText带空格的情况!!!!
 
     public interface FRegisterClickListener {
         void onFRegisterClick();
@@ -106,7 +109,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                 String msg = userModel.getMsg();
                 if ("1".equals(state)) {
                     Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
-                    onGetCheckCodeSuccess();
+                    startTimeLimit();
                     //成功
                 } else {
                     Toast.makeText(getActivity(), "失败" + msg, Toast.LENGTH_SHORT).show();
@@ -138,7 +141,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
             return;
         }
 
-        if ((!checkString.compare(password1,getActivity())) || (!checkString.compare(nickname,getActivity()))) {
+        if ((!compare(password1)) || (!compare(nickname))) {
             Toast.makeText(getActivity(), "...", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -176,12 +179,11 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         });
     }
 
-    //成功获取验证码后
-    private void onGetCheckCodeSuccess() {
+    //开始计时
+    private void startTimeLimit() {
         checkTime = 1;
         handler.sendEmptyMessageDelayed(BEGIN_TIME, 1000);
         isGetCheckCode = true;
-        numberEditText.setFocusable(false);
     }
 
     Handler handler = new Handler() {
@@ -199,6 +201,17 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
             }
         }
     };
+
+    private boolean compare(String name) {
+        String regEx = "[ `~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]";
+        Pattern p = Pattern.compile(regEx);
+        Matcher m = p.matcher(name);
+        if (m.find()) {
+            Toast.makeText(getActivity(), "不允许输入特殊符号！", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
 
     @Override
     public void onDestroy() {

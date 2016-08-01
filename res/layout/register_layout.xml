@@ -16,7 +16,7 @@
 
     />
     <EditText android:layout_width="match_parent" android:layout_height="40dp"
-              android:inputType="phone"
+              android:inputType="number"
               android:hint="@string/set_phone"
               android:id="@+id/register_phonenumber"
               style="@style/login_edit"
@@ -95,7 +95,7 @@
             android:id="@+id/register_next"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="@string/next"/>
+            android:text="下一步"/>
 
 
 </LinearLayout>

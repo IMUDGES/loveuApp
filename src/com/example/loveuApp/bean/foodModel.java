@@ -19,6 +19,42 @@ public class foodModel implements Serializable {
     private Integer State;
     private String msg;
     private Integer state;
+    private String UserPhoto;
+    private String NickName;
+    private int UserSex;
+    private int num;
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
+    }
+
+    public String getNickName() {
+        return NickName;
+    }
+
+    public void setNickName(String nickName) {
+        NickName = nickName;
+    }
+
+    public int getUserSex() {
+        return UserSex;
+    }
+
+    public void setUserSex(int UserSex) {
+        this.UserSex = UserSex;
+    }
+
+    public String getUserPhoto() {
+        return UserPhoto;
+    }
+
+    public void setUserPhoto(String userPhoto) {
+        UserPhoto = userPhoto;
+    }
 
     public foodModel(){
 
