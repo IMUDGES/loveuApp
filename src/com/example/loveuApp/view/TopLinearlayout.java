@@ -10,8 +10,10 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.example.loveuApp.R;
 
 public class TopLinearlayout extends LinearLayout {
 
@@ -104,6 +106,8 @@ public class TopLinearlayout extends LinearLayout {
 		}
 	}
 
+
+
 	/**
 	 * 设置点击事件
 	 */
@@ -123,12 +127,15 @@ public class TopLinearlayout extends LinearLayout {
 					if (j == nowposition) {
 						return;
 					}
+
 					nowposition = j;
 					//resetTextViewColor();
 					//higthLightTextView(j);
 					switch (j) {
 
-					case 0:
+						case 0:
+
+
 						mFragmentTransaction = mFragmentManager
 								.beginTransaction().hide(mFragments[1])
 								.hide(mFragments[2]).hide(mFragments[3]).hide(mFragments[4]);
@@ -136,6 +143,7 @@ public class TopLinearlayout extends LinearLayout {
 						break;
 
 					case 1:
+
 						mFragmentTransaction = mFragmentManager
 						.beginTransaction().hide(mFragments[0])
 						.hide(mFragments[2]).hide(mFragments[3]).hide(mFragments[4]);
@@ -148,12 +156,14 @@ public class TopLinearlayout extends LinearLayout {
 				mFragmentTransaction.show(mFragments[2]).commit();
 						break;
 					case 3:
+
 						mFragmentTransaction = mFragmentManager
 						.beginTransaction().hide(mFragments[0])
 						.hide(mFragments[1]).hide(mFragments[2]).hide(mFragments[4]);
 				mFragmentTransaction.show(mFragments[3]).commit();
 						break;
 						case 4:
+
 							mFragmentTransaction = mFragmentManager
 									.beginTransaction().hide(mFragments[0])
 									.hide(mFragments[1]).hide(mFragments[2]).hide(mFragments[3]);

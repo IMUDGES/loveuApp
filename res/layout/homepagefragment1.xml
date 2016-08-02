@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/light_grey">
+    <com.example.loveuApp.view.TopHorizontalScrollView
+            android:id="@+id/homefragment_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:background="@color/light_grey"
+            android:scrollbars="none">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:id="@+id/homefragment_scorllViewTv1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:text="food"
+                    android:textSize="18dp"/>
+
+
+            <TextView
+                    android:textColor="@color/black"
+                    android:id="@+id/homefragment_scorllViewTv2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:text="give"
+                    android:textSize="18dp"/>
+
+            <TextView
+                    android:textColor="@color/black"
+                    android:id="@+id/homefragment_scorllViewTv3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:text="help"
+                    android:textSize="18dp"/>
+
+            <TextView
+                    android:textColor="@color/black"
+                    android:id="@+id/homefragment_scorllViewTv4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:text="pai"
+                    android:textSize="18dp"/>
+
+            <TextView
+                    android:textColor="@color/black"
+                    android:id="@+id/homefragment_scorllViewTv5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:text="run"
+                    android:textSize="18dp"/>
+            <TextView
+                    android:textColor="@color/black"
+                    android:id="@+id/homefragment_scorllViewTv6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:text="xue"
+                    android:textSize="18dp"/>
+        </LinearLayout>
+    </com.example.loveuApp.view.TopHorizontalScrollView>
+    <View android:layout_width="match_parent" android:layout_height="1dp"
+          android:background="@color/dark_grey"/>
+
+    <android.support.v4.view.ViewPager
+            android:id="@+id/homefragment_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
+</LinearLayout>
