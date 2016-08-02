@@ -4,8 +4,18 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <ListView android:layout_width="match_parent"
-              android:id="@+id/runListView"
-              android:layout_height="match_parent">
-    </ListView>
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+            xmlns:ptr = "http://schemas.android.com/apk/res-auto"
+            android:id="@+id/runfragment_listview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/white"
+            android:fadingEdge="none"
+            android:fastScrollEnabled="false"
+            android:footerDividersEnabled="false"
+            android:headerDividersEnabled="false"
+            android:smoothScrollbar="true"
+
+            ptr:ptrMode="both"
+    />
 </LinearLayout>
