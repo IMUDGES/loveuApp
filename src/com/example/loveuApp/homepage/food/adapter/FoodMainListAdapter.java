@@ -96,9 +96,11 @@ public class FoodMainListAdapter extends BaseAdapter implements AbsListView.OnSc
         String time = data.get(i).getFoodTime();
         String info = data.get(i).getFoodInformation();
 
-        if (info.length()>20&&info!=null)
-            info = info.substring(0,31);
-        viewHolder.info.setText("        "+info+"...");
+        if (info.length()>20&&info!=null) {
+            info = info.substring(0, 31);
+            viewHolder.info.setText("        " + info + "...");
+        }else
+        viewHolder.info.setText("        " + info);
         viewHolder.time.setText(data.get(i).getFoodTime());
         Log.i("sex",data.get(i).getUserSex()+"");
         if(data.get(i).getUserSex()==1){

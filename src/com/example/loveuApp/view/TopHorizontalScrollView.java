@@ -24,8 +24,9 @@ public class TopHorizontalScrollView extends HorizontalScrollView {
 	private LinearLayout layout;
 	private int cCount;
 	private int screemWidth;
+	private int touched;
 	
-	private int mTabVisibleCount = 4;
+	private int mTabVisibleCount = 3;
 
 	public TopHorizontalScrollView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -72,6 +73,12 @@ public class TopHorizontalScrollView extends HorizontalScrollView {
 	private void scroll(int position, float offset) {
 		// TODO Auto-generated method stub
 
+		//Log.i("position",position+"");
+		//Log.i("nowposition",nowposition+"");
+		if (position == 0 && touched == mTabVisibleCount-1){
+			this.scrollTo(screemWidth ,0);
+			return ;
+		}
 		 if (position >= (mTabVisibleCount - 2) && offset > 0
 	                && cCount > mTabVisibleCount) {
 
@@ -112,8 +119,13 @@ public class TopHorizontalScrollView extends HorizontalScrollView {
 
 				public void onClick(View v) {
 					if (Math.abs(j-nowposition)==1) {
+
 						mPager.setCurrentItem(j);
 					}else {
+						if (nowposition == 0 && j ==2)
+							TopHorizontalScrollView.this.scrollTo(screemWidth/3,0);
+						if (nowposition == cCount-1 && j ==cCount-3)
+							TopHorizontalScrollView.this.scrollTo(screemWidth/3*2,0);
 						mPager.setCurrentItem(j,false);
 					}
 					

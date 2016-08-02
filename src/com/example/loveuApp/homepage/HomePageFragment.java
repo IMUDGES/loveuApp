@@ -73,6 +73,11 @@ public class HomePageFragment extends Fragment{
         mPager = (ViewPager) getActivity().findViewById(R.id.homefragment_viewpager);
         mAdapter = new FragmentPagerAdapter(getActivity().getSupportFragmentManager()) {
             @Override
+            public void destroyItem(ViewGroup container, int position, Object object) {
+               // super.destroyItem(container, position, object);
+            }
+
+            @Override
             public Fragment getItem(int position) {
                 return mFragments[position];
             }
