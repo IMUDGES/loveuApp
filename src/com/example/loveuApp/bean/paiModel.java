@@ -15,24 +15,25 @@ public class paiModel {
     private Integer GetUser;
     private Integer State;
     private String msg;
+    private String UserPhoto;
+    private String NickName;
+    private Integer state;
+    private Integer num;
 
-    public paiModel(){
-
+    public Integer getNum() {
+        return num;
     }
 
-    public paiModel(String downTime, Integer getUser, String msg, Integer paiId, String paiImage,
-                    String paiInformation, Integer paiMoney, String paiTitle, Integer state, String upTime, Integer userId) {
-        DownTime = downTime;
-        GetUser = getUser;
-        this.msg = msg;
-        PaiId = paiId;
-        PaiImage = paiImage;
-        PaiInformation = paiInformation;
-        PaiMoney = paiMoney;
-        PaiTitle = paiTitle;
-        State = state;
-        UpTime = upTime;
-        UserId = userId;
+    public void setNum(Integer num) {
+        this.num = num;
+    }
+
+    public Integer getstate() {
+        return state;
+    }
+
+    public void setstate(Integer state) {
+        this.state = state;
     }
 
     public String getDownTime() {
@@ -57,6 +58,14 @@ public class paiModel {
 
     public void setMsg(String msg) {
         this.msg = msg;
+    }
+
+    public String getNikeName() {
+        return NickName;
+    }
+
+    public void setNikeName(String nikeName) {
+        NickName = nikeName;
     }
 
     public Integer getPaiId() {
@@ -121,5 +130,13 @@ public class paiModel {
 
     public void setUserId(Integer userId) {
         UserId = userId;
+    }
+
+    public String getUserPhoto() {
+        return UserPhoto;
+    }
+
+    public void setUserPhoto(String userPhoto) {
+        UserPhoto = userPhoto;
     }
 }
