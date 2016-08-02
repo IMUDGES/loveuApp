@@ -210,8 +210,11 @@ public class FoodMainFragment extends Fragment {
         }
         List<foodModel> model = new Gson().fromJson(result, new TypeToken<LinkedList<foodModel>>() {
         }.getType());
+        if (model == null)
+            return null;
         if (page == 1) {
             data = model;
+
             if (model.get(0).getNum()==0)
                 return null;
             data.remove(0);

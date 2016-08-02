@@ -200,7 +200,8 @@ public class RunMainFragment extends Fragment{
         }
         List<runModel> model = new Gson().fromJson(result, new TypeToken<LinkedList<runModel>>() {
         }.getType());
-
+        if (model == null)
+            return null;
         if (page == 1) {
             data = model;
             if (model.get(0).getNum() == 0)

@@ -29,7 +29,7 @@ public class ImageLoader {
     private PullToRefreshListView mListView;
 
 
-    ImageLoader(PullToRefreshListView listView) {
+    public ImageLoader(PullToRefreshListView listView) {
         mListView = listView;
 
         mTask = new HashSet<MyAsyncTask>();

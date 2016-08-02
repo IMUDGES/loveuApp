@@ -1,4 +1,4 @@
-package com.example.loveuApp.util;
+package com.example.loveuApp.homepage.run.RunAdapter;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -7,7 +7,6 @@ import android.support.v4.util.LruCache;
 import android.util.Log;
 import android.widget.ImageView;
 import com.example.loveuApp.R;
-import com.example.loveuApp.homepage.xue.adapter.XueMainListAdapter;
 import com.example.loveuApp.util.PhotoCut;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
@@ -104,7 +103,7 @@ public class ImageLoader {
 
     public void loadImages(int start, int end) {
         for (int i = start; i < end; i++) {
-            String url = XueMainListAdapter.URLS[i];
+            String url = RunMainListAdapter.URLS[i];
             Bitmap bitmap = getBitmapFromCache(url);
             if (bitmap == null) {
                 MyAsyncTask task = new MyAsyncTask(url,i);

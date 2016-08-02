@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.loveuApp.R;
 import com.example.loveuApp.bean.runModel;
-import com.example.loveuApp.util.ImageLoader;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 import java.util.List;

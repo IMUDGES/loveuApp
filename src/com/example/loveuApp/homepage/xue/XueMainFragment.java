@@ -203,7 +203,8 @@ public class XueMainFragment extends Fragment{
         }
         List<xueModel> model = new Gson().fromJson(result, new TypeToken<LinkedList<xueModel>>() {
         }.getType());
-
+        if (model == null)
+            return null;
         if (page == 1) {
             data = model;
             if (model.get(0).getNum() == 0)
