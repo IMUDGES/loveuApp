@@ -89,28 +89,7 @@ public class FoodMainFragment extends Fragment {
         new Task().execute(url);
     }
 
-    /*private void getData(){
-        RequestParams params = new RequestParams();
-        params.put("page",page+"");
-        foodService service = new foodService();
-        service.get(getActivity(), "food", params, new Listener() {
-            @Override
-            public void onSuccess(Object object) {
-                data = (List<foodModel>) object;
-                for (int i =0;i<data.size();i++){
-                    Log.i("data url",data.get(i).getUserId()+"");
-                }
-                data.remove(0);
-                new Task().execute(url);
-            }
 
-            @Override
-            public void onFailure(String msg) {
-                Toast.makeText(getActivity(),msg,Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }*/
     class Task extends AsyncTask<String, Void, String[]> {
         @Override
         protected String[] doInBackground(String... strings) {
@@ -120,10 +99,7 @@ public class FoodMainFragment extends Fragment {
         @Override
         protected void onPostExecute(String[] strings) {
             super.onPostExecute(strings);
-            /*if (firstAdapter == true)
-                Toast.makeText(getActivity(),"第一次进入，需要设置",Toast.LENGTH_SHORT).show();
-            else
-                Toast.makeText(getActivity(),"不是第一次，通知改变",Toast.LENGTH_SHORT).show();*/
+
             if (!firstAdapter) {
                 if (strings == null) {
                     mListView.onRefreshComplete();
@@ -236,6 +212,8 @@ public class FoodMainFragment extends Fragment {
         }.getType());
         if (page == 1) {
             data = model;
+            if (model.get(0).getNum()==0)
+                return null;
             data.remove(0);
         }else {
             if (model.get(0).getNum() == 0)
@@ -243,6 +221,7 @@ public class FoodMainFragment extends Fragment {
             model.remove(0);
             data.addAll(model);
         }
+
         String[] URLS = new String[data.size()];
         for (int i = 0; i < data.size(); i++) {
             URLS[i] = data.get(i).getUserPhoto();

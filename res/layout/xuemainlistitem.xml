@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:id="@+id/tttest">
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:orientation="vertical">
+            <ImageView android:layout_width="80dp" android:layout_height="80dp"
+                       android:background="@drawable/ic_launcher"
+                       android:scaleType="fitXY"
+                       android:layout_marginTop="20dp"
+                       android:layout_marginLeft="20dp"
+                       android:layout_marginRight="20dp"
+                       android:layout_marginBottom="10dp"
+                       android:id="@+id/xuefragment_listview_img"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:text="Lv.9"
+                      android:textColor="@color/white"
+                      android:background="#ffab00"
+                      android:paddingLeft="7dp"
+                      android:paddingRight="7dp"
+                      android:paddingBottom="2dp"
+                      android:paddingTop="2dp"
+                      android:textSize="10dp"
+                      android:id="@+id/xuefragment_listview_lv"
+                      android:layout_marginBottom="1dp"
+                      android:layout_gravity="center_horizontal"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:text=""
+                      android:id="@+id/xuefragment_listview_name"
+                      android:textColor="@color/black"
+                      android:paddingLeft="4dp"
+                      android:paddingRight="4dp"
+                      android:paddingBottom="1dp"
+                      android:paddingTop="2dp"
+                      android:textSize="14dp"
+                      android:layout_marginBottom="10dp"
+                      android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="vertical"
+        >
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:id="@+id/xuefragment_listview_arae"
+                          android:textSize="18dp"
+                          android:textColor="@color/black"
+                          android:text="刘建楠"
+                          android:gravity="center"
+                          android:layout_centerVertical="true"
+                          android:paddingTop="5dp"
+                          android:layout_alignParentLeft="true"
+                          android:layout_marginTop="10dp"/>
+
+                <TextView android:layout_width="20dp" android:layout_height="20dp"
+                          android:layout_centerInParent="true"
+                          android:layout_alignParentRight="true"
+                          android:text=""
+                          android:textSize="13dp"
+
+                          android:layout_marginRight="30dp"
+                          android:id="@+id/xuefragment_listview_sex"
+                          android:textColor="@color/white"/>
+            </RelativeLayout>
+            <!--<TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:text="请客方式"
+                      android:paddingLeft="5dp"
+                      android:paddingRight="5dp"
+                      android:textColor="@color/white"
+                      android:background="#72d572"
+                      android:layout_marginTop="2dp"
+                      android:id="@+id/xuefragment_listview_way"/>
+                      -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:id="@+id/xuefragment_listview_time"
+                      android:text="time"
+                      android:textColor="@color/black"
+                      android:layout_marginTop="2dp"/>
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:id="@+id/xuefragment_listview_info"
+                      android:textColor="@color/dark_grey"
+                      android:textSize="13dp"
+                      android:layout_marginTop="2dp"
+                      android:layout_marginBottom="5dp"/>
+            <!--  <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+                  <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:textColor="@color/white"
+                  android:text="详情"
+                  android:layout_alignParentRight="true"
+                  android:layout_marginRight="20dp"
+                  android:paddingRight="3dp"
+                  android:paddingLeft="3dp"
+                  android:paddingTop="1dp"
+                  android:paddingBottom="1dp"
+                            android:id="@+id/xuefragment_listview_details"
+                  android:background="#4d73ff"/>
+              </RelativeLayout>-->
+        </LinearLayout>
+    </LinearLayout>
+    <View android:layout_width="match_parent" android:layout_height="1dp"
+          android:background="#e0e0e0"/>
+</LinearLayout>

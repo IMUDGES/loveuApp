@@ -14,6 +14,49 @@ public class xueModel {
     private Integer State;
     private String XueArea;
     private String msg;
+    private String UserPhoto;
+    private String NickName;
+    private Integer state;
+    private int UserSex;
+    private int num;
+
+    public void setstate(Integer state){
+        this.state = state;
+    }
+    public Integer getstate(){
+        return state;
+    }
+    public String getUserPhoto() {
+        return UserPhoto;
+    }
+
+    public void setUserPhoto(String userPhoto) {
+        UserPhoto = userPhoto;
+    }
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
+    }
+
+    public int getUserSex() {
+        return UserSex;
+    }
+
+    public void setUserSex(int userSex) {
+        UserSex = userSex;
+    }
+
+    public String getNickName() {
+        return NickName;
+    }
+
+    public void setNickName(String nickName) {
+        NickName = nickName;
+    }
 
     public xueModel(){
 
