@@ -1,7 +1,7 @@
 package com.example.loveuApp.homepage.help;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
@@ -23,12 +23,12 @@ import android.widget.ListView;
 import android.widget.Toast;
 import com.example.loveuApp.R;
 import com.example.loveuApp.bean.helpModel;
-import com.example.loveuApp.bean.userModel;
+
 import com.example.loveuApp.homepage.help.adapter.HelpListAdapter;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.service.Service;
 import com.example.loveuApp.service.helpService;
-import com.example.loveuApp.service.userService;
+
 import com.example.loveuApp.util.PhotoCut;
 import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -149,6 +149,8 @@ public class HelpMainFragment extends Fragment{
 
             @Override
             public void onFailure(String msg) {
+
+                listView.onRefreshComplete();
                 Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
             }
         });
@@ -174,11 +176,12 @@ public class HelpMainFragment extends Fragment{
                 List<helpModel> mm= (List<helpModel>) object;
                 mm.remove(0);
                 models.addAll(mm);
-                back.Refuback();
+                back.Pullback();
             }
 
             @Override
             public void onFailure(String msg) {
+                listView.onRefreshComplete();
                 Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
             }
         });

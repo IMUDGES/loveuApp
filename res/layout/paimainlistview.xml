@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+                android:background="#ffffff"
+              android:layout_height="wrap_content">
+
+    <ImageView android:layout_width="100dp"
+               android:src="@drawable/ic_launcher"
+               android:id="@+id/pai_item_image"
+               android:layout_height="100dp"/>
+    <LinearLayout android:layout_width="match_parent"
+                  android:orientation="vertical"
+                  android:layout_height="100dp"
+                  android:layout_toRightOf="@+id/pai_item_image">
+        <TextView android:layout_width="match_parent"
+                  android:id="@+id/pai_item_infor"
+                  android:shadowRadius="3.0"
+                  android:gravity="center_vertical"
+                  android:singleLine="true"
+                  android:textColor="@color/dark_grey"
+                  android:layout_height="35dp"/>
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_height="30dp">
+            <TextView android:layout_width="wrap_content"
+                      android:text="    剩余时间:"
+                      android:gravity="center"
+                      android:textColor="#0abdff"
+                      android:layout_height="match_parent"/>
+            <ImageView android:layout_width="40dp"
+                       android:padding="2dp"
+                       android:src="@drawable/time"
+                       android:layout_height="match_parent"/>
+            <TextView android:layout_width="wrap_content"
+                      android:id="@+id/pai_item_time"
+                      android:textColor="#121212"
+                      android:gravity="center_vertical"
+                      android:layout_height="match_parent"/>
+        </LinearLayout>
+        <RelativeLayout android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_height="35dp">
+            <TextView android:layout_width="wrap_content"
+                      android:text="¥"
+                      android:textSize="20dp"
+                      android:gravity="center"
+                      android:textColor="#eb4d0b"
+                      android:layout_height="25dp"
+                      android:layout_alignParentBottom="true" android:layout_toLeftOf="@+id/pai_item_money"/>
+            <TextView android:layout_width="wrap_content"
+                      android:text="258"
+                      android:id="@+id/pai_item_money"
+                      android:textSize="30dp"
+                      android:gravity="center"
+                      android:textColor="#eb4d0b"
+                      android:paddingLeft="15dp"
+                      android:paddingRight="15dp"
+                      android:layout_height="35dp" android:layout_alignParentTop="true"
+                      android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+    <View android:layout_width="match_parent"
+          android:layout_alignParentBottom="true"
+          android:layout_height="1dp"
+          android:background="#e0e0e0"/>
+
+</RelativeLayout>
