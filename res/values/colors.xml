@@ -16,4 +16,5 @@
     <color name="dark_grey">#7D7D7D</color>
     <color name="mid_grey">#e1e1e1</color>
     <color name="red">#e51c23</color>
+    <color name="actionbar_title_color">@android:color/white</color>
 </resources>

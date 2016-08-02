@@ -20,5 +20,6 @@
             </intent-filter>
                 </activity>
         <activity android:name=".homepage.food.FoodDetailsActivity"/>
+        <activity android:name=".User.NoBoringActionBarActivity" android:theme="@style/TransparentTheme"/>
     </application>
 </manifest>
