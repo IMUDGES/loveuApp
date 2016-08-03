@@ -9,10 +9,7 @@ import android.text.SpannableString;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
-import android.widget.AbsListView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
+import android.widget.*;
 import com.example.loveuApp.R;
 
 import java.util.ArrayList;
@@ -49,11 +46,11 @@ public class NoBoringActionBarActivity extends Activity {
 
         setContentView(R.layout.activity_noboringactionbar);
 
-        mListView = (ListView) findViewById(R.id.listview);
-        mHeader = findViewById(R.id.header);
-        mHeaderPicture = (KenBurnsView) findViewById(R.id.header_picture);
+        mListView = (ListView) findViewById(R.id.noboring_listview);
+        mHeader = findViewById(R.id.noboring_header);
+        mHeaderPicture = (KenBurnsView) findViewById(R.id.noboring_header_picture);
         mHeaderPicture.setResourceIds(R.drawable.picture0, R.drawable.picture1);
-        mHeaderLogo = (ImageView) findViewById(R.id.header_logo);
+        mHeaderLogo = (ImageView) findViewById(R.id.noboring_header_logo);
 
         mActionBarTitleColor = getResources().getColor(R.color.actionbar_title_color);
 
@@ -65,21 +62,23 @@ public class NoBoringActionBarActivity extends Activity {
     }
 
     private void setupListView() {
-        ArrayList<String> FAKES = new ArrayList<String>();
-        FAKES.add(0, "昵称");
-        FAKES.add(1, "签名");
-        FAKES.add(2, "性别");
-        FAKES.add(3, "年龄");
-        FAKES.add(4, "");
-        FAKES.add(5, "所在地");
-        FAKES.add(6, "故乡");
-        FAKES.add(7, "兴趣爱好");
-        FAKES.add(8, "修改密码");
-        FAKES.add(9, "退出登录");
+//        ArrayList<String> FAKES = new ArrayList<String>();
+//        FAKES.add(0, "昵称");
+//        FAKES.add(1, "签名");
+//        FAKES.add(2, "性别");
+//        FAKES.add(3, "年龄");
+//        FAKES.add(4, "");
+//        FAKES.add(5, "所在地");
+//        FAKES.add(6, "故乡");
+//        FAKES.add(7, "兴趣爱好");
+//        FAKES.add(8, "修改密码");
+//        FAKES.add(9, "退出登录");
+        String[] data = {"昵称", "签名", "性别", "年龄", "", "所在地", "故乡", "兴趣爱好", "修改密码", "btn", ""};
 
         mPlaceHolderView = getLayoutInflater().inflate(R.layout.view_header_placeholder, mListView, false);
         mListView.addHeaderView(mPlaceHolderView);
-        mListView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, FAKES));
+        mListView.setAdapter(new NoBoringAdapter(NoBoringActionBarActivity.this, data));
+//        mListView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, FAKES));
         mListView.setMinimumHeight(20);
 //        移动题头
         mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
