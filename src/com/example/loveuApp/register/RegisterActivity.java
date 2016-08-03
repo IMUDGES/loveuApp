@@ -59,6 +59,7 @@ public class RegisterActivity extends FragmentActivity
     public void onFLoginTrue() {
         Intent intent = new Intent(RegisterActivity.this, MyActivity.class);
         startActivity(intent);
+        finish();
     }
 
     @Override

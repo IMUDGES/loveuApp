@@ -176,6 +176,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         });
     }
 
+
     //成功获取验证码后
     private void onGetCheckCodeSuccess() {
         checkTime = 1;

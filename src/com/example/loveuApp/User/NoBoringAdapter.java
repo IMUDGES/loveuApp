@@ -3,6 +3,7 @@ package com.example.loveuApp.User;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -136,6 +137,11 @@ public class NoBoringAdapter extends BaseAdapter {
                 holder3.button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        SharedPreferences preferences = mContext.getApplicationContext().getSharedPreferences("user", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putString("UserPhone","");
+                        editor.putString("SecretKey","");
+                        editor.commit();
                         Intent intent = new Intent();
                         intent.setClass(mContext,RegisterActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);//销毁其他的Activity。

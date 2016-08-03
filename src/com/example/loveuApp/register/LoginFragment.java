@@ -1,5 +1,7 @@
 package com.example.loveuApp.register;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -29,7 +31,9 @@ public class LoginFragment extends Fragment {
 
     public interface FLoginBtnClick {
         void onFLoginTrue();
+
         void onToRegisterClick();
+
         void onToFindClick();
     }
 
@@ -43,6 +47,8 @@ public class LoginFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initView();
+
+//        autoLogin();
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,6 +75,14 @@ public class LoginFragment extends Fragment {
         });
     }
 
+//    private void autoLogin() {
+//        SharedPreferences preferences = getActivity().getApplicationContext().
+//                getSharedPreferences("user", Context.MODE_PRIVATE);
+//        String userPhone = preferences.getString("UserPhone","");
+//        String secretKey = preferences.getString("SecretKey","");
+//
+//    }
+
     private void initView() {
         usernameEditText = (EditText) getActivity().findViewById(R.id.login_zhanghao);
         passwordEditText = (EditText) getActivity().findViewById(R.id.login_password);
@@ -78,15 +92,15 @@ public class LoginFragment extends Fragment {
     }
 
     private void login() {
-        String username = usernameEditText.getText().toString();
+        String userphone = usernameEditText.getText().toString();
         String password = passwordEditText.getText().toString();
-        if (username.length() <= 0 || password.length() <= 0) {
+        if (userphone.length() <= 0 || password.length() <= 0) {
             Toast.makeText(getActivity(), "账号或密码不能为空", Toast.LENGTH_SHORT).show();
             return;
         }
         String Md5_password = Md5.getMD5(password);
         RequestParams requestParams = new RequestParams();
-        requestParams.add("UserPhone", username);
+        requestParams.add("UserPhone", userphone);
         requestParams.add("PassWord", Md5_password);
         userService service = new userService();
         String url = "login";
@@ -95,8 +109,10 @@ public class LoginFragment extends Fragment {
             public void onSuccess(Object object) {
                 userModel userModel = (com.example.loveuApp.bean.userModel) object;
                 String state = userModel.getState();
+                String SecretKey = userModel.getSecretKey();
 //                Toast.makeText(getActivity(),state,Toast.LENGTH_SHORT).show();
                 if ("1".equals(state)) {
+                    saveInfor(userphone, SecretKey);
 //                    Toast.makeText(getActivity(), "zhengque", Toast.LENGTH_SHORT).show();
                     if (getActivity() instanceof FLoginBtnClick) {
                         ((FLoginBtnClick) getActivity()).onFLoginTrue();
@@ -111,5 +127,18 @@ public class LoginFragment extends Fragment {
                 Toast.makeText(getActivity(), "与服务器请求失败", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void saveInfor(String phone, String secret) {
+        SharedPreferences preferences = getActivity().getApplicationContext().getSharedPreferences("user", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("UserPhone", phone);
+        editor.putString("SecretKey", secret);
+        if (!editor.commit()) {
+            System.err.println("！！！写入失败！！！");
+        }
+//        String a = preferences.getString("UserPhone","该数据未写入");
+//        String b = preferences.getString("SecretKey","该数据未写入");
+//        Toast.makeText(getActivity().getApplicationContext(),a+"--"+b,Toast.LENGTH_SHORT).show();
     }
 }

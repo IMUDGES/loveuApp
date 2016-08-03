@@ -2,6 +2,8 @@ package com.example.loveuApp.User;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.RectF;
 import android.os.Bundle;
 import android.text.Spannable;
@@ -40,6 +42,10 @@ public class NoBoringActionBarActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+//        SharedPreferences preferences = getApplicationContext().getSharedPreferences("user", Context.MODE_PRIVATE);
+//        String a = preferences.getString("UserPhone","该数据未写入");
+//        String b = preferences.getString("SecretKey","该数据未写入");
+//        Toast.makeText(this,a+"--"+b,Toast.LENGTH_SHORT).show();
         mSmoothInterpolator = new AccelerateDecelerateInterpolator();
         mHeaderHeight = getResources().getDimensionPixelSize(R.dimen.header_height);
         mMinHeaderTranslation = -mHeaderHeight + getActionBarHeight();
