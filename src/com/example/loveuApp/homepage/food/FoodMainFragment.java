@@ -113,7 +113,9 @@ public class FoodMainFragment extends Fragment {
                 mListView.onRefreshComplete();
                 return;
             }
-            mAdapter = new FoodMainListAdapter(data, getActivity(), mListView, strings);
+            if (strings!=null) {
+                mAdapter = new FoodMainListAdapter(data, getActivity(), mListView, strings);
+            }
             mListView.setAdapter(mAdapter);
             firstAdapter = false;
             mListView.onRefreshComplete();
