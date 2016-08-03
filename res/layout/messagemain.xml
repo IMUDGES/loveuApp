@@ -26,8 +26,9 @@
                 <LinearLayout android:layout_width="match_parent"
                               android:orientation="horizontal"
                               android:layout_height="wrap_content">
-                    <ImageView android:layout_width="match_parent"
+                    <ImageView android:layout_width="200dp"
                                android:padding="10dp"
+                               android:id="@+id/messagefragment_img"
                                android:src="@drawable/ic_launcher"
                                android:layout_weight="1"
                                android:layout_height="80dp"/>

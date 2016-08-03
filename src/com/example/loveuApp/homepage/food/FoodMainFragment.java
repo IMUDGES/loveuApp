@@ -62,6 +62,12 @@ public class FoodMainFragment extends Fragment {
     }
 
     @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+    }
+
+    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         firstAdapter = true;
@@ -99,12 +105,12 @@ public class FoodMainFragment extends Fragment {
         @Override
         protected void onPostExecute(String[] strings) {
             super.onPostExecute(strings);
-
+            if (strings == null) {
+                mListView.onRefreshComplete();
+                return;
+            }
             if (!firstAdapter) {
-                if (strings == null) {
-                    mListView.onRefreshComplete();
-                    return;
-                }
+
                Log.i("数量",data.size()+" ");
                 Log.i("数量",strings.length+" ");
                 mAdapter.data = data;
@@ -113,9 +119,8 @@ public class FoodMainFragment extends Fragment {
                 mListView.onRefreshComplete();
                 return;
             }
-            if (strings!=null) {
                 mAdapter = new FoodMainListAdapter(data, getActivity(), mListView, strings);
-            }
+
             mListView.setAdapter(mAdapter);
             firstAdapter = false;
             mListView.onRefreshComplete();
