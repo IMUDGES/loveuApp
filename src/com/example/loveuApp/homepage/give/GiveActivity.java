@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.*;
 import com.example.loveuApp.R;
+import com.example.loveuApp.bean.giveCommentData;
 import com.example.loveuApp.bean.giveCommentModel;
 import com.example.loveuApp.bean.giveModel;
 import com.example.loveuApp.bean.userModel;
@@ -92,13 +93,14 @@ public class GiveActivity extends Activity {
                         R.id.givefragment_listview_info,
                 });
         givecommentservice=new giveCommentService();
+        String url="http://183.175.1.250:5000/givecomment";
         RequestParams params=new RequestParams();
-        params.add("","");
-        givecommentservice.get(GiveActivity.this, "url",params,new Listener() {
+        params.add("GiveId",givemodel.getGiveId()+"");
+        givecommentservice.get(GiveActivity.this, url,params,new Listener() {
             @Override
             public void onSuccess(Object object) {
-                giveCommentModels=(List<giveCommentModel>) object;
-                if(giveCommentModels.size()==0){
+                giveCommentData giveCommentData=(giveCommentData) object;
+                if(giveCommentData.getState()==0){
                     tip_text.setText("暂时没有评论");
                 }else{
                     tip_text.setVisibility(View.INVISIBLE);

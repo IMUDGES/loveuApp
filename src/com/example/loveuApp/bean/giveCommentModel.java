@@ -4,39 +4,28 @@ package com.example.loveuApp.bean;
  * Created by dy on 2016/7/26.
  */
 public class giveCommentModel {
-
-    private Integer CommentId;
     private Integer UserId;
     private String CommentInformation;
-    private Integer GiveId;
-    private String msg;
-
+    private String UserSex;
+    private String NickName;
+    private String UserPhoto;
     public giveCommentModel(){
-
     }
 
-    public giveCommentModel(Integer commentId, String commentInformation, Integer giveId, Integer userId, String msg) {
-        CommentId = commentId;
-        CommentInformation = commentInformation;
-        GiveId = giveId;
+    public giveCommentModel(Integer userId, String commentInformation, String userSex, String nickName, String userPhoto) {
         UserId = userId;
-        this.msg=msg;
+        CommentInformation = commentInformation;
+        UserSex = userSex;
+        NickName = nickName;
+        UserPhoto = userPhoto;
     }
 
-    public String getMsg() {
-        return msg;
+    public Integer getUserId() {
+        return UserId;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public Integer getCommentId() {
-        return CommentId;
-    }
-
-    public void setCommentId(Integer commentId) {
-        CommentId = commentId;
+    public void setUserId(Integer userId) {
+        UserId = userId;
     }
 
     public String getCommentInformation() {
@@ -47,19 +36,27 @@ public class giveCommentModel {
         CommentInformation = commentInformation;
     }
 
-    public Integer getGiveId() {
-        return GiveId;
+    public String getUserSex() {
+        return UserSex;
     }
 
-    public void setGiveId(Integer giveId) {
-        GiveId = giveId;
+    public void setUserSex(String userSex) {
+        UserSex = userSex;
     }
 
-    public Integer getUserId() {
-        return UserId;
+    public String getNickName() {
+        return NickName;
     }
 
-    public void setUserId(Integer userId) {
-        UserId = userId;
+    public void setNickName(String nickName) {
+        NickName = nickName;
+    }
+
+    public String getUserPhoto() {
+        return UserPhoto;
+    }
+
+    public void setUserPhoto(String userPhoto) {
+        UserPhoto = userPhoto;
     }
 }

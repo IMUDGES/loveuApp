@@ -12,8 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import com.example.loveuApp.R;
+import com.example.loveuApp.bean.giveData;
 import com.example.loveuApp.bean.giveModel;
 import com.example.loveuApp.bean.userModel;
 import com.example.loveuApp.homepage.give.adapter.GiveMainListAdapter;
@@ -64,18 +64,18 @@ public class GiveMainFragment extends Fragment implements AdapterView.OnItemClic
         });
     }
     public void getGiveModels(){
-        String url="";
+        String url="http://183.175.1.250:5000/give";
         RequestParams params=new RequestParams();
         params.put("page","");
         giveService service=new giveService();
         service.get(getActivity(), url, params, new Listener() {
             @Override
             public void onSuccess(Object object) {
-                giveModels= (List<giveModel>) object;
-                if("0".equals(giveModels.get(0).getState())){
+                giveData giveData= (giveData) object;
+                if("0".equals(giveData.getState())){
                     return ;
                 }else{
-                    giveModels.remove(0);
+
                 }
             }
 

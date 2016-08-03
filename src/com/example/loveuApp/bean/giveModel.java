@@ -9,31 +9,25 @@ public class giveModel {
     private Integer UserId;
     private String GiveInformation;
     private String GiveImage;
-    private Integer GetUser;
-    private Integer state;
-    private String msg;
-
+    private String UserPhoto;
+    private String UserSex;
+    private String NickName;
+    private Integer State;
     public giveModel(){
 
     }
 
-    public giveModel(Integer getUser, Integer giveId, String giveImage, String giveInformation,
-                     String msg, Integer state, Integer userId) {
-        GetUser = getUser;
+    public giveModel(Integer giveId, Integer userId, String giveInformation,
+                     String giveImage,  String userPhoto,
+                     String userSex, String nickName, Integer state) {
         GiveId = giveId;
-        GiveImage = giveImage;
-        GiveInformation = giveInformation;
-        this.msg = msg;
-        this.state = state;
         UserId = userId;
-    }
-
-    public Integer getGetUser() {
-        return GetUser;
-    }
-
-    public void setGetUser(Integer getUser) {
-        GetUser = getUser;
+        GiveInformation = giveInformation;
+        GiveImage = giveImage;
+        UserPhoto = userPhoto;
+        UserSex = userSex;
+        NickName = nickName;
+        State = state;
     }
 
     public Integer getGiveId() {
@@ -44,12 +38,12 @@ public class giveModel {
         GiveId = giveId;
     }
 
-    public String getGiveImage() {
-        return GiveImage;
+    public Integer getUserId() {
+        return UserId;
     }
 
-    public void setGiveImage(String giveImage) {
-        GiveImage = giveImage;
+    public void setUserId(Integer userId) {
+        UserId = userId;
     }
 
     public String getGiveInformation() {
@@ -60,27 +54,43 @@ public class giveModel {
         GiveInformation = giveInformation;
     }
 
-    public String getMsg() {
-        return msg;
+    public String getGiveImage() {
+        return GiveImage;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public void setGiveImage(String giveImage) {
+        GiveImage = giveImage;
+    }
+
+    public String getUserPhoto() {
+        return UserPhoto;
+    }
+
+    public void setUserPhoto(String userPhoto) {
+        UserPhoto = userPhoto;
+    }
+
+    public String getUserSex() {
+        return UserSex;
+    }
+
+    public void setUserSex(String userSex) {
+        UserSex = userSex;
+    }
+
+    public String getNickName() {
+        return NickName;
+    }
+
+    public void setNickName(String nickName) {
+        NickName = nickName;
     }
 
     public Integer getState() {
-        return state;
+        return State;
     }
 
     public void setState(Integer state) {
-        this.state = state;
-    }
-
-    public Integer getUserId() {
-        return UserId;
-    }
-
-    public void setUserId(Integer userId) {
-        UserId = userId;
+        State = state;
     }
 }
