@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import com.example.loveuApp.bean.helpModel;
 import com.example.loveuApp.listener.Listener;
+import com.example.loveuApp.model.HelpModel;
 import com.example.loveuApp.util.HttpRequest;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -24,7 +25,7 @@ public class helpService {
         HttpRequest.get(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
-                List<helpModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<helpModel>>(){}.getType());
+                HelpModel models=new Gson().fromJson(new String(bytes),HelpModel.class);
                 //Log.i("information",new String(bytes));
                 listener.onSuccess(models);
             }
@@ -32,6 +33,7 @@ public class helpService {
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
                 //HelpModel model=new Gson().fromJson(new String(bytes),HelpModel.class);
+                //Log.i("information",new String(bytes));
                 listener.onFailure("网络请求失败");
             }
         });
@@ -41,14 +43,13 @@ public class helpService {
         HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
-                List<helpModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<helpModel>>(){}.getType());
+                HelpModel models=new Gson().fromJson(new String(bytes),HelpModel.class);
                 listener.onSuccess(models);
             }
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                helpModel model=new Gson().fromJson(new String(bytes),helpModel.class);
-                listener.onFailure(model.getMsg());
+                listener.onFailure("网络请求失败");
             }
         });
     }

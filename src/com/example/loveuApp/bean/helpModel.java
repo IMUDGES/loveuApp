@@ -13,29 +13,8 @@ public class helpModel {
     private Integer GetUser;
     private Integer State;
     private Integer Finish;
-    private Integer state;
-
-    public Integer getNumber() {
-        return num;
-    }
-
-    public void setNumber(Integer number) {
-        num = number;
-    }
-
-    private Integer num;
-    private String msg;
-
     private String UserPhoto;
     private String NickName;
-
-    public Integer getstate() {
-        return state;
-    }
-
-    public void setstate(Integer state) {
-        this.state = state;
-    }
 
     public String getDownTime() {
         return DownTime;
@@ -83,14 +62,6 @@ public class helpModel {
 
     public void setHelpMoney(Integer helpMoney) {
         HelpMoney = helpMoney;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
     }
 
     public String getNickName() {

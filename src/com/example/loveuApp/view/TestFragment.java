@@ -3,6 +3,7 @@ package com.example.loveuApp.view;
 /**
  * Created by caolu on 2016/7/27.
  */
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -16,6 +17,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 import com.example.loveuApp.R;
+import com.example.loveuApp.updata.UpFoodActivity;
+import com.example.loveuApp.updata.UpdataFragment;
 
 
 public class TestFragment extends Fragment {
@@ -57,6 +60,9 @@ public class TestFragment extends Fragment {
             @Override
             public void onMenuClick(int position) {
                 Toast.makeText(getActivity(),""+(position+1),Toast.LENGTH_SHORT).show();
+                if(position==0){
+                    startActivity(new Intent(getActivity(), UpFoodActivity.class));
+                }
             }
         });
 

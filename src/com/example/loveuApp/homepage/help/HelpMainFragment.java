@@ -55,7 +55,7 @@ public class HelpMainFragment extends Fragment{
     private List<helpModel> models;
     private OnSuccessBack back;
 
-    private int PAGEINT;
+    private int PAGEINT=2;
     private boolean REFU=true;
 
     @Override

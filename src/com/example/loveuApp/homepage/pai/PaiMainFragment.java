@@ -39,7 +39,7 @@ public class PaiMainFragment extends Fragment{
 
     private PullToRefreshListView listView;
     private List<paiModel>paiModels;
-    private int PAGEINT;
+    private int PAGEINT=2;
     private boolean REFU=true;
     private OnSuccessBack back;
     private PaiAdapter adapter;
