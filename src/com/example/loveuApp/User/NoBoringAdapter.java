@@ -72,6 +72,7 @@ public class NoBoringAdapter extends BaseAdapter {
         return i;
     }
 
+
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
         ViewHolder1 holder1 = null;

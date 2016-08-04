@@ -3,15 +3,18 @@ package com.example.loveuApp.User;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.RectF;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.util.TypedValue;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.*;
+import com.example.loveuApp.MyActivity;
 import com.example.loveuApp.R;
 
 import java.util.ArrayList;
@@ -79,16 +82,17 @@ public class NoBoringActionBarActivity extends Activity {
 //        FAKES.add(7, "兴趣爱好");
 //        FAKES.add(8, "修改密码");
 //        FAKES.add(9, "退出登录");
-        String[] data = {"昵称", "签名", "性别", "年龄", "", "所在地", "故乡", "兴趣爱好", "修改密码", "btn", ""};
+        String[] data = {"", "昵称", "签名", "性别", "年龄", "",
+                "所在地", "故乡", "兴趣爱好", "修改密码", "教务系统", "", "btn", ""};
 
         mPlaceHolderView = getLayoutInflater().inflate(R.layout.view_header_placeholder, mListView, false);
-        mListView.addHeaderView(mPlaceHolderView);
+        mListView.addHeaderView(mPlaceHolderView, null, true);
         mListView.setAdapter(new NoBoringAdapter(NoBoringActionBarActivity.this, data));
+        mListView.setDivider(null);
 //        mListView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, FAKES));
-        mListView.setMinimumHeight(20);
+//        mListView.setMinimumHeight(20);
 //        移动题头
         mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
-            @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
             }
 
@@ -135,7 +139,7 @@ public class NoBoringActionBarActivity extends Activity {
     }
 
     private RectF getOnScreenRect(RectF rect, View view) {
-        if(view==null){
+        if (view == null) {
             return null;
         }
         rect.set(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
@@ -183,5 +187,13 @@ public class NoBoringActionBarActivity extends Activity {
         getTheme().resolveAttribute(android.R.attr.actionBarSize, mTypedValue, true);
         mActionBarHeight = TypedValue.complexToDimensionPixelSize(mTypedValue.data, getResources().getDisplayMetrics());
         return mActionBarHeight;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
