@@ -13,19 +13,12 @@ public class xueModel {
     private String XueTime;
     private Integer State;
     private String XueArea;
-    private String msg;
     private String UserPhoto;
     private String NickName;
-    private Integer state;
     private int UserSex;
-    private int num;
 
-    public void setstate(Integer state){
-        this.state = state;
-    }
-    public Integer getstate(){
-        return state;
-    }
+
+
     public String getUserPhoto() {
         return UserPhoto;
     }
@@ -34,13 +27,7 @@ public class xueModel {
         UserPhoto = userPhoto;
     }
 
-    public int getNum() {
-        return num;
-    }
 
-    public void setNum(int num) {
-        this.num = num;
-    }
 
     public int getUserSex() {
         return UserSex;
@@ -64,7 +51,6 @@ public class xueModel {
 
     public xueModel(Integer getUser, String msg, Integer state, Integer userId, String xueArea, Integer xueId, String xueInformation, String xueTime) {
         GetUser = getUser;
-        this.msg = msg;
         State = state;
         UserId = userId;
         XueArea = xueArea;
@@ -81,13 +67,6 @@ public class xueModel {
         GetUser = getUser;
     }
 
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
 
     public Integer getState() {
         return State;

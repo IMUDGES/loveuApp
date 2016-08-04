@@ -3,6 +3,7 @@ package com.example.loveuApp.service;
 import android.content.Context;
 import com.example.loveuApp.bean.xueModel;
 import com.example.loveuApp.listener.Listener;
+import com.example.loveuApp.model.XueModel;
 import com.example.loveuApp.util.HttpRequest;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -22,14 +23,14 @@ public class xueService {
         HttpRequest.get(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
-                List<xueModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<xueModel>>(){}.getType());
+                XueModel models = new Gson().fromJson(new String(bytes),XueModel.class);
                 listener.onSuccess(models);
             }
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                xueModel model=new Gson().fromJson(new String(bytes),xueModel.class);
-                listener.onFailure(model.getMsg());
+
+                listener.onFailure("网络错误");
             }
         });
     }
@@ -38,14 +39,13 @@ public class xueService {
         HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
-                List<xueModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<xueModel>>(){}.getType());
+                XueModel models = new Gson().fromJson(new String(bytes),XueModel.class);
                 listener.onSuccess(models);
             }
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                xueModel model=new Gson().fromJson(new String(bytes),xueModel.class);
-                listener.onFailure(model.getMsg());
+                listener.onFailure("网络错误");
             }
         });
     }

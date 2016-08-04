@@ -224,7 +224,6 @@ public class FoodMainFragment extends Fragment {
 
             if (model.getNum()==0)
                 return null;
-            data.remove(0);
         }else {
             if (model.getNum() == 0)
                 return null;

@@ -12,19 +12,11 @@ public class runModel {
     private String RunTime;
     private Integer State;
     private String RunArea;
-    private String msg;
     private String UserPhoto;
     private String NickName;
-    private Integer state;
     private int UserSex;
-    private int num;
 
-    public void setstate(Integer state){
-        this.state = state;
-    }
-    public Integer getstate(){
-        return state;
-    }
+
     public String getUserPhoto() {
         return UserPhoto;
     }
@@ -49,13 +41,6 @@ public class runModel {
         UserSex = userSex;
     }
 
-    public int getNum() {
-        return num;
-    }
-
-    public void setNum(int num) {
-        this.num = num;
-    }
 
     public runModel(){
 
@@ -64,7 +49,6 @@ public class runModel {
     public runModel(Integer getUser, String msg, String runArea, Integer runId,
                     String runInformation, String runTime, Integer state, Integer userId) {
         GetUser = getUser;
-        this.msg = msg;
         RunArea = runArea;
         RunId = runId;
         RunInformation = runInformation;
@@ -79,14 +63,6 @@ public class runModel {
 
     public void setGetUser(Integer getUser) {
         GetUser = getUser;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
     }
 
     public String getRunArea() {
