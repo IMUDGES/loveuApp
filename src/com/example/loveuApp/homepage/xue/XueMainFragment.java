@@ -94,12 +94,12 @@ public class XueMainFragment extends Fragment{
         @Override
         protected void onPostExecute(String[] strings) {
             super.onPostExecute(strings);
-
+            if (strings == null) {
+                mListView.onRefreshComplete();
+                return;
+            }
             if (!firstAdapter) {
-                if (strings == null) {
-                    mListView.onRefreshComplete();
-                    return;
-                }
+
                 Log.i("数量",data.size()+" ");
                 Log.i("数量",strings.length+" ");
                 mAdapter.data = data;
