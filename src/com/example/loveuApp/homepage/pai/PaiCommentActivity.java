@@ -20,6 +20,8 @@ import com.example.loveuApp.bean.paiCommentModel;
 import com.example.loveuApp.bean.paiModel;
 import com.example.loveuApp.homepage.pai.adapter.PaiCommentAdapter;
 import com.example.loveuApp.listener.Listener;
+import com.example.loveuApp.model.PaiCommentModel;
+import com.example.loveuApp.model.PaiModel;
 import com.example.loveuApp.service.Service;
 import com.example.loveuApp.service.paiCommentService;
 import com.example.loveuApp.util.PhotoCut;
@@ -51,6 +53,7 @@ public class PaiCommentActivity extends Activity{
 
     private static paiModel paiModels;
     private List<paiCommentModel> commentModel;
+    private PaiCommentModel model;
     private CommentBack commentBack;
     private PaiCommentAdapter adapter;
 
@@ -203,8 +206,8 @@ public class PaiCommentActivity extends Activity{
         service.post(this, url, request, new Listener() {
             @Override
             public void onSuccess(Object object) {
-                paiModel model=new Gson().fromJson(new String((byte[]) object),paiModel.class);
-                if(model.getstate()==1){
+                PaiModel model=new Gson().fromJson(new String((byte[]) object),PaiModel.class);
+                if(model.getState()==1){
                     getCommentData();
                     Toast.makeText(PaiCommentActivity.this, "提交成功", Toast.LENGTH_SHORT).show();
                 }else{
@@ -231,8 +234,8 @@ public class PaiCommentActivity extends Activity{
         service.post(this, url, request, new Listener() {
             @Override
             public void onSuccess(Object object) {
-                paiModel model=new Gson().fromJson(new String((byte[]) object),paiModel.class);
-                if(model.getstate()==1){
+                PaiModel model=new Gson().fromJson(new String((byte[]) object),PaiModel.class);
+                if(model.getState()==1){
                     Toast.makeText(PaiCommentActivity.this, "竞拍成功", Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(PaiCommentActivity.this, model.getMsg(), Toast.LENGTH_SHORT).show();
@@ -255,11 +258,11 @@ public class PaiCommentActivity extends Activity{
         service.get(this, url, params, new Listener() {
             @Override
             public void onSuccess(Object object) {
-                commentModel= (List<paiCommentModel>) object;
-                if(commentModel.get(0).getNum()==0){
+                model= (PaiCommentModel) object;
+                if(model.getNum()==0){
                     return;
                 }
-                commentModel.remove(0);
+                commentModel=model.getPaicommentdata();
                 commentBack.back();
             }
 

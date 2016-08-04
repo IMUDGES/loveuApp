@@ -4,6 +4,8 @@ import android.content.Context;
 import android.util.Log;
 import com.example.loveuApp.bean.paiCommentModel;
 import com.example.loveuApp.listener.Listener;
+import com.example.loveuApp.model.PaiCommentModel;
+import com.example.loveuApp.model.PaiModel;
 import com.example.loveuApp.util.HttpRequest;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -24,7 +26,7 @@ public class paiCommentService {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
                 Log.i("information",new String(bytes));
-                List<paiCommentModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<paiCommentModel>>(){}.getType());
+                PaiCommentModel models=new Gson().fromJson(new String(bytes),PaiCommentModel.class);
                 listener.onSuccess(models);
             }
 
@@ -41,14 +43,14 @@ public class paiCommentService {
         HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
-                List<paiCommentModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<paiCommentModel>>(){}.getType());
+                PaiCommentModel models=new Gson().fromJson(new String(bytes),PaiCommentModel.class);
                 listener.onSuccess(models);
             }
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
                 paiCommentModel model=new Gson().fromJson(new String(bytes),paiCommentModel.class);
-                listener.onFailure(model.getMsg());
+                listener.onFailure("网络请求失败");
             }
         });
     }

@@ -14,27 +14,9 @@ public class paiModel {
     private String PaiTitle;
     private Integer GetUser;
     private Integer State;
-    private String msg;
     private String UserPhoto;
     private String NickName;
-    private Integer state;
-    private Integer num;
 
-    public Integer getNum() {
-        return num;
-    }
-
-    public void setNum(Integer num) {
-        this.num = num;
-    }
-
-    public Integer getstate() {
-        return state;
-    }
-
-    public void setstate(Integer state) {
-        this.state = state;
-    }
 
     public String getDownTime() {
         return DownTime;
@@ -50,14 +32,6 @@ public class paiModel {
 
     public void setGetUser(Integer getUser) {
         GetUser = getUser;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
     }
 
     public String getNikeName() {

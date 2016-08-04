@@ -23,6 +23,7 @@ import com.example.loveuApp.bean.foodModel;
 import com.example.loveuApp.bean.userModel;
 import com.example.loveuApp.homepage.food.adapter.FoodMainListAdapter;
 import com.example.loveuApp.listener.Listener;
+import com.example.loveuApp.model.FoodModel;
 import com.example.loveuApp.register.GuoQingZhuangBActivity;
 import com.example.loveuApp.service.Service;
 import com.example.loveuApp.service.foodService;
@@ -51,6 +52,7 @@ public class FoodMainFragment extends Fragment {
     private PullToRefreshListView mListView;
     private FoodMainListAdapter mAdapter;
     private List<foodModel> data;
+    private FoodModel model;
     private int page = 1;
     private String url = "http://183.175.14.250:5000/food";
     private boolean firstAdapter = true;
@@ -144,9 +146,8 @@ public class FoodMainFragment extends Fragment {
                                     service.post(getActivity(), "getfood", params, new Listener() {
                                         @Override
                                         public void onSuccess(Object object) {
-                                            foodModel model = new Gson().fromJson(new String((byte[]) object), foodModel.class);
-                                            ;
-                                            if (model.getstate() == 1) {
+                                            FoodModel model = new Gson().fromJson(new String((byte[]) object), FoodModel.class);
+                                            if (model.getState() == 1) {
                                                 Toast.makeText(getActivity(), "成功", Toast.LENGTH_SHORT).show();
                                                 new Task().execute(url);
                                                 mAdapter.notifyDataSetChanged();
@@ -215,21 +216,19 @@ public class FoodMainFragment extends Fragment {
                 e2.printStackTrace();
             }
         }
-        List<foodModel> model = new Gson().fromJson(result, new TypeToken<LinkedList<foodModel>>() {
-        }.getType());
+        FoodModel model = new Gson().fromJson(result,FoodModel.class);
         if (model == null)
             return null;
         if (page == 1) {
-            data = model;
+            data = model.getFooddata();
 
-            if (model.get(0).getNum()==0)
+            if (model.getNum()==0)
                 return null;
             data.remove(0);
         }else {
-            if (model.get(0).getNum() == 0)
+            if (model.getNum() == 0)
                 return null;
-            model.remove(0);
-            data.addAll(model);
+            data.addAll(model.getFooddata());
         }
 
         String[] URLS = new String[data.size()];

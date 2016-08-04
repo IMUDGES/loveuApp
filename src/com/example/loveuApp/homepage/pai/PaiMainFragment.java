@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -20,13 +18,12 @@ import com.example.loveuApp.R;
 import com.example.loveuApp.bean.paiModel;
 import com.example.loveuApp.homepage.pai.adapter.PaiAdapter;
 import com.example.loveuApp.listener.Listener;
+import com.example.loveuApp.model.PaiModel;
 import com.example.loveuApp.service.paiService;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.loopj.android.http.RequestParams;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 
@@ -39,6 +36,7 @@ public class PaiMainFragment extends Fragment{
 
     private PullToRefreshListView listView;
     private List<paiModel>paiModels;
+    private PaiModel model;
     private int PAGEINT=2;
     private boolean REFU=true;
     private OnSuccessBack back;
@@ -122,12 +120,12 @@ public class PaiMainFragment extends Fragment{
         service.get(getActivity(), url, params, new Listener() {
             @Override
             public void onSuccess(Object object) {
-                paiModels= (List<paiModel>) object;
-                if(paiModels.get(0).getNum()==0){
+                model= (PaiModel) object;
+                if(model.getNum()==0){
                     listView.onRefreshComplete();
                     return;
                 }
-                paiModels.remove(0);
+                paiModels=model.getPaidata();
                 back.Refuback();
             }
 
@@ -151,12 +149,11 @@ public class PaiMainFragment extends Fragment{
         service.get(getActivity(), url, params, new Listener() {
             @Override
             public void onSuccess(Object object) {
-                if(((List<paiModel>) object).get(0).getNum()==0){
+                if(((PaiModel)object).getNum()==0){
                     listView.onRefreshComplete();
                     return;
                 }
-                List<paiModel> mm= (List<paiModel>) object;
-                mm.remove(0);
+                List<paiModel> mm= ((PaiModel) object).getPaidata();
                 paiModels.addAll(mm);
                 back.Pullback();
             }

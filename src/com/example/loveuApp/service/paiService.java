@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import com.example.loveuApp.bean.paiModel;
 import com.example.loveuApp.listener.Listener;
+import com.example.loveuApp.model.PaiModel;
 import com.example.loveuApp.util.HttpRequest;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -23,7 +24,7 @@ public class paiService {
         HttpRequest.get(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
-                List<paiModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<paiModel>>(){}.getType());
+                PaiModel models=new Gson().fromJson(new String(bytes),PaiModel.class);
                 listener.onSuccess(models);
             }
 
@@ -39,7 +40,7 @@ public class paiService {
         HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
-                List<paiModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<paiModel>>(){}.getType());
+                PaiModel models=new Gson().fromJson(new String(bytes),PaiModel.class);
                 listener.onSuccess(models);
             }
 

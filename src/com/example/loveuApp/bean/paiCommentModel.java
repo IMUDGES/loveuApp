@@ -9,19 +9,8 @@ public class paiCommentModel {
     private Integer UserId;
     private String CommentInformation;
     private Integer PaiId;
-    private String msg;
-    private Integer state;
     private String NickName;
     private String UserPhoto;
-    private Integer num;
-
-    public Integer getNum() {
-        return num;
-    }
-
-    public void setNum(Integer num) {
-        this.num = num;
-    }
 
     public String getNickName() {
         return NickName;
@@ -31,13 +20,6 @@ public class paiCommentModel {
         NickName = nickName;
     }
 
-    public Integer getState() {
-        return state;
-    }
-
-    public void setState(Integer state) {
-        this.state = state;
-    }
 
     public String getUserPhoto() {
         return UserPhoto;
@@ -54,7 +36,6 @@ public class paiCommentModel {
     public paiCommentModel(Integer commentId, String commentInformation, String msg, Integer paiId, Integer userId) {
         CommentId = commentId;
         CommentInformation = commentInformation;
-        this.msg = msg;
         PaiId = paiId;
         UserId = userId;
     }
@@ -73,14 +54,6 @@ public class paiCommentModel {
 
     public void setCommentInformation(String commentInformation) {
         CommentInformation = commentInformation;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
     }
 
     public Integer getPaiId() {

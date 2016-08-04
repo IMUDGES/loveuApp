@@ -26,6 +26,7 @@ import com.example.loveuApp.bean.helpModel;
 
 import com.example.loveuApp.homepage.help.adapter.HelpListAdapter;
 import com.example.loveuApp.listener.Listener;
+import com.example.loveuApp.model.HelpModel;
 import com.example.loveuApp.service.Service;
 import com.example.loveuApp.service.helpService;
 
@@ -52,7 +53,8 @@ public class HelpMainFragment extends Fragment{
 
     private PullToRefreshListView listView;
     private HelpListAdapter adapter;
-    private List<helpModel> models;
+    private HelpModel models;
+    private List<helpModel> helpModels;
     private OnSuccessBack back;
 
     private int PAGEINT=2;
@@ -64,7 +66,7 @@ public class HelpMainFragment extends Fragment{
 
         REFU=true;
         listView= (PullToRefreshListView) getView().findViewById(R.id.helpListView);
-        models=new ArrayList<>();
+        helpModels=new ArrayList<>();
 
         getData();
 
@@ -74,21 +76,21 @@ public class HelpMainFragment extends Fragment{
                 listView.onRefreshComplete();
                 if(REFU) {
                     Log.i("information","REFU==true");
-                    adapter = new HelpListAdapter(getActivity(), models);
+                    adapter = new HelpListAdapter(getActivity(), helpModels);
                     listView.setAdapter(adapter);
                     REFU=false;
                 }else{
                     Log.i("information","REFU==false");
-                    adapter.setModels(models);
+                    adapter.setModels(helpModels);
                     adapter.notifyDataSetChanged();
                 }
             }
 
             @Override
             public void Pullback() {
-                Log.i("models",models.size()+"");
+                Log.i("models",helpModels.size()+"");
                 listView.onRefreshComplete();
-                adapter.setModels(models);
+                adapter.setModels(helpModels);
                 adapter.notifyDataSetChanged();
             }
         };
@@ -129,7 +131,7 @@ public class HelpMainFragment extends Fragment{
      * 刷新获取数据源函数getData()
      * @return
      */
-    private List<helpModel> getData(){
+    private HelpModel getData(){
         Log.i("msg","getData()");
         String url="help";
         RequestParams params=new RequestParams();
@@ -138,12 +140,12 @@ public class HelpMainFragment extends Fragment{
         service.get(getActivity(), url, params, new Listener() {
             @Override
             public void onSuccess(Object object) {
-                models= (List<helpModel>) object;
-                if(models.get(0).getNumber()==0){
+                models= (HelpModel) object;
+                if(models.getNum()==0){
                     listView.onRefreshComplete();
                     return;
                 }
-                models.remove(0);
+                helpModels=models.getHelpdata();
                 back.Refuback();
             }
 
@@ -169,13 +171,12 @@ public class HelpMainFragment extends Fragment{
         service.get(getActivity(), url, params, new Listener() {
             @Override
             public void onSuccess(Object object) {
-                if(((List<helpModel>) object).get(0).getNumber()==0){
+                if(((HelpModel)object).getNum()==0){
                     listView.onRefreshComplete();
                     return;
                 }
-                List<helpModel> mm= (List<helpModel>) object;
-                mm.remove(0);
-                models.addAll(mm);
+                List<helpModel> mm= ((HelpModel) object).getHelpdata();
+                helpModels.addAll(mm);
                 back.Pullback();
             }
 
@@ -220,8 +221,8 @@ public class HelpMainFragment extends Fragment{
     public void showDialog(int k){
         //Theme_DeviceDefault_Light_Dialog
         AlertDialog.Builder dialog=new AlertDialog.Builder(getActivity(),android.R.style.Theme_DeviceDefault_Light_Dialog);
-        dialog.setTitle("金额:  "+models.get(k).getHelpMoney()+"元");
-        dialog.setMessage("        "+models.get(k).getHelpInformation());
+        dialog.setTitle("金额:  "+helpModels.get(k).getHelpMoney()+"元");
+        dialog.setMessage("        "+helpModels.get(k).getHelpInformation());
         dialog.setPositiveButton("答应他?", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -231,21 +232,21 @@ public class HelpMainFragment extends Fragment{
         dialog.setNegativeButton("残忍拒绝", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {}});
-        new InnoAsyncTask(dialog).execute(models.get(k).getUserPhoto());
+        new InnoAsyncTask(dialog).execute(helpModels.get(k).getUserPhoto());
     }
 
     private void agreeHelp(int i) {
         String url="gethelp";
         Service service=new Service();
         RequestParams request=new RequestParams();
-        request.put("UserPhone","11111111111");
-        request.put("SecretKey","b7db48afb289f63d04d8f053824955bb");
-        request.put("HelpId",models.get(i).getHelpId());
+        request.put("UserPhone","22222222222");
+        request.put("SecretKey","11111");
+        request.put("HelpId",helpModels.get(i).getHelpId());
         service.post(getActivity(), url, request, new Listener() {
             @Override
             public void onSuccess(Object object) {
-                helpModel model=new Gson().fromJson(new String((byte[]) object),helpModel.class);
-                if(1==model.getstate()){
+                HelpModel model=new Gson().fromJson(new String((byte[]) object),HelpModel.class);
+                if(1==model.getState()){
                     Toast.makeText(getActivity(), model.getMsg(), Toast.LENGTH_SHORT).show();
                     getData();
                 }else{

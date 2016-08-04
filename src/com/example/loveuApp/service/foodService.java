@@ -3,6 +3,7 @@ package com.example.loveuApp.service;
 import android.content.Context;
 import com.example.loveuApp.bean.foodModel;
 import com.example.loveuApp.listener.Listener;
+import com.example.loveuApp.model.FoodModel;
 import com.example.loveuApp.util.HttpRequest;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -22,14 +23,14 @@ public class foodService {
         HttpRequest.get(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
-                List<foodModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<foodModel>>(){}.getType());
+                FoodModel models=new Gson().fromJson(new String(bytes),FoodModel.class);
                 listener.onSuccess(models);
             }
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
 //                foodModel model=new Gson().fromJson(new String(bytes),foodModel.class);
-//                listener.onFailure(model.getMsg());
+                listener.onFailure("网络请求失败");
             }
         });
     }
@@ -38,14 +39,13 @@ public class foodService {
         HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
-                List<foodModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<foodModel>>(){}.getType());
+                FoodModel models=new Gson().fromJson(new String(bytes),FoodModel.class);
                 listener.onSuccess(models);
             }
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                foodModel model=new Gson().fromJson(new String(bytes),foodModel.class);
-                listener.onFailure(model.getMsg());
+                listener.onFailure("网络请求失败");
             }
         });
     }

@@ -17,20 +17,9 @@ public class foodModel implements Serializable {
     private String FoodTime;
     private String FoodWay;
     private Integer State;
-    private String msg;
-    private Integer state;
     private String UserPhoto;
     private String NickName;
     private int UserSex;
-    private int num;
-
-    public int getNum() {
-        return num;
-    }
-
-    public void setNum(int num) {
-        this.num = num;
-    }
 
     public String getNickName() {
         return NickName;
@@ -68,19 +57,11 @@ public class foodModel implements Serializable {
         FoodTime = foodTime;
         FoodWay = foodWay;
         GetUser = getUser;
-        this.msg = msg;
         this.State = state;
         UserId = userId;
 
     }
 
-    public Integer getstate(){
-        return state;
-    }
-
-    public void setstate(Integer state){
-        this.state = state;
-    }
 
     public String getFoodArea() {
         return FoodArea;
@@ -130,13 +111,6 @@ public class foodModel implements Serializable {
         GetUser = getUser;
     }
 
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
 
     public Integer getState() {
         return State;
