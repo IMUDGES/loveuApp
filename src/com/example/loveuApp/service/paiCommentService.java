@@ -1,6 +1,7 @@
 package com.example.loveuApp.service;
 
 import android.content.Context;
+import android.util.Log;
 import com.example.loveuApp.bean.paiCommentModel;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.util.HttpRequest;
@@ -22,14 +23,16 @@ public class paiCommentService {
         HttpRequest.get(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
+                Log.i("information",new String(bytes));
                 List<paiCommentModel> models=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<paiCommentModel>>(){}.getType());
                 listener.onSuccess(models);
             }
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                paiCommentModel model=new Gson().fromJson(new String(bytes),paiCommentModel.class);
-                listener.onFailure(model.getMsg());
+                Log.i("information",new String(bytes));
+                //List<paiCommentModel> model=new Gson().fromJson(new String(bytes),new TypeToken<LinkedList<paiCommentModel>>(){}.getType());
+                listener.onFailure("网络请求失败");
             }
         });
     }

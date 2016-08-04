@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff"
+                android:orientation="vertical" >
+
+    <com.example.loveuApp.homepage.pai.NotifyingScrollView
+            android:id="@+id/sv_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            <ImageView android:layout_width="match_parent"
+                       android:id="@+id/pai_comment_image"
+                       android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:id="@+id/pai_comment_infor"
+                      android:paddingLeft="10dp"
+                      android:textColor="@color/dark_grey"
+                      android:textSize="20dp"
+                      android:layout_height="wrap_content"/>
+
+            <RelativeLayout android:layout_width="match_parent"
+                            android:paddingLeft="10dp"
+                            android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content"
+                          android:text="¥"
+                          android:textSize="20dp"
+                          android:gravity="center"
+                          android:textColor="#eb4d0b"
+                          android:layout_height="25dp"
+                          android:layout_alignParentBottom="true" android:id="@+id/textView"/>
+                <TextView android:layout_width="wrap_content"
+                          android:id="@+id/pai_comment_money"
+                          android:textSize="30dp"
+                          android:gravity="center"
+                          android:textColor="#eb4d0b"
+                          android:paddingLeft="15dp"
+                          android:paddingRight="15dp"
+                          android:layout_height="35dp"
+                          android:layout_alignTop="@+id/textView" android:layout_toRightOf="@+id/textView"/>
+            </RelativeLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:orientation="horizontal"
+                          android:paddingLeft="10dp"
+                          android:layout_height="30dp">
+                <TextView android:layout_width="wrap_content"
+                          android:text="剩余时间:"
+                          android:gravity="center"
+                          android:textColor="#0abdff"
+                          android:layout_height="match_parent"/>
+                <ImageView android:layout_width="40dp"
+                           android:padding="2dp"
+                           android:src="@drawable/time"
+                           android:layout_height="match_parent"/>
+                <TextView android:layout_width="wrap_content"
+                          android:id="@+id/pai_comment_time"
+                          android:textColor="#121212"
+                          android:gravity="center_vertical"
+                          android:layout_height="match_parent"/>
+            </LinearLayout>
+
+            <RelativeLayout android:layout_width="match_parent"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:layout_height="wrap_content">
+                <ImageView android:layout_width="50dp"
+                           android:id="@+id/pai_comment_userImage"
+                           android:src="@drawable/ic_launcher"
+                           android:layout_height="50dp"/>
+                <TextView android:layout_width="wrap_content"
+                          android:text="admin"
+                          android:textColor="#121212"
+                          android:textSize="20dp"
+                          android:layout_height="30dp"
+                          android:layout_marginLeft="10dp"
+                          android:id="@+id/pai_comment_username"
+                          android:layout_centerInParent="true"
+                          android:layout_toRightOf="@+id/pai_comment_userImage"/>
+                <TextView android:layout_width="50dp"
+                          android:text="9LV"
+                          android:layout_marginLeft="10dp"
+                          android:textColor="#ff6713"
+                          android:background="#ffb41b"
+                          android:gravity="center"
+                          android:layout_height="wrap_content"
+                          android:id="@+id/textView2"
+                          android:layout_centerInParent="true"
+                          android:layout_toRightOf="@+id/pai_comment_username"/>
+                <Button android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:text="关注"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:id="@+id/pai_comment_addFriend"
+                        android:background="@drawable/login_button_selector"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+
+            <TextView android:layout_width="match_parent"
+                      android:background="#eeeeee"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:text="评论"
+                      android:textColor="#eeeeee"
+                      android:gravity="center"
+                      android:textSize="30dp"
+                      android:layout_height="50dp"/>
+            <TextView android:layout_width="match_parent"
+                      android:background="#eeeeee"
+                      android:layout_height="wrap_content"/>
+            <com.example.loveuApp.homepage.pai.ListViewForScrollView
+                    android:layout_width="match_parent"
+                    android:id="@+id/pai_comment_listView"
+                    android:layout_height="wrap_content">
+
+            </com.example.loveuApp.homepage.pai.ListViewForScrollView>
+
+        </LinearLayout>
+
+    </com.example.loveuApp.homepage.pai.NotifyingScrollView>
+
+    <LinearLayout
+            android:id="@+id/ll_head"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:background="#949494">
+        <TextView android:layout_width="wrap_content"
+                  android:text="◁"
+                  android:id="@+id/comment_finish"
+                  android:clickable="true"
+                  android:layout_marginLeft="30dp"
+                  android:gravity="center"
+                  android:textSize="35dp"
+                  android:textColor="#ffffff"
+                  android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                android:id="@+id/radiogroup"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:layout_height="45dp">
+
+        <Button android:layout_width="match_parent"
+                     android:id="@+id/pai_comment_say"
+                     android:layout_weight="1"
+                     android:gravity="center"
+                     android:text="评论"
+                     android:background="@drawable/comment_bottem_button"
+                     android:layout_height="wrap_content"/>
+
+        <Button android:layout_width="match_parent"
+                     android:id="@+id/pai_comment_want"
+                     android:layout_weight="3"
+                     android:gravity="center"
+                     android:text="竞拍"
+                     android:background="@drawable/comment_bottem_button"
+                     android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</RelativeLayout>

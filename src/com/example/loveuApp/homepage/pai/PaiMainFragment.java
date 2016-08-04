@@ -1,6 +1,7 @@
 package com.example.loveuApp.homepage.pai;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -101,7 +102,8 @@ public class PaiMainFragment extends Fragment{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Log.i("i",i+"");
-                //showDialog(i-1);
+                PaiCommentActivity.setPaiModels(paiModels.get(i-1));
+                startActivity(new Intent(getActivity(),PaiCommentActivity.class));
             }
         });
     }

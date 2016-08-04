@@ -34,13 +34,6 @@ public class MessageFragment extends Fragment{
         View view = inflater.inflate(R.layout.messagemain, container, false);
 
         btn = (Button) view.findViewById(R.id.to_user);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),NoBoringActionBarActivity.class);
-                startActivity(intent);
-            }
-        });
 
         return view;
     }
@@ -66,6 +59,14 @@ public class MessageFragment extends Fragment{
                 intent.putExtra("output", Uri.fromFile(new File(Environment.getExternalStorageDirectory().getPath()+"/loveu.jpg")));
                 intent.putExtra("outputFormat", "JPEG");//返回格式
                 startActivityForResult(Intent.createChooser(intent, "选择图片"), IMAGE_CODE);
+            }
+        });
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),NoBoringActionBarActivity.class);
+                startActivity(intent);
             }
         });
     }

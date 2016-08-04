@@ -135,6 +135,9 @@ public class NoBoringActionBarActivity extends Activity {
     }
 
     private RectF getOnScreenRect(RectF rect, View view) {
+        if(view==null){
+            return null;
+        }
         rect.set(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
         return rect;
     }

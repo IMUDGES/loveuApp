@@ -14,21 +14,20 @@
                   android:theme="@android:style/Theme.Holo.NoActionBar"
                   android:label="@string/app_name">
 
-
         </activity>
 
         <activity android:name=".register.GuoQingZhuangBActivity"/>
 
         <activity android:name="MyActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
         </activity>
         <activity android:name=".homepage.food.FoodDetailsActivity"/>
-
         <activity android:name=".User.NoBoringActionBarActivity"
                   android:theme="@style/TransparentTheme"/>
+        <activity android:name=".homepage.pai.PaiCommentActivity"/>
     </application>
 </manifest>

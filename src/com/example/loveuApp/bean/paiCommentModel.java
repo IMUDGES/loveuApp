@@ -10,6 +10,42 @@ public class paiCommentModel {
     private String CommentInformation;
     private Integer PaiId;
     private String msg;
+    private Integer state;
+    private String NickName;
+    private String UserPhoto;
+    private Integer num;
+
+    public Integer getNum() {
+        return num;
+    }
+
+    public void setNum(Integer num) {
+        this.num = num;
+    }
+
+    public String getNickName() {
+        return NickName;
+    }
+
+    public void setNickName(String nickName) {
+        NickName = nickName;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
+    }
+
+    public String getUserPhoto() {
+        return UserPhoto;
+    }
+
+    public void setUserPhoto(String userPhoto) {
+        UserPhoto = userPhoto;
+    }
 
     public paiCommentModel(){
 
