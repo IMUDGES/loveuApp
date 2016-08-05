@@ -46,6 +46,7 @@ public class RunMainFragment extends Fragment{
     private String url = "http://183.175.14.250:5000/run";
     private int page = 1;
     private boolean firstAdapter = true;
+
     @Override
     public View onCreateView(LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.runmain, container, false);

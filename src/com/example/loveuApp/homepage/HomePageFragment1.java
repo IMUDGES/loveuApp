@@ -19,6 +19,7 @@ import com.example.loveuApp.homepage.help.HelpMainFragment;
 import com.example.loveuApp.homepage.pai.PaiMainFragment;
 import com.example.loveuApp.homepage.run.RunMainFragment;
 import com.example.loveuApp.homepage.xue.XueMainFragment;
+import com.example.loveuApp.util.DepthPageTransformer;
 import com.example.loveuApp.view.TopHorizontalScrollView;
 
 
@@ -42,6 +43,7 @@ public class HomePageFragment1 extends Fragment{
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initView();
+        mPager.setPageTransformer(true, new DepthPageTransformer());
         mPager.setAdapter(mAdapter);
         mHorizontalScrollView.setViewPager(mPager,0,getActivity());
 
