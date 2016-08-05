@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.*;
 import com.example.loveuApp.R;
@@ -14,6 +15,7 @@ import com.example.loveuApp.service.Service;
 import com.google.gson.Gson;
 import com.loopj.android.http.RequestParams;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
@@ -60,7 +62,7 @@ public class UpFoodActivity extends Activity {
                 new DatePickerDialog(UpFoodActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                        YEAR=i;MON=i1;DAY=i2;
+                        YEAR=i;MON=i1+1;DAY=i2;
                         new TimePickerDialog(UpFoodActivity.this, new TimePickerDialog.OnTimeSetListener() {
                             @Override
                             public void onTimeSet(TimePicker timePicker, int i, int i1) {
@@ -94,7 +96,8 @@ public class UpFoodActivity extends Activity {
         Calendar cal=Calendar.getInstance();
         cal.clear();
         cal.set(YEAR,MON,DAY,HOR,MIN);
-        //params.put("FoodTime",YEAR+"-"+);//2016-03-06 12:55:21
+        Log.i("information",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(cal.getTime()));
+        params.put("FoodTime",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(cal.getTime()));//2016-03-06 12:55:21
         service.post(this, url, params, new Listener() {
             @Override
             public void onSuccess(Object object) {

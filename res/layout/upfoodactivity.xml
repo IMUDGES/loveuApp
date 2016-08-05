@@ -48,7 +48,7 @@
                   android:layout_height="50dp">
         <CheckBox android:layout_width="match_parent"
                      android:text="我请客"
-                  android:clickable="true"
+                  android:checked="true"
                      android:id="@+id/upfood_myself"
                      android:textColor="#565657"
                      android:layout_weight="1"
