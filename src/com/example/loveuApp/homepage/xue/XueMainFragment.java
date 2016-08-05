@@ -106,6 +106,7 @@ public class XueMainFragment extends Fragment{
                 Log.i("数量",strings.length+" ");
                 mAdapter.data = data;
                 mAdapter.URLS = strings;
+                mAdapter.mFirstIn = true;
                 mAdapter.notifyDataSetChanged();
                 mListView.onRefreshComplete();
                 return;

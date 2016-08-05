@@ -18,7 +18,7 @@ import java.util.List;
 
 public class RunMainListAdapter extends BaseAdapter implements AbsListView.OnScrollListener{
     private int mStart, mEnd;
-    private boolean mFirstIn;
+    public boolean mFirstIn;
     public static String [] URLS;
     private ImageLoader mImageLoader;
     public List<runModel> data;

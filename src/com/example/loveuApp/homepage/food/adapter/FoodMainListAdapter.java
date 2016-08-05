@@ -24,7 +24,7 @@ import java.util.List;
  */
 public class FoodMainListAdapter extends BaseAdapter implements AbsListView.OnScrollListener{
     private int mStart, mEnd;
-    private boolean mFirstIn;
+    public boolean mFirstIn;
     public static String [] URLS;
     private ImageLoader mImageLoader;
     public List<foodModel> data;
@@ -35,6 +35,7 @@ public class FoodMainListAdapter extends BaseAdapter implements AbsListView.OnSc
         if (data != null){
             Log.i("data","!null");
         }
+        Log.i("URLS","重新设置");
         URLS = new String[urls.length];
         for (int i =0;i<urls.length;i++){
             URLS[i]=urls[i];
@@ -82,6 +83,7 @@ public class FoodMainListAdapter extends BaseAdapter implements AbsListView.OnSc
             convertView.setTag(viewHolder);
         }else {
             viewHolder = (ViewHolder) convertView.getTag();
+
         }
 
         viewHolder.name.setText(data.get(i).getNickName()+"");
@@ -111,7 +113,7 @@ public class FoodMainListAdapter extends BaseAdapter implements AbsListView.OnSc
             viewHolder.sex.setText("♀");
             viewHolder.sex.setBackgroundResource(R.drawable.foodlistview_sexgirl);
         }
-
+        Log.i("settag","settag+"+URLS[i]);
         viewHolder.imageView.setTag(URLS[i]+i);
         viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,6 +137,7 @@ public class FoodMainListAdapter extends BaseAdapter implements AbsListView.OnSc
 
         if (scrollState == SCROLL_STATE_IDLE) {
             Log.i("下载图片","开始");
+            Log.i("onScrollStateChanged",""+mStart+"       "+mEnd);
             mImageLoader.loadImages(mStart, mEnd);
         } else {
             mImageLoader.cancelAllTasks();

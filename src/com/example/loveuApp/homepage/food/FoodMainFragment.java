@@ -117,6 +117,7 @@ public class FoodMainFragment extends Fragment {
                 Log.i("数量",strings.length+" ");
                 mAdapter.data = data;
                 mAdapter.URLS = strings;
+                mAdapter.mFirstIn = true;
                 mAdapter.notifyDataSetChanged();
                 mListView.onRefreshComplete();
                 return;
@@ -179,7 +180,7 @@ public class FoodMainFragment extends Fragment {
     public String[] sendGet(String url) {
         //System.out.println("get");
 
-
+        Log.i("1++++++++++++++++++++++++++","1");
         String result = "";
         BufferedReader in = null;
         try {
@@ -216,6 +217,7 @@ public class FoodMainFragment extends Fragment {
                 e2.printStackTrace();
             }
         }
+        Log.i("2++++++++++++++++++++++++++","2");
         FoodModel model = new Gson().fromJson(result,FoodModel.class);
         if (model == null)
             return null;
