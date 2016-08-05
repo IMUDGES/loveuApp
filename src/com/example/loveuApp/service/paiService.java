@@ -30,7 +30,7 @@ public class paiService {
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                Log.i("service",new String(bytes));
+                //Log.i("service",new String(bytes));
                 listener.onFailure("网络请求失败");
             }
         });

@@ -10,6 +10,8 @@
                   android:layout_height="50dp">
         <TextView android:layout_width="wrap_content"
                   android:text="取消"
+                  android:clickable="true"
+                  android:id="@+id/upfood_finish"
                   android:textSize="20dp"
                   android:textColor="#727370"
                   android:layout_marginLeft="10dp"
@@ -18,16 +20,18 @@
 
         <TextView android:layout_width="wrap_content"
                   android:text="admin"
+                  android:id="@+id/upfood_username"
                   android:textSize="25dp"
                   android:textColor="#727370"
                   android:layout_centerInParent="true"
                   android:gravity="center"
                   android:layout_height="match_parent"/>
 
-        <Button android:layout_width="45dp"
+        <Button android:layout_width="50dp"
                 android:text="发送"
 
-                android:textColor="#f0f2ec"
+                android:id="@+id/upfood_send"
+                android:textColor="#ffffff"
                 android:layout_height="30dp"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
@@ -38,12 +42,55 @@
               android:background="#d2d2d2"
               android:layout_height="1dp"/>
 
+    <LinearLayout android:layout_width="match_parent"
+                  android:orientation="horizontal"
+                  android:paddingLeft="15dp"
+                  android:layout_height="50dp">
+        <CheckBox android:layout_width="match_parent"
+                     android:text="我请客"
+                  android:clickable="true"
+                     android:id="@+id/upfood_myself"
+                     android:textColor="#565657"
+                     android:layout_weight="1"
+                     android:layout_height="match_parent"/>
+
+        <CheckBox android:layout_width="match_parent"
+                     android:text="AA"
+                     android:id="@+id/upfood_aa"
+                     android:textColor="#565657"
+                     android:layout_weight="1"
+                     android:layout_height="match_parent"/>
+
+        <CheckBox android:layout_width="match_parent"
+                     android:text="他请客"
+                     android:id="@+id/upfood_his"
+                     android:textColor="#565657"
+                     android:layout_weight="1"
+                     android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
     <EditText android:layout_width="match_parent"
               android:layout_margin="15dp"
               android:textSize="18dp"
-              android:id="@+id/upfood_write"
+              android:id="@+id/upfood_address"
               android:textColor="#404040"
-              android:hint="吃饭无聊吗? 与人相约吧..."
+              android:hint="去哪吃呢?(地址)..."
+              android:background="#ffffff"
+              android:textCursorDrawable="@null"
+              android:gravity="top"
+              android:layout_height="wrap_content"/>
+    <TextView android:layout_width="match_parent"
+              android:background="#d2d2d2"
+              android:layout_marginLeft="15dp"
+              android:layout_marginRight="15dp"
+              android:layout_height="1dp"/>
+    <EditText android:layout_width="match_parent"
+              android:layout_margin="15dp"
+              android:textSize="18dp"
+              android:id="@+id/upfood_infor"
+              android:textColor="#404040"
+              android:hint="谈谈想法吧,好让人了解你哦..."
               android:background="#ffffff"
               android:textCursorDrawable="@null"
               android:gravity="top"
