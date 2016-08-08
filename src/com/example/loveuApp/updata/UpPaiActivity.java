@@ -30,6 +30,7 @@ import java.util.Calendar;
  */
 public class UpPaiActivity extends Activity {
 
+    private TextView username,finish;
     private EditText title,information;
     private String mTitle,mInformation;
     private ImageView image;
@@ -53,7 +54,14 @@ public class UpPaiActivity extends Activity {
         information=(EditText) findViewById(R.id.uppai_infor);
         image= (ImageView) findViewById(R.id.uppai_image);
         send= (Button) findViewById(R.id.uppai_send);
-
+        username= (TextView) findViewById(R.id.uppai_username);
+        finish= (TextView) findViewById(R.id.uppai_finish);
+        finish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     private void sendMessage() {
