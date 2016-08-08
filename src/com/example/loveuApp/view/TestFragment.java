@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.Toast;
 import com.example.loveuApp.R;
 import com.example.loveuApp.updata.UpFoodActivity;
+import com.example.loveuApp.updata.UpPaiActivity;
 import com.example.loveuApp.updata.UpdataFragment;
 
 
@@ -62,6 +63,9 @@ public class TestFragment extends Fragment {
                 Toast.makeText(getActivity(),""+(position+1),Toast.LENGTH_SHORT).show();
                 if(position==0){
                     startActivity(new Intent(getActivity(), UpFoodActivity.class));
+                }
+                if(position==1){
+                    startActivity(new Intent(getActivity(), UpPaiActivity.class));
                 }
             }
         });

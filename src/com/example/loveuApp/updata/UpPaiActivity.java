@@ -12,6 +12,7 @@ import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
+import com.example.loveuApp.R;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.model.FoodModel;
 import com.example.loveuApp.service.Service;
@@ -29,8 +30,8 @@ import java.util.Calendar;
  */
 public class UpPaiActivity extends Activity {
 
-    private EditText title,information,money;
-    private String mTitle,mInformation,mMoney;
+    private EditText title,information;
+    private String mTitle,mInformation;
     private ImageView image;
     int year,mon,day,hor,min;
     int YEAR,MON,DAY,HOR,MIN;
@@ -40,6 +41,7 @@ public class UpPaiActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.uppaiactivity);
 
         init();
         showImage();
@@ -47,7 +49,10 @@ public class UpPaiActivity extends Activity {
     }
 
     private void init() {
-
+        title= (EditText) findViewById(R.id.uppai_title);
+        information=(EditText) findViewById(R.id.uppai_infor);
+        image= (ImageView) findViewById(R.id.uppai_image);
+        send= (Button) findViewById(R.id.uppai_send);
 
     }
 
@@ -63,7 +68,6 @@ public class UpPaiActivity extends Activity {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mMoney=money.getText().toString()+"";
                 mInformation=information.getText().toString()+"";
                 mTitle=title.getText().toString()+"";
                 new DatePickerDialog(UpPaiActivity.this, new DatePickerDialog.OnDateSetListener() {
@@ -99,7 +103,6 @@ public class UpPaiActivity extends Activity {
         params.put("SecretKey","11111");
         params.put("PaiInformation",mInformation);
         params.put("PaiTitle",mTitle);
-        params.put("PaiMoney",mMoney);
         if(file==null){
             Toast.makeText(UpPaiActivity.this, "请选择图片", Toast.LENGTH_SHORT).show();
             return;
@@ -114,7 +117,7 @@ public class UpPaiActivity extends Activity {
         cal.clear();
         cal.set(YEAR,MON,DAY,HOR,MIN);
         Log.i("information",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(cal.getTime()));
-        params.put("FoodTime",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(cal.getTime()));//2016-03-06 12:55:21
+        params.put("DownTime",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(cal.getTime()));//2016-03-06 12:55:21
         service.post(this, url, params, new Listener() {
             @Override
             public void onSuccess(Object object) {
@@ -173,8 +176,10 @@ public class UpPaiActivity extends Activity {
                 Bitmap bitmap = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory().getPath()+"/loveu.jpg", options);
                 Path=Environment.getExternalStorageDirectory().getPath()+"/loveu.jpg";
 
-                if (bitmap == null)
+                if (bitmap == null){
                     Log.i("bitmap","null");
+                    return;
+                }
 
                 image.setImageBitmap(bitmap);
                 file = new File(Path);
