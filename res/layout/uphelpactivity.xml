@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:background="#ffffff"
+              android:layout_height="match_parent">
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="50dp">
+        <TextView android:layout_width="wrap_content"
+                  android:text="取消"
+                  android:clickable="true"
+                  android:id="@+id/uphelp_finish"
+                  android:textSize="20dp"
+                  android:textColor="#727370"
+                  android:layout_marginLeft="10dp"
+                  android:gravity="center"
+                  android:layout_height="match_parent"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:text="admin"
+                  android:id="@+id/uphelp_username"
+                  android:textSize="25dp"
+                  android:textColor="#727370"
+                  android:layout_centerInParent="true"
+                  android:gravity="center"
+                  android:layout_height="match_parent"/>
+
+        <Button android:layout_width="50dp"
+                android:text="发送"
+
+                android:id="@+id/uphelp_send"
+                android:textColor="#ffffff"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/comment_bottem_button"
+                android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    <TextView android:layout_width="match_parent"
+              android:background="#d2d2d2"
+              android:layout_height="1dp"/>
+
+    <EditText android:layout_width="match_parent"
+              android:layout_margin="15dp"
+              android:textSize="18dp"
+              android:id="@+id/uphelp_money"
+              android:textColor="#404040"
+              android:hint="悬赏金额..."
+              android:phoneNumber="true"
+              android:background="#ffffff"
+              android:textCursorDrawable="@null"
+              android:gravity="top"
+              android:layout_height="wrap_content"/>
+
+    <EditText android:layout_width="match_parent"
+              android:layout_margin="15dp"
+              android:textSize="18dp"
+              android:id="@+id/uphelp_password"
+              android:textColor="#404040"
+              android:hint="钱包密码："
+              android:background="#ffffff"
+              android:password="true"
+              android:textCursorDrawable="@null"
+              android:gravity="top"
+              android:layout_height="wrap_content"/>
+
+    <TextView android:layout_width="match_parent"
+              android:background="#d2d2d2"
+              android:layout_marginLeft="15dp"
+              android:layout_marginRight="15dp"
+              android:layout_height="1dp"/>
+    <EditText android:layout_width="match_parent"
+              android:layout_margin="15dp"
+              android:textSize="18dp"
+              android:id="@+id/uphelp_infor"
+              android:textColor="#404040"
+              android:hint="有什么需求,就说出开吧..."
+              android:background="#ffffff"
+              android:textCursorDrawable="@null"
+              android:gravity="top"
+              android:layout_height="match_parent"/>
+
+</LinearLayout>

@@ -31,5 +31,6 @@
         <activity android:name=".homepage.pai.PaiCommentActivity"/>
         <activity android:name=".updata.UpFoodActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".updata.UpPaiActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
+        <activity android:name=".updata.UpHelpActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
     </application>
 </manifest>

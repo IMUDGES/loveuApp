@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -54,7 +55,11 @@ public class UpPaiActivity extends Activity {
         information=(EditText) findViewById(R.id.uppai_infor);
         image= (ImageView) findViewById(R.id.uppai_image);
         send= (Button) findViewById(R.id.uppai_send);
+
         username= (TextView) findViewById(R.id.uppai_username);
+        SharedPreferences sh=getSharedPreferences("user",MODE_PRIVATE);
+        username.setText(sh.getString("UserName","***"));
+
         finish= (TextView) findViewById(R.id.uppai_finish);
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
