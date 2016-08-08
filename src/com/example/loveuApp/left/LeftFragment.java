@@ -26,6 +26,7 @@ public class LeftFragment extends Fragment{
     private LeftListViewAdapter mAdapter;
     private Bitmap[] bitmaps= null;
     private int mCount = 2;
+    private ImageView searchImage;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.leftmain, container, false);
@@ -35,6 +36,13 @@ public class LeftFragment extends Fragment{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        searchImage = (ImageView) getActivity().findViewById(R.id.leftmain_search);
+        searchImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                doClick();
+            }
+        });
         mListView = (ListView) getActivity().findViewById(R.id.leftmain_listview);
         /**
          * 先进行异步下载任务，之后调用以下方法
@@ -43,6 +51,11 @@ public class LeftFragment extends Fragment{
         mListView.setAdapter(mAdapter);
 
     }
+
+    private void doClick() {
+
+    }
+
 
     private void initAdapter() {
         bitmaps = new Bitmap[2];

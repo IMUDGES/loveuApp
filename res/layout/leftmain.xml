@@ -22,9 +22,13 @@ android:background="@color/light_grey">
         <ImageView android:layout_width="20dp" android:layout_height="20dp"
         android:background="@drawable/navigationbar_search"/>
 
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        <TextView android:layout_width="275dp" android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
+                  android:layout_marginRight="15dp"
         android:hint="搜索"/>
+            <ImageView android:layout_width="20dp" android:layout_height="20dp"
+            android:background="@drawable/card_icon_unblocked"
+            android:id="@+id/leftmain_search"/>
         </LinearLayout>
     </LinearLayout>
     <View android:layout_width="match_parent" android:layout_height="1dp"

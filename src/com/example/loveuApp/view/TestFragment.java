@@ -17,6 +17,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 import com.example.loveuApp.R;
+import com.example.loveuApp.homepage.run.RunActivity;
+import com.example.loveuApp.updata.*;
 import com.example.loveuApp.updata.UpFoodActivity;
 import com.example.loveuApp.updata.UpHelpActivity;
 import com.example.loveuApp.updata.UpPaiActivity;
@@ -70,6 +72,13 @@ public class TestFragment extends Fragment {
                 }
                 if(position==2){
                     startActivity(new Intent(getActivity(), UpHelpActivity.class));
+                }
+                if (position == 4){
+                    startActivity(new Intent(getActivity(),UpRunActivity.class));
+                }
+                if (position == 5){
+                    startActivity(new Intent(getActivity(),UpXueActivity.class));
+
                 }
             }
         });
