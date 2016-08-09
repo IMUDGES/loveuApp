@@ -1,6 +1,5 @@
 package com.example.loveuApp.homepage.food.adapter;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,10 +10,8 @@ import android.view.ViewGroup;
 import android.widget.*;
 import com.example.loveuApp.R;
 import com.example.loveuApp.bean.foodModel;
-import com.example.loveuApp.bean.userModel;
 
-import com.example.loveuApp.homepage.food.FoodDetailsActivity;
-import com.example.loveuApp.util.Tag;
+import com.example.loveuApp.homepage.DetailsActivity;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 import java.util.List;
@@ -119,8 +116,10 @@ public class FoodMainListAdapter extends BaseAdapter implements AbsListView.OnSc
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("data",data.get(i));
-                Intent intent = new Intent(mContext,FoodDetailsActivity.class);
+               // bundle.putSerializable("data",data.get(i));
+                bundle.putInt("UserId",data.get(i).getUserId());
+                bundle.putString("URL",URLS[i]);
+                Intent intent = new Intent(mContext,DetailsActivity.class);
                 intent.putExtras(bundle);
                 mContext.startActivity(intent);
             }

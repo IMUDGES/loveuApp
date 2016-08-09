@@ -4,4 +4,8 @@
     <drawable name="clr_pressed">#0000FF</drawable>
     <drawable name="check_normal">#cfd8dc</drawable>
     <drawable name="check_pressed">#fafafa</drawable>
+    <drawable name="details_normal">#48CFAD</drawable>
+    <drawable name="details_pressed">#00bfa5</drawable>
+
+
 </resources>

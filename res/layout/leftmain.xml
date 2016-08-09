@@ -3,42 +3,72 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-android:background="@color/light_grey">
+              android:background="@color/light_grey">
     <TextView android:layout_width="match_parent" android:layout_height="18dp"
               android:background="@color/black"/>
 
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:orientation="horizontal"
+                  android:orientation="horizontal"
 
 
-        >
+    >
         <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:background="#e3e4e6"
-        android:layout_margin="10dp"
-        android:padding="5dp">
+                      android:orientation="horizontal"
+                      android:background="#e3e4e6"
+                      android:layout_margin="10dp"
+                      android:padding="5dp">
 
 
-        <ImageView android:layout_width="20dp" android:layout_height="20dp"
-        android:background="@drawable/navigationbar_search"/>
-
-        <TextView android:layout_width="275dp" android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-                  android:layout_marginRight="15dp"
-        android:hint="搜索"/>
             <ImageView android:layout_width="20dp" android:layout_height="20dp"
-            android:background="@drawable/card_icon_unblocked"
-            android:id="@+id/leftmain_search"/>
+                       android:background="@drawable/navigationbar_search"
+                       android:layout_gravity="center_vertical"/>
+
+            <EditText android:layout_width="250dp" android:layout_height="wrap_content"
+                      android:layout_marginLeft="15dp"
+                      android:background="#e3e4e6"
+                      android:textColor="@color/black"
+                      android:maxLines="1"
+                      android:maxLength="12"
+                      android:id="@+id/leftmain_searchinfo"
+                      android:textSize="13dp"
+                      android:layout_marginRight="15dp"
+                      android:hint="搜索"/>
+            <ImageView android:layout_width="20dp" android:layout_height="20dp"
+                       android:background="@drawable/card_icon_unblocked"
+                       android:id="@+id/leftmain_search"
+                       android:layout_gravity="center_vertical"/>
         </LinearLayout>
     </LinearLayout>
     <View android:layout_width="match_parent" android:layout_height="1dp"
           android:background="@color/dark_grey"/>
+    <!--<TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:text="性别:"
+              android:textColor="@color/black"
+    android:id="@+id/leftmain_sextext"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:text="内容"
+              android:id="@+id/leftmain_waytext"/>
+              -->
+    <!--<LinearLayout android:layout_width="match_parent" android:layout_height="30dp"
+                  android:orientation="horizontal">
+        <Spinner android:layout_width="0dp" android:layout_height="40dp"
+        android:layout_weight="1"
+        android:id="@+id/leftmain_way">
+
+        </Spinner>
+        <Spinner android:layout_width="0dp" android:layout_height="40dp"
+                 android:layout_weight="1"
+        android:id="@+id/leftmain_sex">
+
+        </Spinner>
+    </LinearLayout>
+    -->
 
 
     <View android:layout_width="match_parent" android:layout_height="1dp"
-          android:background="@color/dark_grey"/>
+          android:background="#e3e4e6"/>
 
     <ListView android:layout_width="match_parent" android:layout_height="match_parent"
-    android:id="@+id/leftmain_listview"/>
+              android:id="@+id/leftmain_listview"/>
 
 </LinearLayout>

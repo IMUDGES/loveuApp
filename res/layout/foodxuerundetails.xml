@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/light_grey">
+
+    <TextView android:layout_width="match_parent" android:layout_height="70dp"
+              android:background="#48CFAD"
+              android:textColor="@color/white"
+              android:textSize="20dp"
+              android:text="信息"
+              android:fitsSystemWindows="true"
+              android:gravity="center"/>
+
+
+    <ImageView android:layout_width="90dp" android:layout_height="90dp"
+               android:background="@drawable/ic_launcher"
+               android:layout_gravity="center"
+               android:layout_marginTop="20dp"
+               android:id="@+id/fooddetails_img"/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:text=""
+              android:textColor="@color/black"
+              android:paddingLeft="7dp"
+              android:paddingRight="7dp"
+              android:paddingBottom="2dp"
+              android:paddingTop="2dp"
+              android:textSize="10dp"
+              android:id="@+id/fooddetails_name"
+              android:layout_marginBottom="5dp"
+              android:layout_marginTop="5dp"
+              android:layout_gravity="center_horizontal"/>
+
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:text="Lv.9"
+              android:textColor="@color/white"
+              android:background="#ffab00"
+              android:paddingLeft="7dp"
+              android:paddingRight="7dp"
+              android:paddingBottom="2dp"
+              android:paddingTop="2dp"
+              android:textSize="10dp"
+              android:id="@+id/fooddetails_lv"
+              android:layout_marginBottom="5dp"
+              android:layout_marginTop="10dp"
+              android:layout_gravity="center_horizontal"/>
+
+
+    <View android:layout_width="match_parent" android:layout_height="1dp"
+          android:background="#e3e4e6"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+    android:background="@color/white">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                  android:layout_weight="2"
+                  android:textSize="16dp"
+                  android:textColor="@color/black"
+                  android:text="账号信息"
+                  android:layout_marginLeft="10dp"
+                  android:padding="10dp"
+                  android:layout_marginRight="10dp"
+        />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                  android:layout_weight="5"
+                  android:id="@+id/fooddetails_phone"
+                  android:textColor="@color/black"
+                  android:text="账号信息"
+                  android:layout_marginLeft="10dp"
+                  android:padding="10dp"
+                  android:layout_marginRight="5dp"
+        />
+    </LinearLayout>
+    <View android:layout_width="match_parent"  android:layout_height="3dp"
+          android:background="#e3e4e6"/>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:background="@color/white">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                  android:layout_weight="2"
+                  android:textColor="@color/black"
+                  android:text="性别"
+                  android:layout_marginLeft="10dp"
+                  android:padding="10dp"
+                  android:layout_marginRight="10dp"
+        />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                  android:layout_weight="5"
+                  android:id="@+id/fooddetails_sex"
+                  android:textColor="@color/black"
+                  android:text="账号信息"
+                  android:layout_marginLeft="10dp"
+                  android:padding="10dp"
+                  android:layout_marginRight="5dp"
+        />
+    </LinearLayout>
+    <View android:layout_width="match_parent" android:layout_height="3dp"
+          android:background="#e3e4e6"/>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:background="@color/white">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                  android:layout_weight="2"
+                  android:textColor="@color/black"
+                  android:text="年龄"
+                  android:layout_marginLeft="10dp"
+                  android:padding="10dp"
+                  android:layout_marginRight="10dp"
+        />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                  android:layout_weight="5"
+                  android:id="@+id/fooddetails_age"
+                  android:textColor="@color/black"
+                  android:text="18"
+                  android:layout_marginLeft="10dp"
+                  android:padding="10dp"
+                  android:layout_marginRight="5dp"
+        />
+
+    </LinearLayout>
+    <View android:layout_width="match_parent"  android:layout_height="3dp"
+          android:background="#e3e4e6"/>
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:layout_alignParentBottom="true">
+            <Button android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="加好友"
+                    android:background="@drawable/details_button_selector"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="17dp"
+            />
+            <Button android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="发消息"
+                    android:textSize="17dp"
+                    android:background="@drawable/details_button_selector"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+            />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>
