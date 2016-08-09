@@ -18,4 +18,5 @@
     <color name="red">#e51c23</color>
     <color name="actionbar_title_color">@android:color/white</color>
     <color name="newblue">#48CFAD</color>
+    <color name="line_gray">#e3e4e6</color>
 </resources>

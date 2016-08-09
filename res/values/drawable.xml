@@ -6,6 +6,8 @@
     <drawable name="check_pressed">#fafafa</drawable>
     <drawable name="details_normal">#48CFAD</drawable>
     <drawable name="details_pressed">#00bfa5</drawable>
+    <drawable name="layout_normal">#eeeeee</drawable>
+    <drawable name="layout_pressed">#e3e4e6</drawable>
 
 
 </resources>

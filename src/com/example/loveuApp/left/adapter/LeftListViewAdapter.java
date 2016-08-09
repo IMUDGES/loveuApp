@@ -29,6 +29,7 @@ public class LeftListViewAdapter extends BaseAdapter {
     private Context mContext;
     private ArrayList<ImageView> mImages;
     private Bitmap[] bitmaps;
+    private int num = 1;
 
     public LeftListViewAdapter(Context context,int count,Bitmap[] bitmaps){
         this.mContext = context;
@@ -42,7 +43,7 @@ public class LeftListViewAdapter extends BaseAdapter {
     }
     @Override
     public int getCount() {
-        return 10;
+        return num;
     }
 
     @Override

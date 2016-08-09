@@ -2,203 +2,120 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:background="@color/light_grey">
 
     <LinearLayout android:layout_width="match_parent"
                   android:orientation="horizontal"
-                  android:layout_height="45dp">
+                  android:layout_height="60dp">
         <TextView android:layout_width="match_parent"
-                  android:text="我"
-                  android:textSize="30dp"
+                  android:text="设置"
+                  android:textColor="@color/white"
+                  android:background="@color/newblue"
+                  android:textSize="20dp"
                   android:gravity="center"
                   android:layout_height="match_parent"/>
     </LinearLayout>
     <ScrollView android:layout_width="match_parent"
                 android:layout_height="wrap_content">
         <LinearLayout android:layout_width="match_parent"
+                      android:layout_marginTop="20dp"
                       android:orientation="vertical"
                       android:layout_height="match_parent">
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"/>
-
-            <LinearLayout android:layout_width="match_parent"
-                          android:orientation="vertical"
-                          android:layout_height="wrap_content">
-                <LinearLayout android:layout_width="match_parent"
-                              android:orientation="horizontal"
-                              android:layout_height="wrap_content">
-                    <ImageView android:layout_width="200dp"
-                               android:padding="10dp"
-                               android:id="@+id/messagefragment_img"
-                               android:src="@drawable/ic_launcher"
-                               android:layout_weight="1"
-                               android:layout_height="80dp"/>
-
-                    <TextView android:layout_width="match_parent"
-                              android:text="个人信息"
-                              android:layout_weight="1"
-                              android:textSize="30dp"
-                              android:gravity="center"
-                              android:layout_height="match_parent"/>
-
-                </LinearLayout>
-                <LinearLayout android:layout_width="match_parent"
-                              android:orientation="horizontal"
-                              android:layout_height="wrap_content">
-                    <TextView android:layout_width="match_parent"
-                              android:text="关注"
-                              android:layout_weight="1"
-                              android:textSize="20dp"
-                              android:gravity="center"
-                              android:layout_height="40dp"/>
-                    <TextView android:layout_width="match_parent"
-                              android:text="关注"
-                              android:layout_weight="1"
-                              android:textSize="20dp"
-                              android:gravity="center"
-                              android:layout_height="40dp"/>
-                    <TextView android:layout_width="match_parent"
-                              android:text="关注"
-                              android:layout_weight="1"
-                              android:textSize="20dp"
-                              android:gravity="center"
-                              android:layout_height="40dp"/>
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"/>
-
-
-            <LinearLayout android:layout_width="match_parent"
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                  android:background="@color/line_gray"
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginRight="10dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                           android:orientation="horizontal"
-                          android:layout_height="40dp">
-                <ImageView android:layout_width="wrap_content"
-                           android:src="@drawable/ic_launcher"
-                           android:padding="5dp"
-                           android:layout_height="match_parent"/>
-
-                <RelativeLayout android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-                    <TextView android:layout_width="match_parent"
-                              android:text="账户管理"
-                              android:id="@+id/mager"
-                              android:paddingLeft="15dp"
-                              android:gravity="center_vertical"
-                              android:textSize="25dp"
-                              android:layout_height="match_parent"/>
-
-                    <ImageView android:layout_width="wrap_content"
-                               android:src="@drawable/ic_launcher"
-                               android:padding="5dp"
-                               android:layout_height="match_parent"
-                               android:layout_alignParentRight="true"/>
-
-                    <ImageView android:layout_width="match_parent"
-                               android:layout_alignBottom="@+id/mager"
-                               android:background="#ffffff"
-                               android:layout_height="1px"/>
-                </RelativeLayout>
+                          android:background="@drawable/layout_item_selector"
+                          android:paddingTop="10dp"
+                          android:layout_marginLeft="10dp"
+                          android:layout_marginRight="10dp"
+                          android:id="@+id/messagefragment_mymessage"
+                          android:paddingBottom="10dp"
+                          android:gravity="center_vertical">
+                <ImageView android:layout_width="45dp" android:layout_height="45dp"
+                           android:background="@drawable/ic_launcher"
+                           android:id="@+id/messagefragment_img"
+                           android:layout_gravity="center"/>
+                <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+                          android:textColor="@color/black"
+                          android:text="个人信息"
+                          android:gravity="center_vertical"
+                          android:paddingLeft="30dp"/>
             </LinearLayout>
-            <LinearLayout android:layout_width="match_parent"
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                  android:background="@color/line_gray"
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginRight="10dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                           android:orientation="horizontal"
-                          android:layout_height="40dp">
-                <ImageView android:layout_width="wrap_content"
-                           android:src="@drawable/ic_launcher"
-                           android:padding="5dp"
-                           android:layout_height="match_parent"/>
-
-                <RelativeLayout android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-                    <TextView android:layout_width="match_parent"
-                              android:text="jwxt"
-                              android:id="@+id/jwxt"
-                              android:paddingLeft="15dp"
-                              android:gravity="center_vertical"
-                              android:textSize="25dp"
-                              android:layout_height="match_parent"/>
-
-                    <ImageView android:layout_width="wrap_content"
-                               android:src="@drawable/ic_launcher"
-                               android:padding="5dp"
-                               android:layout_height="match_parent"
-                               android:layout_alignParentRight="true"/>
-
-                    <ImageView android:layout_width="match_parent"
-                               android:layout_alignBottom="@+id/jwxt"
-                               android:background="#ffffff"
-                               android:layout_height="1px"/>
-                </RelativeLayout>
+                          android:id="@+id/messagefragment_mywallet"
+                          android:background="@drawable/layout_item_selector"
+                          android:paddingTop="10dp"
+                          android:layout_marginLeft="10dp"
+                          android:layout_marginRight="10dp"
+                          android:paddingBottom="10dp"
+                          android:gravity="center_vertical">
+                <ImageView android:layout_width="45dp" android:layout_height="45dp"
+                           android:background="@drawable/message_more_account"
+                           android:layout_gravity="center"/>
+                <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+                          android:textColor="@color/black"
+                          android:text="我的钱包"
+                          android:gravity="center_vertical"
+                          android:paddingLeft="30dp"/>
             </LinearLayout>
-            <LinearLayout android:layout_width="match_parent"
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                  android:background="@color/line_gray"
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginRight="10dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                           android:orientation="horizontal"
-                          android:layout_height="40dp">
-                <ImageView android:layout_width="wrap_content"
-                           android:src="@drawable/ic_launcher"
-                           android:padding="5dp"
-                           android:layout_height="match_parent"/>
-
-                <RelativeLayout android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-                    <TextView android:layout_width="match_parent"
-                              android:text="与我相关"
-                              android:id="@+id/aboutmyself"
-                              android:paddingLeft="15dp"
-                              android:gravity="center_vertical"
-                              android:textSize="25dp"
-                              android:layout_height="match_parent"/>
-
-                    <ImageView android:layout_width="wrap_content"
-                               android:src="@drawable/ic_launcher"
-                               android:padding="5dp"
-                               android:layout_height="match_parent"
-                               android:layout_alignParentRight="true"/>
-
-                    <ImageView android:layout_width="match_parent"
-                               android:layout_alignBottom="@+id/aboutmyself"
-                               android:background="#ffffff"
-                               android:layout_height="1px"/>
-                </RelativeLayout>
+                          android:id="@+id/messagefragment_relatedtome"
+                          android:background="@drawable/layout_item_selector"
+                          android:paddingTop="10dp"
+                          android:layout_marginLeft="10dp"
+                          android:layout_marginRight="10dp"
+                          android:paddingBottom="10dp"
+                          android:gravity="center_vertical">
+                <ImageView android:layout_width="45dp" android:layout_height="45dp"
+                           android:background="@drawable/compose_mentionbutton_background"
+                           android:layout_gravity="center"/>
+                <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+                          android:textColor="@color/black"
+                          android:text="与我相关"
+                          android:gravity="center_vertical"
+                          android:paddingLeft="30dp"/>
             </LinearLayout>
-
-
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"/>
-
-
-            <LinearLayout android:layout_width="match_parent"
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                  android:background="@color/line_gray"
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginRight="10dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                           android:orientation="horizontal"
-                          android:layout_height="40dp">
-                <ImageView android:layout_width="wrap_content"
-                           android:src="@drawable/ic_launcher"
-                           android:padding="5dp"
-                           android:layout_height="match_parent"/>
-
-                <RelativeLayout android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-                    <TextView android:layout_width="match_parent"
-                              android:text="关于"
-                              android:id="@+id/about"
-                              android:paddingLeft="15dp"
-                              android:gravity="center_vertical"
-                              android:textSize="25dp"
-                              android:layout_height="match_parent"/>
-
-                    <ImageView android:layout_width="wrap_content"
-                               android:src="@drawable/ic_launcher"
-                               android:padding="5dp"
-                               android:layout_height="match_parent"
-                               android:layout_alignParentRight="true"/>
-
-                    <ImageView android:layout_width="match_parent"
-                               android:layout_alignBottom="@+id/about"
-                               android:background="#ffffff"
-                               android:layout_height="1px"/>
-                </RelativeLayout>
+                          android:id="@+id/messagefragment_aboutour"
+                          android:background="@drawable/layout_item_selector"
+                          android:paddingTop="10dp"
+                          android:layout_marginLeft="10dp"
+                          android:layout_marginRight="10dp"
+                          android:paddingBottom="10dp"
+                          android:gravity="center_vertical">
+                <ImageView android:layout_width="45dp" android:layout_height="45dp"
+                           android:background="@drawable/compose_more_groupcard"
+                           android:layout_gravity="center"/>
+                <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+                          android:textColor="@color/black"
+                          android:text="关于我们"
+                          android:gravity="center_vertical"
+                          android:paddingLeft="30dp"/>
             </LinearLayout>
-
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                  android:background="@color/line_gray"
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginRight="10dp"/>
         </LinearLayout>
     </ScrollView>
-    <Button android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/to_user"
-            android:text="to"/>
+
 </LinearLayout>
