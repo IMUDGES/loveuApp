@@ -7,8 +7,10 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,7 +18,9 @@ import com.example.loveuApp.R;
 import com.example.loveuApp.bean.foodModel;
 import com.example.loveuApp.bean.userModel;
 import com.example.loveuApp.listener.Listener;
+import com.example.loveuApp.model.OtherUserModel;
 import com.example.loveuApp.service.Service;
+import com.google.gson.Gson;
 import com.loopj.android.http.RequestParams;
 
 import java.io.BufferedInputStream;
@@ -33,6 +37,7 @@ public class DetailsActivity extends Activity {
     private int UserId;
     private String Url;
     private String name,phone;
+    private Button addfriend;
     private int sex;
     private TextView nameText,phoneText,sexText;
     private ImageView img;
@@ -45,7 +50,7 @@ public class DetailsActivity extends Activity {
         init();
         initView();
         //Toast.makeText(getApplicationContext(),UserId+"   "+Url,Toast.LENGTH_SHORT).show();
-        //updataInfo();
+       updataInfo();
         new MyTask().execute(Url);
     }
 
@@ -65,22 +70,52 @@ public class DetailsActivity extends Activity {
         nameText = (TextView) findViewById(R.id.fooddetails_name);
         phoneText = (TextView) findViewById(R.id.fooddetails_phone);
         img = (ImageView) findViewById(R.id.fooddetails_img);
+        addfriend = (Button) findViewById(R.id.fooddetails_addfriend);
+        addfriend.setOnClickListener(new MyListener());
+    }
+    private class MyListener implements View.OnClickListener {
+
+        @Override
+        public void onClick(View view) {
+            Service service = new Service();
+            RequestParams params = new RequestParams();
+            params.put("UserPhone","11111111111");
+            params.put("SecretKey","11111");
+            params.put("BefocusonId",UserId);
+            service.post(getApplicationContext(), "attention", params, new Listener() {
+                @Override
+                public void onSuccess(Object object) {
+                    Toast.makeText(getApplicationContext(),"关注成功",Toast.LENGTH_SHORT);
+                }
+
+                @Override
+                public void onFailure(String msg) {
+
+                }
+            });
+        }
     }
 
     private void updataInfo() {
         Service service = new Service();
         RequestParams param = new RequestParams();
         param.put("UserId",UserId);
-        service.get(this, "", param, new Listener() {
+        service.get(this, "data", param, new Listener() {
             @Override
             public void onSuccess(Object object) {
-                userModel model = (userModel)object;
-                if (model.getUserSex()==0)
+
+                Log.i("string",new String((byte[])object));
+                OtherUserModel model = new Gson().fromJson(new String((byte[])object),OtherUserModel.class);
+                if (model.getState()=="0"){
+                    Toast.makeText(getApplicationContext(),"不存在此id",Toast.LENGTH_SHORT).show();
+                    return ;
+                }
+                if (model.getData().getUserSex()==0)
                     sexText.setText("女");
                 else
                     sexText.setText("男");
-                phoneText.setText(model.getUserPhone());
-                nameText.setText(model.getNickName());
+                phoneText.setText(model.getData().getUserPhone());
+                nameText.setText(model.getData().getNickName());
 
             }
 
