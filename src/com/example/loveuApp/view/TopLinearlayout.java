@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.example.loveuApp.R;
+import io.rong.imkit.RongIM;
 
 public class TopLinearlayout extends LinearLayout {
 

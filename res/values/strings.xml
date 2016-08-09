@@ -20,4 +20,5 @@
 
     <string name="find_title">忘记密码</string>
     <string name="find_phone">电话号码</string>
+    <string name="action_settings">Settings</string>
 </resources>

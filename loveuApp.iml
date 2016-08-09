@@ -22,53 +22,16 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://E:/../sdk/extras/android/support/v4/android-support-v4.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module" module-name="floatlabeledeittext-library" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
           <root url="jar://$MODULE_DIR$/libs/nineoldandroids-2.4.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://E:/软件/安卓开发/adt-bundle-windows-x86_64-20140702/sdk/extras/android/support/v4/android-support-v4.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="library" name="gradle-wrapper (2)" level="project" />
-    <orderEntry type="library" name="gradle-wrapper (2)" level="project" />
-    <orderEntry type="library" name="android-support-v4" level="project" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://F:/sdk/extras/android/support/v4/android-support-v4.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
     <orderEntry type="module" module-name="library" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://F:/sdk/extras/android/support/v4/android-support-v4.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+    <orderEntry type="module" module-name="android-support-v7-appcompat" />
+    <orderEntry type="module" module-name="RongIMKit" />
+    <orderEntry type="library" name="Rong_IMKit_v2_6_9 (3)" level="project" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>

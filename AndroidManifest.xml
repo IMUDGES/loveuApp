@@ -3,7 +3,34 @@
           package="com.example.loveuApp"
           android:versionCode="1"
           android:versionName="1.0">
-    <uses-sdk android:minSdkVersion="15"/>
+
+    <uses-sdk
+            android:minSdkVersion="20"
+            android:targetSdkVersion="21" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 获取机型信息权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 录音 -->
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -35,5 +62,152 @@
         <activity android:name=".updata.UpRunActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".updata.UpHelpActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".left.SearchActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
+
+
+
+
+
+
+
+        <activity android:name=".right.FriendActivity">
+        </activity>
+
+        <activity
+                android:name=".right.ConversationListActivity"
+                android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                        android:host="com.example.loveuApp"
+                        android:pathPrefix="/conversationlist"
+                        android:scheme="rong"/>
+            </intent-filter>
+
+        </activity>
+
+        <activity
+                android:name=".right.ConversationActivity"
+                android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                        android:host="com.example.loveuApp"
+                        android:pathPrefix="/conversation/"
+                        android:scheme="rong"/>
+            </intent-filter>
+
+        </activity>
+
+        <activity
+                android:name="io.rong.imkit.activity.PictureSelectorActivity"
+                android:screenOrientation="portrait" />
+
+        <activity
+                android:name="io.rong.imkit.activity.PicturePreviewActivity"
+                android:screenOrientation="portrait" />
+
+        <activity
+                android:name="io.rong.imkit.tools.RongWebviewActivity"
+                android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="io.rong.imkit.intent.action.webview" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <intent-filter>
+                <data
+                        android:host="*"
+                        android:scheme="http" />
+                <data
+                        android:host="*"
+                        android:scheme="https" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+
+        <activity
+                android:name="io.rong.imkit.widget.provider.TakingPicturesActivity"
+                android:configChanges="orientation|keyboardHidden"
+                android:screenOrientation="portrait"/>
+
+        <activity
+                android:name="io.rong.imkit.activity.PicturePagerActivity"
+                android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+
+
+        <activity
+                android:name="io.rong.imkit.mention.MemberMentionedActivity"
+                android:windowSoftInputMode="adjustPan|stateHidden"
+                android:configChanges="orientation|keyboardHidden"/>
+
+
+        <!--必选： SDK 核心功能-->
+        <service
+                android:name="io.rong.push.core.PushRegistrationService"
+                android:exported="false">
+        </service>
+        <service
+                android:name="io.rong.push.PushService"
+                android:exported="false"
+                android:process="io.rong.push">
+        </service>
+
+        <service
+                android:name="io.rong.push.core.MessageHandleService"
+                android:exported="true">
+        </service>
+
+        <receiver
+                android:name="io.rong.push.PushReceiver"
+                android:process="io.rong.push">
+            <intent-filter>
+                <action android:name="io.rong.push.intent.action.HEART_BEAT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+
+        <!--必选： SDK 核心功能-->
+
+        <!-- end -->
+
+        <!-- imlib config begin -->
+        <meta-data
+                android:name="RONG_CLOUD_APP_KEY"
+                android:value="y745wfm8440uv" />
+
+        <service
+                android:name="io.rong.imlib.ipc.RongService"
+                android:exported="true"
+                android:process=":ipc" />
+
+        <service android:name="io.rong.imlib.ReConnectService" />
+
+        <receiver android:name="io.rong.imlib.ConnectChangeReceiver" />
+
+        <receiver
+                android:name="io.rong.imlib.HeartbeatReceiver"
+                android:process=":ipc" />
+        <!-- imlib config end -->
+
     </application>
+
 </manifest>

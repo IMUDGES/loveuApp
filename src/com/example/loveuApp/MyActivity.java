@@ -8,6 +8,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import com.example.loveuApp.register.GuoQingZhuangBActivity;
 import com.example.loveuApp.view.TopLinearlayout;
+import io.rong.imkit.RongIM;
 
 public class MyActivity extends FragmentActivity {
     /**
@@ -61,6 +62,5 @@ public class MyActivity extends FragmentActivity {
         Intent intent = new Intent(this, GuoQingZhuangBActivity.class);
         startActivity(intent);
     }
-
 
 }

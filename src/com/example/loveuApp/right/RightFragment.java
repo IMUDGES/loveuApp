@@ -15,4 +15,5 @@ public class RightFragment extends Fragment{
         View view = inflater.inflate(R.layout.rightmain, container, false);
         return view;
     }
+
 }
