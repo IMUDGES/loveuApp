@@ -61,9 +61,6 @@ public class RegisterActivity extends FragmentActivity
     //接口
     @Override
     public void onFLoginTrue() {
-//        Intent intent = new Intent(RegisterActivity.this, MyActivity.class);
-//        startActivity(intent);
-//        finish();
 
         String token = "aucu9trbIaknjMMFkMuu2MNCoMQxJJdg5wMHBmtyvzGteQpc4setbaH/GagQ5dUXnbfhAKVJkVE2DweekQxytw==";
         RongIM.getInstance().startConversationList(RegisterActivity.this);

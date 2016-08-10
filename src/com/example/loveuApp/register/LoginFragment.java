@@ -48,7 +48,7 @@ public class LoginFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         initView();
 
-//        autoLogin();
+        autoLogin();
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,13 +75,39 @@ public class LoginFragment extends Fragment {
         });
     }
 
-//    private void autoLogin() {
-//        SharedPreferences preferences = getActivity().getApplicationContext().
-//                getSharedPreferences("user", Context.MODE_PRIVATE);
-//        String userPhone = preferences.getString("UserPhone","");
-//        String secretKey = preferences.getString("SecretKey","");
-//
-//    }
+    private void autoLogin() {
+        SharedPreferences sh=getActivity().getSharedPreferences("user",getActivity().MODE_PRIVATE);
+        String username=sh.getString("UserPhone","");
+        String password=sh.getString("PassWord","");
+        String Md5_password = Md5.getMD5(password);
+        RequestParams requestParams = new RequestParams();
+        requestParams.add("UserPhone", username);
+        requestParams.add("PassWord", Md5_password);
+        userService service = new userService();
+        String url = "login";
+        service.post(getActivity(), url, requestParams, new Listener() {
+            @Override
+            public void onSuccess(Object object) {
+                userModel userModel = (com.example.loveuApp.bean.userModel) object;
+
+                if ("1".equals(userModel.getState())) {
+                    SharedPreferences preferences = getActivity().getApplicationContext().getSharedPreferences("user", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("Token", userModel.getToken());
+                    if (getActivity() instanceof FLoginBtnClick) {
+                        ((FLoginBtnClick) getActivity()).onFLoginTrue();
+                    }
+                } else {
+                    Toast.makeText(getActivity(), "账号或密码错误", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                Toast.makeText(getActivity(), "与服务器请求失败", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     private void initView() {
         usernameEditText = (EditText) getActivity().findViewById(R.id.login_zhanghao);
@@ -112,7 +138,7 @@ public class LoginFragment extends Fragment {
                 String SecretKey = userModel.getSecretKey();
 //                Toast.makeText(getActivity(),state,Toast.LENGTH_SHORT).show();
                 if ("1".equals(state)) {
-                    saveInfor(userphone, SecretKey);
+                    saveInfor(userphone, SecretKey,userModel.getToken());
 //                    Toast.makeText(getActivity(), "zhengque", Toast.LENGTH_SHORT).show();
                     if (getActivity() instanceof FLoginBtnClick) {
                         ((FLoginBtnClick) getActivity()).onFLoginTrue();
@@ -129,11 +155,12 @@ public class LoginFragment extends Fragment {
         });
     }
 
-    private void saveInfor(String phone, String secret) {
+    private void saveInfor(String phone, String secret, String token) {
         SharedPreferences preferences = getActivity().getApplicationContext().getSharedPreferences("user", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("UserPhone", phone);
         editor.putString("SecretKey", secret);
+        editor.putString("Token", token);
         if (!editor.commit()) {
             System.err.println("！！！写入失败！！！");
         }

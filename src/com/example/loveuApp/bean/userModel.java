@@ -15,8 +15,15 @@ public class userModel {
     private String UserGrade;
     private String UserPhoto;
     private String SecretKey;
+    private String token;
 
+    public String getToken() {
+        return token;
+    }
 
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     private String UserMajor;
     private String state;
