@@ -14,7 +14,7 @@ import com.example.loveuApp.R;
 public class YuWoJieShou extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.foodmain, container, false);
+        View view = inflater.inflate(R.layout.yuwojieshou, container, false);
         return view;
     }
 }
