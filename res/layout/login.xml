@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:float="http://schemas.android.com/apk/res-auto"
+              xmlns:fbutton="http://schemas.android.com/apk/res/com.example.loveuApp"
+              xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="@color/light_grey"
+              tools:context="com.example.loveuApp.register.RegisterActivity"
               android:padding="@dimen/home_padding">
 
     <ImageView android:layout_width="100dp"
@@ -56,14 +59,15 @@
 
     </LinearLayout>
 
-    <Button android:layout_width="match_parent"
+    <com.example.loveuApp.util.FButton
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="@string/login"
             android:id="@+id/login_button"
             android:textColor="@color/white"
             android:textSize="20sp"
-            android:background="@drawable/login_button_selector"
+            fbutton:shadowEnabled="true"
     />
     <RelativeLayout android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
