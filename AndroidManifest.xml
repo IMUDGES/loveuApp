@@ -37,21 +37,17 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application android:label="@string/app_name" android:icon="@drawable/ic_launcher">
 
-        <activity android:name=".register.RegisterActivity"
-                  android:theme="@android:style/Theme.Holo.NoActionBar"
-                  android:label="@string/app_name">
-
-        </activity>
 
         <activity android:name=".register.GuoQingZhuangBActivity"/>
 
-        <activity android:name="MyActivity">
+        <activity android:name=".register.RegisterActivity" android:theme="@android:style/Theme.Holo.NoActionBar">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <activity android:name=".homepage.DetailsActivity"/>
         <activity android:name=".User.NoBoringActionBarActivity"
                   android:theme="@style/TransparentTheme"/>
@@ -69,12 +65,8 @@
 
 
 
-
-        <activity android:name=".right.FriendActivity">
-        </activity>
-
         <activity
-                android:name=".right.ConversationListActivity"
+                android:name=".MyActivity"
                 android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

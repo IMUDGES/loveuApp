@@ -1,18 +1,20 @@
 package com.example.loveuApp.register;
 
-import android.content.Intent;
-import android.net.nsd.NsdManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
-import com.example.loveuApp.MyActivity;
+import android.widget.Toast;
 import com.example.loveuApp.R;
-
+import io.rong.imkit.RongIM;
+import io.rong.imlib.RongIMClient;
+import io.rong.imlib.RongIMClient.ConnectCallback;
 /**
  * Created by 1111 on 2016/7/28.
  */
@@ -38,6 +40,8 @@ public class RegisterActivity extends FragmentActivity
 
         setContentView(R.layout.register_main);
 
+        RongIM.init(this);
+
         if (savedInstanceState == null) {
             init();
             fragmentTransaction = fragmentManager.beginTransaction();
@@ -57,9 +61,30 @@ public class RegisterActivity extends FragmentActivity
     //接口
     @Override
     public void onFLoginTrue() {
-        Intent intent = new Intent(RegisterActivity.this, MyActivity.class);
-        startActivity(intent);
-        finish();
+//        Intent intent = new Intent(RegisterActivity.this, MyActivity.class);
+//        startActivity(intent);
+//        finish();
+
+        String token = "aucu9trbIaknjMMFkMuu2MNCoMQxJJdg5wMHBmtyvzGteQpc4setbaH/GagQ5dUXnbfhAKVJkVE2DweekQxytw==";
+        RongIM.getInstance().startConversationList(RegisterActivity.this);
+
+        RongIM.connect(token, new ConnectCallback() {
+
+            @Override
+            public void onError(RongIMClient.ErrorCode arg0) {
+                Toast.makeText(RegisterActivity.this, "connect onError", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onSuccess(String arg0) {
+                Toast.makeText(RegisterActivity.this, "connect onSuccess", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onTokenIncorrect() {
+                // TODO Auto-generated method stub
+            }
+        });
     }
 
     @Override
@@ -90,5 +115,24 @@ public class RegisterActivity extends FragmentActivity
     public void onFFind2Click() {
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.remove(mfragment[2]).remove(mfragment[3]).show(mfragment[0]).addToBackStack("Find2Back").commit();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

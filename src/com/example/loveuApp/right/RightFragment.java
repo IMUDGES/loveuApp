@@ -1,5 +1,6 @@
 package com.example.loveuApp.right;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -16,4 +17,9 @@ public class RightFragment extends Fragment{
         return view;
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        getActivity().startActivity(new Intent(getActivity(),FriendActivity.class));
+    }
 }
