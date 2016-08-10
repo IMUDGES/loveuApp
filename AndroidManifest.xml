@@ -5,8 +5,9 @@
           android:versionName="1.0">
 
     <uses-sdk
+
             android:minSdkVersion="19"
-            android:targetSdkVersion="22" />
+            android:targetSdkVersion="21" />
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -59,6 +60,13 @@
         <activity android:name=".updata.UpHelpActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".left.SearchActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".message.YuWoXiangGuanActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
+        <activity android:name=".message.MineFood" android:theme="@android:style/Theme.Holo.NoActionBar"/>
+        <activity android:name=".message.MineGive" android:theme="@android:style/Theme.Holo.NoActionBar"/>
+        <activity android:name=".message.MineHelp" android:theme="@android:style/Theme.Holo.NoActionBar"/>
+        <activity android:name=".message.MinePai" android:theme="@android:style/Theme.Holo.NoActionBar"/>
+        <activity android:name=".message.MineRun" android:theme="@android:style/Theme.Holo.NoActionBar"/>
+        <activity android:name=".message.MineXue" android:theme="@android:style/Theme.Holo.NoActionBar"/>
+        <activity android:name=".message.MineFood1" android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
 
 

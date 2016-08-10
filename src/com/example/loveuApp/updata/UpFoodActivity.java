@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 import com.example.loveuApp.R;
+import com.example.loveuApp.homepage.HomePageFragment1;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.model.FoodModel;
 import com.example.loveuApp.service.Service;
@@ -88,8 +89,8 @@ public class UpFoodActivity extends Activity {
             case 2:params.put("FoodWay","AA");break;
             case 3:params.put("FoodWay","他请客");break;
         }
-        params.put("UserPhone","22222222222");
-        params.put("SecretKey","11111");
+        params.put("UserPhone", HomePageFragment1.UserPhone);
+        params.put("SecretKey",HomePageFragment1.SecretKey);
         params.put("FoodInformation",mInformation);
         params.put("FoodArea",mAddress);
         Calendar cal=Calendar.getInstance();

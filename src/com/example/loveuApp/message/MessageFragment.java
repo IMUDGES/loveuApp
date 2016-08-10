@@ -80,10 +80,10 @@ public class MessageFragment extends Fragment implements View.OnClickListener{
                 Intent intent = new Intent(getActivity(), NoBoringActionBarActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.messagefragment_mywallet:;
+            case R.id.messagefragment_mywallet:break;
             case R.id.messagefragment_relatedtome:
                 startActivity(new Intent(getActivity(),YuWoXiangGuanActivity.class));
-            case R.id.messagefragment_aboutour:;
+            case R.id.messagefragment_aboutour:break;
         }
     }
 }

@@ -25,7 +25,7 @@
 
     <fragment android:layout_width="match_parent" android:layout_height="match_parent"
     android:id="@+id/yuwoxiangguan_fragment1"
-    android:name="com.example.loveuApp.message.YuWoFaChu"/>
+    android:name="com.example.loveuApp.message.YuwoFaChu"/>
     <fragment android:layout_width="match_parent" android:layout_height="match_parent"
               android:id="@+id/yuwoxiangguan_fragment2"
     android:name="com.example.loveuApp.message.YuWoJieShou"/>
