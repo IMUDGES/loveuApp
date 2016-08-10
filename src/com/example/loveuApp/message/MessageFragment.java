@@ -81,7 +81,8 @@ public class MessageFragment extends Fragment implements View.OnClickListener{
                 startActivity(intent);
                 break;
             case R.id.messagefragment_mywallet:;
-            case R.id.messagefragment_relatedtome:;
+            case R.id.messagefragment_relatedtome:
+                startActivity(new Intent(getActivity(),YuWoXiangGuanActivity.class));
             case R.id.messagefragment_aboutour:;
         }
     }

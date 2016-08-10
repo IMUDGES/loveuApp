@@ -15,7 +15,7 @@
         />
         <TextView android:layout_width="0dp" android:layout_height="60dp"
                   android:layout_weight="1"
-                  android:text="发出"
+                  android:text="接受"
                   android:textColor="@color/white"
                   android:gravity="center"
                   android:textSize="18dp"
@@ -24,8 +24,10 @@
     </LinearLayout>
 
     <fragment android:layout_width="match_parent" android:layout_height="match_parent"
-    android:id="@+id/yuwoxiangguan_fragment1"/>
+    android:id="@+id/yuwoxiangguan_fragment1"
+    android:name="com.example.loveuApp.message.YuWoFaChu"/>
     <fragment android:layout_width="match_parent" android:layout_height="match_parent"
-              android:id="@+id/yuwoxiangguan_fragment2"/>
+              android:id="@+id/yuwoxiangguan_fragment2"
+    android:name="com.example.loveuApp.message.YuWoJieShou"/>
 
 </LinearLayout>

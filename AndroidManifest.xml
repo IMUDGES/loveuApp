@@ -58,6 +58,7 @@
         <activity android:name=".updata.UpRunActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".updata.UpHelpActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".left.SearchActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
+        <activity android:name=".message.YuWoXiangGuanActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
 
 
