@@ -5,10 +5,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.RectF;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,7 +21,13 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.*;
 import com.example.loveuApp.MyActivity;
 import com.example.loveuApp.R;
+import com.example.loveuApp.listener.Listener;
+import com.example.loveuApp.service.PhotoService;
+import com.example.loveuApp.util.GetPhoto;
+import com.example.loveuApp.util.PhotoCut;
+import com.example.loveuApp.util.SavePhoto;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class NoBoringActionBarActivity extends Activity {
@@ -60,6 +71,7 @@ public class NoBoringActionBarActivity extends Activity {
         mHeaderPicture = (KenBurnsView) findViewById(R.id.noboring_header_picture);
         mHeaderPicture.setResourceIds(R.drawable.picture0, R.drawable.picture1);
         mHeaderLogo = (ImageView) findViewById(R.id.noboring_header_logo);
+        repleaceImage();
 
         mActionBarTitleColor = getResources().getColor(R.color.actionbar_title_color);
 
@@ -68,6 +80,84 @@ public class NoBoringActionBarActivity extends Activity {
 
         setupActionBar();
         setupListView();
+    }
+
+    private final String IMAGE_TYPE="image/*";
+    private final int IMAGE_CODE=1;
+    private String Path;
+    private void repleaceImage() {
+
+
+            GetPhoto getPhoto = new GetPhoto(Environment.getExternalStorageDirectory().getPath(), "UserPhoto");
+            Bitmap bitmap = getPhoto.getphoto();
+            if (bitmap != null)
+                mHeaderLogo.setImageBitmap(bitmap);
+            else
+                mHeaderLogo.setBackgroundResource(R.drawable.ic_launcher);
+
+        mHeaderLogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType(IMAGE_TYPE);
+                intent.putExtra("crop", "true");    // crop=true 有这句才能出来最后的裁剪页面.
+                intent.putExtra("aspectX", 1);      // 这两项为裁剪框的比例.
+                intent.putExtra("aspectY", 1);
+                intent.putExtra("outputX", 200);
+                intent.putExtra("outputY", 200);
+                //输出地址
+                intent.putExtra("output", Uri.fromFile(new File(Environment.getExternalStorageDirectory().getPath()+"/loveu.jpg")));
+                intent.putExtra("outputFormat", "JPEG");//返回格式
+                startActivityForResult(Intent.createChooser(intent, "选择图片"), IMAGE_CODE);
+            }
+        });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode != RESULT_OK) {
+            Log.i("photopath","fail");
+            return;
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == IMAGE_CODE) {
+            Log.i("photopath","success");
+            try {
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inSampleSize = 2;
+                Bitmap bitmap = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory().getPath()+"/loveu.jpg", options);
+                Path=Environment.getExternalStorageDirectory().getPath()+"/loveu.jpg";
+
+                PhotoCut bitmapUtil = new PhotoCut();
+                Bitmap myBitmap = bitmapUtil.toRoundBitmap(bitmap);
+                if (bitmap == null)
+                    Log.i("bitmap","null");
+                mHeaderLogo.setImageBitmap(myBitmap);
+                File file = new File(Path);
+
+                String UserPhone = "22222222222";
+                String SecretKey = "11111";
+
+                Log.i("service","begin");
+                PhotoService.FileUpload(getApplicationContext(), "userphoto", file,UserPhone,SecretKey , new Listener() {
+                    @Override
+                    public void onSuccess(Object object) {
+                        Toast.makeText(getApplicationContext(),"上传成功",Toast.LENGTH_SHORT).show();
+                        SavePhoto savePhoto=new SavePhoto(myBitmap,Environment.getExternalStorageDirectory().getPath(),"UserPhoto");
+                        savePhoto.Savephoto();
+                    }
+
+                    @Override
+                    public void onFailure(String msg) {
+                        Toast.makeText(getApplicationContext(),"上传失败",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+            }catch (Exception e){
+                e.getLocalizedMessage();
+            }
+        }
     }
 
     private void setupListView() {

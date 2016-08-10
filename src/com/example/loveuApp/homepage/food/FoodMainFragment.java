@@ -21,6 +21,7 @@ import android.widget.*;
 import com.example.loveuApp.R;
 import com.example.loveuApp.bean.foodModel;
 import com.example.loveuApp.bean.userModel;
+import com.example.loveuApp.homepage.HomePageFragment1;
 import com.example.loveuApp.homepage.food.adapter.FoodMainListAdapter;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.model.FoodModel;
@@ -48,6 +49,7 @@ import java.util.Map;
 
 
 public class FoodMainFragment extends Fragment {
+
 
     private PullToRefreshListView mListView;
     private FoodMainListAdapter mAdapter;
@@ -140,8 +142,8 @@ public class FoodMainFragment extends Fragment {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     RequestParams params = new RequestParams();
-                                    params.put("UserPhone", "11111111111");
-                                    params.put("SecretKey", "b7db48afb289f63d04d8f053824955bb");
+                                    params.put("UserPhone", HomePageFragment1.UserPhone);
+                                    params.put("SecretKey", HomePageFragment1.SecretKey);
                                     params.put("FoodId", data.get(j).getFoodId());
                                     Service service = new Service();
                                     service.post(getActivity(), "getfood", params, new Listener() {

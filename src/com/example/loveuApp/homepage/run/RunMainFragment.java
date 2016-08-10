@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.loveuApp.R;
 import com.example.loveuApp.bean.foodModel;
 import com.example.loveuApp.bean.runModel;
+import com.example.loveuApp.homepage.HomePageFragment1;
 import com.example.loveuApp.homepage.run.RunAdapter.RunMainListAdapter;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.model.RunModel;
@@ -126,8 +127,8 @@ public class RunMainFragment extends Fragment{
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     RequestParams params = new RequestParams();
-                                    params.put("UserPhone", "11111111111");
-                                    params.put("SecretKey", "b7db48afb289f63d04d8f053824955bb");
+                                    params.put("UserPhone", HomePageFragment1.UserPhone);
+                                    params.put("SecretKey", HomePageFragment1.SecretKey);
                                     params.put("FoodId", data.get(j).getRunId());
                                     Service service = new Service();
                                     service.post(getActivity(), "getrun", params, new Listener() {

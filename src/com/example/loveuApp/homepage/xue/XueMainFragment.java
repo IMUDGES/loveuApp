@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.loveuApp.R;
 import com.example.loveuApp.bean.foodModel;
 import com.example.loveuApp.bean.xueModel;
+import com.example.loveuApp.homepage.HomePageFragment1;
 import com.example.loveuApp.homepage.food.adapter.FoodMainListAdapter;
 import com.example.loveuApp.homepage.xue.adapter.XueMainListAdapter;
 import com.example.loveuApp.listener.Listener;
@@ -128,8 +129,8 @@ public class XueMainFragment extends Fragment{
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     RequestParams params = new RequestParams();
-                                    params.put("UserPhone", "11111111111");
-                                    params.put("SecretKey", "b7db48afb289f63d04d8f053824955bb");
+                                    params.put("UserPhone", HomePageFragment1.UserPhone);
+                                    params.put("SecretKey", HomePageFragment1.SecretKey);
                                     params.put("FoodId", data.get(j).getXueId());
                                     Service service = new Service();
                                     service.post(getActivity(), "getxue", params, new Listener() {

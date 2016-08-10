@@ -1,6 +1,8 @@
 package com.example.loveuApp.homepage;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -24,6 +26,8 @@ import com.example.loveuApp.view.TopHorizontalScrollView;
 
 
 public class HomePageFragment1 extends Fragment{
+
+    public static String UserPhone,SecretKey;
     private ViewPager mPager;
     private Fragment [] mFragments;
     private FragmentPagerAdapter mAdapter;
@@ -42,11 +46,18 @@ public class HomePageFragment1 extends Fragment{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        initInfo();
         initView();
         mPager.setPageTransformer(true, new DepthPageTransformer());
         mPager.setAdapter(mAdapter);
         mHorizontalScrollView.setViewPager(mPager,0,getActivity());
 
+    }
+
+    private void initInfo() {
+        SharedPreferences sharedPreferences= getActivity().getSharedPreferences("user", Activity.MODE_PRIVATE);
+        UserPhone = sharedPreferences.getString("UserPhone","");
+        SecretKey = sharedPreferences.getString("SecretKey","");
     }
 
     private void initView() {
