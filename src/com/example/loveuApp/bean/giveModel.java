@@ -1,14 +1,16 @@
 package com.example.loveuApp.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by dy on 2016/7/26.
  */
-public class giveModel {
+public class giveModel implements Serializable {
 
     private Integer GiveId;
+    private String GiveImage;
     private Integer UserId;
     private String GiveInformation;
-    private String GiveImage;
     private String UserPhoto;
     private String UserSex;
     private String NickName;
@@ -16,14 +18,11 @@ public class giveModel {
     public giveModel(){
 
     }
-
-    public giveModel(Integer giveId, Integer userId, String giveInformation,
-                     String giveImage,  String userPhoto,
-                     String userSex, String nickName, Integer state) {
+    public giveModel(Integer giveId, String giveImage, Integer userId, String giveInformation, String userPhoto, String userSex, String nickName, Integer state) {
         GiveId = giveId;
+        GiveImage = giveImage;
         UserId = userId;
         GiveInformation = giveInformation;
-        GiveImage = giveImage;
         UserPhoto = userPhoto;
         UserSex = userSex;
         NickName = nickName;
@@ -36,6 +35,14 @@ public class giveModel {
 
     public void setGiveId(Integer giveId) {
         GiveId = giveId;
+    }
+
+    public String getGiveImage() {
+        return GiveImage;
+    }
+
+    public void setGiveImage(String giveImage) {
+        GiveImage = giveImage;
     }
 
     public Integer getUserId() {
@@ -52,14 +59,6 @@ public class giveModel {
 
     public void setGiveInformation(String giveInformation) {
         GiveInformation = giveInformation;
-    }
-
-    public String getGiveImage() {
-        return GiveImage;
-    }
-
-    public void setGiveImage(String giveImage) {
-        GiveImage = giveImage;
     }
 
     public String getUserPhoto() {

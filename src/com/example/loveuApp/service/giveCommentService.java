@@ -2,6 +2,7 @@ package com.example.loveuApp.service;
 
 import android.content.Context;
 import com.example.loveuApp.bean.giveCommentData;
+import com.example.loveuApp.bean.giveCommentReturnModel;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.util.HttpRequest;
 import com.google.gson.Gson;
@@ -32,14 +33,14 @@ public class giveCommentService {
         HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
-                giveCommentData giveCommentData=new Gson().fromJson(new String(bytes),giveCommentData.class);
-                listener.onSuccess(giveCommentData);
+                giveCommentReturnModel givecommentreturnmodel=new Gson().fromJson(new String(bytes),giveCommentReturnModel.class);
+                listener.onSuccess(givecommentreturnmodel);
             }
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                giveCommentData giveCommentData=new Gson().fromJson(new String(bytes),giveCommentData.class);
-                listener.onFailure(giveCommentData.getMsg());
+                giveCommentReturnModel givecommentreturnmodel=new Gson().fromJson(new String(bytes),giveCommentReturnModel.class);
+                listener.onFailure(givecommentreturnmodel.getMsg());
             }
         });
     }

@@ -1,114 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-    <RelativeLayout
-            android:layout_width="match_parent"
-            android:background="#ffffff"
-            android:layout_height="150dip">
-
-        <ImageView
-                android:id="@+id/givefragment_listview_img"
-                android:layout_width="100dip"
-                android:layout_height="100dip"
-                android:src="@drawable/ic_launcher"/>
-        <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/givefragment_listview_img"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:background="#ffffff"
-                android:orientation="vertical"
-        >
-            <TextView
-                    android:id="@+id/givefragment_listview_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#FDD835"
-                    android:maxLength="10"
-                    android:singleLine="true"
-                    android:text="用户名"
-                    android:layout_centerHorizontal="true"
+                android:orientation="vertical" >
 
-                    android:textColor="#000000"
-                    android:textSize="16sp"/>
-            <TextView
-                    android:id="@+id/givefragment_listview_info"
-                    android:layout_centerHorizontal="true"
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/givefragment_listview_name"
-                    android:background="#26C6DA"
-                    android:maxLines="5"
-                    android:text="内容"
-                    android:textSize="16sp"/>
-
-        </RelativeLayout>
-
-    </RelativeLayout>
-    <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-        <RelativeLayout
-                android:id="@+id/bottomTab"
-                android:layout_width="fill_parent"
-                android:background="#eeeeee"
+    <com.example.loveuApp.homepage.give.NotifyingScrollView
+            android:id="@+id/give_sv_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:layout_alignParentBottom="true">
-            <Button
-                    android:id="@+id/givecomment_sendButton"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="60dip"
-                    android:background="@drawable/button_blue"
-                    android:layout_marginTop="5dip"
-                    android:layout_marginBottom="5dip"
-                    android:layout_marginRight="5dip"
-                    android:text="发送"
-                    android:textColor="#ffffff"
-                    android:layout_centerVertical="true"
-                    android:layout_height="40dip"/>
-            <EditText
-                    android:id="@+id/givecomment_text"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dip"
-                    android:maxLength="80"
-                    android:minHeight="40dip"
-                    android:maxHeight="60dip"
-                    android:layout_centerVertical="true"
-                    android:background="#ffffff"
-                    android:textColor="#000000"
-                    android:paddingLeft="5dip"
-                    android:paddingRight="5dip"
-                    android:layout_toLeftOf="@id/givecomment_sendButton"/>
-        </RelativeLayout>
-        <ScrollView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:background="#dddddd"
-                android:layout_above="@id/bottomTab">
-            <RelativeLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent">
-
-                <TextView
-                        android:id="@+id/givetip_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:layout_marginTop="40dip"
-                        android:layout_centerHorizontal="true"
-                        android:text="加载中，请稍后..."/>
-                <com.example.loveuApp.homepage.give.UI.NoScrollListview
-                        android:id="@+id/commentary_listView"
-                        android:divider="@null"
-                        android:listSelector="@android:color/transparent"
-                        android:layout_width="fill_parent"
-                        android:layout_height="0dip"/>
+                android:orientation="vertical">
+            <ImageView android:layout_width="match_parent"
+                       android:id="@+id/give_comment_image"
+                       android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:id="@+id/give_comment_info"
+                      android:paddingLeft="10dp"
+                      android:textColor="@color/dark_grey"
+                      android:textSize="20dp"
+                      android:layout_height="wrap_content"/>
+            <RelativeLayout android:layout_width="match_parent"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:layout_height="wrap_content">
+                <ImageView android:layout_width="50dp"
+                           android:id="@+id/give_comment_userImage"
+                           android:src="@drawable/ic_launcher"
+                           android:layout_height="50dp"/>
+                <TextView android:layout_width="wrap_content"
+                          android:text="用户名"
+                          android:textColor="#121212"
+                          android:textSize="20dp"
+                          android:layout_height="30dp"
+                          android:layout_marginLeft="10dp"
+                          android:id="@+id/give_comment_username"
+                          android:layout_centerInParent="true"
+                          android:layout_toRightOf="@+id/give_comment_userImage"/>
+                <TextView android:layout_width="50dp"
+                          android:text="9LV"
+                          android:layout_marginLeft="10dp"
+                          android:textColor="#ff6713"
+                          android:background="#ffb41b"
+                          android:gravity="center"
+                          android:layout_height="wrap_content"
+                          android:id="@+id/textView2"
+                          android:layout_centerInParent="true"
+                          android:layout_toRightOf="@+id/give_comment_username"/>
+                <Button android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:text="关注"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:id="@+id/give_comment_addFriend"
+                        android:background="@drawable/login_button_selector"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"/>
             </RelativeLayout>
-        </ScrollView>
-    </RelativeLayout>
-</LinearLayout>
+
+            <TextView android:layout_width="match_parent"
+                      android:background="#eeeeee"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:text="评论"
+                      android:textColor="#eeeeee"
+                      android:gravity="center"
+                      android:textSize="30dp"
+                      android:layout_height="50dp"/>
+            <TextView android:layout_width="match_parent"
+                      android:background="#eeeeee"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:id="@+id/givetip_text"
+                      android:paddingLeft="10dp"
+                      android:textColor="@color/dark_grey"
+                      android:textSize="20dp"
+                      android:layout_height="wrap_content"/>
+            <com.example.loveuApp.homepage.give.ListViewForScrollView
+                    android:layout_width="match_parent"
+                    android:id="@+id/give_comment_listView"
+                    android:layout_height="wrap_content">
+
+            </com.example.loveuApp.homepage.give.ListViewForScrollView>
+
+        </LinearLayout>
+
+    </com.example.loveuApp.homepage.give.NotifyingScrollView>
+
+    <LinearLayout
+            android:id="@+id/givell_head"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:background="#949494">
+        <TextView android:layout_width="wrap_content"
+                  android:text="◁"
+                  android:id="@+id/comment_finish"
+                  android:clickable="true"
+                  android:layout_marginLeft="30dp"
+                  android:gravity="center"
+                  android:textSize="35dp"
+                  android:textColor="#ffffff"
+                  android:layout_height="match_parent"/>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_alignParentBottom="true"
+                  android:orientation="horizontal"
+                  android:gravity="center_horizontal"
+                  android:layout_height="45dp">
+
+        <Button android:layout_width="match_parent"
+                android:id="@+id/givecomment_sendButton"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="评论"
+                android:background="@drawable/comment_bottem_button"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+</RelativeLayout>

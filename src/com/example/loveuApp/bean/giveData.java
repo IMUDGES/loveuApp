@@ -1,11 +1,12 @@
 package com.example.loveuApp.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by yangy on 2016/8/3.
  */
-public class giveData {
+public class giveData implements Serializable {
     private String msg;
     private Integer num;
     private Integer state;

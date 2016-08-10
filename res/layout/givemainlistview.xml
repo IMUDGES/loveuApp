@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:background="#ffffff"
+                android:layout_height="wrap_content">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="#ffffff"
+            android:layout_height="100dip">
+
+        <ImageView
+                android:id="@+id/givemainitem_img"
+                android:layout_width="100dip"
+                android:layout_height="100dip"
+                android:src="@drawable/ic_launcher"/>
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/givemainitem_img"
+                android:background="#ffffff"
+                android:orientation="vertical"
+        >
+            <TextView
+                    android:id="@+id/givemainitem_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#FDD835"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:text="用户名"
+                    android:layout_centerHorizontal="true"
+
+                    android:textColor="#000000"
+                    android:textSize="16sp"/>
+            <TextView
+                    android:id="@+id/givemainitem_info"
+                    android:layout_centerHorizontal="true"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/givemainitem_name"
+                    android:background="#26C6DA"
+                    android:maxLines="4"
+                    android:text="内容"
+                    android:textSize="16sp"/>
+        </RelativeLayout>
+    </RelativeLayout>
+    <View android:layout_width="match_parent"
+          android:layout_alignParentBottom="true"
+          android:layout_height="1dp"
+          android:background="#e0e0e0"/>
+
+</RelativeLayout>
