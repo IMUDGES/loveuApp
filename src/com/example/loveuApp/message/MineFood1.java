@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.example.loveuApp.R;
 import com.example.loveuApp.bean.foodModel;
 import com.example.loveuApp.message.adapter.FoodAdapter;
-import com.example.loveuApp.message.adapter.FoodAdapter1;
 import com.example.loveuApp.model.FoodModel;
 import com.google.gson.Gson;
 
@@ -27,7 +26,7 @@ import java.util.Map;
 public class MineFood1 extends Activity {
 
     private ListView mListView;
-    private FoodAdapter1 mAdapter;
+    private FoodAdapter mAdapter;
     private List<foodModel> data;
     private String url = "";
     private int firstnum = 0;
@@ -73,7 +72,7 @@ public class MineFood1 extends Activity {
             super.onPostExecute(strings);
             if (strings == null)
                 return;
-            mAdapter = new FoodAdapter1(data, getApplicationContext(), firstnum, strings, mListView);
+            mAdapter = new FoodAdapter(data, getApplicationContext(), firstnum, strings, mListView);
             Log.i("firstnum",""+firstnum);
             mListView.setAdapter(mAdapter);
         }

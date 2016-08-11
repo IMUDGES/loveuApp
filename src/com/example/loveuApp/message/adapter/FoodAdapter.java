@@ -22,7 +22,7 @@ public class FoodAdapter extends BaseAdapter implements AbsListView.OnScrollList
     public boolean mFirstIn;
     private int firstNum;
     public static String[] URLS;
-    private ImageLoader mImageLoader;
+    private ImageLoaderE mImageLoader;
     public List<foodModel> data;
     private Context mContext;
 
@@ -36,7 +36,7 @@ public class FoodAdapter extends BaseAdapter implements AbsListView.OnScrollList
             Log.i("adapter url", URLS[i] + "");
         }
         mFirstIn = true;
-        mImageLoader = new ImageLoader(listView);
+        mImageLoader = new ImageLoaderE(listView,URLS);
         listView.setOnScrollListener(this);
     }
 
