@@ -79,8 +79,8 @@ public class DetailsActivity extends Activity {
         public void onClick(View view) {
             Service service = new Service();
             RequestParams params = new RequestParams();
-            params.put("UserPhone","11111111111");
-            params.put("SecretKey","11111");
+            params.put("UserPhone",HomePageFragment1.UserPhone);
+            params.put("SecretKey",HomePageFragment1.SecretKey);
             params.put("BefocusonId",UserId);
             service.post(getApplicationContext(), "attention", params, new Listener() {
                 @Override
