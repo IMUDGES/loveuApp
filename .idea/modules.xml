@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ThirdPartyLibraries/Rong_Cloud_Android_IMKit_SDK_v2_6_9_stable/src/main/RongIMKit.iml" filepath="$PROJECT_DIR$/ThirdPartyLibraries/Rong_Cloud_Android_IMKit_SDK_v2_6_9_stable/src/main/RongIMKit.iml" />
       <module fileurl="file://$PROJECT_DIR$/ThirdPartyLibraries/appcompat_v7/android-support-v7-appcompat.iml" filepath="$PROJECT_DIR$/ThirdPartyLibraries/appcompat_v7/android-support-v7-appcompat.iml" />
       <module fileurl="file://$PROJECT_DIR$/ThirdPartyLibraries/library/library.iml" filepath="$PROJECT_DIR$/ThirdPartyLibraries/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/loveuApp.iml" filepath="$PROJECT_DIR$/loveuApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ThirdPartyLibraries/main/main.iml" filepath="$PROJECT_DIR$/ThirdPartyLibraries/main/main.iml" />
     </modules>
   </component>
 </project>

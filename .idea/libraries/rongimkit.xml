@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="rongimkit">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Rong_Cloud_Android_IMKit_SDK_v2_6_9_stable/src/main/bin/rongimkit.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
