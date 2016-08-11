@@ -13,6 +13,7 @@ import com.example.loveuApp.R;
  */
 public class GuoQingZhuangBActivity extends FragmentActivity {
 
+    private String mode;
     private ViewPager mPager;
     private Fragment[] mFragments;
     private FragmentPagerAdapter mAdapter;
@@ -25,9 +26,19 @@ public class GuoQingZhuangBActivity extends FragmentActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 //透明导航栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+
         mPager = (ViewPager) findViewById(R.id.chaolupager);
         initView();
         mPager.setAdapter(mAdapter);
+        checkWhere();
+    }
+
+    private void checkWhere() {
+        Bundle bundle = getIntent().getExtras();
+        mode = bundle.getString("MODE","");
+        if (mode == "startLogin"){
+            mPager.setCurrentItem(0);
+        }
     }
 
     private void initView() {
