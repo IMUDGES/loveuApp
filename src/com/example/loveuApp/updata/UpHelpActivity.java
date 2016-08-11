@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.*;
 import com.example.loveuApp.R;
+import com.example.loveuApp.homepage.HomePageFragment;
+import com.example.loveuApp.homepage.HomePageFragment1;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.model.FoodModel;
 import com.example.loveuApp.model.HelpModel;
@@ -85,8 +87,8 @@ public class UpHelpActivity extends Activity {
         Service service = new Service();
         RequestParams params=new RequestParams();
 
-        params.put("UserPhone","22222222222");
-        params.put("SecretKey","11111");
+        params.put("UserPhone", HomePageFragment1.UserPhone);
+        params.put("SecretKey",HomePageFragment1.SecretKey);
         params.put("HelpInformation",mInformation);
         params.put("HelpMoney",mMoney);
         params.put("PayPassword",mPassword);

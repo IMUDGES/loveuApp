@@ -33,5 +33,8 @@
     <orderEntry type="library" name="android-support-v4" level="project" />
     <orderEntry type="library" name="Rong_IMKit_v2_6_9 (2)" level="project" />
     <orderEntry type="module" module-name="main" />
+    <orderEntry type="module" module-name="RongIMKit" />
+    <orderEntry type="library" name="Rong_IMKit_v2_6_9" level="application" />
+    <orderEntry type="library" name="android-support-v4" level="project" />
   </component>
 </module>

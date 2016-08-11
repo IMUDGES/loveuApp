@@ -1,11 +1,13 @@
 package com.example.loveuApp.register;
 
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
@@ -13,8 +15,14 @@ import android.view.WindowManager;
 import android.widget.Toast;
 import com.example.loveuApp.R;
 import io.rong.imkit.RongIM;
+import io.rong.imkit.RongIMClientWrapper;
 import io.rong.imlib.RongIMClient;
 import io.rong.imlib.RongIMClient.ConnectCallback;
+import io.rong.imlib.model.Conversation;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by 1111 on 2016/7/28.
  */
@@ -62,10 +70,22 @@ public class RegisterActivity extends FragmentActivity
     @Override
     public void onFLoginTrue() {
 
-        String token = "aucu9trbIaknjMMFkMuu2MNCoMQxJJdg5wMHBmtyvzGteQpc4setbaH/GagQ5dUXnbfhAKVJkVE2DweekQxytw==";
-        RongIM.getInstance().startConversationList(RegisterActivity.this);
+        SharedPreferences sh=getSharedPreferences("user",MODE_PRIVATE);
+        String token = sh.getString("Token","");
 
-        RongIM.connect(token, new ConnectCallback() {
+        Map<String,Boolean>map=new HashMap<>();
+        map.put(Conversation.ConversationType.PRIVATE.getName(), false);
+
+        map.put(Conversation.ConversationType.GROUP.getName(), false);
+
+        map.put(Conversation.ConversationType.DISCUSSION.getName(), false);
+
+        map.put(Conversation.ConversationType.SYSTEM.getName(), false);
+
+        RongIM.getInstance().startConversationList(RegisterActivity.this,map);
+
+        Log.i("RongInformation", token);
+        RongIMClient.connect(token, new ConnectCallback() {
 
             @Override
             public void onError(RongIMClient.ErrorCode arg0) {
@@ -114,22 +134,4 @@ public class RegisterActivity extends FragmentActivity
         fragmentTransaction.remove(mfragment[2]).remove(mfragment[3]).show(mfragment[0]).addToBackStack("Find2Back").commit();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }

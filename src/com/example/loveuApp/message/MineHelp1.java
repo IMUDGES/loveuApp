@@ -44,7 +44,7 @@ import java.util.List;
 /**
  * Created by caolu on 2016/8/10.
  */
-public class MineHelp extends Activity{
+public class MineHelp1 extends Activity{
 
 
     private ListView listView;
@@ -65,7 +65,7 @@ public class MineHelp extends Activity{
             @Override
             public void back() {
                 if(helpModels.size()!=0){
-                    adapter=new HelpListAdapter(MineHelp.this,helpModels);
+                    adapter=new HelpListAdapter(MineHelp1.this,helpModels);
                     listView.setAdapter(adapter);
                 }
             }
@@ -82,14 +82,12 @@ public class MineHelp extends Activity{
         String UserPhone = sharedPreferences.getString("UserPhone", "");
         String SecretKey = sharedPreferences.getString("SecretKey", "");
         Log.i("msg","getData()");
-        String url="myissuehelp_notoverdue";
+        String url="mygethelp_notoverdue";
         RequestParams params=new RequestParams();
         helpService service=new helpService();
         params.add("UserPhone",UserPhone);
         params.add("SecretKey",SecretKey);
-        Log.i("userphone",UserPhone);
-        Log.i("SecretKey",SecretKey);
-        service.get(MineHelp.this, url, params, new Listener() {
+        service.get(MineHelp1.this, url, params, new Listener() {
             @Override
             public void onSuccess(Object object) {
                 models= (HelpModel) object;
@@ -114,12 +112,12 @@ public class MineHelp extends Activity{
         String UserPhone = sharedPreferences.getString("UserPhone", "");
         String SecretKey = sharedPreferences.getString("SecretKey", "");
         Log.i("msg","getData()");
-        String url="myissuehelp_overdue";
+        String url="mygethelp_overdue";
         RequestParams params=new RequestParams();
         helpService service=new helpService();
         params.add("UserPhone",UserPhone);
         params.add("SecretKey",SecretKey);
-        service.get(MineHelp.this, url, params, new Listener() {
+        service.get(MineHelp1.this, url, params, new Listener() {
             @Override
             public void onSuccess(Object object) {
                 models= (HelpModel) object;

@@ -24,6 +24,7 @@ public class paiService {
         HttpRequest.get(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
+                Log.i("paiInformation",new String(bytes));
                 PaiModel models=new Gson().fromJson(new String(bytes),PaiModel.class);
                 listener.onSuccess(models);
             }

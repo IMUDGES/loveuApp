@@ -2,22 +2,31 @@ package com.example.loveuApp.register;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import com.example.loveuApp.R;
 import com.example.loveuApp.bean.userModel;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.service.userService;
 import com.example.loveuApp.util.Md5;
+import com.example.loveuApp.util.PhotoCut;
+import com.example.loveuApp.util.SavePhoto;
 import com.loopj.android.http.RequestParams;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 
 
 public class LoginFragment extends Fragment {
@@ -94,6 +103,9 @@ public class LoginFragment extends Fragment {
                     SharedPreferences preferences = getActivity().getApplicationContext().getSharedPreferences("user", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putString("Token", userModel.getToken());
+                    editor.putString("SecretKey", userModel.getSecretKey());
+                    editor.commit();
+                    Log.i("SecretKey",userModel.getSecretKey());
                     if (getActivity() instanceof FLoginBtnClick) {
                         ((FLoginBtnClick) getActivity()).onFLoginTrue();
                     }
@@ -139,7 +151,9 @@ public class LoginFragment extends Fragment {
 //                Toast.makeText(getActivity(),state,Toast.LENGTH_SHORT).show();
                 if ("1".equals(state)) {
                     saveInfor(userphone, SecretKey,userModel.getToken());
-//                    Toast.makeText(getActivity(), "zhengque", Toast.LENGTH_SHORT).show();
+
+                    new LoginAsyncTask().execute(userModel.getUserPhoto());
+
                     if (getActivity() instanceof FLoginBtnClick) {
                         ((FLoginBtnClick) getActivity()).onFLoginTrue();
                     }
@@ -164,8 +178,35 @@ public class LoginFragment extends Fragment {
         if (!editor.commit()) {
             System.err.println("！！！写入失败！！！");
         }
-//        String a = preferences.getString("UserPhone","该数据未写入");
-//        String b = preferences.getString("SecretKey","该数据未写入");
-//        Toast.makeText(getActivity().getApplicationContext(),a+"--"+b,Toast.LENGTH_SHORT).show();
+    }
+
+    private class LoginAsyncTask extends AsyncTask<String,Void,Bitmap> {
+
+        @Override
+        protected Bitmap doInBackground(String... strings) {
+            String url=strings[0];
+            Log.i("url",url);
+            Bitmap bitmap=null;
+            URLConnection connection;
+            InputStream inputStream;
+            try {
+                connection=new URL(url).openConnection();
+                inputStream=connection.getInputStream();
+
+                bitmap= BitmapFactory.decodeStream(inputStream);
+
+                inputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return bitmap;
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap bitmap) {
+            super.onPostExecute(bitmap);
+            SavePhoto savePhoto=new SavePhoto(bitmap, Environment.getExternalStorageDirectory().getPath(),"UserPhoto");
+            savePhoto.Savephoto();
+        }
     }
 }

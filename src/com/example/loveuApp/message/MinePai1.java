@@ -23,9 +23,12 @@ import android.widget.ListView;
 import android.widget.Toast;
 import com.example.loveuApp.R;
 import com.example.loveuApp.bean.helpModel;
+import com.example.loveuApp.bean.paiModel;
 import com.example.loveuApp.homepage.help.adapter.HelpListAdapter;
+import com.example.loveuApp.homepage.pai.adapter.PaiAdapter;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.model.HelpModel;
+import com.example.loveuApp.model.PaiModel;
 import com.example.loveuApp.service.Service;
 import com.example.loveuApp.service.helpService;
 import com.example.loveuApp.util.PhotoCut;
@@ -44,13 +47,13 @@ import java.util.List;
 /**
  * Created by caolu on 2016/8/10.
  */
-public class MineHelp extends Activity{
+public class MinePai1 extends Activity{
 
 
     private ListView listView;
-    private HelpListAdapter adapter;
-    private HelpModel models;
-    private List<helpModel> helpModels;
+    private PaiAdapter adapter;
+    private PaiModel models;
+    private List<paiModel> paiModels;
     private GoBack goBack;
 
     @Override
@@ -58,14 +61,14 @@ public class MineHelp extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.minefragment);
         listView = (ListView) findViewById(R.id.minefragment_listvew);
-        helpModels=new ArrayList<>();
+        paiModels=new ArrayList<>();
         getData();
 
         goBack=new GoBack() {
             @Override
             public void back() {
-                if(helpModels.size()!=0){
-                    adapter=new HelpListAdapter(MineHelp.this,helpModels);
+                if(paiModels.size()!=0){
+                    adapter=new PaiAdapter(MinePai1.this,paiModels);
                     listView.setAdapter(adapter);
                 }
             }
@@ -82,22 +85,22 @@ public class MineHelp extends Activity{
         String UserPhone = sharedPreferences.getString("UserPhone", "");
         String SecretKey = sharedPreferences.getString("SecretKey", "");
         Log.i("msg","getData()");
-        String url="myissuehelp_notoverdue";
+        String url="mygetpai_notoverdue";
         RequestParams params=new RequestParams();
         helpService service=new helpService();
         params.add("UserPhone",UserPhone);
         params.add("SecretKey",SecretKey);
         Log.i("userphone",UserPhone);
         Log.i("SecretKey",SecretKey);
-        service.get(MineHelp.this, url, params, new Listener() {
+        service.get(MinePai1.this, url, params, new Listener() {
             @Override
             public void onSuccess(Object object) {
-                models= (HelpModel) object;
+                models= (PaiModel) object;
                 if(models.getNum()==0||models.getState()==0){
                     getData_();
                     return;
                 }
-                helpModels=models.getHelpdata();
+                paiModels=models.getPaidata();
                 getData_();
             }
 
@@ -114,23 +117,23 @@ public class MineHelp extends Activity{
         String UserPhone = sharedPreferences.getString("UserPhone", "");
         String SecretKey = sharedPreferences.getString("SecretKey", "");
         Log.i("msg","getData()");
-        String url="myissuehelp_overdue";
+        String url="mygetpai_overdue";
         RequestParams params=new RequestParams();
         helpService service=new helpService();
         params.add("UserPhone",UserPhone);
         params.add("SecretKey",SecretKey);
-        service.get(MineHelp.this, url, params, new Listener() {
+        service.get(MinePai1.this, url, params, new Listener() {
             @Override
             public void onSuccess(Object object) {
-                models= (HelpModel) object;
+                models= (PaiModel) object;
                 if(models.getNum()==0||models.getState()==0){
                     goBack.back();
                     return;
                 }
-                if(helpModels.size()==0){
-                    helpModels=models.getHelpdata();
+                if(paiModels.size()==0){
+                    paiModels=models.getPaidata();
                 }else{
-                    helpModels.addAll(models.getHelpdata());
+                    paiModels.addAll(models.getPaidata());
                 }
                 goBack.back();
             }

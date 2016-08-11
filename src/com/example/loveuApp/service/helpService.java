@@ -26,7 +26,7 @@ public class helpService {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
                 HelpModel models=new Gson().fromJson(new String(bytes),HelpModel.class);
-                //Log.i("information",new String(bytes));
+                Log.i("information",new String(bytes));
                 listener.onSuccess(models);
             }
 
