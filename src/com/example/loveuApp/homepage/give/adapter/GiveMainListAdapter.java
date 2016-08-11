@@ -121,7 +121,7 @@ public class GiveMainListAdapter extends BaseAdapter{
         @Override
         protected void onPostExecute(Bitmap bitmap) {
             super.onPostExecute(bitmap);
-            imageView.setImageBitmap(bitmap);
+            imageView.setImageBitmap(PhotoCut.toRoundBitmap(bitmap));
             v.bitmap=bitmap;
         }
     }

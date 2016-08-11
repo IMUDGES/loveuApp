@@ -144,8 +144,9 @@ public class GiveMainFragment extends Fragment implements AdapterView.OnItemClic
         String url="give";
         RequestParams params=new RequestParams();
         giveService service=new giveService();
-        params.add("page",page+"");
         page++;
+        params.add("page",page+"");
+
         service.get(getActivity(), url, params, new Listener() {
             @Override
             public void onSuccess(Object object) {
@@ -153,6 +154,7 @@ public class GiveMainFragment extends Fragment implements AdapterView.OnItemClic
                     listView.onRefreshComplete();
                     return;
                 }
+
                 List<giveModel> mm= ((giveData) object).getGiveModels();
                 givedata.getGiveModels().addAll(mm);
                 successbBack.Pullback();
