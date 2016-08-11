@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
+import android.widget.TextView;
 import com.example.loveuApp.R;
 import com.example.loveuApp.bean.runModel;
 import com.example.loveuApp.message.adapter.RunAdapter;
@@ -27,7 +28,7 @@ public class MineRun1 extends Activity{
     private RunAdapter mAdapter;
     private List<runModel> data;
     private String url = "";
-    private int firstnum = 0;
+    private int firstnum = 0; private TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,8 @@ public class MineRun1 extends Activity{
         setContentView(R.layout.minefragment);
         Log.i("in","in");
         initInfo();
+        tv = (TextView) findViewById(R.id.food_title);
+        tv.setText("我接受的");
         mListView = (ListView) findViewById(R.id.minefragment_listvew);
         new MyTask().execute("");
     }

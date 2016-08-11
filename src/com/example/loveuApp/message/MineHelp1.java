@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.example.loveuApp.R;
 import com.example.loveuApp.bean.helpModel;
@@ -52,11 +53,14 @@ public class MineHelp1 extends Activity{
     private HelpModel models;
     private List<helpModel> helpModels;
     private GoBack goBack;
+    private TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.minefragment);
+        tv = (TextView) findViewById(R.id.food_title);
+        tv.setText("我接受的");
         listView = (ListView) findViewById(R.id.minefragment_listvew);
         helpModels=new ArrayList<>();
         getData();

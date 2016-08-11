@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.example.loveuApp.R;
 import com.example.loveuApp.bean.helpModel;
@@ -54,12 +55,14 @@ public class MinePai1 extends Activity{
     private PaiAdapter adapter;
     private PaiModel models;
     private List<paiModel> paiModels;
-    private GoBack goBack;
+    private GoBack goBack; private TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.minefragment);
+        tv = (TextView) findViewById(R.id.food_title);
+        tv.setText("我接受的");
         listView = (ListView) findViewById(R.id.minefragment_listvew);
         paiModels=new ArrayList<>();
         getData();

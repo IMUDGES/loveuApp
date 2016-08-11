@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
+import android.widget.TextView;
 import com.example.loveuApp.R;
 import com.example.loveuApp.bean.xueModel;
 import com.example.loveuApp.message.adapter.XueAdapter;
@@ -28,12 +29,15 @@ public class MineXue1 extends Activity{
     private List<xueModel> data;
     private String url = "";
     private int firstnum = 0;
+    private TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.minefragment);
         Log.i("in","in");
+        tv = (TextView) findViewById(R.id.food_title);
+        tv.setText("我接受的");
         initInfo();
         mListView = (ListView) findViewById(R.id.minefragment_listvew);
         new MyTask().execute("");

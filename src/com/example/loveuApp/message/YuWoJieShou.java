@@ -45,13 +45,13 @@ public class YuWoJieShou extends Fragment {
                         startActivity(new Intent(getActivity(), MineGive.class));
                         break;
                     case 2:
-                        startActivity(new Intent(getActivity(), MineHelp.class));
+                        startActivity(new Intent(getActivity(), MineHelp1.class));
                         break;
                     case 3:
-                        startActivity(new Intent(getActivity(), MinePai.class));
+                        startActivity(new Intent(getActivity(), MinePai1.class));
                         break;
                     case 4:
-                        startActivity(new Intent(getActivity(), MineRun.class));
+                        startActivity(new Intent(getActivity(), MineRun1.class));
                         break;
                     case 5:
                         startActivity(new Intent(getActivity(), MineXue.class));

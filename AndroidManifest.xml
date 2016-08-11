@@ -67,6 +67,11 @@
         <activity android:name=".message.MineRun" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".message.MineXue" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".message.MineFood1" android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
+        <activity android:name=".message.MineHelp1" android:theme="@android:style/Theme.Holo.NoActionBar"/>
+        <activity android:name=".message.MinePai1" android:theme="@android:style/Theme.Holo.NoActionBar"/>
+        <activity android:name=".message.MineRun1" android:theme="@android:style/Theme.Holo.NoActionBar"/>
+        <activity android:name=".message.MineXue1" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".homepage.give.GiveActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
 
