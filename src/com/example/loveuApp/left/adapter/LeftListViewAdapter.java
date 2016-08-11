@@ -62,7 +62,8 @@ public class LeftListViewAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (i == 0){
-            return getTopView();
+            View mView = LayoutInflater.from(mContext).inflate(R.layout.leftpicitem, null);
+            return mView;
         }else {
             View mView = LayoutInflater.from(mContext).inflate(R.layout.leftlistitem2, null);
             return mView;
