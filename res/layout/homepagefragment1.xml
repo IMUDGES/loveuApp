@@ -30,7 +30,7 @@
                     android:textColor="@color/black"
                     android:gravity="center"
                     android:paddingTop="5dp"
-                    android:text="food"
+                    android:text="请客"
                     android:textSize="18dp"/>
 
 
@@ -42,7 +42,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:paddingTop="5dp"
-                    android:text="give"
+                    android:text="赠送"
                     android:textSize="18dp"/>
 
             <TextView
@@ -53,7 +53,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:paddingTop="5dp"
-                    android:text="help"
+                    android:text="帮助"
                     android:textSize="18dp"/>
 
             <TextView
@@ -64,7 +64,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:paddingTop="5dp"
-                    android:text="pai"
+                    android:text="拍卖"
                     android:textSize="18dp"/>
 
             <TextView
@@ -75,7 +75,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:paddingTop="5dp"
-                    android:text="run"
+                    android:text="跑步"
                     android:textSize="18dp"/>
             <TextView
                     android:textColor="@color/black"
@@ -85,7 +85,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:paddingTop="5dp"
-                    android:text="xue"
+                    android:text="自习"
                     android:textSize="18dp"/>
         </LinearLayout>
     </com.example.loveuApp.view.TopHorizontalScrollView>

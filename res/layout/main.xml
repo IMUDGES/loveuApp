@@ -53,8 +53,8 @@
                       android:gravity="center"
                       android:orientation="vertical">
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
-                       android:background="@drawable/tabbar_home"
-                       android:layout_gravity="center_horizontal"/>
+
+            android:layout_gravity="center_horizontal"/>
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -70,8 +70,8 @@
                       android:gravity="center"
                       android:orientation="vertical">
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
-                       android:background="@drawable/tabbar_discover"
-                       android:layout_gravity="center_horizontal"/>
+
+            android:layout_gravity="center_horizontal"/>
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -95,8 +95,8 @@
                       android:gravity="center"
                       android:orientation="vertical">
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
-                       android:background="@drawable/tabbar_message_center"
-                       android:layout_gravity="center_horizontal"/>
+
+            android:layout_gravity="center_horizontal"/>
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -110,8 +110,8 @@
                       android:gravity="center"
                       android:orientation="vertical">
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
-                       android:background="@drawable/tabbar_profile"
-                       android:layout_gravity="center_horizontal"/>
+
+            android:layout_gravity="center_horizontal"/>
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -121,7 +121,10 @@
                     android:textSize="10dp"/>
         </LinearLayout>
     </com.example.loveuApp.view.TopLinearlayout>
-
+    <!--      android:background="@drawable/tabbar_discover"-->
+    <!--     android:background="@drawable/tabbar_home" -->
+    <!--     android:background="@drawable/tabbar_profile"-->
+    <!--android:background="@drawable/tabbar_message_center"-->
 
 </LinearLayout>
 
