@@ -94,7 +94,8 @@ public class RegisterActivity extends FragmentActivity
 
             @Override
             public void onSuccess(String arg0) {
-                Toast.makeText(RegisterActivity.this, "connect onSuccess", Toast.LENGTH_SHORT).show();finish();
+                //Toast.makeText(RegisterActivity.this, "connect onSuccess", Toast.LENGTH_SHORT).show();
+                finish();
             }
 
             @Override

@@ -40,8 +40,9 @@
 
 
         <activity android:name=".register.GuoQingZhuangBActivity"/>
+        <activity android:name=".register.RegisterActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
-        <activity android:name=".register.RegisterActivity" android:theme="@android:style/Theme.Holo.NoActionBar">
+        <activity android:name=".WelcomeActivity" android:theme="@android:style/Theme.Holo.NoActionBar">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

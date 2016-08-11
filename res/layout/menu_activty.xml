@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="me.zsj.eyepetizer_menu_animation.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/view_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/include_toolbar">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:src="@drawable/picture2"
+                    android:scaleType="centerCrop"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:src="@drawable/present_present_"
+                    android:scaleType="centerCrop"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:src="@drawable/help_help_"
+                    android:scaleType="centerCrop"/>
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:src="@drawable/pai_pai_"
+                        android:scaleType="centerCrop"/>
+
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:src="@drawable/run_run_"
+                        android:scaleType="centerCrop"/>
+
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:src="@drawable/xue_xue_"
+                        android:scaleType="centerCrop"/>
+            </LinearLayout>
+        </ScrollView>
+
+    </FrameLayout>
+
+    <include
+        android:id="@+id/include_toolbar"
+        layout="@layout/toolbar"/>
+
+</RelativeLayout>

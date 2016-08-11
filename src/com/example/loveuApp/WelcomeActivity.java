@@ -10,9 +10,16 @@ import android.widget.Toast;
 import com.example.loveuApp.bean.userModel;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.register.GuoQingZhuangBActivity;
+import com.example.loveuApp.register.RegisterActivity;
 import com.example.loveuApp.service.userService;
 import com.example.loveuApp.util.Md5;
 import com.loopj.android.http.RequestParams;
+import io.rong.imkit.RongIM;
+import io.rong.imlib.RongIMClient;
+import io.rong.imlib.model.Conversation;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by caolu on 2016/8/11.
@@ -22,6 +29,7 @@ public class WelcomeActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcomelayout);
+        autoLogin();
     }
 
     private void autoLogin() {
@@ -46,34 +54,47 @@ public class WelcomeActivity extends Activity{
                     editor.putString("SecretKey", userModel.getSecretKey());
                     editor.commit();
                     Log.i("SecretKey",userModel.getSecretKey());
-                    if (getApplicationContext() instanceof FLoginBtnClick) {
-                        ((FLoginBtnClick) getApplicationContext()).onFLoginTrue();
-                    }
+                    SharedPreferences sh=getSharedPreferences("user",MODE_PRIVATE);
+                    String token = sh.getString("Token","");
+
+                    Map<String,Boolean> map=new HashMap<>();
+                    map.put(Conversation.ConversationType.PRIVATE.getName(), false);
+                    map.put(Conversation.ConversationType.GROUP.getName(), false);
+                    map.put(Conversation.ConversationType.DISCUSSION.getName(), false);
+                    map.put(Conversation.ConversationType.SYSTEM.getName(), false);
+                    RongIM.getInstance().startConversationList(WelcomeActivity.this,map);
+
+                    Log.i("RongInformation", token);
+                    RongIMClient.connect(token, new RongIMClient.ConnectCallback() {
+
+                        @Override
+                        public void onError(RongIMClient.ErrorCode arg0) {
+                            Toast.makeText(WelcomeActivity.this, "connect onError", Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onSuccess(String arg0) {
+                            //Toast.makeText(WelcomeActivity.this, "connect onSuccess", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+
+                        @Override
+                        public void onTokenIncorrect() {
+                            // TODO Auto-generated method stub
+                        }
+                    });
                 } else {
-                    Bundle bundle = new Bundle();
-                    bundle.putString("MODE","startLogin");
-                    Intent intent = new Intent(WelcomeActivity.this, GuoQingZhuangBActivity.class);
-                    intent.putExtras(bundle);
+                    Intent intent = new Intent(WelcomeActivity.this, RegisterActivity.class);
                     startActivity(intent);
+                    finish();
                 }
             }
 
             @Override
             public void onFailure(String msg) {
-                Bundle bundle = new Bundle();
-                bundle.putString("MODE","startLogin");
-                Intent intent = new Intent(WelcomeActivity.this, GuoQingZhuangBActivity.class);
-                intent.putExtras(bundle);
+                Intent intent = new Intent(WelcomeActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
         });
-    }
-
-    public interface FLoginBtnClick {
-        void onFLoginTrue();
-
-        void onToRegisterClick();
-
-        void onToFindClick();
     }
 }

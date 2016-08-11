@@ -57,7 +57,7 @@ public class LoginFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         initView();
 
-        autoLogin();
+        //autoLogin();
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
