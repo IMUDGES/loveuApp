@@ -4,6 +4,59 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-    android:text="右边"/>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+                  android:orientation="horizontal"
+                  android:background="@color/darkblue"
+    android:layout_gravity="center"
+    android:gravity="center">
+        <RadioGroup
+
+                android:id="@+id/rightradiobaba"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/abovegroup_selector">
+
+            <RadioButton
+                    android:id="@+id/rightradio1"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:checked="true"
+                    android:text="消息"
+                    android:button="@null"
+                    android:textSize="16sp"
+                    android:textColor="@drawable/abovewrite_selector"
+                    android:background="@drawable/abovebuttonl_selector"/>
+            <RadioButton
+                    android:id="@+id/rightradio2"
+                    android:button="@null"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:textSize="16sp"
+                    android:text="好友"
+                    android:gravity="center"
+                    android:background="@drawable/abovebuttonr_selector"
+                    android:textColor="@drawable/abovewrite_selector"/>
+
+        </RadioGroup>
+    </LinearLayout>
+
+
+    <fragment
+            android:id="@+id/right_fragment1"
+            android:name="io.rong.imkit.fragment.ConversationListFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+    />
+    <fragment
+            android:id="@+id/right_fragment2"
+            android:name="com.example.loveuApp.right.BaiGuoQingFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+    />
 </LinearLayout>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <!-- 触摸模式下单击时的背景图片-->
+    <item android:state_focused="false" android:state_pressed="true"   >
+        <shape android:shape="rectangle">
+            <!-- 填充的颜色 -->
+            <solid android:color="@color/white"></solid>
+            <stroke
+                    android:width="1dp"
+                    android:color="@color/white"/>
+            <!-- 设置按钮的四个角为弧形 -->
+            <!-- android:radius 弧形的半径 -->
+            <corners
+                    android:topRightRadius="10dp"
+                    android:bottomRightRadius="10dp"
+            />
+            <!-- padding：Button里面的文字与Button边界的间隔 -->
+            <padding android:bottom="2dp" android:left="2dp" android:right="2dp" android:top="2dp"/>
+        </shape>
+    </item>
+
+    <item  android:state_checked="true">
+        <shape android:shape="rectangle">
+            <!-- 填充的颜色 -->
+            <solid android:color="@color/white"></solid>
+            <stroke
+                    android:width="1dp"
+                    android:color="@color/white"/>
+            <!-- 设置按钮的四个角为弧形 -->
+            <!-- android:radius 弧形的半径 -->
+            <corners
+                    android:topRightRadius="10dp"
+                    android:bottomRightRadius="10dp"
+            />
+            <!-- padding：Button里面的文字与Button边界的间隔 -->
+            <padding android:bottom="2dp" android:left="2dp" android:right="2dp" android:top="2dp"/>
+        </shape>
+    </item>
+    <item  android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <!-- 填充的颜色 -->
+            <solid android:color="@color/darkblue"></solid>
+            <stroke
+                    android:width="1dp"
+                    android:color="@color/white"/>
+            <!-- 设置按钮的四个角为弧形 -->
+            <!-- android:radius 弧形的半径 -->
+            <corners
+                    android:topRightRadius="10dp"
+                    android:bottomRightRadius="10dp"
+            />
+            <!-- padding：Button里面的文字与Button边界的间隔 -->
+            <padding android:bottom="2dp" android:left="2dp" android:right="2dp" android:top="2dp"/>
+        </shape>
+    </item>
+    <item android:state_checked="false" >
+        <shape android:shape="rectangle">
+            <!-- 填充的颜色 -->
+            <solid android:color="@color/darkblue"></solid>
+            <stroke
+                    android:width="1dp"
+                    android:color="@color/white"/>
+            <!-- 设置按钮的四个角为弧形 -->
+            <!-- android:radius 弧形的半径 -->
+
+
+            <corners
+                    android:topRightRadius="10dp"
+                    android:bottomRightRadius="10dp"
+            />
+
+
+            <!-- padding：Button里面的文字与Button边界的间隔 -->
+            <padding android:bottom="2dp" android:left="2dp" android:right="2dp" android:top="2dp"/>
+        </shape>
+    </item>
+
+
+</selector>
