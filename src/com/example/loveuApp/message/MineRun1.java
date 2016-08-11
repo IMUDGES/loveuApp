@@ -7,9 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
 import com.example.loveuApp.R;
-import com.example.loveuApp.bean.xueModel;
-import com.example.loveuApp.message.adapter.XueAdapter;
-import com.example.loveuApp.model.XueModel;
+import com.example.loveuApp.bean.runModel;
+import com.example.loveuApp.message.adapter.RunAdapter;
+import com.example.loveuApp.model.RunModel;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -22,10 +22,10 @@ import java.util.Map;
 /**
  * Created by caolu on 2016/8/10.
  */
-public class MineXue extends Activity{
+public class MineRun1 extends Activity{
     private ListView mListView;
-    private XueAdapter mAdapter;
-    private List<xueModel> data;
+    private RunAdapter mAdapter;
+    private List<runModel> data;
     private String url = "";
     private int firstnum = 0;
 
@@ -43,8 +43,8 @@ public class MineXue extends Activity{
 
         @Override
         protected String[] doInBackground(String... strings) {
-            sendGet("http://183.175.14.250:5000/myissuexue_notoverdue",1);
-            sendGet("http://183.175.14.250:5000/myissuexue_overdue",2);
+            sendGet("http://183.175.14.250:5000/mygetrun_notoverdue",1);
+            sendGet("http://183.175.14.250:5000/mygetrun_overdue",2);
             if (data==null) {
                 Log.i("data", "null");
                 return null;
@@ -67,7 +67,7 @@ public class MineXue extends Activity{
             super.onPostExecute(strings);
             if (strings==null)
                 return;
-            mAdapter = new XueAdapter(data,getApplicationContext(),firstnum,strings,mListView);
+            mAdapter = new RunAdapter(data,getApplicationContext(),firstnum,strings,mListView);
             mListView.setAdapter(mAdapter);
         }
     }
@@ -113,7 +113,7 @@ public class MineXue extends Activity{
             }
         }
         Log.i("2++++++++++++++++++++++++++", "2");
-        XueModel model = new Gson().fromJson(result, XueModel.class);
+        RunModel model = new Gson().fromJson(result, RunModel.class);
         Log.i("model",result);
         if (model==null){
             Log.i("model","null");
@@ -121,10 +121,10 @@ public class MineXue extends Activity{
         if (model.getNum()==0)
             return;
         if (i==1) {
-            data = model.getXuedata();
+            data = model.getRundata();
         }
         else
-            data.addAll(model.getXuedata());
+            data.addAll(model.getRundata());
         if (data == null)
             firstnum = 0;
         else

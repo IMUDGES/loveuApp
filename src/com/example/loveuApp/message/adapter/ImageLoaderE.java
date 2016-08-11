@@ -21,17 +21,21 @@ import java.util.Set;
 /**
  * Created by caolu on 2016/7/28.
  */
-public class ImageLoader {
+public class ImageLoaderE {
 
+    private String[] URLS;
     private LruCache<String, Bitmap> mCache;
     private Set<MyAsyncTask> mTask;
 
     private ListView mListView;
 
 
-    ImageLoader(ListView listView) {
+    ImageLoaderE(ListView listView,String[] url) {
         mListView = listView;
-
+        URLS = new String[url.length];
+        for (int i =0;i<url.length;i++){
+            URLS[i] = url[i];
+        }
         mTask = new HashSet<MyAsyncTask>();
         int maxMemory = (int) Runtime.getRuntime().maxMemory();
         int cacheSize = maxMemory / 4;
@@ -103,7 +107,7 @@ public class ImageLoader {
 
     public void loadImages(int start, int end) {
         for (int i = start; i < end; i++) {
-            String url = FoodAdapter.URLS[i];
+            String url = URLS[i];
             Bitmap bitmap = getBitmapFromCache(url);
             if (bitmap == null) {
                 MyAsyncTask task = new MyAsyncTask(url,i);

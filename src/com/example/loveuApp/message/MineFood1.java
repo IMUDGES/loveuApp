@@ -74,6 +74,7 @@ public class MineFood1 extends Activity {
             if (strings == null)
                 return;
             mAdapter = new FoodAdapter1(data, getApplicationContext(), firstnum, strings, mListView);
+            Log.i("firstnum",""+firstnum);
             mListView.setAdapter(mAdapter);
         }
     }
@@ -132,9 +133,9 @@ public class MineFood1 extends Activity {
         } else
             data.addAll(model.getFooddata());
         if (data == null)
-            firstnum = 0;
+            firstnum += 0;
         else
-            firstnum = data.size();
+            firstnum += data.size();
         Log.i("datasize",data.size()+"");
 
     }

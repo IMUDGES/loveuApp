@@ -58,11 +58,11 @@ public class FoodAdapter extends BaseAdapter implements AbsListView.OnScrollList
     @Override
     public View getView(int i, View convertView, ViewGroup viewGroup) {
 
-        if (i==firstNum)
+        /*if (i==firstNum)
         {
             View mView = LayoutInflater.from(mContext).inflate(R.layout.hualidefengexian, null);
             return mView;
-        }
+        }*/
         ViewHolder viewHolder = null;
         if (convertView == null){
             convertView = LayoutInflater.from(mContext).inflate(R.layout.foodmainlistitem,null);

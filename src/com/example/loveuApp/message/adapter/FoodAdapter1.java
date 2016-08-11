@@ -18,11 +18,12 @@ public class FoodAdapter1 extends BaseAdapter implements AbsListView.OnScrollLis
 
     private int TYPE1 = 1;
     private int TYPE2 = 2;
+    private int TYPE3 = 3;
     private int mStart, mEnd;
     public boolean mFirstIn;
     private int firstNum;
     public static String[] URLS;
-    private ImageLoader mImageLoader;
+    private ImageLoader1 mImageLoader1;
     public List<foodModel> data;
     private Context mContext;
 
@@ -36,7 +37,7 @@ public class FoodAdapter1 extends BaseAdapter implements AbsListView.OnScrollLis
             Log.i("adapter url", URLS[i] + "");
         }
         mFirstIn = true;
-        mImageLoader = new ImageLoader(listView);
+        mImageLoader1 = new ImageLoader1(listView);
         listView.setOnScrollListener(this);
     }
 
@@ -58,11 +59,15 @@ public class FoodAdapter1 extends BaseAdapter implements AbsListView.OnScrollLis
     @Override
     public View getView(int i, View convertView, ViewGroup viewGroup) {
 
-        if (i==firstNum)
-        {
+        /*if (i == 0) {
             View mView = LayoutInflater.from(mContext).inflate(R.layout.hualidefengexian, null);
             return mView;
         }
+        if (i==firstNum+1)
+        {
+            View mView = LayoutInflater.from(mContext).inflate(R.layout.hualidefengexian, null);
+            return mView;
+        }*/
         ViewHolder viewHolder = null;
         if (convertView == null){
             convertView = LayoutInflater.from(mContext).inflate(R.layout.foodmainlistitem,null);
@@ -109,9 +114,9 @@ public class FoodAdapter1 extends BaseAdapter implements AbsListView.OnScrollLis
             viewHolder.sex.setText("♀");
             viewHolder.sex.setBackgroundResource(R.drawable.foodlistview_sexgirl);
         }
-        Log.i("settag","settag+"+URLS[i]);
+        Log.i("settag","settag+"+URLS[i]+i);
         viewHolder.imageView.setTag(URLS[i]+i);
-        mImageLoader.showImage(viewHolder.imageView,URLS[i]);
+        mImageLoader1.showImage(viewHolder.imageView,URLS[i]);
         return convertView;
     }
 
@@ -123,9 +128,12 @@ public class FoodAdapter1 extends BaseAdapter implements AbsListView.OnScrollLis
     @Override
     public int getItemViewType(int position) {
 
-        if (position == firstNum)
+        if (position == 0)
+            return  TYPE3;
+        else if (position == firstNum)
             return TYPE2;
-        else return TYPE1;
+        else
+            return TYPE1;
        // return super.getItemViewType(position);
     }
 
@@ -136,9 +144,9 @@ public class FoodAdapter1 extends BaseAdapter implements AbsListView.OnScrollLis
         if (scrollState == SCROLL_STATE_IDLE) {
             Log.i("下载图片","开始");
             Log.i("onScrollStateChanged",""+mStart+"       "+mEnd);
-            mImageLoader.loadImages(mStart, mEnd);
+            mImageLoader1.loadImages(mStart, mEnd);
         } else {
-            mImageLoader.cancelAllTasks();
+            mImageLoader1.cancelAllTasks();
         }
     }
 
@@ -153,7 +161,7 @@ public class FoodAdapter1 extends BaseAdapter implements AbsListView.OnScrollLis
 
         if (mFirstIn && visibleItemCount > 0) {
             Log.i("下载图片","开始");
-            mImageLoader.loadImages(mStart, mEnd);
+            mImageLoader1.loadImages(mStart, mEnd);
             mFirstIn = false;
         }
     }

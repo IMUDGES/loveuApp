@@ -8,7 +8,9 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.ListView;
 import com.example.loveuApp.R;
+import com.example.loveuApp.homepage.food.adapter.FoodMainListAdapter;
 import com.example.loveuApp.util.PhotoCut;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -21,7 +23,7 @@ import java.util.Set;
 /**
  * Created by caolu on 2016/7/28.
  */
-public class ImageLoader {
+public class ImageLoader1 {
 
     private LruCache<String, Bitmap> mCache;
     private Set<MyAsyncTask> mTask;
@@ -29,7 +31,7 @@ public class ImageLoader {
     private ListView mListView;
 
 
-    ImageLoader(ListView listView) {
+    ImageLoader1(ListView listView) {
         mListView = listView;
 
         mTask = new HashSet<MyAsyncTask>();
@@ -103,7 +105,7 @@ public class ImageLoader {
 
     public void loadImages(int start, int end) {
         for (int i = start; i < end; i++) {
-            String url = FoodAdapter.URLS[i];
+            String url = FoodAdapter1.URLS[i];
             Bitmap bitmap = getBitmapFromCache(url);
             if (bitmap == null) {
                 MyAsyncTask task = new MyAsyncTask(url,i);
