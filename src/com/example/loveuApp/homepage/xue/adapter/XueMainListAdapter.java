@@ -1,6 +1,8 @@
 package com.example.loveuApp.homepage.xue.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.loveuApp.R;
 import com.example.loveuApp.bean.xueModel;
+import com.example.loveuApp.homepage.DetailsActivity;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import java.util.List;
 
@@ -110,6 +113,18 @@ public class XueMainListAdapter extends BaseAdapter implements AbsListView.OnScr
             }
         });*/
         mImageLoader.showImage(viewHolder.imageView,URLS[i]);
+
+        viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("UserId",data.get(i).getUserId());
+                bundle.putString("URL",data.get(i).getUserPhoto());
+                Intent intent = new Intent(mContext,DetailsActivity.class);
+                intent.putExtras(bundle);
+                mContext.startActivity(intent);
+            }
+        });
 
 
         return convertView;

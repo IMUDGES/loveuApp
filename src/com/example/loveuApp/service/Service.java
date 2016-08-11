@@ -22,7 +22,7 @@ public class Service {
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                Log.i("tag",new String(bytes));
+                //Log.i("tag",new String(bytes));
                 listener.onFailure("网络请求失败");
             }
         });
@@ -37,7 +37,7 @@ public class Service {
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                Log.i("tag",new String(bytes));
+                //Log.i("tag",new String(bytes));
                 listener.onFailure("网络请求失败");
             }
         });

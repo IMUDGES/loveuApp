@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
+              android:background="#ffffff"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
+
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+            android:id="@+id/friend_listView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/white"
+    />
 
 </LinearLayout>

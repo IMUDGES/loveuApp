@@ -1,9 +1,11 @@
 package com.example.loveuApp.homepage.help.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.widget.*;
 import com.example.loveuApp.R;
 import com.example.loveuApp.bean.userModel;
 import com.example.loveuApp.bean.helpModel;
+import com.example.loveuApp.homepage.DetailsActivity;
 import com.example.loveuApp.util.PhotoCut;
 import com.example.loveuApp.util.TextViewToDBC;
 
@@ -97,6 +100,19 @@ public class HelpListAdapter extends BaseAdapter {
                 }
             }
         });
+
+        viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("UserId",models.get(i).getUserId());
+                bundle.putString("URL",models.get(i).getUserPhoto());
+                Intent intent = new Intent(context,DetailsActivity.class);
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
+
         return convertView;
     }
 

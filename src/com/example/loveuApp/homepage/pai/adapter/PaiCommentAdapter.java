@@ -1,9 +1,11 @@
 package com.example.loveuApp.homepage.pai.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.loveuApp.R;
 import com.example.loveuApp.bean.paiCommentModel;
+import com.example.loveuApp.homepage.DetailsActivity;
 import com.example.loveuApp.util.PhotoCut;
 
 import java.io.IOException;
@@ -73,6 +76,19 @@ public class PaiCommentAdapter extends BaseAdapter {
         }else{
             new photoAsyncTask(viewHolder.imageView,viewHolder).execute(models.get(i).getUserPhoto());
         }
+
+
+        viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("UserId",models.get(i).getUserId());
+                bundle.putString("URL",models.get(i).getUserPhoto());
+                Intent intent = new Intent(context,DetailsActivity.class);
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
 
         return convertView;
     }

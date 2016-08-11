@@ -1,9 +1,11 @@
 package com.example.loveuApp.homepage.run.RunAdapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 import com.example.loveuApp.R;
 import com.example.loveuApp.bean.runModel;
 import com.example.loveuApp.bean.userModel;
+import com.example.loveuApp.homepage.DetailsActivity;
 import com.google.gson.Gson;
 
 import java.io.*;
@@ -72,6 +75,17 @@ public class RunAdapter extends BaseAdapter {
             new MyAsyncTask(viewHolder).execute(runModels.get(i).getUserId());
         }
 
+        viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("UserId",runModels.get(i).getUserId());
+                bundle.putString("URL",runModels.get(i).getUserPhoto());
+                Intent intent = new Intent(context,DetailsActivity.class);
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
         return convertView;
     }
 

@@ -3,6 +3,7 @@ package com.example.loveuApp.homepage.pai;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -18,6 +19,7 @@ import android.widget.*;
 import com.example.loveuApp.R;
 import com.example.loveuApp.bean.paiCommentModel;
 import com.example.loveuApp.bean.paiModel;
+import com.example.loveuApp.homepage.DetailsActivity;
 import com.example.loveuApp.homepage.pai.adapter.PaiCommentAdapter;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.model.PaiCommentModel;
@@ -142,6 +144,19 @@ public class PaiCommentActivity extends Activity{
             }
         });
         addFriend= (Button) findViewById(R.id.pai_comment_addFriend);
+        addFriend.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("UserId",paiModels.getUserId());
+                        bundle.putString("URL",paiModels.getUserPhoto());
+                        Intent intent = new Intent(PaiCommentActivity.this,DetailsActivity.class);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+
+            }
+        });
         bidding= (Button) findViewById(R.id.pai_comment_want);
         bidding.setOnClickListener(new OnClickListener() {
             @Override

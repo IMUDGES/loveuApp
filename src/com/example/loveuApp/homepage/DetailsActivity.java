@@ -22,6 +22,8 @@ import com.example.loveuApp.model.OtherUserModel;
 import com.example.loveuApp.service.Service;
 import com.google.gson.Gson;
 import com.loopj.android.http.RequestParams;
+import io.rong.imkit.RongIM;
+import io.rong.imlib.model.Conversation;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -37,7 +39,7 @@ public class DetailsActivity extends Activity {
     private int UserId;
     private String Url;
     private String name,phone;
-    private Button addfriend;
+    private Button addfriend,sendMessgae;
     private int sex;
     private TextView nameText,phoneText,sexText;
     private ImageView img;
@@ -70,30 +72,37 @@ public class DetailsActivity extends Activity {
         nameText = (TextView) findViewById(R.id.fooddetails_name);
         phoneText = (TextView) findViewById(R.id.fooddetails_phone);
         img = (ImageView) findViewById(R.id.fooddetails_img);
-        addfriend = (Button) findViewById(R.id.fooddetails_addfriend);
-        addfriend.setOnClickListener(new MyListener());
-    }
-    private class MyListener implements View.OnClickListener {
+        addfriend = (Button) findViewById(R.id.fooddetails_addfriend_);
+        addfriend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Toast.makeText(DetailsActivity.this,"点击",Toast.LENGTH_SHORT).show();
+                Service service = new Service();
+                RequestParams params = new RequestParams();
+                params.put("UserPhone",HomePageFragment1.UserPhone);
+                params.put("SecretKey",HomePageFragment1.SecretKey);
+                params.put("BefocusonId",UserId);
+                service.post(getApplicationContext(), "attention", params, new Listener() {
+                    @Override
+                    public void onSuccess(Object object) {
+                        Toast.makeText(DetailsActivity.this,"关注成功",Toast.LENGTH_SHORT).show();
+                    }
 
-        @Override
-        public void onClick(View view) {
-            Service service = new Service();
-            RequestParams params = new RequestParams();
-            params.put("UserPhone",HomePageFragment1.UserPhone);
-            params.put("SecretKey",HomePageFragment1.SecretKey);
-            params.put("BefocusonId",UserId);
-            service.post(getApplicationContext(), "attention", params, new Listener() {
-                @Override
-                public void onSuccess(Object object) {
-                    Toast.makeText(getApplicationContext(),"关注成功",Toast.LENGTH_SHORT);
-                }
-
-                @Override
-                public void onFailure(String msg) {
-                    Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_SHORT);
-                }
-            });
-        }
+                    @Override
+                    public void onFailure(String msg) {
+                        Toast.makeText(DetailsActivity.this,"服务异常",Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+        sendMessgae= (Button) findViewById(R.id.send_message);
+        sendMessgae.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RongIM.getInstance().startConversation(DetailsActivity.this,
+                        Conversation.ConversationType.PRIVATE, UserId+"", "");
+            }
+        });
     }
 
     private void updataInfo() {
