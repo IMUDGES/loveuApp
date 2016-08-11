@@ -90,7 +90,7 @@ public class DetailsActivity extends Activity {
 
                 @Override
                 public void onFailure(String msg) {
-
+                    Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_SHORT);
                 }
             });
         }

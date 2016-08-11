@@ -4,23 +4,42 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
     <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
-    android:background="@color/newblue">
-        <TextView android:layout_width="0dp" android:layout_height="60dp"
-                  android:layout_weight="1"
-                  android:text="发出"
-                  android:gravity="center"
-                  android:textColor="@color/white"
-                  android:textSize="18dp"
-                  android:id="@+id/messagefragment_yuwoxiangguan_send"
-        />
-        <TextView android:layout_width="0dp" android:layout_height="60dp"
-                  android:layout_weight="1"
-                  android:text="接受"
-                  android:textColor="@color/white"
-                  android:gravity="center"
-                  android:textSize="18dp"
-                  android:id="@+id/messagefragment_yuwoxiangguan_get"
-        />
+    android:background="@color/newblue"
+    android:gravity="center">
+        <RadioGroup
+
+                android:id="@+id/yuworadiobaba"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/abovegroup_selector">
+
+            <RadioButton
+                    android:id="@+id/yuworadio1"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:checked="true"
+                    android:text="发出"
+                    android:button="@null"
+                    android:textSize="16sp"
+                    android:textColor="@drawable/abovewrite_selector"
+                    android:background="@drawable/abovebuttonl_selector"/>
+            <RadioButton
+                    android:id="@+id/yuworadio2"
+                    android:button="@null"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:textSize="16sp"
+                    android:text="接受"
+                    android:gravity="center"
+                    android:background="@drawable/abovebuttonr_selector"
+                    android:textColor="@drawable/abovewrite_selector"/>
+
+        </RadioGroup>
     </LinearLayout>
 
     <fragment android:layout_width="match_parent" android:layout_height="match_parent"
