@@ -24,8 +24,8 @@ public class giveService {
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                giveData giveDatas=new Gson().fromJson(new String(bytes),giveData.class);
-                listener.onFailure(giveDatas.getMsg());
+                //giveData giveDatas=new Gson().fromJson(new String(bytes),giveData.class);
+                listener.onFailure("网络请求失败");
             }
         });
     }

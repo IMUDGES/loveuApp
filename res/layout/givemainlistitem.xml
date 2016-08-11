@@ -5,6 +5,22 @@
                 android:background="#ffffff"
                 android:orientation="vertical" >
 
+    <LinearLayout
+            android:id="@+id/givell_head"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:background="#949494">
+        <TextView android:layout_width="wrap_content"
+                  android:text="◁"
+                  android:id="@+id/comment_finish"
+                  android:clickable="true"
+                  android:layout_marginLeft="30dp"
+                  android:gravity="center"
+                  android:textSize="35dp"
+                  android:textColor="#ffffff"
+                  android:layout_height="match_parent"/>
+    </LinearLayout>
     <com.example.loveuApp.homepage.give.NotifyingScrollView
             android:id="@+id/give_sv_layout"
             android:layout_width="match_parent"
@@ -16,11 +32,17 @@
             <ImageView android:layout_width="match_parent"
                        android:id="@+id/give_comment_image"
                        android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:paddingLeft="10dp"
+                      android:paddingTop="5dp"
+                      android:paddingBottom="5dp"
+                      android:text="主人留言："/>
             <TextView android:layout_width="match_parent"
                       android:id="@+id/give_comment_info"
                       android:paddingLeft="10dp"
                       android:textColor="@color/dark_grey"
-                      android:textSize="20dp"
+                      android:textSize="14dp"
+                      android:maxLength="50"
                       android:layout_height="wrap_content"/>
             <RelativeLayout android:layout_width="match_parent"
                             android:paddingLeft="10dp"
@@ -40,7 +62,7 @@
                           android:layout_centerInParent="true"
                           android:layout_toRightOf="@+id/give_comment_userImage"/>
                 <TextView android:layout_width="50dp"
-                          android:text="9LV"
+                          android:text="Lv.9"
                           android:layout_marginLeft="10dp"
                           android:textColor="#ff6713"
                           android:background="#ffb41b"
@@ -55,23 +77,23 @@
                         android:focusable="false"
                         android:gravity="center"
                         android:id="@+id/give_comment_addFriend"
-                        android:background="@drawable/login_button_selector"
+                        android:background="@drawable/details_button_selector"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"/>
             </RelativeLayout>
 
-            <TextView android:layout_width="match_parent"
+            <View android:layout_width="match_parent"
                       android:background="#eeeeee"
-                      android:layout_height="wrap_content"/>
+                      android:layout_height="5dp"/>
             <TextView android:layout_width="match_parent"
-                      android:text="评论"
+                      android:text="评论区"
                       android:textColor="#eeeeee"
                       android:gravity="center"
-                      android:textSize="30dp"
+                      android:textSize="20dp"
                       android:layout_height="50dp"/>
-            <TextView android:layout_width="match_parent"
-                      android:background="#eeeeee"
-                      android:layout_height="wrap_content"/>
+            <View android:layout_width="match_parent"
+                  android:background="#eeeeee"
+                  android:layout_height="5dp"/>
             <TextView android:layout_width="match_parent"
                       android:id="@+id/givetip_text"
                       android:paddingLeft="10dp"
@@ -89,22 +111,7 @@
 
     </com.example.loveuApp.homepage.give.NotifyingScrollView>
 
-    <LinearLayout
-            android:id="@+id/givell_head"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="vertical"
-            android:background="#949494">
-        <TextView android:layout_width="wrap_content"
-                  android:text="◁"
-                  android:id="@+id/comment_finish"
-                  android:clickable="true"
-                  android:layout_marginLeft="30dp"
-                  android:gravity="center"
-                  android:textSize="35dp"
-                  android:textColor="#ffffff"
-                  android:layout_height="match_parent"/>
-    </LinearLayout>
+
     <LinearLayout android:layout_width="match_parent"
                   android:layout_alignParentBottom="true"
                   android:orientation="horizontal"

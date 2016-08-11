@@ -1,54 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:background="#ffffff"
-                android:layout_height="wrap_content">
-
-    <RelativeLayout
-            android:layout_width="match_parent"
-            android:background="#ffffff"
-            android:layout_height="100dip">
-
-        <ImageView
-                android:id="@+id/givemainitem_img"
-                android:layout_width="100dip"
-                android:layout_height="100dip"
-                android:src="@drawable/ic_launcher"/>
-        <RelativeLayout
-                android:layout_width="fill_parent"
+                android:orientation="horizontal"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/givemainitem_img"
-                android:background="#ffffff"
-                android:orientation="vertical"
-        >
+>
+
+    <ImageView
+            android:id="@+id/givemainitem_img"
+            android:layout_width="100dip"
+            android:layout_height="100dip"
+            android:padding="10dp"
+            android:src="@drawable/ic_launcher"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal">
             <TextView
                     android:id="@+id/givemainitem_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#FDD835"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="12dp"
                     android:maxLength="10"
                     android:singleLine="true"
-                    android:text="用户名"
-                    android:layout_centerHorizontal="true"
-
+                    android:text=""
                     android:textColor="#000000"
-                    android:textSize="16sp"/>
+                    android:textSize="16dp"/>
             <TextView
-                    android:id="@+id/givemainitem_info"
-                    android:layout_centerHorizontal="true"
-
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:paddingBottom="2dp"
+                    android:paddingTop="2dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/givemainitem_name"
-                    android:background="#26C6DA"
-                    android:maxLines="4"
-                    android:text="内容"
-                    android:textSize="16sp"/>
-        </RelativeLayout>
-    </RelativeLayout>
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:background="#ffab00"
+                    android:text="Lv.9"
+                    android:textColor="@color/white"
+                    android:textSize="10dp"/>
+        </LinearLayout>
+        <TextView
+                android:id="@+id/givemainitem_info"
+                android:layout_centerHorizontal="true"
+                android:paddingLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:maxLines="4"
+                android:textColor="@color/black"
+                android:text="内容"
+                android:textSize="16sp"/>
+
+    </LinearLayout>
+
     <View android:layout_width="match_parent"
           android:layout_alignParentBottom="true"
           android:layout_height="1dp"
-          android:background="#e0e0e0"/>
+          android:background="@color/dark_grey"/>
 
-</RelativeLayout>
+</LinearLayout>

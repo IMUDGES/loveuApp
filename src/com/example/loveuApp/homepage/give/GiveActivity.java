@@ -21,6 +21,7 @@ import com.example.loveuApp.bean.giveCommentData;
 import com.example.loveuApp.bean.giveCommentModel;
 import com.example.loveuApp.bean.giveCommentReturnModel;
 import com.example.loveuApp.bean.giveModel;
+import com.example.loveuApp.homepage.HomePageFragment1;
 import com.example.loveuApp.homepage.give.adapter.GiveCommentAdapter;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.service.giveCommentService;
@@ -87,7 +88,7 @@ public class GiveActivity extends Activity {
     }
     private void setView() {
         username.setText(givemodel.getNickName());
-        info.setText(givemodel.getGiveInformation());
+        info.setText("        "+givemodel.getGiveInformation());
         new CommentAsyncTask(giveimageView).execute(givemodel.getGiveImage());
         new CommentAsyncTask(giveuserimageView).execute(givemodel.getUserPhoto());
         layoutHead.getBackground().setAlpha(0);
@@ -145,14 +146,14 @@ public class GiveActivity extends Activity {
         RequestParams params = new RequestParams();
         SharedPreferences preferences = getApplicationContext().getSharedPreferences("user", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        String UserPhone = preferences.getString("UserPhone","该数据未写入");
-        String SecretKey = preferences.getString("SecretKey","该数据未写入");
+        String UserPhone = preferences.getString("UserPhone", HomePageFragment1.UserPhone);
+        String SecretKey = preferences.getString("SecretKey",HomePageFragment1.SecretKey);
 //        Toast.makeText(getActivity().getApplicationContext(),a+"--"+b,Toast.LENGTH_SHORT).show();
         String url="getgive";
                /* params.put("UserPhone",UserPhone);
                 params.put("SecretKey",SecretKey);*/
-        params.put("UserPhone","22222222222");
-        params.put("SecretKey","11111");
+        params.put("UserPhone", HomePageFragment1.UserPhone);
+        params.put("SecretKey", HomePageFragment1.SecretKey);
         params.put("GiveId",givemodel.getGiveId());
         params.put("CommentInformation",commenttxt);
         giveCommentService service = new giveCommentService();

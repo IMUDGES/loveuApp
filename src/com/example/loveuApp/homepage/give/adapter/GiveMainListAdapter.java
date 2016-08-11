@@ -69,7 +69,7 @@ public class GiveMainListAdapter extends BaseAdapter{
         }
 
         viewHolder.name.setText(giveModels.get(i).getNickName());
-        viewHolder.info.setText(giveModels.get(i).getGiveInformation());
+        viewHolder.info.setText("主人留言：   "+giveModels.get(i).getGiveInformation());
         if(viewHolder.bitmap!=null){
             viewHolder.imageView.setImageBitmap(PhotoCut.toRoundBitmap(viewHolder.bitmap));
         }else{
