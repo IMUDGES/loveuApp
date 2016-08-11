@@ -43,8 +43,8 @@ public class userService {
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                userModel model=new Gson().fromJson(new String(bytes),userModel.class);
-                listener.onFailure(model.getMsg());
+//                userModel model=new Gson().fromJson(new String(bytes),userModel.class);
+//                listener.onFailure(model.getMsg());
             }
         });
     }

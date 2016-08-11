@@ -48,7 +48,7 @@ public class RegisterActivity extends FragmentActivity
 
         setContentView(R.layout.register_main);
 
-        RongIM.init(this);
+        //RongIM.init(this);
 
         if (savedInstanceState == null) {
             init();
@@ -94,7 +94,7 @@ public class RegisterActivity extends FragmentActivity
 
             @Override
             public void onSuccess(String arg0) {
-                Toast.makeText(RegisterActivity.this, "connect onSuccess", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, "connect onSuccess", Toast.LENGTH_SHORT).show();finish();
             }
 
             @Override

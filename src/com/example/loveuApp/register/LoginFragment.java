@@ -110,7 +110,7 @@ public class LoginFragment extends Fragment {
                         ((FLoginBtnClick) getActivity()).onFLoginTrue();
                     }
                 } else {
-                    Toast.makeText(getActivity(), "账号或密码错误", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(), "账号或密码错误", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -150,7 +150,7 @@ public class LoginFragment extends Fragment {
                 String SecretKey = userModel.getSecretKey();
 //                Toast.makeText(getActivity(),state,Toast.LENGTH_SHORT).show();
                 if ("1".equals(state)) {
-                    saveInfor(userphone, SecretKey,userModel.getToken());
+                    saveInfor(userphone, password,SecretKey,userModel.getToken());
 
                     new LoginAsyncTask().execute(userModel.getUserPhoto());
 
@@ -169,11 +169,12 @@ public class LoginFragment extends Fragment {
         });
     }
 
-    private void saveInfor(String phone, String secret, String token) {
+    private void saveInfor( String phone,String password, String secret, String token) {
         SharedPreferences preferences = getActivity().getApplicationContext().getSharedPreferences("user", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("UserPhone", phone);
         editor.putString("SecretKey", secret);
+        editor.putString("PassWord", password);
         editor.putString("Token", token);
         if (!editor.commit()) {
             System.err.println("！！！写入失败！！！");
