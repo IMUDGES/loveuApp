@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -17,8 +18,10 @@ import com.loopj.android.http.RequestParams;
 import io.rong.imkit.RongIM;
 import io.rong.imlib.RongIMClient;
 import io.rong.imlib.model.Conversation;
+import io.rong.imlib.model.UserInfo;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -62,7 +65,6 @@ public class WelcomeActivity extends Activity{
                     map.put(Conversation.ConversationType.GROUP.getName(), false);
                     map.put(Conversation.ConversationType.DISCUSSION.getName(), false);
                     map.put(Conversation.ConversationType.SYSTEM.getName(), false);
-                    RongIM.getInstance().startConversationList(WelcomeActivity.this,map);
 
                     Log.i("RongInformation", token);
                     RongIMClient.connect(token, new RongIMClient.ConnectCallback() {
@@ -83,6 +85,13 @@ public class WelcomeActivity extends Activity{
                             // TODO Auto-generated method stub
                         }
                     });
+                    RongIM.setUserInfoProvider(new RongIM.UserInfoProvider() {
+                        @Override
+                        public UserInfo getUserInfo(String s) {
+                            return new UserInfo(userModel.getUserId()+"", userModel.getNickName(),Uri.parse(userModel.getUserPhoto()));
+                        }
+                    },true);
+                    RongIM.getInstance().startConversationList(WelcomeActivity.this,map);
                 } else {
                     Intent intent = new Intent(WelcomeActivity.this, RegisterActivity.class);
                     startActivity(intent);
@@ -94,6 +103,7 @@ public class WelcomeActivity extends Activity{
             public void onFailure(String msg) {
                 Intent intent = new Intent(WelcomeActivity.this, RegisterActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
