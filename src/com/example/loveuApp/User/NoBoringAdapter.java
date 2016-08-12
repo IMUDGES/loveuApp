@@ -4,16 +4,20 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.*;
 import com.example.loveuApp.R;
+import com.example.loveuApp.listener.Listener;
+import com.example.loveuApp.model.UserSetModel;
 import com.example.loveuApp.register.RegisterActivity;
+import com.example.loveuApp.service.UserSetService;
+import com.loopj.android.http.RequestParams;
 
 /**
  * Created by 1111 on 2016/8/3.
@@ -23,6 +27,10 @@ public class NoBoringAdapter extends BaseAdapter {
     private final static int NORMAL_ITEM = 1;
     private final static int BUTTON_ITEM = 2;
 
+    private String nickName;
+    private String sex;
+    private String jwxt;
+
     private Context mContext;
     private LayoutInflater inflater;
     private String[] data;
@@ -31,6 +39,7 @@ public class NoBoringAdapter extends BaseAdapter {
         this.data = data;
         inflater = LayoutInflater.from(context);
         mContext = context;
+        getInfor();
     }
 
     //三种视图
@@ -72,7 +81,6 @@ public class NoBoringAdapter extends BaseAdapter {
         return i;
     }
 
-
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
         ViewHolder1 holder1 = null;
@@ -97,6 +105,7 @@ public class NoBoringAdapter extends BaseAdapter {
                     view = inflater.inflate(R.layout.noboringview2, viewGroup, false);
                     holder2 = new ViewHolder2();
                     holder2.textView = (TextView) view.findViewById(R.id.noboring_view2_text);
+                    holder2.textView2 = (TextView) view.findViewById(R.id.noboring_view2_text2);
 //                    Log.e("convertView = ", "NULL TYPE_2");
                     view.setTag(holder2);
                     break;
@@ -133,6 +142,27 @@ public class NoBoringAdapter extends BaseAdapter {
                 break;
             case NORMAL_ITEM:
                 holder2.textView.setText(data[position]);
+//                holder2.textView2
+                switch (position) {
+                    case 4:
+                        holder2.textView2.setText(nickName);
+                        break;
+                    case 6:
+                        holder2.textView2.setText(sex);
+                        break;
+                    case 8:
+                        holder2.textView2.setText(jwxt);
+                        break;
+//                    case 12:
+//                        holder2.textView2.setOnClickListener(new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View view) {
+//                                Intent intent = new Intent();
+//                                mContext.startActivity(intent);
+//                            }
+//                        });
+//                        break;
+                }
                 break;
             case BUTTON_ITEM:
                 holder3.button.setOnClickListener(new View.OnClickListener() {
@@ -140,12 +170,12 @@ public class NoBoringAdapter extends BaseAdapter {
                     public void onClick(View view) {
                         SharedPreferences preferences = mContext.getApplicationContext().getSharedPreferences("user", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();
-                        editor.putString("UserPhone","");
-                        editor.putString("SecretKey","");
-                        editor.commit();
+                        editor.putString("UserPhone", "");
+                        editor.putString("SecretKey", "");
+                        editor.apply();
                         Intent intent = new Intent();
-                        intent.setClass(mContext,RegisterActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);//销毁其他的Activity。
+                        intent.setClass(mContext, RegisterActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);//销毁其他的Activity。
                         mContext.startActivity(intent);
                     }
                 });
@@ -161,9 +191,69 @@ public class NoBoringAdapter extends BaseAdapter {
 
     class ViewHolder2 {
         TextView textView;
+        TextView textView2;
     }
 
     class ViewHolder3 {
         Button button;
+    }
+
+    public void a() {
+
+    }
+
+    public void getInfor() {
+        String url = "mydata";
+        String secretKey;
+        String userPhone;
+        SharedPreferences preferences = mContext.getApplicationContext().getSharedPreferences("user", Context.MODE_PRIVATE);
+        secretKey = preferences.getString("SecretKey", "");
+        userPhone = preferences.getString("UserPhone", "");
+        if ("".equals(userPhone) || "".equals(secretKey)) {
+            Toast.makeText(mContext, "登录失效，请重新登录", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent();
+            intent.setClass(mContext, RegisterActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);//销毁其他的Activity。
+            mContext.startActivity(intent);
+        }
+        RequestParams requestParams = new RequestParams();
+        requestParams.add("SecretKey", secretKey);
+        requestParams.add("UserPhone", userPhone);
+        UserSetService service = new UserSetService();
+        service.post(mContext, url, requestParams, new Listener() {
+            @Override
+            public void onSuccess(Object object) {
+                UserSetModel userSetModel = (UserSetModel) object;
+                if ("1".equals(userSetModel.getState())) {
+                    updataView(userSetModel);
+                    notifyDataSetChanged();
+                } else {
+                    Toast.makeText(mContext, "未查询到您的信息", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                Toast.makeText(mContext, "与服务器请求失败", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void updataView(UserSetModel userSetModel) {
+
+        if (userSetModel.getData().getUserSex() == 0)
+            sex = "女";
+        else if (userSetModel.getData().getUserSex() == 1)
+            sex = "男";
+        else sex = "未知性别";
+
+
+        if (userSetModel.getData().getIsjwxt() == 0) {
+            jwxt = "未验证教务系统";
+        } else {
+            jwxt = "已验证教务系统";
+        }
+
+        nickName = userSetModel.getData().getNickName();
     }
 }

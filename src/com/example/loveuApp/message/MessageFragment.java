@@ -27,7 +27,7 @@ import com.example.loveuApp.util.PhotoCut;
 import java.io.File;
 
 
-public class MessageFragment extends Fragment implements View.OnClickListener{
+public class MessageFragment extends Fragment implements View.OnClickListener {
 
     private ImageView userImg;
     private LinearLayout myinfo;
@@ -70,20 +70,22 @@ public class MessageFragment extends Fragment implements View.OnClickListener{
         super.onActivityCreated(savedInstanceState);
 
 
-
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.messagefragment_mymessage:
                 Intent intent = new Intent(getActivity(), NoBoringActionBarActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.messagefragment_mywallet:break;
+            case R.id.messagefragment_mywallet:
+                break;
             case R.id.messagefragment_relatedtome:
-                startActivity(new Intent(getActivity(),YuWoXiangGuanActivity.class));
-            case R.id.messagefragment_aboutour:break;
+                startActivity(new Intent(getActivity(), YuWoXiangGuanActivity.class));
+            case R.id.messagefragment_aboutour:
+                startActivity(new Intent(getActivity(), AboutOurActivity.class));
+                break;
         }
     }
 }

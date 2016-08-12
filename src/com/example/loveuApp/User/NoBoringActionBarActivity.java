@@ -26,6 +26,7 @@ import com.example.loveuApp.service.PhotoService;
 import com.example.loveuApp.util.GetPhoto;
 import com.example.loveuApp.util.PhotoCut;
 import com.example.loveuApp.util.SavePhoto;
+import com.loopj.android.http.RequestParams;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -75,25 +76,31 @@ public class NoBoringActionBarActivity extends Activity {
 
         mActionBarTitleColor = getResources().getColor(R.color.actionbar_title_color);
 
-        mSpannableString = new SpannableString(getString(R.string.noboringactionbar_title));
+        mSpannableString = new SpannableString("");//上方text
         mAlphaForegroundColorSpan = new AlphaForegroundColorSpan(mActionBarTitleColor);
 
         setupActionBar();
         setupListView();
     }
 
-    private final String IMAGE_TYPE="image/*";
-    private final int IMAGE_CODE=1;
+    private final String IMAGE_TYPE = "image/*";
+    private final int IMAGE_CODE = 1;
     private String Path;
+
+//    private void getInfor() {
+//        String url = "";
+//        RequestParams requestParams = new RequestParams();
+//        requestParams.add();
+//
+//    }
     private void repleaceImage() {
 
-
-            GetPhoto getPhoto = new GetPhoto(Environment.getExternalStorageDirectory().getPath(), "UserPhoto");
-            Bitmap bitmap = getPhoto.getphoto();
-            if (bitmap != null)
-                mHeaderLogo.setImageBitmap(bitmap);
-            else
-                mHeaderLogo.setBackgroundResource(R.drawable.ic_launcher);
+        GetPhoto getPhoto = new GetPhoto(Environment.getExternalStorageDirectory().getPath(), "UserPhoto");
+        Bitmap bitmap = getPhoto.getphoto();
+        if (bitmap != null)
+            mHeaderLogo.setImageBitmap(bitmap);
+        else
+            mHeaderLogo.setBackgroundResource(R.drawable.ic_launcher);
 
         mHeaderLogo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +113,7 @@ public class NoBoringActionBarActivity extends Activity {
                 intent.putExtra("outputX", 200);
                 intent.putExtra("outputY", 200);
                 //输出地址
-                intent.putExtra("output", Uri.fromFile(new File(Environment.getExternalStorageDirectory().getPath()+"/loveu.jpg")));
+                intent.putExtra("output", Uri.fromFile(new File(Environment.getExternalStorageDirectory().getPath() + "/loveu.jpg")));
                 intent.putExtra("outputFormat", "JPEG");//返回格式
                 startActivityForResult(Intent.createChooser(intent, "选择图片"), IMAGE_CODE);
             }
@@ -116,64 +123,53 @@ public class NoBoringActionBarActivity extends Activity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode != RESULT_OK) {
-            Log.i("photopath","fail");
+            Log.i("photopath", "fail");
             return;
         }
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == IMAGE_CODE) {
-            Log.i("photopath","success");
+            Log.i("photopath", "success");
             try {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inSampleSize = 2;
-                Bitmap bitmap = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory().getPath()+"/loveu.jpg", options);
-                Path=Environment.getExternalStorageDirectory().getPath()+"/loveu.jpg";
+                Bitmap bitmap = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory().getPath() + "/loveu.jpg", options);
+                Path = Environment.getExternalStorageDirectory().getPath() + "/loveu.jpg";
 
                 PhotoCut bitmapUtil = new PhotoCut();
                 Bitmap myBitmap = bitmapUtil.toRoundBitmap(bitmap);
                 if (bitmap == null)
-                    Log.i("bitmap","null");
+                    Log.i("bitmap", "null");
                 mHeaderLogo.setImageBitmap(myBitmap);
                 File file = new File(Path);
 
                 String UserPhone = "22222222222";
                 String SecretKey = "11111";
 
-                Log.i("service","begin");
-                PhotoService.FileUpload(getApplicationContext(), "userphoto", file,UserPhone,SecretKey , new Listener() {
+                Log.i("service", "begin");
+                PhotoService.FileUpload(getApplicationContext(), "userphoto", file, UserPhone, SecretKey, new Listener() {
                     @Override
                     public void onSuccess(Object object) {
-                        Toast.makeText(getApplicationContext(),"上传成功",Toast.LENGTH_SHORT).show();
-                        SavePhoto savePhoto=new SavePhoto(myBitmap,Environment.getExternalStorageDirectory().getPath(),"UserPhoto");
+                        Toast.makeText(getApplicationContext(), "上传成功", Toast.LENGTH_SHORT).show();
+                        SavePhoto savePhoto = new SavePhoto(myBitmap, Environment.getExternalStorageDirectory().getPath(), "UserPhoto");
                         savePhoto.Savephoto();
                     }
 
                     @Override
                     public void onFailure(String msg) {
-                        Toast.makeText(getApplicationContext(),"上传失败",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "上传失败", Toast.LENGTH_SHORT).show();
                     }
                 });
 
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.getLocalizedMessage();
             }
         }
     }
 
     private void setupListView() {
-//        ArrayList<String> FAKES = new ArrayList<String>();
-//        FAKES.add(0, "昵称");
-//        FAKES.add(1, "签名");
-//        FAKES.add(2, "性别");
-//        FAKES.add(3, "年龄");
-//        FAKES.add(4, "");
-//        FAKES.add(5, "所在地");
-//        FAKES.add(6, "故乡");
-//        FAKES.add(7, "兴趣爱好");
-//        FAKES.add(8, "修改密码");
-//        FAKES.add(9, "退出登录");
-        String[] data = {"", "昵称", "签名", "性别", "年龄", "",
-                "所在地", "故乡", "兴趣爱好", "修改密码", "教务系统", "", "btn", ""};
+        String[] data = {"", "", "", "", "昵称", "", "性别", "",
+                "教务系统", "", "课程表", "", "修改密码", "", "", "btn", ""};
 
         mPlaceHolderView = getLayoutInflater().inflate(R.layout.view_header_placeholder, mListView, false);
         mListView.addHeaderView(mPlaceHolderView, null, true);

@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="horizontal"
-
-
+              android:background="@drawable/user_listview_selecter"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <ImageView android:layout_width="20dp"
-               android:layout_height="20dp"
-               android:layout_marginTop="18dp"
-               android:layout_marginBottom="15dp"
-               android:layout_marginLeft="10dp"
-               android:background="@drawable/ic_launcher"
-               android:id="@+id/noboring_view2_button"/>
+    <!--<ImageView android:layout_width="20dp"-->
+               <!--android:layout_height="20dp"-->
+               <!--android:layout_marginTop="10dp"-->
+               <!--android:layout_marginBottom="10dp"-->
+               <!--android:layout_marginLeft="10dp"-->
+               <!--android:background="@drawable/ic_launcher"-->
+               <!--android:id="@+id/noboring_view2_button"/>-->
 
-    <TextView android:layout_width="match_parent"
+    <TextView android:layout_width="80dp"
               android:layout_height="wrap_content"
-              android:layout_marginTop="15dp"
-              android:layout_marginBottom="15dp"
-              android:layout_marginRight="10dp"
-              android:layout_marginLeft="5dp"
-              android:textSize="20sp"
+              android:layout_marginTop="10dp"
+              android:layout_marginBottom="10dp"
+              android:layout_marginLeft="10dp"
+              android:textSize="16sp"
               android:id="@+id/noboring_view2_text"/>
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:id="@+id/noboring_view2_text2"
+              android:layout_marginTop="10dp"
+              android:layout_marginBottom="10dp"
+              android:layout_marginRight="5dp"
+              android:textSize="16sp"/>
 </LinearLayout>

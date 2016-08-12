@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res/com.example.loveuApp"
               android:orientation="vertical"
               android:background="@color/light_grey"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <TextView android:layout_width="match_parent" android:layout_height="60dp"
+    <TextView android:layout_width="match_parent"
+              android:layout_height="60dp"
               android:paddingTop="30dp"
               android:text="@string/find_title"
               android:textSize="22sp"
@@ -14,6 +16,7 @@
               android:textColor="@color/white"/>
 
     <floatlabelededittext.FloatLabeledEditText
+            app:fletPadding="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <EditText android:layout_width="match_parent" android:layout_height="40dp"
@@ -29,6 +32,7 @@
     </floatlabelededittext.FloatLabeledEditText>
 
     <floatlabelededittext.FloatLabeledEditText
+            app:fletPadding="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <EditText android:layout_width="match_parent"
@@ -43,11 +47,13 @@
                   android:gravity="center_vertical"/>
     </floatlabelededittext.FloatLabeledEditText>
 
-    <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+    <com.example.loveuApp.util.FButton
+            android:layout_width="match_parent" android:layout_height="wrap_content"
             android:background="@drawable/login_button_selector"
             android:layout_marginTop="30dp"
             android:id="@+id/find_accomplish"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            app:shadowEnabled="true"
             android:text="@string/accomplish"/>
 </LinearLayout>

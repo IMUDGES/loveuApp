@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res/com.example.loveuApp"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:orientation="vertical"
+                  android:layout_height="wrap_content">
+
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="vertical"
+                      android:layout_height="wrap_content">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:text="爱大学LoveU"
+                      android:textColor="@color/grey_400"
+                      android:textSize="30sp"
+                      android:gravity="center"
+                      android:layout_height="wrap_content"/>
+            <LinearLayout android:layout_width="match_parent"
+                          android:orientation="horizontal"
+                          android:layout_height="wrap_content">
+                <TextView android:layout_width="match_parent"
+                          android:layout_weight="1"
+                          android:textSize="20dp"
+                          android:gravity="center"
+                          android:layout_height="wrap_content"/>
+                <TextView android:layout_width="match_parent"
+                          android:text="当前版本"
+                          android:layout_weight="1"
+                          android:textSize="20dp"
+                          android:textColor="@color/grey_400"
+                          android:gravity="center"
+                          android:layout_height="wrap_content"/>
+                <TextView android:layout_width="match_parent"
+                          android:textSize="20dp"
+                          android:id="@+id/vision"
+                          android:textColor="@color/black"
+                          android:layout_weight="1"
+                          android:gravity="center"
+                          android:layout_height="wrap_content"/>
+                <TextView android:layout_width="match_parent"
+                          android:layout_weight="1"
+                          android:textSize="20dp"
+                          android:gravity="center"
+                          android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:text="官方网站"
+                      android:textSize="20dp"
+                      android:textColor="@color/blue"
+                      android:gravity="center"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:textSize="20dp"
+                      android:textColor="@color/blue"
+                      android:gravity="center"
+                      android:text="http://loveu.iheshulin.com:9999/LoveUniversity/"
+                      android:id="@+id/www_set"
+                      android:clickable="true"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <com.example.loveuApp.util.waveview.WaveView
+                android:id="@+id/wave_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ff702e8c"
+                app:above_wave_color="@android:color/white"
+                app:blow_wave_color="@android:color/white"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
+                app:progress="80"
+                app:wave_height="middle"
+                app:wave_hz="normal"
+                app:wave_length="middle"
+        />
+        <TextView android:layout_width="match_parent"
+                  android:text="相关人员(无序排名)"
+                  android:textSize="20sp"
+                  android:gravity="center"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_height="wrap_content">
+            <TextView android:layout_width="match_parent"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:text="何树林"
+                      android:textSize="20sp"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:text="胡鹏"
+                      android:textSize="20sp"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_height="wrap_content">
+            <TextView android:layout_width="match_parent"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:text="刘建楠"
+                      android:textSize="20sp"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:text="朝鲁"
+                      android:textSize="20sp"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_height="wrap_content">
+            <TextView android:layout_width="match_parent"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:text="冯宇林"
+                      android:textSize="20sp"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:text="刘鑫"
+                      android:textSize="20sp"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_height="wrap_content">
+            <TextView android:layout_width="match_parent"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:text="白国青"
+                      android:textSize="20sp"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:text="张浩楠"
+                      android:textSize="20sp"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="100dp"/>
+        <TextView android:layout_width="match_parent"
+                  android:text="框架搭构"
+                  android:textSize="20sp"
+                  android:gravity="center"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <TextView android:layout_width="match_parent"
+                  android:text="胡鹏"
+                  android:textSize="20sp"
+                  android:gravity="center"
+                  android:layout_height="wrap_content"/>
+
+        <TextView android:layout_width="match_parent" android:layout_height="100dp"/>
+        <TextView android:layout_width="match_parent"
+                  android:text="后端服务"
+                  android:textSize="20sp"
+                  android:gravity="center"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_height="wrap_content">
+            <TextView android:layout_width="match_parent"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:text="何树林"
+                      android:textSize="20sp"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:text="刘建楠"
+                      android:textSize="20sp"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="100dp"/>
+        <TextView android:layout_width="match_parent"
+                  android:text="UI设计"
+                  android:textSize="20sp"
+                  android:gravity="center"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_height="wrap_content">
+            <TextView android:layout_width="match_parent"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:text="冯宇林"
+                      android:textSize="20sp"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:text="刘鑫"
+                      android:textSize="20sp"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="100dp"/>
+        <TextView android:layout_width="match_parent"
+                  android:text="安卓客户端(逻辑)"
+                  android:textSize="20sp"
+                  android:gravity="center"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_height="wrap_content">
+            <TextView android:layout_width="match_parent"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:text="白国青"
+                      android:textSize="20sp"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:text="朝鲁"
+                      android:textSize="20sp"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="100dp"/>
+        <TextView android:layout_width="match_parent"
+                  android:text="安卓客户端(框架)"
+                  android:textSize="20sp"
+                  android:gravity="center"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_height="wrap_content">
+            <TextView android:layout_width="match_parent"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:text="刘鑫"
+                      android:textSize="20sp"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="100dp"/>
+        <TextView android:layout_width="match_parent"
+                  android:text="安卓客户端(HTTP通信)"
+                  android:textSize="20sp"
+                  android:gravity="center"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_height="wrap_content">
+            <TextView android:layout_width="match_parent"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:text="白国青"
+                      android:textSize="20sp"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="100dp"/>
+        <TextView android:layout_width="match_parent"
+                  android:text="网站端(逻辑)"
+                  android:textSize="20sp"
+                  android:gravity="center"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_height="wrap_content">
+            <TextView android:layout_width="match_parent"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:text="冯宇林"
+                      android:textSize="20sp"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:gravity="center"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="100dp"/>
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="600dp">
+            <TextView android:layout_width="match_parent"
+                      android:text="版权所有  爱大学LoveU"
+                      android:gravity="center"
+                      android:textSize="20sp"
+                      android:layout_height="match_parent"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

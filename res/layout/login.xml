@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:float="http://schemas.android.com/apk/res-auto"
+              xmlns:app="http://schemas.android.com/apk/res/com.example.loveuApp"
               xmlns:fbutton="http://schemas.android.com/apk/res/com.example.loveuApp"
               xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
@@ -26,7 +26,7 @@
 
         <floatlabelededittext.FloatLabeledEditText
                 android:background="@color/light_grey"
-                float:fletPadding="8dp"
+                app:fletPadding="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             <EditText android:layout_width="match_parent"
@@ -44,7 +44,7 @@
 
         <floatlabelededittext.FloatLabeledEditText
                 android:background="@color/light_grey"
-                float:fletPadding="6dp"
+                app:fletPadding="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 

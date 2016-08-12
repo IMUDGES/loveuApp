@@ -9,7 +9,6 @@
     <string name="next">下一步</string>
     <string name="accomplish">完成</string>
     <string name="exitlogin">注销</string>
-    <string name="noboringactionbar_title">Beautiful picture</string>
 
     <string name="set_check_code">请输入验证码</string>
     <string name="set_get_code">获取验证码</string>
@@ -18,7 +17,7 @@
     <string name="set_password2">请确认密码</string>
     <string name="set_nickname">请设置昵称</string>
 
-    <string name="find_title">忘记密码</string>
+    <string name="find_title">重置密码</string>
     <string name="find_phone">电话号码</string>
     <string name="action_settings">Settings</string>
 </resources>

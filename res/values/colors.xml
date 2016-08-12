@@ -5,12 +5,15 @@
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="hint">#616161</color>
+    <color name="blue">@android:color/holo_blue_bright</color>
     <color name="weibo_listtab_off">#8d8d8d</color>
     <color name="top_back_text">#e1f5fe</color><!--上方标题栏返回按钮字体颜色-->
     <color name="title_blue">#0099FF</color><!-- 上方标题栏颜色 -->
     <color name="darker_blue">#81d4fa</color>
     <color name="light_grey">#eeeeee</color><!--中间背景颜色-->
-    <color name="lighter_grey">#fafafa</color>
+    <color name="grey_50">#fafafa</color>
+    <color name="grey_100">#f5f5f5</color>
+    <color name="grey_400">#bdbdbd</color>
     <color name="green">#00FF00</color>
     <color name="bottom_color">@color/white</color><!--下方标题栏颜色-->
     <color name="dark_grey">#7D7D7D</color>
@@ -18,7 +21,7 @@
     <color name="red">#e51c23</color>
     <color name="actionbar_title_color">@android:color/white</color>
     <color name="newblue">#48CFAD</color>
-    <color name="line_gray">#e3e4e6</color>
+    <color name="line_grey">#e3e4e6</color>
 
     <color name="fbutton_default_color">#3eadeb</color>
     <color name="fbutton_default_shadow_color">#ff3493c8</color>

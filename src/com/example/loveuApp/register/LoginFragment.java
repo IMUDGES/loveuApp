@@ -85,9 +85,9 @@ public class LoginFragment extends Fragment {
     }
 
     private void autoLogin() {
-        SharedPreferences sh=getActivity().getSharedPreferences("user",getActivity().MODE_PRIVATE);
-        String username=sh.getString("UserPhone","");
-        String password=sh.getString("PassWord","");
+        SharedPreferences sh = getActivity().getSharedPreferences("user", getActivity().MODE_PRIVATE);
+        String username = sh.getString("UserPhone", "");
+        String password = sh.getString("PassWord", "");
         String Md5_password = Md5.getMD5(password);
         RequestParams requestParams = new RequestParams();
         requestParams.add("UserPhone", username);
@@ -105,7 +105,7 @@ public class LoginFragment extends Fragment {
                     editor.putString("Token", userModel.getToken());
                     editor.putString("SecretKey", userModel.getSecretKey());
                     editor.commit();
-                    Log.i("SecretKey",userModel.getSecretKey());
+                    Log.i("SecretKey", userModel.getSecretKey());
                     if (getActivity() instanceof FLoginBtnClick) {
                         ((FLoginBtnClick) getActivity()).onFLoginTrue();
                     }
@@ -150,7 +150,7 @@ public class LoginFragment extends Fragment {
                 String SecretKey = userModel.getSecretKey();
 //                Toast.makeText(getActivity(),state,Toast.LENGTH_SHORT).show();
                 if ("1".equals(state)) {
-                    saveInfor(userphone, password,SecretKey,userModel.getToken());
+                    saveInfor(userphone, password, SecretKey, userModel.getToken());
 
                     new LoginAsyncTask().execute(userModel.getUserPhoto());
 
@@ -169,7 +169,7 @@ public class LoginFragment extends Fragment {
         });
     }
 
-    private void saveInfor( String phone,String password, String secret, String token) {
+    private void saveInfor(String phone, String password, String secret, String token) {
         SharedPreferences preferences = getActivity().getApplicationContext().getSharedPreferences("user", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("UserPhone", phone);
@@ -181,20 +181,20 @@ public class LoginFragment extends Fragment {
         }
     }
 
-    private class LoginAsyncTask extends AsyncTask<String,Void,Bitmap> {
+    private class LoginAsyncTask extends AsyncTask<String, Void, Bitmap> {
 
         @Override
         protected Bitmap doInBackground(String... strings) {
-            String url=strings[0];
-            Log.i("url",url);
-            Bitmap bitmap=null;
+            String url = strings[0];
+            Log.i("url", url);
+            Bitmap bitmap = null;
             URLConnection connection;
             InputStream inputStream;
             try {
-                connection=new URL(url).openConnection();
-                inputStream=connection.getInputStream();
+                connection = new URL(url).openConnection();
+                inputStream = connection.getInputStream();
 
-                bitmap= BitmapFactory.decodeStream(inputStream);
+                bitmap = BitmapFactory.decodeStream(inputStream);
 
                 inputStream.close();
             } catch (IOException e) {
@@ -206,7 +206,7 @@ public class LoginFragment extends Fragment {
         @Override
         protected void onPostExecute(Bitmap bitmap) {
             super.onPostExecute(bitmap);
-            SavePhoto savePhoto=new SavePhoto(bitmap, Environment.getExternalStorageDirectory().getPath(),"UserPhoto");
+            SavePhoto savePhoto = new SavePhoto(bitmap, Environment.getExternalStorageDirectory().getPath(), "UserPhoto");
             savePhoto.Savephoto();
         }
     }

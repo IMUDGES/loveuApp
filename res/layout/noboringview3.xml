@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
+              xmlns:fbutton="http://schemas.android.com/apk/res/com.example.loveuApp"
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
 
-    <Button android:layout_width="120dp"
+    <com.example.loveuApp.util.FButton
+            android:layout_width="120dp"
             android:layout_height="50dp"
             android:id="@+id/noboring_view3_btn"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/login_button_selector"
+            fbutton:buttonColor="#c41411"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            fbutton:shadowEnabled="true"
             android:text="@string/exitlogin"/>
 </LinearLayout>

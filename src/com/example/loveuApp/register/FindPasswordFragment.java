@@ -91,7 +91,7 @@ public class FindPasswordFragment extends Fragment {
             return;
         }
 
-        Toast.makeText(getActivity(), "start", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getActivity(), "start", Toast.LENGTH_SHORT).show();
         RequestParams requestParams = new RequestParams();
         requestParams.add("UserPhone", phone);
         userService service = new userService();
@@ -102,7 +102,7 @@ public class FindPasswordFragment extends Fragment {
                 String state = model.getState();
                 if ("1".equals(state)) {
                     onGetCheckCodeSuccess();
-                    Toast.makeText(getActivity(), "成功", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "成功", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getActivity(), "失败", Toast.LENGTH_SHORT).show();
                 }
@@ -135,7 +135,7 @@ public class FindPasswordFragment extends Fragment {
                 userModel model = (userModel) object;
                 String state = model.getState();
                 if ("1".equals(state)) {
-                    Toast.makeText(getActivity(), "成功", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "成功", Toast.LENGTH_SHORT).show();
                     if (getActivity() instanceof FFindClickListener) {
                         ((FFindClickListener) getActivity()).onFFindClick();
                     }
