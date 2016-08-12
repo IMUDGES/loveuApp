@@ -6,13 +6,8 @@
               android:layout_height="match_parent"
               android:background="@color/light_grey">
 
-    <TextView android:layout_width="match_parent" android:layout_height="70dp"
-              android:background="#48CFAD"
-              android:textColor="@color/white"
-              android:textSize="20dp"
-              android:text="信息"
-              android:fitsSystemWindows="true"
-              android:gravity="center"/>
+    <TextView style="@style/top_title"
+              android:text="信息"/>
 
     <com.example.loveuApp.view.CircleImageView
             android:layout_width="100dp"

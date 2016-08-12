@@ -3,14 +3,17 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
-    android:background="@color/newblue"
-    android:gravity="center">
-        <RadioGroup
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="70dp"
+                  android:background="@color/newblue"
+                  android:fitsSystemWindows="true"
+                  android:gravity="center">
 
+        <RadioGroup
                 android:id="@+id/yuworadiobaba"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
                 android:orientation="horizontal"
                 android:gravity="center"
                 android:layout_centerHorizontal="true"
@@ -28,6 +31,7 @@
                     android:textSize="16sp"
                     android:textColor="@drawable/abovewrite_selector"
                     android:background="@drawable/abovebuttonl_selector"/>
+
             <RadioButton
                     android:id="@+id/yuworadio2"
                     android:button="@null"
@@ -40,13 +44,15 @@
                     android:textColor="@drawable/abovewrite_selector"/>
 
         </RadioGroup>
+
     </LinearLayout>
 
     <fragment android:layout_width="match_parent" android:layout_height="match_parent"
-    android:id="@+id/yuwoxiangguan_fragment1"
-    android:name="com.example.loveuApp.message.YuwoFaChu"/>
+              android:id="@+id/yuwoxiangguan_fragment1"
+              android:name="com.example.loveuApp.message.YuwoFaChu"/>
+
     <fragment android:layout_width="match_parent" android:layout_height="match_parent"
               android:id="@+id/yuwoxiangguan_fragment2"
-    android:name="com.example.loveuApp.message.YuWoJieShou"/>
+              android:name="com.example.loveuApp.message.YuWoJieShou"/>
 
 </LinearLayout>

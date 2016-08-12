@@ -3,16 +3,12 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-android:background="@color/light_grey">
+              android:background="@color/light_grey">
 
-    <TextView android:layout_width="match_parent" android:layout_height="60dp"
-    android:textColor="@color/white"
-    android:background="@color/newblue"
-    android:text="我发出的"
-              android:id="@+id/food_title"
-    android:textSize="18dp"
-    android:gravity="center"/>
+    <TextView style="@style/top_title"
+              android:text="我发出的"
+              android:id="@+id/food_title"/>
 
     <ListView android:layout_width="match_parent" android:layout_height="match_parent"
-    android:id="@+id/minefragment_listvew"/>
+              android:id="@+id/minefragment_listvew"/>
 </LinearLayout>

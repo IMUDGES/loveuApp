@@ -22,6 +22,7 @@
     <color name="actionbar_title_color">@android:color/white</color>
     <color name="newblue">#48CFAD</color>
     <color name="line_grey">#e3e4e6</color>
+    <color name="top_green">#48CFAD</color>
 
     <color name="fbutton_default_color">#3eadeb</color>
     <color name="fbutton_default_shadow_color">#ff3493c8</color>

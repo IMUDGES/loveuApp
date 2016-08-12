@@ -83,6 +83,7 @@ public class MessageFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.messagefragment_relatedtome:
                 startActivity(new Intent(getActivity(), YuWoXiangGuanActivity.class));
+                break;
             case R.id.messagefragment_aboutour:
                 startActivity(new Intent(getActivity(), AboutOurActivity.class));
                 break;

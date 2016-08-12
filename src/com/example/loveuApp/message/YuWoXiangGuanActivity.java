@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import com.example.loveuApp.R;
@@ -24,7 +26,12 @@ public class YuWoXiangGuanActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.yuwoxiangguan);
+        //透明状态栏
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//透明导航栏
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         initFragment();
         group = (RadioGroup) findViewById(R.id.yuworadiobaba);
         group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {

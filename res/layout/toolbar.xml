@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="60dp"
+             android:layout_width="match_parent"
+             android:layout_height="70dp"
              android:background="@color/newblue"
-    android:id="@+id/frame_toolbar">
+             android:fitsSystemWindows="true"
+             android:id="@+id/frame_toolbar">
 
 
-        <ImageView
+    <ImageView
             android:id="@+id/iv_action_menu"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/up_up" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="发布消息"
-        android:textSize="20sp" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:gravity="center"
+            android:text="发布消息"
+            android:textSize="22sp"/>
 
     <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="#000000"
-        android:layout_gravity="bottom"/>
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#000000"
+            android:layout_gravity="bottom"/>
 </FrameLayout>

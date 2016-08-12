@@ -8,19 +8,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp">
+        android:layout_height="wrap_content">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/top_title"
             android:text="邀人吃饭"
             android:id="@+id/upfood"
-            android:clickable="true"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:gravity="center"
-            android:layout_margin="24dp"/>
+            android:clickable="true"/>
     </LinearLayout>
 
     <LinearLayout

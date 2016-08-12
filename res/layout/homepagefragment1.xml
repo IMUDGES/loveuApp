@@ -4,12 +4,8 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="@color/light_grey">
-    <TextView android:layout_width="match_parent" android:layout_height="60dp"
-    android:background="@color/newblue"
-    android:text="所有约会"
-              android:textColor="@color/white"
-              android:textSize="20dp"
-    android:gravity="center"/>
+    <TextView style="@style/top_title"
+              android:text="所有约会"/>
     <com.example.loveuApp.view.TopHorizontalScrollView
             android:id="@+id/homefragment_scrollview"
             android:layout_width="match_parent"
