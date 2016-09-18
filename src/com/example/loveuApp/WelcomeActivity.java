@@ -77,6 +77,7 @@ public class WelcomeActivity extends Activity{
                         @Override
                         public void onSuccess(String arg0) {
                             //Toast.makeText(WelcomeActivity.this, "connect onSuccess", Toast.LENGTH_SHORT).show();
+                            RongIM.getInstance().startConversationList(WelcomeActivity.this,map);
                             finish();
                         }
 
@@ -85,13 +86,6 @@ public class WelcomeActivity extends Activity{
                             // TODO Auto-generated method stub
                         }
                     });
-                    RongIM.setUserInfoProvider(new RongIM.UserInfoProvider() {
-                        @Override
-                        public UserInfo getUserInfo(String s) {
-                            return new UserInfo(userModel.getUserId()+"", userModel.getNickName(),Uri.parse(userModel.getUserPhoto()));
-                        }
-                    },true);
-                    RongIM.getInstance().startConversationList(WelcomeActivity.this,map);
                 } else {
                     Intent intent = new Intent(WelcomeActivity.this, RegisterActivity.class);
                     startActivity(intent);

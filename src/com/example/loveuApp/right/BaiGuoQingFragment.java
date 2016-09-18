@@ -74,7 +74,7 @@ public class BaiGuoQingFragment extends Fragment{
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Log.i("friend",i+"");
                 RongIM.getInstance().startConversation(getActivity(),
-                        Conversation.ConversationType.PRIVATE, userModels.get(i-1).getUserId()+"", userModels.get(i).getNickName());
+                        Conversation.ConversationType.PRIVATE, userModels.get(i-1).getUserId()+"", userModels.get(i-1).getNickName());
             }
         });
 

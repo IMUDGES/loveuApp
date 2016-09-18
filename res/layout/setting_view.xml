@@ -11,10 +11,14 @@
         android:layout_height="wrap_content">
 
         <TextView
-            style="@style/top_title"
-            android:text="邀人吃饭"
-            android:id="@+id/upfood"
-            android:clickable="true"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="邀人吃饭"
+                android:textColor="#000000"
+                android:id="@+id/upfood"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_margin="24dp"/>
     </LinearLayout>
 
     <LinearLayout

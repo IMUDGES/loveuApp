@@ -47,7 +47,7 @@ public class UpdataFragment extends Fragment{
         tv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().startActivity(new Intent(getActivity(), UpFoodActivity.class));
+                getActivity().startActivity(new Intent(getActivity(), UpGiveActivity.class));
             }
         });
         TextView tv3= (TextView) mEyepetizerMenuView.findViewById(R.id.uphelp);

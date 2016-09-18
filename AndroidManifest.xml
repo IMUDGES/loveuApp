@@ -68,6 +68,7 @@
         <activity android:name=".homepage.pai.PaiCommentActivity"/>
         <activity android:name=".updata.UpFoodActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".updata.UpPaiActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
+        <activity android:name=".updata.UpGiveActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".updata.UpXueActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".updata.UpRunActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".updata.UpHelpActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
@@ -80,13 +81,14 @@
         <activity android:name=".message.MineRun" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".message.MineXue" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".message.MineFood1" android:theme="@android:style/Theme.Holo.NoActionBar"/>
+        <activity android:name=".message.SyllabusActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
         <activity android:name=".message.MineHelp1" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".message.MinePai1" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".message.MineRun1" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".message.MineXue1" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".homepage.give.GiveActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
-        <activity android:name=".message.AboutOurActivity" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name=".message.AboutOurActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
 
         <activity
