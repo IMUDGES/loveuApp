@@ -89,6 +89,7 @@
         <activity android:name=".message.MineXue1" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".homepage.give.GiveActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".message.AboutOurActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
+        <activity android:name=".message.SelectMainActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
 
         <activity

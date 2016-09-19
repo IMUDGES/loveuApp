@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/light_grey"
+              android:paddingTop="10dp"
+              android:paddingLeft="20dp"
+              android:paddingRight="20dp">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:layout_marginBottom="20dp"
+                  android:paddingTop="5dp"
+                  android:paddingBottom="5dp">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                  android:textColor="@color/black"
+                  android:textSize="16dp"
+                  android:text="课程号："
+                  android:layout_weight="1"
+        android:id="@+id/showclass_knumber1"/>
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                  android:layout_weight="4"
+                  android:textColor="@color/black"
+                  android:textSize="16dp"
+                  android:id="@+id/showclass_knumber2"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:paddingTop="5dp"
+                  android:paddingBottom="5dp">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                  android:text="状态："
+                  android:layout_weight="1"
+                  android:textColor="@color/black"
+                  android:textSize="16dp"
+                  android:id="@+id/showclass_state1"/>
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                  android:layout_weight="4"
+                  android:textColor="@color/black"
+                  android:textSize="16dp"
+                  android:id="@+id/showclass_state2"/>
+    </LinearLayout>
+
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="刷新状态"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:background="@drawable/details_button_selector"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+                android:id="@+id/showclass_refreshstate"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

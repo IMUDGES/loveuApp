@@ -24,6 +24,7 @@ public class MessageFragment extends Fragment implements View.OnClickListener {
     private LinearLayout relatedtome;
     private LinearLayout aboutour;
     private LinearLayout syllabus;
+    private LinearLayout selectclass;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -36,11 +37,13 @@ public class MessageFragment extends Fragment implements View.OnClickListener {
         relatedtome = (LinearLayout) view.findViewById(R.id.messagefragment_relatedtome);
         aboutour = (LinearLayout) view.findViewById(R.id.messagefragment_aboutour);
         syllabus= (LinearLayout) view.findViewById(R.id.messagefragment_syllabus);
+        selectclass = (LinearLayout) view.findViewById(R.id.messagefragment_selectclass);
         syllabus.setOnClickListener(this);
         myinfo.setOnClickListener(this);
         mywallet.setOnClickListener(this);
         relatedtome.setOnClickListener(this);
         aboutour.setOnClickListener(this);
+        selectclass.setOnClickListener(this);
         return view;
     }
 
@@ -82,7 +85,9 @@ public class MessageFragment extends Fragment implements View.OnClickListener {
             case R.id.messagefragment_syllabus:
                 startActivity(new Intent(getActivity(), SyllabusActivity.class));
                 break;
-            default:;
+            case R.id.messagefragment_selectclass:
+                startActivity(new Intent(getActivity(),SelectMainActivity.class));
+                break;
         }
     }
 }

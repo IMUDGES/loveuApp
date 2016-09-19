@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <TextView android:layout_width="match_parent"
+              android:layout_height="10dp"
+              android:background="@color/newblue"/>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+                  android:orientation="horizontal"
+                  android:background="@color/newblue"
+                  android:layout_gravity="center"
+                  android:gravity="center">
+        <RadioGroup
+                android:id="@+id/selectmain_radiogroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/abovegroup_selector">
+
+            <RadioButton
+                    android:id="@+id/selectmain_bt1"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:checked="true"
+                    android:text="选课"
+                    android:button="@null"
+                    android:textSize="16sp"
+                    android:textColor="@drawable/abovewrite_selector"
+                    android:background="@drawable/abovebuttonl_selector"/>
+            <RadioButton
+                    android:id="@+id/selectmain_bt2"
+                    android:button="@null"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:textSize="16sp"
+                    android:text="查看"
+                    android:gravity="center"
+                    android:background="@drawable/abovebuttonr_selector"
+                    android:textColor="@drawable/abovewrite_selector"/>
+
+        </RadioGroup>
+    </LinearLayout>
+    <fragment
+            android:id="@+id/selectmain_fragment1"
+            android:name="com.example.loveuApp.message.SelectClassFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+    />
+    <fragment
+            android:id="@+id/selectmain_fragment2"
+            android:name="com.example.loveuApp.message.ShowClassFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+    />
+
+</LinearLayout>
