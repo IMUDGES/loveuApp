@@ -147,6 +147,12 @@ public class NoBoringAdapter extends BaseAdapter {
                 switch (position) {
                     case 4:
                         holder2.textView2.setText(nickName);
+                        holder2.layout.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                            }
+                        });
                         break;
                     case 6:
                         holder2.textView2.setText(sex);
@@ -156,7 +162,9 @@ public class NoBoringAdapter extends BaseAdapter {
                         holder2.layout.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Toast.makeText(mContext.getApplicationContext(),"ok",Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(mContext.getApplicationContext(),"ok",Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(mContext,CheckJwxtActivity.class);
+                                mContext.startActivity(intent);
                             }
                         });
                         break;

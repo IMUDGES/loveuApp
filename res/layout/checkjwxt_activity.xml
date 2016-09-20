@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/light_grey"
+>
+
+    <TextView style="@style/top_title"
+    android:text="验证教务系统"/>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:layout_marginLeft="20dp"
+                  android:layout_marginRight="20dp"
+                  android:orientation="vertical">
+        <!--     <LinearLayout android:layout_width="match_parent"
+                           android:orientation="horizontal"
+                           android:layout_marginTop="10dp"
+                           android:paddingBottom="5dp"
+                           android:layout_height="wrap_content"
+                           android:paddingTop="5dp"
+                           android:gravity="center_vertical"
+                           android:layout_marginBottom="30dp">
+                 <TextView android:layout_width="0dp"
+                           android:layout_weight="1"
+                           android:text="用户名:"
+                           android:textColor="@color/black"
+                           android:textSize="16dp"
+                           android:layout_gravity="center_vertical"
+                           android:layout_height="match_parent"/>
+                 <EditText android:layout_width="0dp"
+                           android:layout_weight="4"
+                           android:id="@+id/nameId"
+                           android:textSize="20dp"
+                           android:background="@color/white"
+                           android:layout_height="match_parent"
+                           android:paddingTop="7dp"
+                           android:layout_gravity="center_vertical"
+                           android:paddingBottom="7dp"
+                           android:textColor="@color/black"
+                           android:maxLines="1"
+                           android:maxLength="20"
+                           android:textCursorDrawable="@null"/>
+             </LinearLayout>
+             <LinearLayout android:layout_width="match_parent"
+                           android:orientation="horizontal"
+                           android:layout_marginTop="10dp"
+                           android:paddingBottom="5dp"
+                           android:layout_height="wrap_content"
+                           android:paddingTop="5dp"
+                           android:gravity="center_vertical"
+                           android:layout_marginBottom="30dp">
+                 <TextView android:layout_width="0dp"
+                           android:layout_weight="1"
+                           android:text="密码:"
+                           android:textColor="@color/black"
+                           android:textSize="16dp"
+                           android:layout_height="match_parent"/>
+                 <EditText
+                         android:paddingTop="7dp"
+                         android:layout_gravity="center_vertical"
+                         android:paddingBottom="7dp"
+                         android:id="@+id/passId"
+                         android:textColor="@color/black"
+                         android:maxLines="1"
+                         android:maxLength="20"
+                         android:textCursorDrawable="@null"
+                         android:layout_width="0dp"
+                         android:layout_weight="4"
+
+                         android:textSize="20dp"
+                         android:background="@color/white"
+                         android:layout_height="match_parent"/>
+             </LinearLayout>
+             -->
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_marginTop="10dp"
+                      android:paddingBottom="5dp"
+                      android:layout_height="wrap_content"
+                      android:paddingTop="5dp"
+                      android:gravity="center_vertical"
+                      android:layout_marginBottom="30dp">
+            <TextView android:layout_width="0dp"
+                      android:layout_weight="1"
+                      android:text="学号:"
+                      android:textColor="@color/black"
+                      android:textSize="16dp"
+                      android:layout_height="match_parent"/>
+            <EditText
+                    android:paddingTop="7dp"
+                    android:layout_gravity="center_vertical"
+                    android:paddingBottom="7dp"
+                    android:id="@+id/checkjwxt_username"
+                    android:textColor="@color/black"
+                    android:maxLines="1"
+                    android:maxLength="20"
+                    android:textCursorDrawable="@null"
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+
+                    android:textSize="20dp"
+                    android:background="@color/white"
+                    android:layout_height="match_parent"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_marginTop="10dp"
+                      android:paddingBottom="5dp"
+                      android:layout_height="wrap_content"
+                      android:paddingTop="5dp"
+                      android:gravity="center_vertical"
+                      android:layout_marginBottom="30dp">
+            <TextView
+                    android:text="密码:"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:layout_height="match_parent"/>
+            <EditText
+                    android:paddingTop="7dp"
+                    android:layout_gravity="center_vertical"
+                    android:paddingBottom="7dp"
+                    android:id="@+id/checkjwxt_password"
+                    android:textColor="@color/black"
+                    android:maxLines="1"
+                    android:maxLength="20"
+                    android:textCursorDrawable="@null"
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+
+                    android:textSize="20dp"
+                    android:background="@color/white"
+                    android:layout_height="match_parent"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                      android:orientation="vertical">
+
+
+            <Button
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/details_button_selector"
+                    android:text="submit"
+                    android:id="@+id/checkjwxt_button"
+                    android:layout_height="50dp"
+
+            />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
