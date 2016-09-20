@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/light_grey">
+
+    <TextView android:text="我的钱包"
+              style="@style/top_title"/>
+
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="150dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="30dp"
+    >
+
+        <ImageView android:layout_width="80dp" android:layout_height="80dp"
+                   android:layout_centerInParent="true"
+                   android:id="@+id/mywallet_fragment1_img"/>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:padding="3dp"
+                  android:text="111"
+                  android:textColor="@color/black"
+                  android:background="@color/white"
+                  android:id="@+id/mywallet_fragment1_name"
+                  android:layout_below="@+id/mywallet_fragment1_img" android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+    android:background="@color/white">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:padding="5dp"
+                  android:text="当前余额:"
+                  android:textColor="@color/black"
+                  android:paddingLeft="10dp"
+                  android:layout_alignParentLeft="true"/>
+
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:padding="5dp"
+                  android:id="@+id/mywallet_fragment1_money"
+                  android:textColor="@color/black"
+                  android:text="100元"
+                  android:paddingRight="10dp"
+                  android:layout_alignParentRight="true"/>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
+
+        <Button android:layout_width="match_parent" android:layout_height="40dp"
+                android:text="修改密码"
+                android:id="@+id/mywallet_fragment1_repassword"
+                android:background="@drawable/details_button_selector"
+                android:layout_above="@+id/mywallet_fragment1_upmoney"
+                android:layout_marginBottom="20dp"
+        />
+
+        <Button android:layout_width="match_parent" android:layout_height="40dp"
+        android:text="充值"
+                android:id="@+id/mywallet_fragment1_upmoney"
+                android:background="@drawable/details_button_selector"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"/>
+    </RelativeLayout>
+
+</LinearLayout>

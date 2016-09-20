@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.example.loveuApp.R;
 import com.example.loveuApp.User.NoBoringActionBarActivity;
+import com.example.loveuApp.message.Wallet.MyWalletActivity;
 import com.example.loveuApp.util.GetPhoto;
 
 
@@ -75,6 +76,7 @@ public class MessageFragment extends Fragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
             case R.id.messagefragment_mywallet:
+                startActivity(new Intent(getActivity(), MyWalletActivity.class));
                 break;
             case R.id.messagefragment_relatedtome:
                 startActivity(new Intent(getActivity(), YuWoXiangGuanActivity.class));

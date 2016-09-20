@@ -49,7 +49,7 @@ public class CheckJwxtActivity extends Activity{
                         if (xueModel.getState()==1){
                             Toast.makeText(getApplicationContext(),"成功",Toast.LENGTH_SHORT).show();
                         }else{
-                            Toast.makeText(getApplicationContext(),"失败",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),xueModel.getMsg(),Toast.LENGTH_SHORT).show();
                         }
                     }
 
