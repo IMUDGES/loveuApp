@@ -16,6 +16,33 @@ public class userModel {
     private String UserPhoto;
     private String SecretKey;
     private String token;
+    private Integer isjwxt;
+    private Integer money;
+    private Integer ispay;
+
+    public Integer getIsjwxt() {
+        return isjwxt;
+    }
+
+    public void setIsjwxt(Integer isjwxt) {
+        this.isjwxt = isjwxt;
+    }
+
+    public Integer getMoney() {
+        return money;
+    }
+
+    public void setMoney(Integer money) {
+        this.money = money;
+    }
+
+    public Integer getIspay() {
+        return ispay;
+    }
+
+    public void setIspay(Integer ispay) {
+        this.ispay = ispay;
+    }
 
     public String getToken() {
         return token;

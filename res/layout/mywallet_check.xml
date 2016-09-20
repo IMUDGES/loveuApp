@@ -1,7 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res/com.example.loveuApp"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:background="@color/light_grey">
+
+
+    <TextView style="@style/top_title"
+              android:text="修改密码"
+
+    />
+
+        <TextView android:layout_width="match_parent"
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginRight="10dp"
+                  android:layout_marginTop="10dp"
+                  android:layout_height="40dp"
+                  android:inputType="number"
+                  android:hint="@string/set_phone"
+                  android:id="@+id/register_phonenumber"
+                  style="@style/login_edit"
+                  android:gravity="center_vertical"/>
+
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:layout_marginTop="10dp"
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginRight="10dp">
+        <floatlabelededittext.FloatLabeledEditText
+                android:layout_weight="11"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp">
+            <EditText android:layout_height="40dp"
+                      android:layout_width="match_parent"
+                      android:id="@+id/register_checkcode"
+                      android:inputType="number"
+                      android:gravity="center_vertical"
+                      android:hint="@string/set_check_code"
+                      style="@style/login_edit"
+                      android:background="@color/white"/>
+        </floatlabelededittext.FloatLabeledEditText>
+
+        <com.example.loveuApp.util.FButton
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/set_get_code"
+                android:textSize="16sp"
+                app:shadowEnabled="true"
+                android:id="@+id/register_getcheckcode"
+                android:background="@drawable/login_button_selector"
+                android:layout_weight="8"/>
+
+    </LinearLayout>
+
+    <floatlabelededittext.FloatLabeledEditText
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            app:fletPadding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <EditText android:layout_width="match_parent" android:layout_height="40dp"
+                  android:hint="@string/set_password1"
+                  android:id="@+id/register_password1"
+                  style="@style/login_edit"
+                  android:gravity="center_vertical"
+                  android:inputType="textPassword"/>
+    </floatlabelededittext.FloatLabeledEditText>
+
+
+    <floatlabelededittext.FloatLabeledEditText
+            app:fletPadding="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <EditText android:layout_width="match_parent"
+                  android:layout_height="40dp"
+                  android:hint="@string/set_password2"
+                  android:id="@+id/register_password2"
+                  android:inputType="textPassword"
+                  style="@style/login_edit"
+                  android:gravity="center_vertical"/>
+    </floatlabelededittext.FloatLabeledEditText>
+
+
+
+
+    <com.example.loveuApp.util.FButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_button_selector"
+            android:id="@+id/register_next"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            app:shadowEnabled="true"
+            android:text="@string/accomplish"/>
+
 
 </LinearLayout>
