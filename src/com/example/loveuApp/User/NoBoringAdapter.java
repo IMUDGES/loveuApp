@@ -104,6 +104,7 @@ public class NoBoringAdapter extends BaseAdapter {
                 case NORMAL_ITEM:
                     view = inflater.inflate(R.layout.noboringview2, viewGroup, false);
                     holder2 = new ViewHolder2();
+                    holder2.layout = (LinearLayout) view.findViewById(R.id.noboring_view2_layout);
                     holder2.textView = (TextView) view.findViewById(R.id.noboring_view2_text);
                     holder2.textView2 = (TextView) view.findViewById(R.id.noboring_view2_text2);
 //                    Log.e("convertView = ", "NULL TYPE_2");
@@ -152,6 +153,12 @@ public class NoBoringAdapter extends BaseAdapter {
                         break;
                     case 8:
                         holder2.textView2.setText(jwxt);
+                        holder2.layout.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(mContext.getApplicationContext(),"ok",Toast.LENGTH_SHORT).show();
+                            }
+                        });
                         break;
 //                    case 12:
 //                        holder2.textView2.setOnClickListener(new View.OnClickListener() {
@@ -190,6 +197,7 @@ public class NoBoringAdapter extends BaseAdapter {
     }
 
     class ViewHolder2 {
+        LinearLayout layout;
         TextView textView;
         TextView textView2;
     }
