@@ -3,8 +3,8 @@
               android:orientation="horizontal"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-<ImageView android:layout_width="50dp" android:layout_height="50dp"
-android:background="@drawable/ic_launcher"/>
+    <ImageView android:layout_width="50dp" android:layout_height="50dp"
+               android:background="@drawable/ic_launcher"/>
     <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:text="测试数据"/>
+              android:text="测试数据"/>
 </LinearLayout>

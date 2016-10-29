@@ -12,16 +12,16 @@
 
     />
 
-        <TextView android:layout_width="match_parent"
-                  android:layout_marginLeft="10dp"
-                  android:layout_marginRight="10dp"
-                  android:layout_marginTop="10dp"
-                  android:layout_height="40dp"
-                  android:inputType="number"
-                  android:hint="@string/set_phone"
-                  android:id="@+id/register_phonenumber"
-                  style="@style/login_edit"
-                  android:gravity="center_vertical"/>
+    <TextView android:layout_width="match_parent"
+              android:layout_marginLeft="10dp"
+              android:layout_marginRight="10dp"
+              android:layout_marginTop="10dp"
+              android:layout_height="40dp"
+              android:inputType="number"
+              android:hint="@string/set_phone"
+              android:id="@+id/register_phonenumber"
+              style="@style/login_edit"
+              android:gravity="center_vertical"/>
 
 
     <LinearLayout android:layout_width="match_parent"
@@ -87,8 +87,6 @@
                   style="@style/login_edit"
                   android:gravity="center_vertical"/>
     </floatlabelededittext.FloatLabeledEditText>
-
-
 
 
     <com.example.loveuApp.util.FButton

@@ -8,7 +8,7 @@
 
     <!--  xmlns:ptr = "http://schemas.android.com/apk/res-auto"  为我们要使用PullToRefresh 里面一些属性需要引的命名空间 -->
     <com.handmark.pulltorefresh.library.PullToRefreshListView
-            xmlns:ptr = "http://schemas.android.com/apk/res-auto"
+            xmlns:ptr="http://schemas.android.com/apk/res-auto"
             android:id="@+id/foodfragment_listview"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
@@ -23,9 +23,9 @@
     />
 
 
-<Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-android:text="跳转"
-android:onClick="doclick"/>
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="跳转"
+            android:onClick="doclick"/>
 
 
 </LinearLayout>

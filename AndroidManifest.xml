@@ -43,10 +43,10 @@
                 android:exported="true"
                 android:name="com.example.loveuApp.right.DemoNotificationReceiver">
             <intent-filter>
-                <action android:name="io.rong.push.intent.MESSAGE_ARRIVED" />
-                <action android:name="io.rong.push.intent.MI_MESSAGE_ARRIVED" />
-                <action android:name="io.rong.push.intent.MESSAGE_CLICKED" />
-                <action android:name="io.rong.push.intent.MI_MESSAGE_CLICKED" />
+                <action android:name="io.rong.push.intent.MESSAGE_ARRIVED"/>
+                <action android:name="io.rong.push.intent.MI_MESSAGE_ARRIVED"/>
+                <action android:name="io.rong.push.intent.MESSAGE_CLICKED"/>
+                <action android:name="io.rong.push.intent.MI_MESSAGE_CLICKED"/>
             </intent-filter>
         </receiver>
 
@@ -91,9 +91,11 @@
         <activity android:name=".message.AboutOurActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".message.SelectMainActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".User.CheckJwxtActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
-        <activity android:name=".message.Wallet.MyWalletActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
+        <activity android:name=".message.Wallet.MyWalletActivity"
+                  android:theme="@android:style/Theme.Holo.NoActionBar"/>
         <activity android:name=".message.Wallet.CheckActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
-        <activity android:name=".message.Wallet.RePasswordActivity"  android:theme="@android:style/Theme.Holo.NoActionBar"/>
+        <activity android:name=".message.Wallet.RePasswordActivity"
+                  android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
         <activity
                 android:name=".MyActivity"

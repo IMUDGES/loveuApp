@@ -6,8 +6,8 @@
               android:layout_height="match_parent">
 
     <RelativeLayout android:layout_width="match_parent"
-                  android:orientation="horizontal"
-                  android:layout_height="50dp">
+                    android:orientation="horizontal"
+                    android:layout_height="50dp">
         <TextView android:layout_width="wrap_content"
                   android:text="取消"
                   android:clickable="true"
@@ -47,26 +47,26 @@
                   android:paddingLeft="15dp"
                   android:layout_height="50dp">
         <CheckBox android:layout_width="match_parent"
-                     android:text="我请客"
+                  android:text="我请客"
                   android:checked="true"
-                     android:id="@+id/upfood_myself"
-                     android:textColor="#565657"
-                     android:layout_weight="1"
-                     android:layout_height="match_parent"/>
+                  android:id="@+id/upfood_myself"
+                  android:textColor="#565657"
+                  android:layout_weight="1"
+                  android:layout_height="match_parent"/>
 
         <CheckBox android:layout_width="match_parent"
-                     android:text="AA"
-                     android:id="@+id/upfood_aa"
-                     android:textColor="#565657"
-                     android:layout_weight="1"
-                     android:layout_height="match_parent"/>
+                  android:text="AA"
+                  android:id="@+id/upfood_aa"
+                  android:textColor="#565657"
+                  android:layout_weight="1"
+                  android:layout_height="match_parent"/>
 
         <CheckBox android:layout_width="match_parent"
-                     android:text="他请客"
-                     android:id="@+id/upfood_his"
-                     android:textColor="#565657"
-                     android:layout_weight="1"
-                     android:layout_height="match_parent"/>
+                  android:text="他请客"
+                  android:id="@+id/upfood_his"
+                  android:textColor="#565657"
+                  android:layout_weight="1"
+                  android:layout_height="match_parent"/>
 
     </LinearLayout>
 

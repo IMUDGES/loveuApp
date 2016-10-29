@@ -6,8 +6,8 @@
               android:layout_height="match_parent">
 
     <RelativeLayout android:layout_width="match_parent"
-                  android:orientation="horizontal"
-                  android:layout_height="50dp">
+                    android:orientation="horizontal"
+                    android:layout_height="50dp">
         <TextView android:layout_width="wrap_content"
                   android:text="取消"
                   android:clickable="true"
@@ -41,7 +41,6 @@
     <TextView android:layout_width="match_parent"
               android:background="#d2d2d2"
               android:layout_height="1dp"/>
-
 
 
     <EditText android:layout_width="match_parent"

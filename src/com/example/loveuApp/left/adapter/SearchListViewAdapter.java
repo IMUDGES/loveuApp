@@ -352,13 +352,13 @@ public class SearchListViewAdapter extends BaseAdapter{
         viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle bundle = new Bundle();
-                // bundle.putSerializable("data",data.get(i));
-                bundle.putInt("UserId",((foodModel)data.get(i).getObject()).getUserId());
-                bundle.putString("URL",((foodModel)data.get(i).getObject()).getUserPhoto());
-                Intent intent = new Intent(context,DetailsActivity.class);
-                intent.putExtras(bundle);
-                context.startActivity(intent);
+//                Bundle bundle = new Bundle();
+//                // bundle.putSerializable("data",data.get(i));
+//                bundle.putInt("UserId",((foodModel)data.get(i).getObject()).getUserId());
+//                bundle.putString("URL",((foodModel)data.get(i).getObject()).getUserPhoto());
+//                Intent intent = new Intent(context,DetailsActivity.class);
+//                intent.putExtras(bundle);
+//                context.startActivity(intent);
             }
         });
         return convertView;

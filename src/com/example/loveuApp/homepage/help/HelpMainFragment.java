@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.example.loveuApp.R;
 import com.example.loveuApp.bean.helpModel;
 
+import com.example.loveuApp.homepage.HomePageFragment1;
 import com.example.loveuApp.homepage.help.adapter.HelpListAdapter;
 import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.model.HelpModel;
@@ -239,8 +240,8 @@ public class HelpMainFragment extends Fragment{
         String url="gethelp";
         Service service=new Service();
         RequestParams request=new RequestParams();
-        request.put("UserPhone","22222222222");
-        request.put("SecretKey","11111");
+        request.put("UserPhone", HomePageFragment1.UserPhone);
+        request.put("SecretKey",HomePageFragment1.SecretKey);
         request.put("HelpId",helpModels.get(i).getHelpId());
         service.post(getActivity(), url, request, new Listener() {
             @Override

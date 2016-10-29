@@ -15,6 +15,7 @@ import com.example.loveuApp.listener.Listener;
 import com.example.loveuApp.model.FoodModel;
 import com.example.loveuApp.model.HelpModel;
 import com.example.loveuApp.service.Service;
+import com.example.loveuApp.util.Md5;
 import com.google.gson.Gson;
 import com.loopj.android.http.RequestParams;
 
@@ -91,7 +92,8 @@ public class UpHelpActivity extends Activity {
         params.put("SecretKey",HomePageFragment1.SecretKey);
         params.put("HelpInformation",mInformation);
         params.put("HelpMoney",mMoney);
-        params.put("PayPassword",mPassword);
+        params.put("PayPassword",Md5.getMD5(mPassword));
+        Log.i("password", Md5.getMD5(mPassword));
         Calendar cal=Calendar.getInstance();
         cal.clear();
         cal.set(YEAR,MON,DAY,HOR,MIN);
